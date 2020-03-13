@@ -6,7 +6,7 @@
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">404631060</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jspdb?useUnicode=yes&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Taipei</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/pikachuTestDB?useUnicode=yes&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Taipei</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
 		<!-- 2. 其他與資料存取有關的設定 -->
@@ -26,11 +26,7 @@
 		<property name="connection_pool_size">8</property>
 
 		<!-- 3. 宣告程式使用的Mapping檔 ，每個永續類別都需要定義一個Mapping檔 -->
-		<mapping class="_01_register.model.MemberBean"></mapping>
-		<mapping class="_03_listBooks.model.BookBean"></mapping>
-		<mapping class="_03_listBooks.model.CompanyBean"></mapping>
-		<mapping class="_04_ShoppingCart.model.OrderBean"></mapping>
-		<mapping class="_04_ShoppingCart.model.OrderItemBean"></mapping>
+		<mapping class="member.model.memberBean"></mapping>
 
 	</session-factory>
 </hibernate-configuration>

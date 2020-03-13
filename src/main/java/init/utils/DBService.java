@@ -57,8 +57,8 @@ public class DBService {
 	
 	
 	private static final String CREATE_members_MySQL = " CREATE TABLE members " 
-			+ "(m_id INT(11) AUTO_INCREMENT NOT NULL,"
-			+ " m_password INT(100) NOT NULL,"
+			+ "(m_id VARCHAR(100) NOT NULL,"
+			+ " m_password VARCHAR(100) NOT NULL,"
 			+ " name VARCHAR(100), " 
 			+ " phone_num VARCHAR(100), "
 			+ " m_mail VARCHAR(100), " 

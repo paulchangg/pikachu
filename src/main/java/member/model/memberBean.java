@@ -3,135 +3,117 @@ package member.model;
 import java.sql.Blob;
 import java.sql.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="members")
 public class memberBean {
-	String memberId;
-	String password;
+	@Id
+	String m_id;
+	String m_password;
 	String name;
-	String phone;
-	String mail;
-	String nickName;
+	String phone_num;
+	String m_mail;
+	String nickname;
 	Date birthday;
 	String gender;
-	Blob image;
+	Blob m_img;
 	String income;
 	String city;
 	String education;
 	
-	
-	
 	public memberBean() {
 		super();
 	}
-
-	public memberBean(String memberId, String password, String name, String phone, String mail, String nickName,
-			Date birthday, String gender, Blob image, String income, String city, String education) {
+	
+	public memberBean(String m_id, String m_password, String name, String phone_num, String m_mail, String nickname,
+			Date birthday, String gender, Blob m_img, String income, String city, String education) {
 		super();
-		this.memberId = memberId;
-		this.password = password;
+		this.m_id = m_id;
+		this.m_password = m_password;
 		this.name = name;
-		this.phone = phone;
-		this.mail = mail;
-		this.nickName = nickName;
+		this.phone_num = phone_num;
+		this.m_mail = m_mail;
+		this.nickname = nickname;
 		this.birthday = birthday;
 		this.gender = gender;
-		this.image = image;
+		this.m_img = m_img;
 		this.income = income;
 		this.city = city;
 		this.education = education;
 	}
-
-	public String getMemberId() {
-		return memberId;
+	
+	public String getM_id() {
+		return m_id;
 	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setM_id(String m_id) {
+		this.m_id = m_id;
 	}
-
-	public String getPassword() {
-		return password;
+	public String getM_password() {
+		return m_password;
 	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setM_password(String m_password) {
+		this.m_password = m_password;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getPhone() {
-		return phone;
+	public String getPhone_num() {
+		return phone_num;
 	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone_num(String phone_num) {
+		this.phone_num = phone_num;
 	}
-
-	public String getMail() {
-		return mail;
+	public String getM_mail() {
+		return m_mail;
 	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setM_mail(String m_mail) {
+		this.m_mail = m_mail;
 	}
-
-	public String getNickName() {
-		return nickName;
+	public String getNickname() {
+		return nickname;
 	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
-
 	public Date getBirthday() {
 		return birthday;
 	}
-
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-
 	public String getGender() {
 		return gender;
 	}
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
-	public Blob getImage() {
-		return image;
+	public Blob getM_img() {
+		return m_img;
 	}
-
-	public void setImage(Blob image) {
-		this.image = image;
+	public void setM_img(Blob m_img) {
+		this.m_img = m_img;
 	}
-
 	public String getIncome() {
 		return income;
 	}
-
 	public void setIncome(String income) {
 		this.income = income;
 	}
-
 	public String getCity() {
 		return city;
 	}
-
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 	public String getEducation() {
 		return education;
 	}
-
 	public void setEducation(String education) {
 		this.education = education;
 	}
