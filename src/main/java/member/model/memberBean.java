@@ -4,7 +4,8 @@ import java.sql.Blob;
 import java.sql.Date;
 
 public class memberBean {
-	Integer memberId;
+	String memberId;
+	String password;
 	String name;
 	String phone;
 	String mail;
@@ -12,18 +13,21 @@ public class memberBean {
 	Date birthday;
 	String gender;
 	Blob image;
-	Integer income;
+	String income;
 	String city;
 	String education;
+	
+	
 	
 	public memberBean() {
 		super();
 	}
 
-	public memberBean(Integer memberId, String name, String phone, String mail, String nickName, Date birthday,
-			String gender, Blob image, Integer income, String city, String education) {
+	public memberBean(String memberId, String password, String name, String phone, String mail, String nickName,
+			Date birthday, String gender, Blob image, String income, String city, String education) {
 		super();
 		this.memberId = memberId;
+		this.password = password;
 		this.name = name;
 		this.phone = phone;
 		this.mail = mail;
@@ -36,12 +40,20 @@ public class memberBean {
 		this.education = education;
 	}
 
-	public Integer getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
 
-	public void setMemberId(Integer memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getName() {
@@ -100,11 +112,11 @@ public class memberBean {
 		this.image = image;
 	}
 
-	public Integer getIncome() {
+	public String getIncome() {
 		return income;
 	}
 
-	public void setIncome(Integer income) {
+	public void setIncome(String income) {
 		this.income = income;
 	}
 
@@ -127,5 +139,5 @@ public class memberBean {
 	
 	
 	
-
+	
 }

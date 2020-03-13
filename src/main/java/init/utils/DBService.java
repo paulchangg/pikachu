@@ -1,4 +1,4 @@
-package init;
+package init.utils;
 
 public class DBService {
 	public  static final String host = "127.0.0.1";
