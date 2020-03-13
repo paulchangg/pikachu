@@ -1,9 +1,15 @@
 package member.dao;
 
-import member.model.memberBean;
+import member.model.MemberBean;
 
 public interface MemberDao {
 
-	void saveMember(memberBean mb);
+	void saveMember(MemberBean mb);
+
+	public boolean idExists(String id);
+
+	public MemberBean queryMember(String id);
+
+	public MemberBean checkIdPassword(String userId, String password);
 
 }

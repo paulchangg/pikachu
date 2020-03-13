@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="members")
-public class memberBean {
+public class MemberBean {
 	@Id
 	String m_id;
 	String m_password;
@@ -24,11 +24,11 @@ public class memberBean {
 	String city;
 	String education;
 	
-	public memberBean() {
+	public MemberBean() {
 		super();
 	}
 	
-	public memberBean(String m_id, String m_password, String name, String phone_num, String m_mail, String nickname,
+	public MemberBean(String m_id, String m_password, String name, String phone_num, String m_mail, String nickname,
 			Date birthday, String gender, Blob m_img, String income, String city, String education) {
 		super();
 		this.m_id = m_id;
@@ -116,6 +116,37 @@ public class memberBean {
 	}
 	public void setEducation(String education) {
 		this.education = education;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("MemberBean [m_id=");
+		builder.append(m_id);
+		builder.append(", m_password=");
+		builder.append(m_password);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", phone_num=");
+		builder.append(phone_num);
+		builder.append(", m_mail=");
+		builder.append(m_mail);
+		builder.append(", nickname=");
+		builder.append(nickname);
+		builder.append(", birthday=");
+		builder.append(birthday);
+		builder.append(", gender=");
+		builder.append(gender);
+		builder.append(", m_img=");
+		builder.append(m_img);
+		builder.append(", income=");
+		builder.append(income);
+		builder.append(", city=");
+		builder.append(city);
+		builder.append(", education=");
+		builder.append(education);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 	
