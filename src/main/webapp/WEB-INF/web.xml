@@ -19,4 +19,14 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DisplayProduct</display-name>
+    <servlet-name>DisplayProduct</servlet-name>
+    <servlet-class>listProduct.conrtoller.DisplayProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayProduct</servlet-name>
+    <url-pattern>/DisplayProduct</url-pattern>
+  </servlet-mapping>
 </web-app>
