@@ -14,9 +14,9 @@ public class InsertMember {
 //		MemberBean mb = new MemberBean("Test","123","testtt","0987654321","test@gmail.com","tt",Date.valueOf("1997-01-01"),"m",null,"50","Taipei","大學");
 //		
 //		ms.saveMember(mb);
-		
-		MemberBean mb = ms.queryMember("Test");
-		System.out.println(mb.toString());
+		System.out.println(ms.idExists("test"));
+//		MemberBean mb = ms.queryMember("Test");
+//		System.out.println(mb.toString());
 
 	}
 
