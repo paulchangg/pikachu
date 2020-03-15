@@ -25,9 +25,9 @@ public class DBService {
 	}
 	
 	private static final String DBURL_MySQL = "jdbc:mysql://" + host
-			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei";
+			+ ":3306/jspdb?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei";
 	public static final String USERID_MySQL = "root";
-	public static final String PSWD_MySQL = "404631060";
+	public static final String PSWD_MySQL = "22651330";
 
 	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	
@@ -117,7 +117,7 @@ public class DBService {
 			+ " p_desc 		LONGTEXT, " 
 			+ " price 		DECIMAL(10,2), "
 			+ " stock 		INT(11), " 
-			+ " p_img 		BLOB, " 
+			+ " p_img 		LONGBLOB, " 
 			+ " p_bns 		INT(11), "
 			+ " CONSTRAINT product_p_id_PK PRIMARY KEY(p_id) "
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
