@@ -4,7 +4,7 @@ import member.model.MemberBean;
 
 public interface MemberDao {
 
-	void saveMember(MemberBean mb);
+	int saveMember(MemberBean mb);
 
 	public boolean idExists(String id);
 

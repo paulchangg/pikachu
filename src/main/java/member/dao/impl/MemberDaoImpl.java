@@ -23,9 +23,12 @@ public class MemberDaoImpl implements MemberDao {
 	
 	// 儲存MemberBean物件，將參數mb新增到Member表格內。
 	@Override
-	public void saveMember(MemberBean mb) {
+	public int saveMember(MemberBean mb) {
+		int n = 0;
 		Session session = factory.getCurrentSession();
 		session.save(mb);
+		n++;
+		return n;
 	}
 
 	// 判斷參數id(會員帳號)是否已經被現有客戶使用，如果是，傳回true，表示此id不能使用，
