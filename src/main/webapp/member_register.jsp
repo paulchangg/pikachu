@@ -100,6 +100,7 @@
                                                     <input class="form-control validate[required,custom[email]]"
                                                         type="text" name="account" id="signup_id" value=""
                                                         placeholder="帳號只能是英文和數字" tabindex="1" autocomplete="off">
+                                                    <font color="red" size="-1">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>    
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -108,6 +109,7 @@
                                                     <input class="form-control validate[required]" type="password"
                                                         name="password" id="signup_password" value=""
                                                         placeholder="請輸入8碼以上的密碼" tabindex="2" autocomplete="off">
+                                                    <font color="red" size="-1">${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -115,7 +117,8 @@
                                                 <div class="control-box">
                                                     <input class="form-control validate[required,custom[email]]"
                                                         type="text" name="email" id="signup_mail" value=""
-                                                        placeholder="請輸入電子郵件" tabindex="1" autocomplete="off">
+                                                        placeholder="請輸入電子郵件" tabindex="3" autocomplete="off">
+                                                    <font color="red" size="-1">${MsgMap.errorEmail}</font>
                                                 </div>
                                             </div>
                                            

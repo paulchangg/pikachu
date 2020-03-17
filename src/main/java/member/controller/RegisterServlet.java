@@ -66,7 +66,9 @@ public class RegisterServlet extends HttpServlet {
 			if ( !matcher.matches() ) {
 				errorMsg.put("passwordError", "密碼至少含有一個大寫字母、小寫字母、數字與!@#$%!^'\"等四組資料組合而成，且長度不能小於八個字元");
 			}
-		}else {
+		}
+		
+		if (!errorMsg.isEmpty()) {
 			RequestDispatcher rd = request.getRequestDispatcher("member_register.jsp");
 			rd.forward(request, response);
 			return;
@@ -79,8 +81,6 @@ public class RegisterServlet extends HttpServlet {
 			} else {
 				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
 				
-				//MemberBean(String m_id, String m_password, String name, String phone_num, String m_mail, String nickname,
-				//Date birthday, String gender, Blob m_img, String income, String city, String education)
 				MemberBean mb = new MemberBean(account,password,null,null,email,null,null,null,null,null,null,null);
 				
 				int n = service.saveMember(mb);
@@ -95,6 +95,7 @@ public class RegisterServlet extends HttpServlet {
 			
 			if (!errorMsg.isEmpty()) {
 				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
+				System.out.println("log:errorMsg not empty!!!!!");
 				RequestDispatcher rd = request.getRequestDispatcher("member_register.jsp");
 				rd.forward(request, response);
 				return;
