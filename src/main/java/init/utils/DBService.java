@@ -25,7 +25,7 @@ public class DBService {
 	}
 	
 	private static final String DBURL_MySQL = "jdbc:mysql://" + host
-			+ ":3306/jspdb?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei";
+			+ ":3306/jspdb?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 	public static final String USERID_MySQL = "root";
 	public static final String PSWD_MySQL = "22651330";
 
@@ -54,6 +54,8 @@ public class DBService {
 
 	
 	private static final String DROP_responser_MySQL = "DROP TABLE IF EXISTS responser;";
+	
+	private static final String DROP_pair_MySQL = "DROP TABLE IF EXISTS pair;";
 	
 	
 	private static final String CREATE_members_MySQL = " CREATE TABLE members " 
@@ -124,10 +126,11 @@ public class DBService {
 
 	private static final String CREATE_order_MySQL = "Create TABLE orders "
 			+ "(ordid           INT(11) NOT NULL , " 
-			+ " m_id          	INT(11), "
+			+ " m_id          	VARCHAR(100), "
 			+ " orderdate       DATETIME, " 
 			+ " total     		DECIMAL(8,2), " 
-			+ " CONSTRAINT order_ordid_PK PRIMARY KEY(ordid) "
+			+ " CONSTRAINT orders_ordid_PK PRIMARY KEY(ordid),"
+			+ " CONSTRAINT orders_m_id_FK FOREIGN KEY(m_id) REFERENCES  members(m_id)"
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 	private static final String CREATE_orderitem_MySQL = "Create Table orderitem "
@@ -137,14 +140,18 @@ public class DBService {
 			+ " price			DECIMAL(8,2), "
 			+ " qty             DECIMAL(8,2), " 
 			+ " itemtotal    	DECIMAL(8,2), " 
-			+ " CONSTRAINT order_orderitem_PK PRIMARY KEY(itemid) "
+			+ " CONSTRAINT order_orderitem_PK PRIMARY KEY(itemid), "
+			+ "CONSTRAINT orderitem_ordid_FK FOREIGN KEY(ordid) REFERENCES  orders(ordid),"
+			+ "CONSTRAINT orderitem_p_id_FK FOREIGN KEY(p_id) REFERENCES  product(p_id)"
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 	private static final String CREATE_holdcards_MySQL = "Create Table holdcards "
 			+ "(hc_id 			INT(11)NOT NULL AUTO_INCREMENT , " 
 			+ " card_id 		INT(11) , "
-			+ " member_id 		INT(11) , " 
-			+ " CONSTRAINT holdcards_hc_id_PK PRIMARY KEY(hc_id)" 
+			+ " m_id 		VARCHAR(100) , " 
+			+ " CONSTRAINT holdcards_hc_id_PK PRIMARY KEY(hc_id),"
+			+ "	CONSTRAINT holdcards_m_id_FK FOREIGN KEY(m_id) REFERENCES  members(m_id),"
+			+ "	CONSTRAINT holdcards_card_id_FK FOREIGN KEY(card_id) REFERENCES  cards(c_id)" 
 			+ " )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 	private static final String CREATE_forum_MySQL =
@@ -158,7 +165,7 @@ public class DBService {
 
 	private static final String CREATE_launch_activity_MySQL = "CREATE TABLE launch_activity "
 			+ "(article_Id          INT(10) NOT NULL AUTO_INCREMENT , " 
-			+ " article_m_id        INT(10) NOT NULL, "
+			+ " article_m_id        VARCHAR(100) NOT NULL, "
 			+ " f_id      			INT(11) NOT NULL, " 
 			+ " article_title       LONGTEXT,"
 			+ "	article_content  	LONGTEXT,"
@@ -168,37 +175,33 @@ public class DBService {
 			+ "updateTime       	DATETIME,"
 			+ "endTime           	DATETIME,"
 			+ "popularity        	INT(10),"
-			+ "CONSTRAINT launch_activity_article_Id_PK PRIMARY KEY(article_Id)" 
-			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
+			+ "CONSTRAINT launch_activity_article_Id_PK PRIMARY KEY(article_Id)," 
+			+ "CONSTRAINT launch_activity_Aticle_m_id_FK FOREIGN KEY(article_m_id) REFERENCES  members(m_id),"  
+			+ "CONSTRAINT launch_activity_f_id_FK FOREIGN KEY(f_id ) REFERENCES forum(f_id) "
+			+ ") ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 
 	private static final String CREATE_responser_MySQL = "CREATE TABLE responser " 
 			+ "(res_id         		INT(10) NOT NULL AUTO_INCREMENT, "
-			+ " res_m_id      		INT(10) NOT NULL, " 
+			+ " res_m_id      		VARCHAR(100) NOT NULL, " 
 			+ " article_Id       	INT(10) NOT NULL, " 
 			+ " updateTime   		DATETIME, "
 			+ " res_content   		LONGTEXT, "
-			+ "CONSTRAINT responser_res_id_PK PRIMARY KEY(res_id)" 
+			+ "CONSTRAINT responser_res_id_PK PRIMARY KEY(res_id),"
+			+ "CONSTRAINT responser_Aticle_Id_FK FOREIGN KEY(article_Id) REFERENCES launch_activity(article_Id)," 
+			+ "CONSTRAINT responser_res_m_id_FK FOREIGN KEY(res_m_id) REFERENCES members(m_id)" 
+			+ " )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
+	
+	private static final String CREATE_pair_MySQL = "CREATE TABLE pair " 
+			+ "(p_id         		INT(10) NOT NULL AUTO_INCREMENT, "
+			+ " pair_id      		VARCHAR(100) NOT NULL, " 
+			+ " m_Id       			VARCHAR(100) NOT NULL, " 
+			+ "CONSTRAINT pair_p_id_PK PRIMARY KEY(p_id),"
+			+ "CONSTRAINT pair_res_m_id_FK FOREIGN KEY(m_Id) REFERENCES members(m_id)" 
 			+ " )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
 
 
-	private static final String CREATE_Member_SQLServer = " CREATE TABLE Member " 
-			+ "(seqNo int NOT NULL IDENTITY, "
-			+ " memberID			varchar(20), " 
-			+ " name    			varchar(32), "
-			+ " password			varchar(32), " 
-			+ " address 			varchar(64), "
-			+ " email 				varchar(64), " 
-			+ " tel  				varchar(15), "
-			+ " userType			varchar(10), " 
-			+ " registerTime    	DateTime, "
-			+ " totalAmt     		MONEY, " 
-			+ " memberImage  		IMAGE, "
-			+ " fileName     		varchar(20), " 
-			+ " comment      	    Text, " 
-			+ " unpaid_amount     MONEY, "
-			+ " PRIMARY KEY 		(seqNo) " 
-			+ " )";
+	
 	//1.members表格
 	public static String getDropMembers() {
 		String drop = null;		
@@ -308,6 +311,19 @@ public class DBService {
 		drop = DROP_responser_MySQL;
 		return drop;
 	}
+	
+	//10.pair表格
+		public static String getCreatePair() {
+			String create = null;
+			create = CREATE_pair_MySQL;
+			return create;
+		}
+		
+		public static String getDropPair() {
+			String drop = null;
+			drop = DROP_pair_MySQL;
+			return drop;
+		}
 	
 	
 
