@@ -25,7 +25,7 @@ public class DBService {
 	}
 	
 	private static final String DBURL_MySQL = "jdbc:mysql://" + host
-			+ ":3306/jspdb?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
+			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 
 	public static final String USERID_MySQL = "root";
 	public static final String PSWD_MySQL = "404631060";

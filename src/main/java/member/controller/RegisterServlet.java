@@ -95,7 +95,7 @@ public class RegisterServlet extends HttpServlet {
 			
 			if (!errorMsg.isEmpty()) {
 				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
-				System.out.println("log:errorMsg not empty!!!!!");
+//				System.out.println("log:errorMsg not empty!!!!!");
 				RequestDispatcher rd = request.getRequestDispatcher("member_register.jsp");
 				rd.forward(request, response);
 				return;
