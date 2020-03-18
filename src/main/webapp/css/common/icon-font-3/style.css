@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'icon-font-3';
+  src:  url('fonts/icon-font-3.eot?1f1u35');
+  src:  url('fonts/icon-font-3.eot?1f1u35#iefix') format('embedded-opentype'),
+    url('fonts/icon-font-3.ttf?1f1u35') format('truetype'),
+    url('fonts/icon-font-3.woff?1f1u35') format('woff'),
+    url('fonts/icon-font-3.svg?1f1u35#icon-font-3') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ic3-"], [class*=" ic3-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icon-font-3' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic3-note2:before {
+  content: "\1f5cf";
+}
+.ic3-a:before {
+  content: "\e900";
+}
+.ic3-down2:before {
+  content: "\e913";
+}
+.ic3-bag2:before {
+  content: "\e901";
+}
+.ic3-car:before {
+  content: "\e903";
+}
+.ic3-cart:before {
+  content: "\e904";
+}
+.ic3-cash:before {
+  content: "\e905";
+}
+.ic3-home2:before {
+  content: "\e907";
+}
+.ic3-list:before {
+  content: "\e909";
+}
+.ic3-mail:before {
+  content: "\e90b";
+}
+.ic3-member:before {
+  content: "\e90c";
+}
+.ic3-pen:before {
+  content: "\e90e";
+}
+.ic3-tel:before {
+  content: "\e90f";
+}
+.ic3-title1:before {
+  content: "\e910";
+}
+.ic3-title2:before {
+  content: "\e911";
+}
+.ic3-bag:before {
+  content: "\e902";
+}
+.ic3-pen2:before {
+  content: "\e908";
+}
+.ic3-order:before {
+  content: "\e90a";
+}
+.ic3-location:before {
+  content: "\e912";
+}
+.ic3-search2:before {
+  content: "\e914";
+}
+.ic3-home:before {
+  content: "\e90d";
+}
+.ic3-star:before {
+  content: "\e093";
+}
+.ic3-cross:before {
+  content: "\e117";
+}
+.ic3-angle-left:before {
+  content: "\f104";
+}
+
