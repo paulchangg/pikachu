@@ -21,7 +21,7 @@ import member.model.MemberBean;
 import member.service.MemberService;
 import member.service.impl.MemberServiceImpl;
 
-@WebServlet("/register.do")
+@WebServlet("/member/register.do")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -85,7 +85,7 @@ public class RegisterServlet extends HttpServlet {
 				
 				int n = service.saveMember(mb);
 				if(n == 1) {
-					response.sendRedirect("index.jsp");
+					response.sendRedirect("../index.jsp");
 					return;
 				} else {
 					errorMsg.put("errorIdDup", "新增此筆資料有誤(RegisterServlet)");
@@ -95,7 +95,7 @@ public class RegisterServlet extends HttpServlet {
 			
 			if (!errorMsg.isEmpty()) {
 				// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
-				System.out.println("log:errorMsg not empty!!!!!");
+//				System.out.println("log:errorMsg not empty!!!!!");
 				RequestDispatcher rd = request.getRequestDispatcher("member_register.jsp");
 				rd.forward(request, response);
 				return;
