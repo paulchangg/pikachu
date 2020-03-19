@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="col col1">
                                             <span>已經有帳號了嗎?</span>
-                                            <a href="member_register.html" class="btn pure">會員登入</a>
+                                            <a href="member_login.jsp" class="btn pure">會員登入</a>
                                         </div>
                                     </div>
                                 </form>

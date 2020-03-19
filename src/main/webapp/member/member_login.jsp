@@ -100,8 +100,9 @@
 											<label class="control-label required">帳號</label>
 											<div class="control-box">
 												<input class="form-control validate[required,custom[email]]"
-													type="text" name="account" id="memberlogin_id" value="${param.userId}"
+													type="text" name="account" id="memberlogin_id" value="${requestScope.user}${param.account}"
 													placeholder="請輸入帳號" tabindex="1" autocomplete="off">
+													<Font color='red' size="-3">${ErrorMsgKey.AccountEmptyError}</Font>
 											</div>
 										</div>
 										<div class="form-group">
@@ -109,8 +110,9 @@
 											<div class="control-box">
 												<input class="form-control validate[required]"
 													type="password" name="password" id="memberilogin_password"
-													value="${param.pswd}" placeholder="請輸入密碼" tabindex="2"
+													value="${requestScope.password}${param.password}" placeholder="請輸入密碼" tabindex="2"
 													autocomplete="off">
+												<Font color='red'  size="-3">${ErrorMsgKey.PasswordEmptyError}</Font>	
 											</div>
 										</div>
 										<div class="form-group">
@@ -129,6 +131,7 @@
 									<div class="col col2">
 										<button type="submit" class="btn normal2 send">LOGIN
 											登入</button>
+										<Font color='red' size="-1">${ErrorMsgKey.LoginError}&nbsp;</Font>	
 									</div>
 								</div>
 							</form>
