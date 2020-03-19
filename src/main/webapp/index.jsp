@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="<c:url value='/_03_listBooks/DisplayPageProducts' />" >
+	<a href="<c:url value='/listProduct/DisplayPageProducts' />" >
 				        購物 
 	</a>
 </body>

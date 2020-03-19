@@ -19,9 +19,10 @@ public class InsetProduct {
 		beans.setP_desc("6.1 吋 Liquid Retina HD LCD 顯示器");
 		beans.setPrice(30400.0);
 		beans.setStock(3);
-		Blob p_img = GlobalService.fileToBlob("D:\\02.jpg");
+		Blob p_img = GlobalService.fileToBlob("D:\\新增資料夾\\02.jpg");
 		beans.setP_img(p_img);
 		beans.setP_bns(50000);
+		beans.setP_img_name("02.jpg");;
 		
 		
 		

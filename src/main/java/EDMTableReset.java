@@ -55,13 +55,12 @@ public class EDMTableReset {
 			System.out.println("會員的持卡 holdcards表格刪除成功");
 			stmt.executeUpdate(DBService.getDropOrder());
 			System.out.println("訂單 order表格刪除成功");
-			stmt.executeUpdate(DBService.getDropMembers());
-			System.out.println("會員(members)表格刪除成功");
-			
-			stmt.executeUpdate(DBService.getDropCards());
-			System.out.println("信用卡 cards表格刪除成功");
 			stmt.executeUpdate(DBService.getDropPair());
 			System.out.println("pair表格刪除成功");
+			stmt.executeUpdate(DBService.getDropMembers());
+			System.out.println("會員(members)表格刪除成功");		
+			stmt.executeUpdate(DBService.getDropCards());
+			System.out.println("信用卡 cards表格刪除成功");
 			// 2. cards表格
 			stmt.executeUpdate(DBService.getCreateMembers());
 			System.out.println("會員(members)表格產生成功");
