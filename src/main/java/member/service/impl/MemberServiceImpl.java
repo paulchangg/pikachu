@@ -21,12 +21,14 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void saveMember(MemberBean mb) {
+	public int saveMember(MemberBean mb) {
+		int count = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
 			dao.saveMember(mb);
+			count++;
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -35,7 +37,7 @@ public class MemberServiceImpl implements MemberService{
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		
+		return count;
 	}
 	
 	@Override
