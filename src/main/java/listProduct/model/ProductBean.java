@@ -20,12 +20,13 @@ public class ProductBean {
 	private Double price;
 	private Integer stock;
 	private Blob p_img;
+	private String p_img_name;
 	private Integer p_bns;
 	
 	
 	
-	public ProductBean(Integer p_id, String p_name, String p_desc, Double price, Integer stock, Blob p_img,
-			Integer p_bns) {
+	public ProductBean(Integer p_id, String p_name, String p_desc, Double price, Integer stock, Blob p_img
+			, String p_img_name ,Integer p_bns) {
 		super();
 		this.p_id = p_id;
 		this.p_name = p_name;
@@ -33,12 +34,24 @@ public class ProductBean {
 		this.price = price;
 		this.stock = stock;
 		this.p_img = p_img;
+		this.p_img_name = p_img_name;
 		this.p_bns = p_bns;
 	}
 
 
 	public ProductBean() {
 		
+	}
+	
+	
+
+	public String getP_img_name() {
+		return p_img_name;
+	}
+
+
+	public void setP_img_name(String p_img_name) {
+		this.p_img_name = p_img_name;
 	}
 
 
