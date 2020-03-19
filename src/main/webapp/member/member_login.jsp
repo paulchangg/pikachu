@@ -8,14 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>登入 比卡丘</title>
 <link rel="stylesheet" type="text/css"
-	href="../css/common/normalize.css">
+	href="/css/common/memberlogin_normalize.css">
 <link rel="stylesheet" type="text/css"
-	href="../css/common/icon-font-3/font_style.css">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
-<link rel="stylesheet" type="text/css" href="../css/common/icon-font-3.css">
+	href="css/common/icon-font-3/style.css">
+<link rel="stylesheet" type="text/css" href="css/basic.css">
+<link rel="stylesheet" type="text/css" href="css/common/icon-font-3.css">
 
-<script src="../js/jquery.min.js"></script>
-<script defer="" src="../js/modernizr.js"></script>
+<script src="js/jquery.min.js"></script>
+<script defer="" src="js/modernizr.js"></script>
 </head>
 <body class="mmenu-show">
 	<div class="wrapper">
@@ -27,7 +27,7 @@
 
 				<div class="top-nav">
 					<ul class="func-menu list-inline">
-						<li class="bg"><a href="login.html"><i
+						<li class="bg"><a href="member_login.jsp"><i
 								class="ic ic3-member"></i>會員登入</a></li>
 						<li class="bg"><a href="javascript:void(0)"><i
 								class="ic ic3-cash"></i>信用卡比較</a>
@@ -53,8 +53,8 @@
 						<li><a href="javascript:void(0)">聯絡我們</a></li>
 						<li class="has-child"><a href="javascript:void(0)">會員專區</a>
 							<ul>
-								<li><a href="login.html">會員登入</a></li>
-								<li><a href="member_register.html">會員註冊</a></li>
+								<li><a href="member_login.jsp">會員登入</a></li>
+								<li><a href="member_register.jsp">會員註冊</a></li>
 								<li><a href="javascript:void(0)">忘記密碼</a></li>
 							</ul> <span class="toggle-submenu"></span></li>
 						<li><a href="javascript:void(0)">論壇交友</a></li>
@@ -71,81 +71,83 @@
 		</header>
 
 		<main class="site-main has-side">
-			<div class="main-content">
-				<div class="container">
-					<header class="content-top clearfix">
-						<div class="main-title">
-							<span>MEMBER SHOPPING ZONE</span>
-							<div class="second_txt">會員專區</div>
-						</div>
-					</header>
-					<aside class="side">
-						<ul class="side-nav list-v">
-							<li><a href="login.html">會員登入</a></li>
-							<li><a href="member_register.html">會員註冊</a></li>
-							<li><a href="javascript:void(0)">忘記密碼</a></li>
-						</ul>
-					</aside>
-					<section class="content">
-						<div class="content-title">
-							<span>會員登入</span>
-						</div>
-						<div class="form-wrap type3 line">
-							<div class="form-box">
-								<form id="" name="frmlogin" method="post" action="#">
-									<input type="hidden" name="csrf_test_name">
-									<div class="row type2 clearfix">
-										<div class="col col1">
-											<div class="form-group">
-												<label class="control-label required">帳號</label>
-												<div class="control-box">
-													<input
-														class="form-control validate[required,custom[email]]"
-														type="text" name="account" id="memberlogin_id" value=""
-														placeholder="請輸入帳號" tabindex="1" autocomplete="off">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">密碼</label>
-												<div class="control-box">
-													<input class="form-control validate[required]"
-														type="password" name="password" id="memberilogin_password"
-														value="" placeholder="請輸入密碼" tabindex="2"
-														autocomplete="off">
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">記住密碼</label>
-												<div class="control-box">
-													<input type="checkbox" name="rememberMe"
-														<c:if test='${requestScope.rememberMe==true}'>   
-                  											checked='checked'
-               											</c:if>
-														value="true">
-												</div>
-											</div>
-											<a href="javascript:void(0)" class="btn pure">忘記密碼？</a> <a
-												href="member_register.html" class="btn pure">會員註冊</a>
-										</div>
-										<div class="col col2">
-											<button type="submit" class="btn normal2 send">LOGIN
-												登入</button>
-										</div>
-									</div>
-								</form>
-
-							</div>
-
-						</div>
-					</section>
-				</div>
-			</div>
-			<section class="sect3">
-				<div class="container">
-					<ul class="cf-list list-h">
+		<div class="main-content">
+			<div class="container">
+				<header class="content-top clearfix">
+					<div class="main-title">
+						<span>MEMBER SHOPPING ZONE</span>
+						<div class="second_txt">會員專區</div>
+					</div>
+				</header>
+				<aside class="side">
+					<ul class="side-nav list-v">
+						<li><a href="member_login.jsp">會員登入</a></li>
+						<li><a href="member_register.jsp">會員註冊</a></li>
+						<li><a href="javascript:void(0)">忘記密碼</a></li>
 					</ul>
-				</div>
-			</section>
+				</aside>
+				<section class="content">
+					<div class="content-title">
+						<span>會員登入</span>
+					</div>
+					<div class="form-wrap type3 line">
+						<div class="form-box">
+							<form id="" name="frmlogin" method="post" action="login.do">
+								<input type="hidden" name="csrf_test_name">
+								<div class="row type2 clearfix">
+									<div class="col col1">
+										<div class="form-group">
+											<label class="control-label required">帳號</label>
+											<div class="control-box">
+												<input class="form-control validate[required,custom[email]]"
+													type="text" name="account" id="memberlogin_id" value="${requestScope.user}${param.account}"
+													placeholder="請輸入帳號" tabindex="1" autocomplete="off">
+													<Font color='red' size="-3">${ErrorMsgKey.AccountEmptyError}</Font>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label required">密碼</label>
+											<div class="control-box">
+												<input class="form-control validate[required]"
+													type="password" name="password" id="memberilogin_password"
+													value="${requestScope.password}${param.password}" placeholder="請輸入密碼" tabindex="2"
+													autocomplete="off">
+												<Font color='red'  size="-3">${ErrorMsgKey.PasswordEmptyError}</Font>	
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label required">記住帳密</label>
+											<div class="control-box">
+												<input type="checkbox" name="rememberMe"
+													<c:if test='${requestScope.rememberMe==true}'>                  
+                  										checked='checked'
+               										</c:if>
+													value="true">
+											</div>
+										</div>
+										<a href="javascript:void(0)" class="btn pure">忘記密碼？</a> <a
+											href="member_register.jsp" class="btn pure">會員註冊</a>
+									</div>
+									<div class="col col2">
+										<button type="submit" class="btn normal2 send">LOGIN
+											登入</button>
+										<Font color='red' size="-1">${ErrorMsgKey.LoginError}&nbsp;</Font>	
+									</div>
+								</div>
+							</form>
+
+						</div>
+
+					</div>
+				</section>
+			</div>
+		</div>
+		<section class="sect3">
+			<div class="container">
+				<ul class="cf-list list-h">
+				</ul>
+			</div>
+		</section>
 		</main>
 
 		<footer class="site-footer">
@@ -162,9 +164,9 @@
 	</div>
 	<span class="btn toggle-mmenu-cover toggleBtn"
 		data-toggletag="mmenu-open"></span>
-	<script defer="" src="../js/jquery.scrollTo.min.js"></script>
-	<script defer="" src="../menu/page.js"></script>
-	<script defer="" src="../js/basic.js"></script>
-	<script defer="" src="../scripts/main.js"></script>
+	<script defer="" src="/js/jquery.scrollTo.min.js"></script>
+	<script defer="" src="/menu/page.js"></script>
+	<script defer="" src="/js/basic.js"></script>
+	<script defer="" src="/scripts/main.js"></script>
 </body>
 </html>

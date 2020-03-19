@@ -23,7 +23,7 @@
 
                 <div class="top-nav">
                     <ul class="func-menu list-inline">
-                        <li class="bg"><a href="login.html"><i class="ic ic3-member"></i>會員登入</a></li>
+                        <li class="bg"><a href="member_login.jsp"><i class="ic ic3-member"></i>會員登入</a></li>
                         <li class="bg"><a href="javascript:void(0)"><i class="ic ic3-cash"></i>信用卡比較</a>
                         <li><a href="javascript:void(0)"><i class="ic ic3-pen"></i>Q&A</a></li>
                         </li>
@@ -49,8 +49,8 @@
                         <li><a href="javascript:void(0)">聯絡我們</a></li>
                         <li class="has-child"><a href="javascript:void(0)">會員專區</a>
                             <ul>
-                                <li><a href="login.html">會員登入</a></li>
-                                <li><a href="member_register.html">會員註冊</a></li>
+                                <li><a href="member_login.jsp">會員登入</a></li>
+                                <li><a href="member_register.jsp">會員註冊</a></li>
                                 <li><a href="javascript:void(0)">忘記密碼</a></li>
                             </ul>
                             <span class="toggle-submenu"></span>
@@ -81,8 +81,8 @@
                     </header>
                     <aside class="side">
                         <ul class="side-nav list-v">
-                            <li><a href="login.html">會員登入</a></li>
-                            <li><a href="member_register.html">會員註冊</a></li>
+                            <li><a href="member_login.jsp">會員登入</a></li>
+                            <li><a href="member_register.jsp">會員註冊</a></li>
                             <li><a href="javascript:void(0)">忘記密碼</a></li>
                         </ul>
                     </aside>
@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="col col1">
                                             <span>已經有帳號了嗎?</span>
-                                            <a href="member_register.html" class="btn pure">會員登入</a>
+                                            <a href="member_login.jsp" class="btn pure">會員登入</a>
                                         </div>
                                     </div>
                                 </form>

@@ -24,13 +24,13 @@ public class ProductServiceImpl implements Serializable,ProductService{
 	}
 
 	@Override
-	public Map<Integer, ProductBean> getProduct() {
+	public Map<Integer, ProductBean> getProduct(int pageNo) {
 		Map<Integer, ProductBean> beans = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			beans = dao.getProduct();
+			beans = dao.getProduct(pageNo);
 			tx.commit();
 		} catch (Exception ex) {
 			if (tx != null)
@@ -39,6 +39,60 @@ public class ProductServiceImpl implements Serializable,ProductService{
 			throw new RuntimeException(ex);
 		}
 		return beans;
+	}
+
+	@Override
+	public ProductBean getSelectBook(int productId) {
+		ProductBean beans = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			beans = dao.getSelectBook(productId);
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return beans;
+	}
+
+	@Override
+	public long getRecordCounts() {
+		long count ;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			count = dao.getRecordCounts();
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return count;
+	}
+
+	@Override
+	public int getTotalPages() {
+		int totalPages ;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			totalPages = dao.getTotalPages();
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return totalPages;
 	}
 
 }

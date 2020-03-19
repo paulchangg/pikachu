@@ -120,7 +120,8 @@ public class DBService {
 			+ " p_desc 		LONGTEXT, " 
 			+ " price 		DECIMAL(10,2), "
 			+ " stock 		INT(11), " 
-			+ " p_img 		LONGBLOB, " 
+			+ " p_img 		LONGBLOB,"
+			+ " p_img_name  VARCHAR(30)," 
 			+ " p_bns 		INT(11), "
 			+ " CONSTRAINT product_p_id_PK PRIMARY KEY(p_id) "
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
