@@ -87,4 +87,34 @@ public class MemberDaoImpl implements MemberDao {
 		return mb;
 	}
 
+	//user忘記密碼時,依照他註冊時所填的email,更新其密碼
+	// 成功回傳1
+	@Override
+	public int updatePassword(String email, String newPW) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.m_password = :pw WHERE m.m_mail = :email";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("pw", newPW).setParameter("email", email).executeUpdate();
+		
+		return result;
+	}
+	//確認email是否存在
+	@Override
+	public boolean emailExists(String email) {
+		boolean exist = false;
+		String hql = "FROM MemberBean m WHERE m.m_mail = :email";
+		Session session = factory.getCurrentSession();
+
+		try {
+			session.createQuery(hql).setParameter("email", email).getSingleResult();
+			exist = true;
+		} catch (NonUniqueResultException n) {
+			exist = true;
+		} catch (NoResultException e) {
+			exist = false;
+		}
+
+		return exist;
+	}
+
 }

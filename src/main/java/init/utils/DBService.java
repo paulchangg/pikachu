@@ -64,7 +64,7 @@ public class DBService {
 			+ " m_password VARCHAR(100) NOT NULL,"
 			+ " name VARCHAR(100), " 
 			+ " phone_num VARCHAR(100), "
-			+ " m_mail VARCHAR(100), " 
+			+ " m_mail VARCHAR(100) NOT NULL," 
 			+ " nickname VARCHAR(100), "
 			+ " birthday DATE, " 
 			+ " gender VARCHAR(100), "
@@ -72,7 +72,8 @@ public class DBService {
 			+ " income INT(11), "
 			+ " city VARCHAR(100), " 
 			+ " education VARCHAR(100), "
-			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id) " 
+			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id), "
+			+ "	CONSTRAINT members_m_mail_UK UNIQUE(m_mail)" 
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
 	
 	private static final String CREATE_cards_MySQL = " CREATE TABLE cards " 

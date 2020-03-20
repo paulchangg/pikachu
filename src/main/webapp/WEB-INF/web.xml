@@ -39,4 +39,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ForgetPasswordServlet</display-name>
+    <servlet-name>ForgetPasswordServlet</servlet-name>
+    <servlet-class>member.controller.ForgetPasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForgetPasswordServlet</servlet-name>
+    <url-pattern>/ForgetPasswordServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
