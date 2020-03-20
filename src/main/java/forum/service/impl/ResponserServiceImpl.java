@@ -1,39 +1,37 @@
 package forum.service.impl;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import forum.dao.IForumDao;
-import forum.dao.impl.ForumDaoImpl;
-import forum.model.FoumBean;
-import forum.service.IFoumService;
+import forum.dao.IResponserDao;
+import forum.dao.impl.ResponserDaoLmpl;
+import forum.model.ResponserBean;
+import forum.service.IResponserService;
 import init.HibernateUtils;
 
-public class FoumServiceImpl implements Serializable, IFoumService {
+public class ResponserServiceImpl implements Serializable, IResponserService {
 
+	
 	private static final long serialVersionUID = 1L;
-
-	IForumDao dao;
+	IResponserDao dao;
 	SessionFactory factory;
 
-	public FoumServiceImpl() {
-		this.dao = new ForumDaoImpl();
+	public ResponserServiceImpl() {
+		this.dao = new ResponserDaoLmpl();
 		factory = HibernateUtils.getSessionFactory();
-		;
 	}
 
 	@Override
-	public void insertFname(FoumBean fname) {
-
+	public void insertRescontent(ResponserBean res_content) {
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			dao.insertFname(fname);
+			dao.insertRescontent(res_content);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -43,18 +41,17 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-
 	}
 
 	@Override
-	public FoumBean getF_id(int f_id) {
-		FoumBean bean = null;
+	public ResponserBean getRes_id(int res_id) {
+		ResponserBean bean = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			bean = dao.getF_id(f_id);
+			bean = dao.getRes_id(res_id);
 			tx.commit();
 		} catch (Exception ex) {
 			if (tx != null) {
@@ -65,19 +62,18 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 		}
 
 		return bean;
-		
+
 	}
 
 	@Override
-	public int getOwner_m_id() {
-		
-		int owner_m_id = 0;
+	public int getRes_m_id() {
+		int res_m_id = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			owner_m_id = dao.getOwner_m_id();
+			res_m_id = dao.getRes_m_id();
 			tx.commit();
 
 		} catch (Exception e) {
@@ -86,27 +82,22 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		return owner_m_id;
-		
-		
+		return res_m_id;
 	}
 
 	@Override
-	public void setOwner_m_id(int owner_m_id) {
-		
-		
-		dao.setOwner_m_id(owner_m_id);
+	public void setRes_m_id(int res_m_id) {
+		dao.setRes_m_id(res_m_id);
 	}
 
 	@Override
-	public Set<FoumBean> getAllfname(int f_id) {
-		
-		Set<FoumBean> set = null;
+	public List<ResponserBean> getAllContent() {
+		List<ResponserBean> list = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			set = dao.getAllfname(f_id);
+			list = dao.getAllContent();
 			tx.commit();
 		} catch (Exception ex) {
 
@@ -115,21 +106,19 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		return set;
-		
-		
-		
+		return list;
+
 	}
 
 	@Override
-	public Set<FoumBean> getOwner_m_id(int owner_m_id) {
-		
-		Set<FoumBean> set = null;
+	public List<ResponserBean> getMemberContent(int res_m_id) {
+
+		List<ResponserBean> list = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			set = dao.getOwner_m_id(owner_m_id);
+			list = dao.getMemberContent(res_m_id);
 			tx.commit();
 		} catch (Exception ex) {
 
@@ -139,10 +128,12 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			throw new RuntimeException(ex);
 		}
 
-		return set;
-		
-		
+		return list;
 	}
 
+	@Override
+	public void setRes_id(int res_id) {
+		dao.setRes_id(res_id);
+	}
 
 }

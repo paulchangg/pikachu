@@ -1,39 +1,43 @@
 package forum.service.impl;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import forum.dao.IForumDao;
-import forum.dao.impl.ForumDaoImpl;
-import forum.model.FoumBean;
-import forum.service.IFoumService;
+import forum.dao.ILaunch_activityDao;
+import forum.dao.impl.Launch_activityDaoImpl;
+import forum.model.Launch_activityBean;
+import forum.service.ILaunch_activityService;
 import init.HibernateUtils;
 
-public class FoumServiceImpl implements Serializable, IFoumService {
-
+public class Launch_activityServiceImpl implements Serializable, ILaunch_activityService {
+	
+	
 	private static final long serialVersionUID = 1L;
-
-	IForumDao dao;
+	
+	ILaunch_activityDao dao;
 	SessionFactory factory;
-
-	public FoumServiceImpl() {
-		this.dao = new ForumDaoImpl();
-		factory = HibernateUtils.getSessionFactory();
-		;
+	
+	
+	public Launch_activityServiceImpl() {
+		this.dao = new Launch_activityDaoImpl();
+		factory = HibernateUtils.getSessionFactory();;
 	}
-
+	
+	
+	
+	
 	@Override
-	public void insertFname(FoumBean fname) {
-
+	public void insertArticle(Launch_activityBean article) {
+		
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			dao.insertFname(fname);
+			dao.insertArticle(article);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -43,18 +47,18 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-
+		
 	}
-
 	@Override
-	public FoumBean getF_id(int f_id) {
-		FoumBean bean = null;
+	public Launch_activityBean getArticle_Id(int ArticleId) {
+		
+		Launch_activityBean bean = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			bean = dao.getF_id(f_id);
+			bean = dao.getArticle_Id(ArticleId);
 			tx.commit();
 		} catch (Exception ex) {
 			if (tx != null) {
@@ -66,18 +70,18 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 
 		return bean;
 		
-	}
-
-	@Override
-	public int getOwner_m_id() {
 		
-		int owner_m_id = 0;
+	}
+	@Override
+	public int getArticle_m_id() {
+		
+		int article_m_id = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			owner_m_id = dao.getOwner_m_id();
+			article_m_id = dao.getArticle_m_id();
 			tx.commit();
 
 		} catch (Exception e) {
@@ -86,27 +90,24 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		return owner_m_id;
 		
 		
+		
+		return article_m_id;
 	}
-
 	@Override
-	public void setOwner_m_id(int owner_m_id) {
-		
-		
-		dao.setOwner_m_id(owner_m_id);
+	public void setArticle_m_id(int article_m_id) {
+		dao.setArticle_m_id(article_m_id);
 	}
-
 	@Override
-	public Set<FoumBean> getAllfname(int f_id) {
+	public List<Launch_activityBean> getAllArticles() {
 		
-		Set<FoumBean> set = null;
+		List<Launch_activityBean> list = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			set = dao.getAllfname(f_id);
+			list = dao.getAllArticles();
 			tx.commit();
 		} catch (Exception ex) {
 
@@ -115,21 +116,18 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		return set;
-		
-		
+		return list;
 		
 	}
-
 	@Override
-	public Set<FoumBean> getOwner_m_id(int owner_m_id) {
+	public List<Launch_activityBean> getMemberArticles(int article_m_id) {
 		
-		Set<FoumBean> set = null;
+		List<Launch_activityBean> list = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			set = dao.getOwner_m_id(owner_m_id);
+			list = dao.getMemberArticles(article_m_id);
 			tx.commit();
 		} catch (Exception ex) {
 
@@ -138,11 +136,9 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-
-		return set;
+		return list;
+		
 		
 		
 	}
-
-
 }
