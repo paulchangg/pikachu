@@ -8,5 +8,6 @@
 </head>
 <body>
 <form action="ForumServlet" method="POST"></form>
+<input type="button">
 </body>
 </html>
