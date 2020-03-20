@@ -43,10 +43,20 @@
     <description></description>
     <display-name>Launch_activityServlet</display-name>
     <servlet-name>Launch_activityServlet</servlet-name>
-    <servlet-class>forum.conrtoller.Launch_activityServlet</servlet-class>
+    <servlet-class>forum.controller.Launch_activityServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Launch_activityServlet</servlet-name>
-    <url-pattern>/Launch_activityServlet</url-pattern>
+    <url-pattern>/forum/Launch_activityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ForumServlet</display-name>
+    <servlet-name>ForumServlet</servlet-name>
+    <servlet-class>forum.controller.ForumServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForumServlet</servlet-name>
+    <url-pattern>/forum/ForumServlet</url-pattern>
   </servlet-mapping>
 </web-app>
