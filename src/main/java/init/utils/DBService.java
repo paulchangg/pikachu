@@ -9,7 +9,7 @@ public class DBService {
 
 	private static final String DBURL_SQLServer = "jdbc:sqlserver://" + host + ":1433;databaseName=JSPDB";
 	public  static final String USERID_SQLServer = "sa";
-	public  static final String PSWD_SQLServer = "sa123456";
+	public  static final String PSWD_SQLServer = "qazwsx12";
 
 	public  static final String nameMs = "java:comp/env/jdbc/BookDataMsSQL";
 	public  static final String nameMy = "java:comp/env/jdbc/BookDataMySQL";
@@ -28,7 +28,7 @@ public class DBService {
 			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 
 	public static final String USERID_MySQL = "root";
-	public static final String PSWD_MySQL = "404631060";
+	public static final String PSWD_MySQL = "qazwsx12";
 
 	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	

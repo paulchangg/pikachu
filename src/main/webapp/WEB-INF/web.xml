@@ -39,4 +39,14 @@
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Launch_activityServlet</display-name>
+    <servlet-name>Launch_activityServlet</servlet-name>
+    <servlet-class>forum.conrtoller.Launch_activityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Launch_activityServlet</servlet-name>
+    <url-pattern>/Launch_activityServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
