@@ -16,7 +16,7 @@ import listProduct.service.ProductService;
 import listProduct.service.impl.ProductServiceImpl;
 
 
-@WebServlet("/")
+//@WebServlet("/")
 public class DisplayProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int pageNo = 1;

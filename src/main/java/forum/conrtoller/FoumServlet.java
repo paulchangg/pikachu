@@ -15,7 +15,7 @@ import _04_ShoppingCart.model.OrderItemBean;
 import _04_ShoppingCart.model.ShoppingCart;
 import listProduct.model.ProductBean;
 
-@WebServlet("/")
+//@WebServlet("/")
 public class FoumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
