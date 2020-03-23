@@ -7,13 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>註冊 比卡丘</title>
-    <link rel="stylesheet" type="text/css" href="css/common/memberlogin_normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/common/icon-font-3/style.css">
-    <link rel="stylesheet" type="text/css" href="css/basic.css">
-    <link rel="stylesheet" type="text/css" href="css/common/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/memberlogin_normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/icon-font-3/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/basic.css">
+    <link rel="stylesheet" type="text/css" href="../css/common/style.css">
 
-    <script src="js/jquery.min.js"></script>
-    <script defer="" src="js/modernizr.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script defer="" src="../js/modernizr.js"></script>
 </head>
 <body class="mmenu-show">
     <div class="wrapper">
@@ -23,7 +23,7 @@
 
                 <div class="top-nav">
                     <ul class="func-menu list-inline">
-                        <li class="bg"><a href="login.html"><i class="ic ic3-member"></i>會員登入</a></li>
+                        <li class="bg"><a href="member_login.jsp"><i class="ic ic3-member"></i>會員登入</a></li>
                         <li class="bg"><a href="javascript:void(0)"><i class="ic ic3-cash"></i>信用卡比較</a>
                         <li><a href="javascript:void(0)"><i class="ic ic3-pen"></i>Q&A</a></li>
                         </li>
@@ -49,8 +49,8 @@
                         <li><a href="javascript:void(0)">聯絡我們</a></li>
                         <li class="has-child"><a href="javascript:void(0)">會員專區</a>
                             <ul>
-                                <li><a href="login.html">會員登入</a></li>
-                                <li><a href="member_register.html">會員註冊</a></li>
+                                <li><a href="member_login.jsp">會員登入</a></li>
+                                <li><a href="member_register.jsp">會員註冊</a></li>
                                 <li><a href="javascript:void(0)">忘記密碼</a></li>
                             </ul>
                             <span class="toggle-submenu"></span>
@@ -81,8 +81,8 @@
                     </header>
                     <aside class="side">
                         <ul class="side-nav list-v">
-                            <li><a href="login.html">會員登入</a></li>
-                            <li><a href="member_register.html">會員註冊</a></li>
+                            <li><a href="member_login.jsp">會員登入</a></li>
+                            <li><a href="member_register.jsp">會員註冊</a></li>
                             <li><a href="javascript:void(0)">忘記密碼</a></li>
                         </ul>
                     </aside>
@@ -160,9 +160,9 @@
         <a href="#" class="ibtn gotop" title="TOP">TOP</a>
     </div>
     <span class="btn toggle-mmenu-cover toggleBtn" data-toggletag="mmenu-open"></span>
-    <script defer="" src="/js/jquery.scrollTo.min.js"></script>
-    <script defer="" src="/menu/page.js"></script>
-    <script defer="" src="/js/basic.js"></script>
-    <script defer="" src="/scripts/main.js"></script>
+    <script defer="" src="../js/jquery.scrollTo.min.js"></script>
+    <script defer="" src="../menu/page.js"></script>
+    <script defer="" src="../js/basic.js"></script>
+    <script defer="" src="../scripts/main.js"></script>
 </body>
 </html>

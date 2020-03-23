@@ -28,5 +28,8 @@
 		<!-- 3. 宣告程式使用的Mapping檔 ，每個永續類別都需要定義一個Mapping檔 -->
 		<mapping class="member.model.MemberBean"></mapping>
 		<mapping class="listProduct.model.ProductBean"></mapping>
+<!-- 		<mapping class="forum.model.FoumBean"></mapping> -->
+<!-- 		<mapping class="forum.model.Launch_activityBean"></mapping> -->
+<!-- 		<mapping class="forum.model.ResponserBean"></mapping> -->
 	</session-factory>
 </hibernate-configuration>

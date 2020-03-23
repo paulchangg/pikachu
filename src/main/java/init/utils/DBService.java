@@ -9,7 +9,7 @@ public class DBService {
 
 	private static final String DBURL_SQLServer = "jdbc:sqlserver://" + host + ":1433;databaseName=JSPDB";
 	public  static final String USERID_SQLServer = "sa";
-	public  static final String PSWD_SQLServer = "sa123456";
+	public  static final String PSWD_SQLServer = "qazwsx12";
 
 	public  static final String nameMs = "java:comp/env/jdbc/BookDataMsSQL";
 	public  static final String nameMy = "java:comp/env/jdbc/BookDataMySQL";
@@ -28,7 +28,7 @@ public class DBService {
 			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 
 	public static final String USERID_MySQL = "root";
-	public static final String PSWD_MySQL = "404631060";
+	public static final String PSWD_MySQL = "qazwsx12";
 
 	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	
@@ -64,7 +64,7 @@ public class DBService {
 			+ " m_password VARCHAR(100) NOT NULL,"
 			+ " name VARCHAR(100), " 
 			+ " phone_num VARCHAR(100), "
-			+ " m_mail VARCHAR(100), " 
+			+ " m_mail VARCHAR(100) NOT NULL," 
 			+ " nickname VARCHAR(100), "
 			+ " birthday DATE, " 
 			+ " gender VARCHAR(100), "
@@ -72,7 +72,8 @@ public class DBService {
 			+ " income INT(11), "
 			+ " city VARCHAR(100), " 
 			+ " education VARCHAR(100), "
-			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id) " 
+			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id), "
+			+ "	CONSTRAINT members_m_mail_UK UNIQUE(m_mail)" 
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
 	
 	private static final String CREATE_cards_MySQL = " CREATE TABLE cards " 
