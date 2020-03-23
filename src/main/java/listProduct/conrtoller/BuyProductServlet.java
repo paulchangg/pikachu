@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import _04_ShoppingCart.model.OrderItemBean;
+import _04_ShoppingCart.model.OrdersBean;
 import _04_ShoppingCart.model.ShoppingCart;
 import listProduct.model.ProductBean;
 // 當使用者按下『加入購物車』時，瀏覽器會送出請求到本程式
@@ -58,8 +59,9 @@ public class BuyProductServlet extends HttpServlet {
 		} catch(NumberFormatException e){
 			throw new ServletException(e); 
 		}
+		OrdersBean ob = new OrdersBean();
 		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
-		OrderItemBean oib = new  OrderItemBean(null,null,bean.getP_id(),bean.getPrice(),qty,cart.getSubtotal(),bean.getP_name());
+		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
 		// 將OrderItem物件內加入ShoppingCart的物件內
 		cart.addToCart(productId, oib);
 		RequestDispatcher rd = request.getRequestDispatcher("/listProduct/DisplayPageProducts?pageNo=" + pageNo);

@@ -28,7 +28,7 @@ public class DBService {
 			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 
 	public static final String USERID_MySQL = "root";
-	public static final String PSWD_MySQL = "qazwsx12";
+	public static final String PSWD_MySQL = "22651330";
 
 	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	
@@ -128,7 +128,7 @@ public class DBService {
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 	private static final String CREATE_order_MySQL = "Create TABLE orders "
-			+ "(ordid           INT(11) NOT NULL , " 
+			+ "(ordid           INT(11) NOT NULL AUTO_INCREMENT, " 
 			+ " m_id          	VARCHAR(100), "
 			+ " orderdate       DATETIME, " 
 			+ " total     		DECIMAL(8,2), " 
@@ -142,7 +142,6 @@ public class DBService {
 			+ " p_id		    INT(11), " 
 			+ " price			DECIMAL(8,2), "
 			+ " qty             DECIMAL(8,2), " 
-			+ " itemtotal    	DECIMAL(8,2), " 
 			+ " CONSTRAINT order_orderitem_PK PRIMARY KEY(itemid), "
 			+ "CONSTRAINT orderitem_ordid_FK FOREIGN KEY(ordid) REFERENCES  orders(ordid),"
 			+ "CONSTRAINT orderitem_p_id_FK FOREIGN KEY(p_id) REFERENCES  product(p_id)"

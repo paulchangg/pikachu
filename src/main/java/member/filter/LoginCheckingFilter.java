@@ -33,7 +33,7 @@ import member.model.MemberBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
-//				@WebInitParam(name = "mustLogin1", value = "/_03_listBooks/*"), 
+				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
 //				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
 				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				

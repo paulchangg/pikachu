@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import listProduct.model.ProductBean;
 import listProduct.service.ProductService;
 import listProduct.service.impl.ProductServiceImpl;
+import member.model.MemberBean;
 
 @WebServlet("/listProduct/DisplayPageProducts")
 public class DisplayProduct extends HttpServlet {
@@ -27,8 +28,19 @@ public class DisplayProduct extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-				HttpSession session = request.getSession(false);
 				
+				// 先取出session物件
+				HttpSession session = request.getSession(false);
+
+				// 如果session物件不存在
+				if (session == null) {
+					// 請使用者登入
+					response.sendRedirect(response.encodeRedirectURL(
+							request.getContextPath() + "/member/member_login.jsp"));
+					return;
+				}
+				
+				MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 				// BookService介面負責讀取資料庫內Book表格內某一頁的書籍資料，並能新增、修改、刪除
 				// 書籍資料等。
 				String pageNoStr = request.getParameter("pageNo");

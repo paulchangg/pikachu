@@ -29,24 +29,24 @@ public class ShoppingCart {
 		}
 	}
 
-//	public boolean modifyQty(int bookId, int newQty) {
-//		if ( cart.get(bookId) != null ) {
-//		   OrderItemBean  bean = cart.get(bookId);
-//		   bean.setQty(newQty);
-//	       return true;
-//		} else {
-//		   return false;
-//		}
-//	}
+	public boolean modifyQty(int bookId, int newQty) {
+		if ( cart.get(bookId) != null ) {
+		   OrderItemBean  bean = cart.get(bookId);
+		   bean.setQty(newQty);
+	       return true;
+		} else {
+		   return false;
+		}
+	}
 	// 刪除某項商品
-//	public int deleteBook(int bookId) {
-//		if ( cart.get(bookId) != null ) {
-//	       cart.remove(bookId);  // Map介面的remove()方法
-//	       return 1;
-//		} else {
-//		   return 0;
-//		}
-//	}
+	public int deleteBook(int bookId) {
+		if ( cart.get(bookId) != null ) {
+	       cart.remove(bookId);  // Map介面的remove()方法
+	       return 1;
+		} else {
+		   return 0;
+		}
+	}
 	public int getItemNumber(){   // ShoppingCart.itemNumber
 		return cart.size();
 	}

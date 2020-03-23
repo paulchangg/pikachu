@@ -22,18 +22,37 @@ public class OrdersBean {
 	private String m_id; 
 	private Date orderdate; 
 	private Double total;
-	@OneToMany(mappedBy="orderBean", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="ordersBean", cascade=CascadeType.ALL)
 	Set<OrderItemBean> items = new LinkedHashSet<>();
 	
+	public OrdersBean() {
+		
+	}
 	
-	public OrdersBean(Integer ordid, String m_id, Date orderdate, Double total) {
+	
+	public OrdersBean(Integer ordid, String m_id, Date orderdate, Double total, Set<OrderItemBean> items) {
 		super();
 		this.ordid = ordid;
 		this.m_id = m_id;
 		this.orderdate = orderdate;
 		this.total = total;
+		this.items = items;
 	}
 	
+	
+	
+	public Set<OrderItemBean> getItems() {
+		return items;
+	}
+
+
+
+	public void setItems(Set<OrderItemBean> items) {
+		this.items = items;
+	}
+
+
+
 	public Integer getOrdid() {
 		return ordid;
 	}
