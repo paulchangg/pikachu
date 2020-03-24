@@ -1,7 +1,6 @@
 package member.controller;
 
 import java.io.IOException;
-import java.sql.Blob;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -78,7 +77,9 @@ public class RegisterServlet extends HttpServlet {
 			MemberService service = new MemberServiceImpl();
 			if(service.idExists(account)) {
 				errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
-			} else {
+			} else if (service.emailExists(email)){
+				errorMsg.put("errorIdDup", "此信箱已被註冊，請換新信箱");
+			}else {
 				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
 				
 				MemberBean mb = new MemberBean(account,password,null,null,email,null,null,null,null,null,null,null);
