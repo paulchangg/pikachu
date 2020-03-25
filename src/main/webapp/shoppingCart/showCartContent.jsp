@@ -11,8 +11,6 @@
 function confirmDelete(n) {
 	if (confirm("確定刪除此項商品 ? ") ) {
 		document.forms[0].action="<c:url value='/_04_ShoppingCart/UpdateItem.do?cmd=DEL&bookId=" + n +"' />" ;
-// 		<a href="<c:url value='/_04_ShoppingCart/UpdateItem.do?cmd=DEL&bookId=' />" >
-// action="<c:url value='/listProduct/BuyProduct.do' />"
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} else {

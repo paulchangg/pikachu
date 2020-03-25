@@ -39,9 +39,9 @@ public class BuyProductServlet extends HttpServlet {
 		}
 		String productIdStr 	= request.getParameter("productId");
 		int productId          = Integer.parseInt(productIdStr.trim());
-		
 		String qtyStr 		= request.getParameter("qty");
-		Integer qty = 0 ; 
+		Integer qty = 0 ;
+
 
 		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
 		ProductBean bean = productMap.get(productId);
@@ -59,7 +59,8 @@ public class BuyProductServlet extends HttpServlet {
 		} catch(NumberFormatException e){
 			throw new ServletException(e); 
 		}
-		OrdersBean ob = new OrdersBean();
+		
+		
 		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
 		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
 		// 將OrderItem物件內加入ShoppingCart的物件內

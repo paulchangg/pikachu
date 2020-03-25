@@ -20,7 +20,7 @@ import member.model.MemberBean;
 public class DisplayProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int pageNo = 1;
-
+	int id = 1;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -44,8 +44,22 @@ public class DisplayProduct extends HttpServlet {
 				// BookService介面負責讀取資料庫內Book表格內某一頁的書籍資料，並能新增、修改、刪除
 				// 書籍資料等。
 				String pageNoStr = request.getParameter("pageNo");
+				String mode = request.getParameter("mode");
+				String productId = request.getParameter("productId");
 				
+				if( productId == null ) {
+					id = 1;
+				}else {
+					try {
+						id = Integer.parseInt(productId.trim());
+					} catch (NumberFormatException e) {
+						id = 1;
+					}
+				}
 				
+				if(mode != null) {
+					mode = "show";
+				}
 				
 				if( pageNoStr == null ) {
 					pageNo = 1;
@@ -59,14 +73,20 @@ public class DisplayProduct extends HttpServlet {
 				
 				ProductService service = new ProductServiceImpl(); 
 				Map<Integer, ProductBean> productMap = service.getProduct(pageNo);
-				
+				ProductBean pb = service.getSelectBook(id);
 				request.setAttribute("totalPages", service.getTotalPages());
+				session.setAttribute("product_INFO", pb);
 				session.setAttribute("pageNo", String.valueOf(pageNo));
 				session.setAttribute("products_DPP", productMap);
-			
-				RequestDispatcher rd = request.getRequestDispatcher("listBooks.jsp");
-				rd.forward(request, response);
-				return;
+				if(mode == "show") {
+					RequestDispatcher rd = request.getRequestDispatcher("shopping_produce.jsp");
+					rd.forward(request, response);
+					return;
+				}else {
+					RequestDispatcher rd = request.getRequestDispatcher("shopping.jsp");
+					rd.forward(request, response);
+					return;					
+				}
 	}
 
 }
