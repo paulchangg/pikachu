@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _04_ShoppingCart.model.OrderItemBean;
-import _04_ShoppingCart.model.OrdersBean;
-import _04_ShoppingCart.model.ShoppingCart;
 import listProduct.model.ProductBean;
+import shoppingCart.model.OrderItemBean;
+import shoppingCart.model.OrdersBean;
+import shoppingCart.model.ShoppingCart;
 // 當使用者按下『加入購物車』時，瀏覽器會送出請求到本程式
 @WebServlet("/listProduct/BuyProduct.do")
 public class BuyProductServlet extends HttpServlet {

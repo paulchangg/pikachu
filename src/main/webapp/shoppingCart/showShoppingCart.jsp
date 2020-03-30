@@ -79,11 +79,11 @@ function Abort() {
 <c:choose>
    <c:when test="${ShoppingCart.subtotal > 0}">
       <c:set var="subtotalMessage" value="金額小計:${ShoppingCart.subtotal} 元"/>
-      <c:set var="subtotal" value="${ShoppingCart.subtotal}"/>  
+      <c:set var="subtotal" value="${ShoppingCart.subtotal}" scope="application"/>  
    </c:when>
    <c:otherwise>
       <c:set var="subtotalMessage" value="金額小計:  0 元"/>
-      <c:set var="subtotal" value="0"/>                
+      <c:set var="subtotal" value="0" scope="application"/>                
    </c:otherwise>
 </c:choose>
 <script src="js/jquery-3.4.1.js"></script>
@@ -165,8 +165,10 @@ function Abort() {
        </div>
         <div class="col-12 return"> <!--返回區塊-->
         <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoppingcart_paymoney">結帳</button>
-
+        <form action="<c:url value='../_04_ShoppingCart/ProcessOrder.do' />" method="POST" >
+        	  <Input type='hidden' name='finalDecision' value='Order'>
+        	  <Input type='submit' class="btn btn-info" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
+		</form>
         </div>
         <div class="col-12 footer" >尾巴</div><!--這區塊首頁出來套版-->
     </div>

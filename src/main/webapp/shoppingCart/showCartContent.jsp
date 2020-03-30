@@ -103,7 +103,7 @@ function Abort() {
     			 src='${pageContext.servletContext.contextPath}/init/getBookImage?id=${anEntry.value.p_id}'>
      	</td>
  		<td width="200">${anEntry.value.price}</td>
- 		<td width="200" style="text-align:right;">
+ 		<td width="200" style="text-align:right">
                 <Input id="newQty${vs.index}" style="width:28px;text-align:right" name="newQty" type="text" value="<fmt:formatNumber value="${anEntry.value.qty}" />" name="qty" onkeypress="return isNumberKey(event)"  />
          </td>
  		<td ><Input type="button" name="update" value="修改" onclick="modify(${anEntry.key}, ${anEntry.value.qty}, ${vs.index})">

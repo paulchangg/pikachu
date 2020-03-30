@@ -115,7 +115,7 @@
                                      
                                        <Input type='hidden' name='productId' value='${entry.value.p_id}'>
               						   <Input type='hidden' name='pageNo' value='${pageNo}'>
-               						   <Input type='submit' class="btn btn-info" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='購買'>
+               						   <Input type='submit' class="btn btn-info" data-toggle="modal" data-target="#shoopingmodal"  value='購買'>
                         			</FORM>
                                  </div>
                              </div>

@@ -33,8 +33,8 @@ import member.model.MemberBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
-//				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
-//				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
+				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
+				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
 				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
@@ -93,7 +93,6 @@ public class LoginCheckingFilter implements Filter {
 	// 判斷Session物件內是否含有識別字串為LoginOK的屬性物件，如果有，表示已經登入，否則尚未登入
 	private boolean checkLogin(HttpServletRequest req) {
 		HttpSession session = req.getSession();
-		
 		MemberBean loginToken = (MemberBean) session.getAttribute("LoginOK");
 		if (loginToken == null) {
 			return false;

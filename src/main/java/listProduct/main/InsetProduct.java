@@ -15,14 +15,14 @@ public class InsetProduct {
 
 	public static void main(String[] args) throws IOException, SQLException {
 		ProductBean beans = new ProductBean();
-		beans.setP_name("Apple iPhone 11 (256G)-綠色");
+		beans.setP_name("Apple iPhone 11");
 		beans.setP_desc("6.1 吋 Liquid Retina HD LCD 顯示器");
 		beans.setPrice(30400.0);
 		beans.setStock(3);
-		Blob p_img = GlobalService.fileToBlob("D:\\新增資料夾\\01.jpg");
+		Blob p_img = GlobalService.fileToBlob("D:\\新增資料夾\\02.jpg");
 		beans.setP_img(p_img);
 		beans.setP_bns(50000);
-		beans.setP_img_name("01.jpg");;
+		beans.setP_img_name("02.jpg");;
 		
 		
 		

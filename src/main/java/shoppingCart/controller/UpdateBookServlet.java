@@ -1,4 +1,4 @@
-package _04_ShoppingCart.controller;
+package shoppingCart.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _04_ShoppingCart.model.ShoppingCart;
+import shoppingCart.model.ShoppingCart;
 // 本類別可修改購物車內的商品資料，包括刪除某項商品，修改某項商品的數量
 @WebServlet("/_04_ShoppingCart/UpdateItem.do")
 public class UpdateBookServlet extends HttpServlet {
@@ -43,14 +43,15 @@ public class UpdateBookServlet extends HttpServlet {
 		if (cmd.equalsIgnoreCase("DEL")) {
 	        sc.deleteBook(bookId); // 刪除購物車內的某項商品
 	        System.out.println("---------check-------------");
-	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showCartContent.jsp");
-		    rd.forward(request, response);
+//	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showShoppingCart.jsp");
+//		    rd.forward(request, response);
+		    response.sendRedirect("http://localhost:8080/pikachu/shoppingCart/showShoppingCart.jsp");
 		    return;
 		} else if (cmd.equalsIgnoreCase("MOD")) {
 			String newQtyStr = request.getParameter("newQty");
 			int newQty = Integer.parseInt(newQtyStr.trim());
 			sc.modifyQty(bookId, newQty);   // 修改某項商品的數項
-	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showCartContent.jsp");
+	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showShoppingCart.jsp");
 		    rd.forward(request, response);
 		    return;
 		}
