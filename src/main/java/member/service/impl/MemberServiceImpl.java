@@ -15,6 +15,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import init.HibernateUtils;
+import init.SendEmail;
 import member.dao.MemberDao;
 import member.dao.impl.MemberDaoImpl;
 import member.model.MemberBean;
@@ -154,48 +155,59 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+//	@Override
+//	public boolean sendMail(String email, String newPW) {
+//		boolean r = false;
+//		String host = "smtp.gmail.com";
+//		int port = 587;
+//		String from = "ntutjava013.2@gmail.com";
+//		String to = email;
+//		final String username = "ntutjava013.2@gmail.com";
+//		final String password = "Do!ng123";
+//
+//		Properties props = new Properties();
+//		props.put("mail.smtp.host", host);
+//		props.put("mail.smtp.auth", "true");
+//		props.put("mail.smtp.starttls.enable", "true");
+//		props.put("mail.smtp.port", port);
+//		javax.mail.Session session = javax.mail.Session.getInstance(props, new Authenticator() {
+//			protected PasswordAuthentication getPasswordAuthentication() {
+//				return new PasswordAuthentication(username, password);
+//			}
+//		});
+//
+//		try {
+//
+//			Message message = new MimeMessage(session);
+//			message.setFrom(new InternetAddress(from));
+//			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+//			message.setSubject("PIKACHU : update passowrd successfully");
+//			message.setText("This is your new password : [ " + newPW + " ] !!!");
+//
+//			Transport transport = session.getTransport("smtp");
+//			transport.connect(host, port, username, password);
+//
+//			Transport.send(message);
+//
+//			System.out.println("寄送email結束.");
+//			r = true;
+//		} catch (MessagingException e) {
+//			throw new RuntimeException(e);
+//		}
+//		
+//		return r;
+//	}
+	
 	@Override
 	public boolean sendMail(String email, String newPW) {
 		boolean r = false;
-		String host = "smtp.gmail.com";
-		int port = 587;
-		String from = "ntutjava013.2@gmail.com";
-		String to = email;
-		final String username = "ntutjava013.2@gmail.com";
-		final String password = "Do!ng123";// your password
-
-		Properties props = new Properties();
-		props.put("mail.smtp.host", host);
-		props.put("mail.smtp.auth", "true");
-		props.put("mail.smtp.starttls.enable", "true");
-		props.put("mail.smtp.port", port);
-		javax.mail.Session session = javax.mail.Session.getInstance(props, new Authenticator() {
-			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication(username, password);
-			}
-		});
-
-		try {
-
-			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress(from));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("PIKACHU : update passowrd successfully");
-			message.setText("This is your new password : [ " + newPW + " ] !!!");
-
-			Transport transport = session.getTransport("smtp");
-			transport.connect(host, port, username, password);
-
-			Transport.send(message);
-
-			System.out.println("寄送email結束.");
-			r = true;
-		} catch (MessagingException e) {
-			throw new RuntimeException(e);
-		}
+		SendEmail se = new SendEmail(email, newPW);
+		se.start();			
+		r = true;
 		
 		return r;
 	}
+
 
 	@Override
 	public int updateNickname(MemberBean mb, String nickname) {
