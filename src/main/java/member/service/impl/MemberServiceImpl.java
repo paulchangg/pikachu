@@ -197,4 +197,109 @@ public class MemberServiceImpl implements MemberService {
 		return r;
 	}
 
+	@Override
+	public int updateNickname(MemberBean mb, String nickname) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateNickname(mb, nickname);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public int updateIncome(MemberBean mb, String income) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateIncome(mb, income);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public int updateCity(MemberBean mb, String city) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateCity(mb, city);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public int updateEducation(MemberBean mb, String education) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateEducation(mb, education);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public int changePassword(MemberBean mb, String newPW) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.changePassword(mb, newPW);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
 }

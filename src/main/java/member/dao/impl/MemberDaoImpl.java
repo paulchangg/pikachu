@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import init.HibernateUtils;
 import member.dao.MemberDao;
 import member.model.MemberBean;
-import net.bytebuddy.asm.Advice.ArgumentHandler.Factory;
+
 
 public class MemberDaoImpl implements MemberDao {
 
@@ -115,6 +115,56 @@ public class MemberDaoImpl implements MemberDao {
 		}
 
 		return exist;
+	}
+	//變更暱稱
+	@Override
+	public int updateNickname(MemberBean mb, String nickname) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.nickname = :nickname WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("nickname", nickname).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+	//變更年收入
+	@Override
+	public int updateIncome(MemberBean mb, String income) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.income = :income WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("income", income).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+	//變更居住地
+	@Override
+	public int updateCity(MemberBean mb, String city) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.city = :city WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("city", city).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+	//變更學歷
+	@Override
+	public int updateEducation(MemberBean mb, String education) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.education = :education WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("education", education).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+	//變更密碼
+	@Override
+	public int changePassword(MemberBean mb, String newPW) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.m_password = :newPW WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("newPW", newPW).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
 	}
 
 }
