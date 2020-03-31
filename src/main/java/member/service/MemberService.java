@@ -1,6 +1,8 @@
 package member.service;
 
 
+import java.sql.Blob;
+
 import member.model.MemberBean;
 
 public interface MemberService {
@@ -12,9 +14,10 @@ public interface MemberService {
 	public int updatePassword(String email, String newPW);
 	public int changePassword(MemberBean mb, String newPW);
 	public boolean emailExists(String email);
-	public boolean sendMail(String email, String newPW);
+	public void sendMail(String email, String newPW);
 	public int updateNickname(MemberBean mb, String nickname);
 	public int updateIncome(MemberBean mb, String income);
 	public int updateCity(MemberBean mb, String city);
 	public int updateEducation(MemberBean mb, String education);
+	public int updateM_img(MemberBean mb,Blob m_img);
 }

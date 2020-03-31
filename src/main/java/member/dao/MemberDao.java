@@ -1,5 +1,7 @@
 package member.dao;
 
+import java.sql.Blob;
+
 import member.model.MemberBean;
 
 public interface MemberDao {
@@ -25,6 +27,8 @@ public interface MemberDao {
 	public int updateCity(MemberBean mb, String city);
 
 	public int updateEducation(MemberBean mb, String education);
+	
+	public int updateM_img(MemberBean mb,Blob m_img);
 
 
 }

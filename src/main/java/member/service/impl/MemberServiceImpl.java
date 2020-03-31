@@ -1,5 +1,6 @@
 package member.service.impl;
 
+import java.sql.Blob;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -199,13 +200,9 @@ public class MemberServiceImpl implements MemberService {
 //	}
 	
 	@Override
-	public boolean sendMail(String email, String newPW) {
-		boolean r = false;
+	public void sendMail(String email, String newPW) {
 		SendEmail se = new SendEmail(email, newPW);
 		se.start();			
-		r = true;
-		
-		return r;
 	}
 
 
@@ -302,6 +299,27 @@ public class MemberServiceImpl implements MemberService {
 		try {
 			tx = session.beginTransaction();
 			r = dao.changePassword(mb, newPW);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public int updateM_img(MemberBean mb, Blob m_img) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateM_img(mb, m_img);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {

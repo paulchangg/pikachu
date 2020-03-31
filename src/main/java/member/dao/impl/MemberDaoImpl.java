@@ -1,5 +1,6 @@
 package member.dao.impl;
 
+import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -163,6 +164,16 @@ public class MemberDaoImpl implements MemberDao {
 		String hql = "UPDATE MemberBean m SET m.m_password = :newPW WHERE m.m_id = :m_id";
 		Session session = factory.getCurrentSession();
 		result = session.createQuery(hql).setParameter("newPW", newPW).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+
+	@Override
+	public int updateM_img(MemberBean mb, Blob m_img) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.m_img = :m_img WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("m_img", m_img).setParameter("m_id", mb.getM_id()).executeUpdate();
 		
 		return result;
 	}

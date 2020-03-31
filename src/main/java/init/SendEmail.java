@@ -52,7 +52,7 @@ public class SendEmail extends Thread {
 			text.append("<p>Hello PIKACHU member</p>");
 			text.append("<br>");
 			text.append("<p>************************************************************</p>\n");
-			text.append("<p>This is your new password : [   " + newPW + "   ]</p>\n");
+			text.append("<p>This is your new password : [ &nbsp;" + newPW + "&nbsp; ]</p>\n");
 			text.append("<p>************************************************************</p>\n");
 			text.append("<p>Please update your password as soon as possible.</p>\n");
 			text.append("<br>");
