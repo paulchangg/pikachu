@@ -51,8 +51,9 @@ public class UpdateBookServlet extends HttpServlet {
 			String newQtyStr = request.getParameter("newQty");
 			int newQty = Integer.parseInt(newQtyStr.trim());
 			sc.modifyQty(bookId, newQty);   // 修改某項商品的數項
-	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showShoppingCart.jsp");
-		    rd.forward(request, response);
+			response.sendRedirect("../shoppingCart/showShoppingCart.jsp");
+//	        RequestDispatcher rd = request.getRequestDispatcher("/shoppingCart/showShoppingCart.jsp");
+//		    rd.forward(request, response);
 		    return;
 		}
 	}

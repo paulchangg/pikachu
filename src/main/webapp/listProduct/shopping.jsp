@@ -23,7 +23,7 @@
 <div class="container">
   <div class="row ">
          <div class="col-12 p-5  logarea"><!--這裡開始為上方,呈現商標log位置-->
-             皮卡丘商標位置
+             ${LoginOK.m_id}皮卡丘商標位置
                 <div class="col-5 offset-8 wrap"><!--這裡為右上角,呈現快速連結的位置-->
                     <ul>
                         <li class=""><a class="nav-link" href="#">會員登入</a></li>
@@ -44,6 +44,7 @@
                  <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
+                 <li class="nav-item"><a class="nav-link" href="<c:url value='../_05_orderProcess/orderList.do' />">我的訂單</a></li>
              </ul>
          </div>
         </nav>
@@ -64,7 +65,7 @@
                         <img class="d-block w-100" src="image/400寬-2.jpg" alt="Photo2">
                      </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100 " src="image/400寬-3.jpg alt="Photo3">
+                        <img class="d-block w-100 " src="image/400寬-3.jpg"  alt="Photo3">
                     </div>
                 </div>
                    <a class="carousel-control-prev" href="#advarea" role="button" data-slide="prev"><!--向前切換-->
@@ -115,7 +116,7 @@
                                      
                                        <Input type='hidden' name='productId' value='${entry.value.p_id}'>
               						   <Input type='hidden' name='pageNo' value='${pageNo}'>
-               						   <Input type='submit' class="btn btn-info" data-toggle="modal" data-target="#shoopingmodal"  value='購買'>
+               						   <Input type='submit' class="btn btn-info test" data-toggle="modal" data-target="#shoopingmodal"  value='購買'>
                         			</FORM>
                                  </div>
                              </div>
@@ -177,19 +178,27 @@
          </div>
          <div class="col-12 footer" >尾巴</div><!--這區塊首頁出來套版-->
 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".test").click(function(){
+					alert("已加入購物車");
+				})
+			}
+		)
 
+		</script>
 
         <!--這區塊是跳出視窗加入購物車視窗-->    
-            <div class="modal fade" id="shoopingmodal">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <p>商品已加入購物車</p>
-                       <button type="button" class="btn btn-default" data-dismiss="modal">確認</button>
-                   </div>
-                 </div>
-             </div>
-         </div>
+<!--             <div class="modal fade" id="shoopingmodal"> -->
+<!--                 <div class="modal-dialog"> -->
+<!--                   <div class="modal-content"> -->
+<!--                     <div class="modal-body"> -->
+<!--                       <p>商品已加入購物車</p> -->
+<!--                        <button type="button" class="btn btn-default" data-dismiss="modal">確認</button> -->
+<!--                    	</div> -->
+<!--                   </div> -->
+<!--              	</div> -->
+<!--          	</div> -->
 </div>
 </body>
 </html>

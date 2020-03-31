@@ -20,12 +20,12 @@
 <div class="container">
     <div class="row ">
         <div class="col-12 p-5 logarea"><!--這裡開始為上方,呈現商標log位置-->
-            皮卡丘商標位置
+            ${LoginOK.m_id}皮卡丘商標位置
                <div class="col-5 offset-8 wrap"><!--這裡為右上角,呈現快速連結的位置-->
                    <ul>
                        <li class=""><a class="nav-link" href="#">會員登入</a></li>
                        <li class=""><a class="nav-link" href="#">Q&A</a></li>
-                       <li class=""><a class="nav-link" href="shopping_cart.html">購物車</a></li>
+                       <li class=""><a class="nav-link" href="../shoppingCart/showShoppingCart.jsp">購物車</a></li>
                        
                    </ul>
               </div>
@@ -42,6 +42,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
+                <li class="nav-item"><a class="nav-link" href="<c:url value='../_05_orderProcess/orderList.do' />">我的訂單</a></li>
             </ul>
         </div>
        </nav>
@@ -91,18 +92,21 @@
                               <p>價格:<span id="shoppingproduce_price">${product_INFO.price}元</span></p>
                               <p>點數:<span id="shoppingproduce_bouns">${product_INFO.p_bns}點</span></p>
                               <p>剩餘庫存:<span id="shoppingproduce_stock">${product_INFO.stock}</span></p>
-                              購買數量<p>
-                                <input id="shoppinproduce_min" name="qty" type="button" value="-" />  <!--按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉-->
+                             	    購買數量<p>
+                          <FORM  action="<c:url value='/listProduct/BuyProduct.do' />" method="POST">
+                                <input id="shoppinproduce_min" name="qty1" type="button" value="-" />  <!--按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉-->
                                 <input id="shoppinproduce_quantity" name="qty" type="text" value="1" />
-                                <input id="shoppinproduce_add" name="qty" type="button" value="+" />
+                                <input id="shoppinproduce_add" name="qty1" type="button" value="+" />
                           </div>
                            <div class="col-3 threebutton">            
-                               <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce" id="shoppingproduce_waitbuy">放入購物車</button>
-                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button>
+<!--                                <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
+                                <Input type='submit' class="btn btn-warning test" data-toggle="modal" data-target="#shoopingmodal"  value='放入購物車' style="margin-top: 20px">
+                                <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
+<!--                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->
                                                                                                                                 <!--加入追蹤清單如果沒有登入會員會跳出請先登入會員的視窗-->
                                                                                                                                 <!--如果有登入會員會跳出已加入追蹤的視窗-->
                           </div>
+                          </FORM>
                            <div class="col-12 navtotal">
                                 <ul class="nav nav-tabs">                     
                                     <li class="nav-item"><a class="nav-link active" href="#shoppingproduce_about" data-toggle="tab">商品描述</a></li>
@@ -131,17 +135,17 @@
   </div>
 
 
-  <!--這區塊是跳出視窗加入購物車視窗-->    
-  <div class="modal fade" id="shoopinproduce">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <p>商品已加入購物車</p>
-                <button type="button" class="btn btn-default" data-dismiss="modal">確認</button>
-            </div>
-        </div>
-    </div>
-  </div>
+<!--   <!--這區塊是跳出視窗加入購物車視窗-->     -->
+<!--   <div class="modal fade" id="shoopinproduce"> -->
+<!--     <div class="modal-dialog"> -->
+<!--         <div class="modal-content"> -->
+<!--             <div class="modal-body"> -->
+<!--                 <p>商品已加入購物車</p> -->
+<!--                 <button type="button" class="btn btn-default" data-dismiss="modal">確認</button> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!--   </div> -->
 
     <!--這區塊是跳出視窗加入追蹤視窗-->    
     <div class="modal fade" id="shoopinproduce_2">
@@ -155,7 +159,6 @@
         </div>
       </div>
 
-
     <!--這區塊是跳出需先登入會員才能追蹤清單-->    
         <div class="modal fade" id="shoopinproduce_3">
             <div class="modal-dialog">
@@ -167,4 +170,13 @@
                 </div>
             </div>
           </div>  
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$(".test").click(function(){
+					alert("已加入購物車");
+				})
+			}
+		)
+
+	</script>
 </html>

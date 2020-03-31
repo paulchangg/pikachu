@@ -93,7 +93,7 @@ function Abort() {
 <div class="container">
     <div class="row ">
         <div class="col-12 p-3 logarea"><!--這裡開始為上方,呈現商標log位置-->
-            皮卡丘商標位置
+            ${LoginOK.m_id}皮卡丘商標位置
        </div>
        
        <nav class="col-12 navbar sticky-top navbar-expand-lg "><!--這裡開始為導覽頁-->
@@ -107,6 +107,7 @@ function Abort() {
                 <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                 <li class="nav-item"><a class="nav-link" href="shopping.html">購物商城</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
+                <li class="nav-item"><a class="nav-link" href="<c:url value='../_05_orderProcess/orderList.do' />">我的訂單</a></li>
             </ul>
         </div>
        </nav>
@@ -132,20 +133,23 @@ function Abort() {
                 <c:forEach varStatus="vs" var="anEntry" items="${ShoppingCart.content}">
                   <tr>
                      <td><a href="<c:url value='/listProduct/DisplayPageProducts?mode=show&productId=${entry.value.p_id}' />" id="shoppingcart_page"><img src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${anEntry.value.p_id}" width="100px" id="shoppingcart_img">
-                         不要對我尖叫好友分享卷 </a>
+                        ${anEntry.value.p_name} </a>
                      </td>
                      <td>原價<sapn id="shoppingcart_orp">${anEntry.value.price}</sapn>元
                      </td>
                      <td>
-                        <input id="shoppingcart_min" name="qty" type="button" value="-" />  <!--按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉-->
-                        <input id="shoppingcart_quantity" name="qty" type="text" value="${anEntry.value.qty}" />
-                        <input id="shoppingcart_add" name="qty" type="button" value="+" />
+<!--                         <input id="shoppingcart_min" name="qty" type="button" value="-" />  按鈕的方法是用id寫得所以如果有第二筆物件就必須把方法裡面的id更換掉 -->
+<%--                         <input id="shoppingcart_quantity" name="newQty${vs.index}" type="text" value="${anEntry.value.qty}" /> --%>
+                        <Input id="newQty${vs.index}" style="width:70px;text-align:right" name="newQty" type="text" value="<fmt:formatNumber value="${anEntry.value.qty}" />" name="qty" onkeypress="return isNumberKey(event)"  />
+<!--                         <input id="shoppingcart_add" name="qty" type="button" value="+" /> -->
                      </td>
                      <td><span id="shoppingcart_stock">30</span></td>
                      <td>小計:<span id="shoppingcart_total">${anEntry.value.qty * anEntry.value.price}</span></td>
                      <td>
                         	<Input type="button" name="delete" value="刪除" onclick="confirmDelete(${anEntry.key})"><!--麻煩你寫了...智商過低我已經要陣亡Q_Q-->
+                        	<Input type="button" name="delete" value="修改" onclick="modify(${anEntry.key}, ${anEntry.value.qty}, ${vs.index})"><!--麻煩你寫了...智商過低我已經要陣亡Q_Q-->
                      </td>
+                     
                   </tr>
                   </c:forEach>
                     <tr><td colspan="5" align="right">訂單小計</td>
@@ -164,10 +168,11 @@ function Abort() {
              </table>
        </div>
         <div class="col-12 return"> <!--返回區塊-->
-        <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
+       
         <form action="<c:url value='../_04_ShoppingCart/ProcessOrder.do' />" method="POST" >
         	  <Input type='hidden' name='finalDecision' value='Order'>
-        	  <Input type='submit' class="btn btn-info" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
+        	  <a href="<c:url value='../listProduct/DisplayPageProducts' />"><button type="button" class="btn btn-warning">繼續購物</button></a>
+        	  <Input type='submit' class="btn btn-warning" data-toggle="modal" data-target="#shoopingmodal" id="shopping_addButton" value='結帳'>
 		</form>
         </div>
         <div class="col-12 footer" >尾巴</div><!--這區塊首頁出來套版-->

@@ -39,6 +39,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
+                <li class="nav-item"><a class="nav-link" href="<c:url value='../_05_orderProcess/orderList.do' />">我的訂單</a></li>
             </ul>
         </div>
        </nav>
