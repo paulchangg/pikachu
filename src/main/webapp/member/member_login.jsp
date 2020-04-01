@@ -18,6 +18,9 @@
 <script defer="" src="js/modernizr.js"></script>
 </head>
 <body class="mmenu-show">
+<c:if test="${ ! empty sessionScope.timeOut }" > <!-- 表示使用逾時，重新登入 -->
+   <c:set var="msg" value="<font color='red'>${sessionScope.timeOut}</font>" />
+</c:if>
 	<div class="wrapper">
 		<header class="site-header">
 			<div class="container">
@@ -131,7 +134,7 @@
 									<div class="col col2">
 										<button type="submit" class="btn normal2 send">LOGIN
 											登入</button>
-										<Font color='red' size="-1">${ErrorMsgKey.LoginError}&nbsp;</Font>	
+										<Font color='red' size="-1">${msg}${ErrorMsgKey.LoginError}&nbsp;</Font>	
 									</div>
 								</div>
 							</form>
