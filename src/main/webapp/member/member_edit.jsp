@@ -4,16 +4,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="css/common/member_edit.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/common/member_edit.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>修改個人資料</title>
 </head>
 <body>
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <div class="header">導覽列</div>
     <div class="memberedit"><h3>修改個人資料</h3></div>
 
@@ -23,7 +23,7 @@
     
                       <!--這裡有1個id 要更換會員圖像-->
     <div class="photo" id="membereedit_img" >
-        <img src="images/common/membephoto_0.png" width="160" height="160" >
+        <img src="../images/common/membephoto_0.png" width="160" height="160" >
         <div>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editimagemodal" >選擇圖片</button>
         </div>
@@ -116,7 +116,7 @@
     </div>
     
     <div class="footerbutton">
-        <a href="MemberCenter.html"><input type="button" value="返回"></a>
+        <a href="member_center.jsp"><input type="button" value="返回"></a>
     </div>
 
     <div class="footer">尾巴</div>
