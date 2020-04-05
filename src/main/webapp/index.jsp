@@ -21,5 +21,9 @@
 	<a href="member/member_login.jsp">會員登入</a>
 	
 </form>
+<br>
+<br>
+<br>
+<a href="<c:url value='/member/member_edit.jsp' />"> 更新 </a><br>
 </body>
 </html>

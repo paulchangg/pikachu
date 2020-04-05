@@ -16,19 +16,12 @@ public interface MemberDao {
 	
 	public int updatePassword(String email, String newPW);
 
-	public int changePassword(MemberBean mb, String newPW);
+	public void changePassword(MemberBean mb);
 	
 	public boolean emailExists(String email);
-
-	public int updateNickname(MemberBean mb, String nickname);
-
-	public int updateIncome(MemberBean mb, String income);
-
-	public int updateCity(MemberBean mb, String city);
-
-	public int updateEducation(MemberBean mb, String education);
 	
 	public int updateM_img(MemberBean mb,Blob m_img);
 
+	public void updateMember(MemberBean mb);
 
 }

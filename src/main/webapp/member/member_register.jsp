@@ -101,7 +101,7 @@
 												<div class="control-box">
 													<input
 														class="form-control validate[required,custom[email]]"
-														type="text" name="account" id="signup_id" value=""
+														type="text" name="account" id="signup_id" value="${param.account}"
 														placeholder="帳號只能是英文和數字" tabindex="1" autocomplete="off">
 													<font color="red" size="-1">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
 												</div>
@@ -116,20 +116,49 @@
 												</div>
 											</div>
 											<div class="form-group">
+												<label class="control-label required">姓名</label>
+												<div class="control-box">
+													<input type="text" name="name" placeholder=" 請輸入中文姓名" tabindex="3" value="${param.name}"><br>
+													<font color="red" size="-1">${MsgMap.errorNameEmpty}</font>
+												</div>
+											</div>
+											<div class="form-group">
 												<label class="control-label required">電子郵件</label>
 												<div class="control-box">
 													<input
 														class="form-control validate[required,custom[email]]"
-														type="text" name="email" id="signup_mail" value=""
-														placeholder="請輸入電子郵件" tabindex="3" autocomplete="off">
-													<font color="red" size="-1">${MsgMap.errorEmail}</font>
+														type="text" name="email" id="signup_mail" value="${param.email}"
+														placeholder="請輸入電子郵件" tabindex="4" autocomplete="off">
+													<font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}</font>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label required">性別</label>
+												<div class="control-box">
+													<input type="radio" name="gender" value="male" tabindex="5">&nbsp;男
+													<input type="radio" name="gender" value="female" >&nbsp;女
+													<font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label required">手機</label>
+												<div class="control-box">
+													<input type="text" name="phone_num" placeholder=" 輸入10位數字" tabindex="6" value="${param.phone_num}"><br>
+													<font color="red" size="-1">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="control-label required">生日</label>
+												<div class="control-box">
+													<input type="date" name="birthday" tabindex="7" value="${param.birthday}"><br>
+													<font color="red" size="-1">${MsgMap.errorBirthdayEmpty}</font>
 												</div>
 											</div>
 
 										</div>
 
 										<div class="col col2">
-											<button type="submit" class="btn normal2 send">Sign
+											<button type="submit" class="btn normal2 send" >Sign
 												Up 註冊</button>
 										</div>
 										<div class="col col1">

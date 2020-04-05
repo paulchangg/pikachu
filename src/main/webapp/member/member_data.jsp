@@ -60,13 +60,13 @@
     <div class="personaldata"><h3>個人資料</h3>
     <hr>
      <form action="" method="">
-     <p>姓名: <input type="text" name="name" placeholder="請輸入中文姓名" required autofocus><font color="red">*填寫後不可更改</font></p>
-     <p>暱稱: <input type="text" name="nickname"></p>
-     <p>生日: <input type="date" name="birthday" required ><font color="red">*填寫後不可更改</font></p>
-     <p>手機: <input type="text" name="phone_num"pattern="[0-9]{10}" placeholder="輸入10位數字" required ><font color="red">*填寫後不可更改</font></p>
-     <p>信箱: <input type="text" name="m_mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ></p>
-     <p>性別: <input type="radio" name="gender" value="male" required>男
-             <input type="radio" name="gender" value="female" required>女    </p>   
+<!--      <p>姓名: <input type="text" name="name" placeholder="請輸入中文姓名" required autofocus><font color="red">*填寫後不可更改</font></p> -->
+     <p>暱稱: <input type="text" name="nickname"  required autofocus></p>
+<!--      <p>生日: <input type="date" name="birthday" required ><font color="red">*填寫後不可更改</font></p> -->
+<!--      <p>手機: <input type="text" name="phone_num"pattern="[0-9]{10}" placeholder="輸入10位數字" required ><font color="red">*填寫後不可更改</font></p> -->
+<!--      <p>信箱: <input type="text" name="m_mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ></p> -->
+<!--      <p>性別: <input type="radio" name="gender" value="male" required>男 -->
+<!--              <input type="radio" name="gender" value="female" required>女    </p>    -->
      <p>年收入: <select name="income">
               <option value="30under">36萬以下</option>
               <option value="36-50">36萬-50萬</option>
