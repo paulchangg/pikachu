@@ -2,6 +2,8 @@ package member.controller;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import init.GlobalService;
 import member.model.MemberBean;
@@ -16,7 +18,7 @@ public class InsertMember {
 //		
 //		ms.saveMember(mb);
 //		System.out.println(ms.idExists("test"));
-		MemberBean mb = ms.queryMember("Test");
+//		MemberBean mb = ms.queryMember("Test");
 //		System.out.println(mb.toString());
 //		System.out.println(ms.updatePassword("test@gmail.com", "123456789"));
 //		System.out.println(ms.emailExists("test@gmail.com"));
@@ -25,7 +27,15 @@ public class InsertMember {
 //		System.out.println(GlobalService.getRandomPassword());
 //		ms.updateNickname(mb, "TTTTTTT");
 //		ms.updateIncome(mb, "1000000001");
-		ms.changePassword(mb, "Do!ng1234");
+//		ms.changePassword(mb, "Do!ng1234");
+		String d = "2020/02/01";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+		try {
+			System.out.println(sdf.format(sdf1.parse(d)));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

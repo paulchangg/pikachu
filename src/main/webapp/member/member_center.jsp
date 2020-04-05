@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="/css/common/member_center.css" rel="stylesheet" type="text/css">
+    <link href="../css/common/member_center.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員中心</title>
-    <script src="jquery-3.4.1.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 </head>
 <body>
@@ -17,7 +17,7 @@
 
     <div class="personal"><h3>個人訊息</h3>
         <div class="human" id="MemberCenter-img"><!--顯示會員的圖像id-->
-            <img src="/images/common/membephoto_0.png" width="150" height="150" >
+            <img src="../images/common/membephoto_0.png" width="150" height="150" >
     </div> 
 
         <div class="personaltext"><!--共有4個id-->

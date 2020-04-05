@@ -46,8 +46,21 @@ public class SendEmail extends Thread {
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(from));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-			message.setSubject("PIKACHU : update passowrd successfully");
-			message.setText("This is your new password : [ " + newPW + " ] !!!");
+			message.setSubject("PIKACHU : update password successfully");
+			StringBuilder text = new StringBuilder();
+			text.append("<br>");
+			text.append("<p>Hello PIKACHU member</p>");
+			text.append("<br>");
+			text.append("<p>************************************************************</p>\n");
+			text.append("<p>This is your new password : [ &nbsp;" + newPW + "&nbsp; ]</p>\n");
+			text.append("<p>************************************************************</p>\n");
+			text.append("<p>Please update your password as soon as possible.</p>\n");
+			text.append("<br>");
+			text.append("<p>Best regards</p>");
+			text.append("<p>Your PIKACHU Team</p>");
+			
+			message.setContent(text.toString(), "text/html; charset=UTF-8");
+			
 
 			Transport transport = session.getTransport("smtp");
 			transport.connect(host, port, username, password);

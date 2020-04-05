@@ -1,5 +1,6 @@
 package member.service.impl;
 
+import java.sql.Blob;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -13,6 +14,7 @@ import javax.mail.internet.MimeMessage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
 
 import init.HibernateUtils;
 import init.SendEmail;
@@ -199,119 +201,67 @@ public class MemberServiceImpl implements MemberService {
 //	}
 	
 	@Override
-	public boolean sendMail(String email, String newPW) {
-		boolean r = false;
+	public void sendMail(String email, String newPW) {
 		SendEmail se = new SendEmail(email, newPW);
 		se.start();			
-		r = true;
+	}
+
+
+
+	@Override
+	public void changePassword(MemberBean mb) {
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			dao.changePassword(mb);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+	}
+
+	@Override
+	public int updateM_img(MemberBean mb, Blob m_img) {
+		int r = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			r = dao.updateM_img(mb, m_img);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+
+		return r;
+	}
+
+	@Override
+	public void updateMember(MemberBean mb) {
+		Session session = factory.getCurrentSession();
+		Transaction tx =null;
+		try {
+			tx = session.beginTransaction();
+            dao.updateMember(mb);
+			tx.commit();
+		} catch(Exception e){
+			if (tx != null) tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return;
 		
-		return r;
-	}
-
-
-	@Override
-	public int updateNickname(MemberBean mb, String nickname) {
-		int r = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction();
-			r = dao.updateNickname(mb, nickname);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
-		return r;
-	}
-
-	@Override
-	public int updateIncome(MemberBean mb, String income) {
-		int r = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction();
-			r = dao.updateIncome(mb, income);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
-		return r;
-	}
-
-	@Override
-	public int updateCity(MemberBean mb, String city) {
-		int r = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction();
-			r = dao.updateCity(mb, city);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
-		return r;
-	}
-
-	@Override
-	public int updateEducation(MemberBean mb, String education) {
-		int r = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction();
-			r = dao.updateEducation(mb, education);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
-		return r;
-	}
-
-	@Override
-	public int changePassword(MemberBean mb, String newPW) {
-		int r = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction();
-			r = dao.changePassword(mb, newPW);
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException();
-		}
-
-		return r;
 	}
 
 }

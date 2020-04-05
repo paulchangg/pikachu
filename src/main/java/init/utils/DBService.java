@@ -28,7 +28,7 @@ public class DBService {
 			+ ":3306/pikachuTestDB?useUnicode=yes&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Taipei&allowPublicKeyRetrieval=true";
 
 	public static final String USERID_MySQL = "root";
-	public static final String PSWD_MySQL = "qazwsx12";
+	public static final String PSWD_MySQL = "404631060";
 
 	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	
@@ -62,16 +62,16 @@ public class DBService {
 	private static final String CREATE_members_MySQL = " CREATE TABLE members " 
 			+ "(m_id VARCHAR(100) NOT NULL,"
 			+ " m_password VARCHAR(100) NOT NULL,"
-			+ " name VARCHAR(100), " 
-			+ " phone_num VARCHAR(100), "
+			+ " name VARCHAR(100) NOT NULL," 
+			+ " phone_num VARCHAR(100) NOT NULL,"
 			+ " m_mail VARCHAR(100) NOT NULL," 
-			+ " nickname VARCHAR(100), "
-			+ " birthday DATE, " 
-			+ " gender VARCHAR(100), "
-			+ " m_img BLOB, " 
-			+ " income INT(11), "
+			+ " nickname VARCHAR(100),"
+			+ " birthday DATE NOT NULL," 
+			+ " gender VARCHAR(100) NOT NULL,"
+			+ " m_img BLOB," 
+			+ " income VARCHAR(100), "
 			+ " city VARCHAR(100), " 
-			+ " education VARCHAR(100), "
+			+ " education VARCHAR(100) , "
 			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id), "
 			+ "	CONSTRAINT members_m_mail_UK UNIQUE(m_mail)" 
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
