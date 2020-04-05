@@ -48,39 +48,57 @@
  </div>
 
 
-  <!-- 上方卡片列----------------------------------------------> 
+  <!-- 上方卡片 x3 ----------超連結待補------------------------------------> 
   <div class="card-group">
     <div class="card">
       <img src="./images/slider/slide_pic1.jpg" class="card-img-top" alt="..." height="340px">
       <div class="card-body">
-        <h5 class="card-title">最新熱門景點</h5>
-        <span class="card-text">文章內文</span>
-        <p class="card-text"><small class="text-muted">3月20日發布</small></p>
+        <h5 class="article_title">
+          <a href="#">
+             最新熱門景點
+          </a>
+        </h5>
+        <span class="article_content">文章內文</span>
+        <p class="post_Time"><small class="text-info" style="font-size: small;">3月20日發布</small></p>
       </div>
     </div>
     <div class="card">
       <img src="./images/slider/slide_pic2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">台新卡友來來來</h5>
-        <span class="card-text">文章內文</span>
-        <p class="card-text"><small class="text-muted">3月25日發布</small></p>
+        <h5 class="article_title">
+          <a href="#">
+            台新卡友來來來  
+          </a>    
+        </h5>
+        <span class="article_content">文章內文</span>
+        <p class="post_Time"><small class="text-info" style="font-size: small;">3月25日發布</small></p>
       </div>
     </div>
     <div class="card">
       <img src="./images/slider/slide_pic4.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">神卡分享</h5>
-        <span class="card-text">文章內文</span>
-        <p class="card-text"><small class="text-muted">2月28日發布</small></p>
+        <h5 class="article_title">
+          <a href="#">
+            神卡分享
+          </a>
+        </h5>
+        <span class="article_content">文章內文</span>
+        <p class="post_Time"><small class="text-info" style="font-size: small;">2月28日發布</small></p>
       </div>
     </div>
   </div>
       
   
 
+  <!-- 這一列------要放甚麼???-------------------------------->
+  <div class="second_line">
+    <span class="friendshipforum"></span>
+  </div>
 
-  <!-- 左側列表------------------------------------------->
-  <div class="container">
+    <!-- 中央文章大區塊範圍-------------------------------------->
+  <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
+    <!-- 左側看板列表------------------------------------------->
+  <div class="container-fluid">
     <div class="leftNav" style="width: 100px;">  
       <div class="btn-group-vertical" id="forum_btn">
         <a href="#">
@@ -102,52 +120,49 @@
     </div>
   </div>
 
-  <!-- 這一列------要放甚麼???-------------------------------->
-  <div class="second_line">
-    <span class="friendshipforum"></span>
-  </div>
+<!-- 內文上方兩個標籤列--------------------->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">全部</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">追蹤</a>
+  </li>
+</ul>
 
-    <!-- 中央文章大區塊-------------------------------------->
-  <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
-    <!-- 上面標籤 -->
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">全部</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">追蹤</a>
-      </li>
-    </ul>
-
-    <!-- 卡片1 ----------------------------------->
+    <!-- 卡片文章1----------超連結待補------------------------->
     <div class="container" style="margin-bottom: 20px;">
       <div class="card" style="margin-top: 1%;">
-        <div class="row ">
+        <div class="row">
           <div class="col-sm-10">
             <div class="card-block">
               <div class="comments-container">
                 <ul id="comments-list" class="comments-list">
                   <li>
                     <div class="comment-main-level">
-                      <!-- 發文者頭像 -------------------------->
+                      <!-- 發文者頭像--------------------------->
                       <div class="comment-avatar"><img src="./images/dog.jpg" alt=""></div>
                       <div class="comment-box">
                         <div class="comment-head">
-                          <h6 class="comment-name"><a href="#">黑卡卡王</a></h6>
-                          <span>3月30日 23:12</span>
+                          <!--文章主題類別------------------------>
+                          <span class="subject">信用卡</span>
+                          <!-- 發文者id -------------------------->
+                          <h6 class="article_m_id"><a href="#">黑卡卡王</a></h6>
+                          <!-- 發文日期-------------------------->
+                          <span class="post_Time">3月30日 23:12</span>
                           <i class="fa fa-reply"></i>
                           <i class="fa fa-archive" aria-hidden="true"></i>
-                          
+                         <div class="popularity">
                           <i class="fa fa-heart"></i>
-                          
+                          </div>
                         </div>
-                        <div class="comment-content" style="font-weight: 900;">
-                          值得擁有之卡片特集 
+                        <div class="article_title">
+                          <a href="#">值得擁有之卡片特集</a>
                         </div>
-                        <div class="comment-content">
-                          <p>點讚才給看</p>
-                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">202</span>
+                        <div class="article_content">
+                          <p style="padding-bottom: 10px;">點讚才給看</p>
+                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
+                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">202</span>
                         </div>
                       </div>
                     </div>
@@ -156,12 +171,12 @@
           </div>
           <!-- 右側照片 ------------------------------->
           <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="d-block w-5 h-5" src="./images/fun.jpg" style="width: 170px; height: 120px;" />
+            <img class="articleimage" src="./images/fun.jpg" style="width: 165px; height: 130px;" />
           </div>
         </div>
       </div>
 
-      <!-- 卡片2 ---------------------------------------->
+      <!-- 卡片文章2 ---------超連結待補------------------------------->
       <div class="card" style="margin-top: 1%;">
         <div class="row ">
           <div class="col-sm-10">
@@ -174,19 +189,23 @@
                       <div class="comment-avatar"><img src="/forum_vscode/images/girl_icon.png" alt=""></div>
                       <div class="comment-box">
                         <div class="comment-head">
-                          <h6 class="comment-name"><a href="#">小瓜呆</a></h6>
-                          <span>3月30日 21:34</span>
+                          <!--文章主題類別------------------------>
+                          <span class="subject">信用卡</span>
+                          <!-- 發文者id -------------------------->
+                          <h6 class="article_m_id"><a href="#">小瓜呆</a></h6>
+                          <!-- 發文日期-------------------------->
+                          <span class="post_Time">3月30日 21:34</span>
                           <i class="fa fa-reply"></i>
                           <i class="fa fa-archive" aria-hidden="true"></i>
                           <i class="fa fa-heart"></i>
                         </div>
-                        <div class="comment-content" style="font-weight: 900;">
-                          富邦不給換卡 
+                        <div class="article_title">
+                          <a href="#">富邦不給換卡</a>
                         </div>
-                        <div class="comment-content">
-                          <p>氣噗噗</p>
-                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">450</span>
+                        <div class="article_content">
+                          <p style="padding-bottom: 10px;">氣噗噗</p>
+                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
+                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">450</span>
                         </div>
                       </div>
                     </div>
@@ -195,12 +214,12 @@
           </div>
           <!-- 右側照片 -------------------------------------->
           <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="d-block w-5 h-5" src="./images/fun2.jpg" style="width: 180px; height: 130px;" />
+            <img class="articleimage" src="./images/fun2.jpg" style="width: 165px; height: 130px;" />
           </div>
         </div>
       </div>
 
-      <!-- 卡片3 ---------------------------------------->
+      <!-- 卡片文章3 ------------超連結待補---------------------------->
       <div class="card" style="margin-top: 1%;">
         <div class="row ">
           <div class="col-sm-10">
@@ -213,19 +232,23 @@
                       <div class="comment-avatar"><img src="./images/spiderman.jpg" alt=""></div>
                       <div class="comment-box">
                         <div class="comment-head">
-                          <h6 class="comment-name"><a href="#">我是蜘蛛人</a></h6>
-                          <span>3月30日 21:00</span>
+                          <!--文章主題類別------------------------>
+                          <span class="subject">信用卡</span>
+                          <!-- 發文者id -------------------------->
+                          <h6 class="article_m_id"><a href="#">我是蜘蛛人</a></h6>
+                          <!-- 發文日期-------------------------->
+                          <span class="post_Time">3月30日 21:00</span>
                           <i class="fa fa-reply"></i>
                           <i class="fa fa-archive" aria-hidden="true"></i>
                           <i class="fa fa-heart"></i>
                         </div>
-                        <div class="comment-content" style="font-weight: 900;">
-                          新光好還是台新好？ 
+                        <div class="article_title">
+                          <a href="#">新光好還是台新好？</a> 
                         </div>
-                        <div class="comment-content">
-                          <p>請給分</p>
-                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">361</span>
+                        <div class="article_content">
+                          <p style="padding-bottom: 10px;">請給分</p>
+                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
+                          <span class="reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">361</span>
                         </div>
                       </div>
                     </div>
@@ -234,34 +257,17 @@
           </div>
           <!-- 右側照片 -------------------------------------->
           <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="d-block w-5 h-5" src="./images/forum_pic.jpg" style="width: 180px; height: 130px;" />
+            <img class="articleimage" src="./images/forum_pic.jpg" style="width: 165px; height: 130px;" />
           </div>
         </div>
       </div>
-    
-
-      <!-- <div class="card" style="margin-top: 1%;">
-        <div class="row ">
-          <div class="col-sm-9">
-            <div class="card-block">
-              <p>Wetgple text to build your own card.</p>
-              <p>Change around the content for awsomenes</p>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <img
-              class="d-block w-5 h-5" src="https://picsum.photos/150?image=380" alt=""/>
-           </div>
-        </div>
-      </div> -->
-     
     </div>
    </div>
  </div>
 </div>
 
     
-  <!-- 分頁 ---------------------------->
+  <!-- 下方頁碼分頁 ---------------------------->
   <nav aria-label="Page navigation example" style="padding-top: 10px;">
     <ul class="pagination justify-content-center">
       <li class="page-item disabled">
