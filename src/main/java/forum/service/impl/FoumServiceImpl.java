@@ -18,6 +18,8 @@ import init.HibernateUtils;
 
 public class FoumServiceImpl implements Serializable,IFoumService {
 
+	
+
 	private static final long serialVersionUID = 1L;
 
 	IForumDao dao;
@@ -29,7 +31,7 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 
 	}
 	@Override
-	public int addowner_m_id(FoumBean owner_m_id) {
+	public int addowner_m_id(String owner_m_id) {
 		
 		
 		int result = 0;
@@ -72,15 +74,18 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 		return result;
 	}
 
+	
+
+	
 	@Override
-	public int insertFname(FoumBean fname) {
+	public int insertFoum(FoumBean forum) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.insertFname(fname);
+			result = dao.insertFoum(forum);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -96,13 +101,13 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 	}
 
 	@Override
-	public int updateFname(FoumBean f_id, FoumBean fname) {
+	public int updateFoumBean(int f_id, FoumBean forum) {
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.updateFname(f_id, fname);
+			result = dao.updateFoumBean(f_id, forum);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -117,7 +122,7 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 	}
 
 	@Override
-	public int DeleteFname(FoumBean f_id) {
+	public int DeleteFname(int f_id) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
@@ -140,7 +145,7 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 	}
 
 	@Override
-	public int DeleteFname_activityId(FoumBean f_id, Launch_activityBean article_Id) {
+	public int DeleteFname_activityId(int f_id, int article_Id) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
@@ -163,7 +168,7 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 	}
 
 	@Override
-	public int DeleteFname_activityId_Res_id(FoumBean f_id, Launch_activityBean article_Id, ResponserBean res_id) {
+	public int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();

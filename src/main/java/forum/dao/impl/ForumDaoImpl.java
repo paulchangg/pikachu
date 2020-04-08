@@ -18,8 +18,7 @@ import init.HibernateUtils;
 //2.本類別負責讀取資料庫內forum表格內全部的紀錄(不分管理員member)
 //3.本類別負責讀取資料庫內forum表格內單筆的紀錄(個別管理員(owner_m_id)的資料)
 
-public class ForumDaoImpl implements Serializable, IForumDao{
-	
+public class ForumDaoImpl implements Serializable, IForumDao {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,15 +30,16 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 	public ForumDaoImpl() {
 		factory = HibernateUtils.getSessionFactory();
 	}
-	//新增管理員owner_m_id到forum表格
-		@Override
-		public int addowner_m_id(FoumBean owner_m_id) {
-			int n = 0;
-			Session session = factory.getCurrentSession();
-			session.save(owner_m_id);
-			n++;
-			return n;
-		}
+
+	// 新增管理員owner_m_id到forum表格
+	@Override
+	public int addowner_m_id(String owner_m_id) {
+		int n = 0;
+		Session session = factory.getCurrentSession();
+		session.save(owner_m_id);
+		n++;
+		return n;
+	}
 	// 判斷id是否是管理員的owner_m_id 如果是，傳回true，表示此id可以行使管理員權力
 	// 否則傳回false，表示此id沒有管理員權限。
 
@@ -49,27 +49,26 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 		String hql = "FROM FoumBean WHERE owner_m_id = :omid ";
 		Session session = factory.getCurrentSession();
 
-	
-			try {
-				FoumBean bean = (FoumBean) session.createQuery(hql).setParameter("omid", id).getResultList();
-				if (bean != null) {
-					exist = true;//就是 有找到管理員的id
-				}else {
-					exist = false;//就是  一般會員
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
+		try {
+			FoumBean bean = (FoumBean) session.createQuery(hql).setParameter("omid", id).getResultList();
+			if (bean != null) {
+				exist = true;// 就是 有找到管理員的id
+			} else {
+				exist = false;// 就是 一般會員
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return exist;
 
 	}
 
-	// 1.新增版名到forum表格
+	// 1.新增版名到forum表格，所有資訊
 	@Override
-	public int insertFname(FoumBean fname) {
+	public int insertFoum(FoumBean forum) {
 		int n = 0;
 		Session session = factory.getCurrentSession();
-		session.save(fname);
+		session.save(forum);
 		n++;
 		return n;
 	}
@@ -77,21 +76,21 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 	// 1-2更新版名到forum表格
 
 	@Override
-	public int updateFname(FoumBean f_id,FoumBean fname) {
+	public int updateFoumBean(int f_id, FoumBean forum) {
 		int result = 0;
 
-		String hql = "UPDATE FoumBean  SET fname  =:fname" + "WHERE f_id = :fid";
+		String hql = "UPDATE FoumBean  WHERE f_id = :fid";
 
 		Session session = factory.getCurrentSession();
 
-		result = session.createQuery(hql).setParameter("fid", f_id).setParameter("fname", fname).executeUpdate();
+		result = session.createQuery(hql).setParameter("fid", f_id).executeUpdate();
 
 		return result;
 	}
 
 	// 1-3刪除看板
 	@Override
-	public int DeleteFname(FoumBean f_id) {
+	public int DeleteFname(int f_id) {
 		int result = 0;
 
 		String hql = "DELETE FORM FoumBean  WHERE f_id = :fid";
@@ -105,7 +104,7 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 
 	// 1-4刪除看板內特定文章
 	@Override
-	public int DeleteFname_activityId(FoumBean f_id, Launch_activityBean article_Id) {
+	public int DeleteFname_activityId(int f_id, int article_Id) {
 
 		FoumBean fob = null;
 		int result = 0;
@@ -128,8 +127,8 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 	// 1-5刪除看板內特定文章的回覆
 
 	@Override
-	
-	public int DeleteFname_activityId_Res_id(FoumBean f_id, Launch_activityBean article_Id, ResponserBean res_id) {
+
+	public int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id) {
 
 		FoumBean fob1 = null;
 		Launch_activityBean lab1 = null;
@@ -146,7 +145,7 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 			fob1 = (FoumBean) session.createQuery(hql1).setParameter("fid", f_id).getSingleResult();
 			lab1 = (Launch_activityBean) session.createQuery(hql2).setParameter("articleid", article_Id)
 					.getSingleResult();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -233,6 +232,5 @@ public class ForumDaoImpl implements Serializable, IForumDao{
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
-	
-	
+
 }

@@ -59,7 +59,7 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	// 1-2更新某一個文章 所以用id
 
 	@Override
-	public int updateArticle(Launch_activityBean article_Id) {
+	public int updateArticle(int article_Id,Launch_activityBean article) {
 
 		int result = 0;
 
@@ -76,7 +76,7 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	// 1-3刪某一個文章 所以用id
 
 	@Override
-	public int DeleteArticle(Launch_activityBean article_Id) {
+	public int DeleteArticle(int article_Id) {
 
 		int result = 0;
 
@@ -92,10 +92,10 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	// 透過id找到發布的文章
 
 	@Override
-	public Launch_activityBean getArticle_Id(int articleId) {
+	public Launch_activityBean getArticle_Id(int article_Id) {
 		Launch_activityBean article = null;
 		Session session = factory.getCurrentSession();
-		article = session.get(Launch_activityBean.class, articleId);
+		article = session.get(Launch_activityBean.class, article_Id);
 		return article;
 	}
 

@@ -10,11 +10,11 @@ public interface ILaunch_activityDao {
 	// 1.新增一筆文章到launch_activity表格
 	void insertArticle(Launch_activityBean article);
 
-	int updateArticle(Launch_activityBean article_Id);
+	int updateArticle(int article_Id,Launch_activityBean article);
 
-	int DeleteArticle(Launch_activityBean article_Id);
+	int DeleteArticle(int article_Id);
 
-	Launch_activityBean getArticle_Id(int articleId);
+	Launch_activityBean getArticle_Id(int article_Id);
 
 
 

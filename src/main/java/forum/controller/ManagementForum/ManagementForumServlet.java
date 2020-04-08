@@ -1,4 +1,4 @@
-package forum.controller;
+package forum.controller.ManagementForum;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

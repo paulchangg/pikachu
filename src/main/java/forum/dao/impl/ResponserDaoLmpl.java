@@ -28,7 +28,7 @@ public class ResponserDaoLmpl implements Serializable,IResponserDao {
 	}
 	//1.新增某一個文章的回覆文
 	@Override
-	public String insertRescontent(Launch_activityBean article_Id,ResponserBean res_content) {
+	public String insertRescontent(int article_Id,ResponserBean responser) {
 		
 		Launch_activityBean lab = null;
 		
@@ -41,7 +41,7 @@ public class ResponserDaoLmpl implements Serializable,IResponserDao {
 		lab = (Launch_activityBean) session.createQuery(hq1)
 			   .setParameter("articleId", article_Id).getSingleResult();
 		
-		result=	(String) session.save(res_content);
+		result=	(String) session.save(responser);
 		
 		return result;
 	}
@@ -60,7 +60,7 @@ public class ResponserDaoLmpl implements Serializable,IResponserDao {
 	// 1-2更新某一個文章的回覆文
 
 	@Override
-	public int updateArticle(Launch_activityBean article_Id,ResponserBean res_id,ResponserBean res_content) {
+	public int updateArticle(int article_Id,int res_id,ResponserBean responser) {
 
 		int result = 0;
 		
@@ -69,14 +69,14 @@ public class ResponserDaoLmpl implements Serializable,IResponserDao {
 		String hq1 = "FROM Launch_activityBean WHERE article_Id = :articleId";
 		
 		
-		String hq2 = "UPDATE ResponserBean  SET res_content  =:rescontent" + "WHERE res_id = :resid";
+		String hq2 = "UPDATE ResponserBean  WHERE res_id = :resid";
 
 		Session session = factory.getCurrentSession();
 		
 		lab = (Launch_activityBean) session.createQuery(hq1)
 				.setParameter("articleId", article_Id).getSingleResult();
 		
-		result = session.createQuery(hq2).setParameter("resid", res_id).setParameter("rescontent", res_content).executeUpdate();
+		result = session.createQuery(hq2).setParameter("resid", res_id).executeUpdate();
 
 		return result;
 	}
@@ -84,7 +84,7 @@ public class ResponserDaoLmpl implements Serializable,IResponserDao {
 	// 1-3刪除某一個文章的回覆文
 	
 	@Override
-	public int DeleteArticle(Launch_activityBean article_Id,ResponserBean res_id) {
+	public int DeleteArticle(int article_Id,int res_id) {
 		
 		Launch_activityBean lab = null;
 		

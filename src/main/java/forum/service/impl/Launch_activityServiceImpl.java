@@ -70,14 +70,14 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	}
 
 	@Override
-	public int updateArticle(Launch_activityBean article_Id) {
+	public int updateArticle(int article_Id,Launch_activityBean article) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.updateArticle(article_Id);
+			result = dao.updateArticle(article_Id, article);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -93,7 +93,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	}
 
 	@Override
-	public int DeleteArticle(Launch_activityBean article_Id) {
+	public int DeleteArticle(int article_Id) {
 		
 		int result = 0;
 		Session session = factory.getCurrentSession();
@@ -116,8 +116,8 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	}
 
 	@Override
-	public Launch_activityBean getArticle_Id(int articleId) {
-		return dao.getArticle_Id(articleId);
+	public Launch_activityBean getArticle_Id(int article_Id) {
+		return dao.getArticle_Id(article_Id);
 	}
 
 	

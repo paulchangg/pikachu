@@ -9,20 +9,20 @@ import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 
 public interface IFoumService {
-	int addowner_m_id(FoumBean owner_m_id);
+	int addowner_m_id(String owner_m_id);
 	
 	
 	boolean checkid(String id);
 
-	int insertFname(FoumBean fname);
+	int insertFoum(FoumBean forum);
 
-	int updateFname(FoumBean f_id, FoumBean fname);
+	int updateFoumBean(int f_id, FoumBean forum);
 
-	int DeleteFname(FoumBean f_id);
+	int DeleteFname(int f_id);
 
-	int DeleteFname_activityId(FoumBean f_id, Launch_activityBean article_Id);
+	int DeleteFname_activityId(int f_id, int article_Id);
 
-	int DeleteFname_activityId_Res_id(FoumBean f_id, Launch_activityBean article_Id, ResponserBean res_id);
+	int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id);
 
 	FoumBean getF_id(int f_id);
 

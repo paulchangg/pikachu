@@ -1,4 +1,4 @@
-package forum.controller;
+package forum.controller.Launch_activity;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,11 +137,14 @@ public class Launch_activityServlet extends HttpServlet {
 		if (article_title == null | article_title.trim().length() <= 11) {
 			errorMsg.put("TitleError", "標題不能少於10個字");
 		}
+		if (article_content == null | article_content.trim().length() <= 101) {
+			errorMsg.put("ContentError", "內容不能少於100個字");
+		}
 		// 如果有錯誤
 		if (!errorMsg.isEmpty()) {
 //	
 			// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
-			RequestDispatcher rd = request.getRequestDispatcher("Launch_activityServlet.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
 			return;
 		}
@@ -172,7 +175,7 @@ public class Launch_activityServlet extends HttpServlet {
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);
 
-			RequestDispatcher rd = request.getRequestDispatcher("Launch_activityServlet.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
 			return;
 		} catch (Exception e) {

@@ -9,23 +9,23 @@ import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 
 public interface IForumDao {
-	int addowner_m_id(FoumBean owner_m_id);
+	int addowner_m_id(String owner_m_id);
 
 	boolean checkid(String id);
 
 	// 1.新增版名到forum表格
-	int insertFname(FoumBean fname);
+	int insertFoum(FoumBean forum);
 
 	// 1-2更新版名到forum表格
-	int updateFname(FoumBean f_id, FoumBean fname);
+	int updateFoumBean(int f_id, FoumBean forum);
 
 	// 1-3刪除看板
-	int DeleteFname(FoumBean f_id);
+	int DeleteFname(int f_id);
 
 	// 1-4刪除看板內特定文章
-	int DeleteFname_activityId(FoumBean f_id, Launch_activityBean article_Id);
+	int DeleteFname_activityId(int f_id, int article_Id);
 
-	int DeleteFname_activityId_Res_id(FoumBean f_id, Launch_activityBean article_Id, ResponserBean res_id);
+	int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id);
 
 	// 透過id(流水號)找到版名
 	FoumBean getF_id(int f_id);
