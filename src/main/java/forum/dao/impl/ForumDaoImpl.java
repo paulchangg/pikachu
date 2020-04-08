@@ -18,7 +18,9 @@ import init.HibernateUtils;
 //2.本類別負責讀取資料庫內forum表格內全部的紀錄(不分管理員member)
 //3.本類別負責讀取資料庫內forum表格內單筆的紀錄(個別管理員(owner_m_id)的資料)
 
-public class ForumDaoImpl implements Serializable, IForumDao {
+public class ForumDaoImpl implements Serializable, IForumDao{
+	
+
 	private static final long serialVersionUID = 1L;
 
 	SessionFactory factory;
@@ -29,7 +31,15 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 	public ForumDaoImpl() {
 		factory = HibernateUtils.getSessionFactory();
 	}
-
+	//新增管理員owner_m_id到forum表格
+		@Override
+		public int addowner_m_id(FoumBean owner_m_id) {
+			int n = 0;
+			Session session = factory.getCurrentSession();
+			session.save(owner_m_id);
+			n++;
+			return n;
+		}
 	// 判斷id是否是管理員的owner_m_id 如果是，傳回true，表示此id可以行使管理員權力
 	// 否則傳回false，表示此id沒有管理員權限。
 
@@ -214,4 +224,15 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 		throw new RuntimeException("Launch_activityBeane類別不用實作此方法");
 	}
 
+	@Override
+	public String getFname() {
+		return fname;
+	}
+
+	@Override
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+	
+	
 }

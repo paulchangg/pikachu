@@ -30,7 +30,7 @@
 		<mapping class="listProduct.model.ProductBean"></mapping>
 		<mapping class="forum.model.FoumBean"></mapping>
 		<mapping class="forum.model.Launch_activityBean"></mapping>
-<!-- 		<mapping class="forum.model.ResponserBean"></mapping> -->
+		<mapping class="forum.model.ResponserBean"></mapping>
 		
 	</session-factory>
 </hibernate-configuration>

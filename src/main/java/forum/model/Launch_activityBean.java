@@ -1,5 +1,6 @@
 package forum.model;
 
+import java.sql.Blob;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -18,9 +19,17 @@ import javax.persistence.Table;
 @Table(name = "launch_activity")
 public class Launch_activityBean {
 
-	
+	public Blob getArticleimage() {
+		return articleimage;
+	}
 
-	
+
+
+	public void setArticleimage(Blob articleimage) {
+		this.articleimage = articleimage;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +39,7 @@ public class Launch_activityBean {
 	private String article_title;
 	private String article_content;
 
+	private Blob  articleimage;
 	private String subject;
 	private String location;
 	private Date post_Time;// 發布文章的時間
@@ -53,14 +63,17 @@ public class Launch_activityBean {
 
 	}
 
+	
+
 	public Launch_activityBean(Integer article_Id, String article_m_id, String article_title, String article_content,
-			String subject, String location, Date post_Time, Date updateTime, Date startTime, Date endTime,
-			Integer popularity, FoumBean foumBean, Set<ResponserBean> items) {
+			Blob articleimage, String subject, String location, Date post_Time, Date updateTime, Date startTime,
+			Date endTime, Integer popularity, FoumBean foumBean, Set<ResponserBean> items) {
 		super();
 		this.article_Id = article_Id;
 		this.article_m_id = article_m_id;
 		this.article_title = article_title;
 		this.article_content = article_content;
+		this.articleimage = articleimage;
 		this.subject = subject;
 		this.location = location;
 		this.post_Time = post_Time;
@@ -71,6 +84,8 @@ public class Launch_activityBean {
 		this.foumBean = foumBean;
 		this.items = items;
 	}
+
+
 
 	public Integer getArticle_Id() {
 		return article_Id;
@@ -175,6 +190,8 @@ public class Launch_activityBean {
 	public void setItems(Set<ResponserBean> items) {
 		this.items = items;
 	}
+	
+	
 	
 	@Override
 	public String toString() {

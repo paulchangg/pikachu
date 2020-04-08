@@ -6,7 +6,7 @@ import java.util.List;
 import forum.model.Launch_activityBean;
 
 public interface ILaunch_activityDao {
-
+//	boolean idExists(Launch_activityBean article_Id);
 	// 1.新增一筆文章到launch_activity表格
 	void insertArticle(Launch_activityBean article);
 
@@ -25,6 +25,8 @@ public interface ILaunch_activityDao {
 	List<Launch_activityBean> getAllArticles();
 
 	void setConnection(Connection con);
+
+	
 
 
 }

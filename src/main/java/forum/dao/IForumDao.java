@@ -9,13 +9,15 @@ import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 
 public interface IForumDao {
+	int addowner_m_id(FoumBean owner_m_id);
 
 	boolean checkid(String id);
 
 	// 1.新增版名到forum表格
 	int insertFname(FoumBean fname);
+
 	// 1-2更新版名到forum表格
-	int updateFname(FoumBean f_id,FoumBean fname);
+	int updateFname(FoumBean f_id, FoumBean fname);
 
 	// 1-3刪除看板
 	int DeleteFname(FoumBean f_id);
@@ -44,6 +46,8 @@ public interface IForumDao {
 
 	void setConnection(Connection con);
 
-	
+	String getFname();
+
+	void setFname(String fname);
 
 }

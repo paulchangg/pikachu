@@ -2,10 +2,17 @@ package member.model;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import forum.model.FoumBean;
 
 @Entity
 @Table(name="members")
@@ -23,6 +30,9 @@ public class MemberBean {
 	String income;
 	String city;
 	String education;
+	
+	private Set<FoumBean> foumBean = new LinkedHashSet<>();
+
 	
 	public MemberBean() {
 		super();
@@ -44,6 +54,16 @@ public class MemberBean {
 		this.city = city;
 		this.education = education;
 	}
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="fk_owner_m_id",referencedColumnName = "m_id")
+	public Set<FoumBean>getFoumBeanAnno(){
+		return foumBean;}
+	
+	public void setFoumBeanAnno(Set<FoumBean> foumBean) {
+		this.foumBean = foumBean;
+	}
+	
 	
 	public String getM_id() {
 		return m_id;

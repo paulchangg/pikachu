@@ -8,21 +8,13 @@ import forum.model.ResponserBean;
 
 public interface IResponserService {
 
-	String insertRescontent(Launch_activityBean article_Id,ResponserBean res_content);
-
-	int getRes_id();
-
-	void setRes_id(int res_id);
+	String insertRescontent(Launch_activityBean article_Id, ResponserBean res_content);
 
 	ResponserBean getRes_id(int res_id);
 
-	int updateArticle(Launch_activityBean article_Id,ResponserBean res_id,ResponserBean res_content);
+	int updateArticle(Launch_activityBean article_Id, ResponserBean res_id, ResponserBean res_content);
 
-	int DeleteArticle(Launch_activityBean article_Id,ResponserBean res_id);
-
-	String getRes_m_id();
-
-	void setRes_m_id(String res_m_id);
+	int DeleteArticle(Launch_activityBean article_Id, ResponserBean res_id);
 
 	List<ResponserBean> getAllContent();
 

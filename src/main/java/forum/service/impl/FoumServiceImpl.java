@@ -3,7 +3,6 @@ package forum.service.impl;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,7 +16,7 @@ import forum.model.ResponserBean;
 import forum.service.IFoumService;
 import init.HibernateUtils;
 
-public class FoumServiceImpl implements Serializable, IFoumService {
+public class FoumServiceImpl implements Serializable,IFoumService {
 
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +28,29 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 		factory = HibernateUtils.getSessionFactory();
 
 	}
+	@Override
+	public int addowner_m_id(FoumBean owner_m_id) {
+		
+		
+		int result = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			result = dao.addowner_m_id(owner_m_id);
 
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return result;
+		
+	}
 	@Override
 	public boolean checkid(String id) {
 		boolean result = false;
@@ -237,6 +258,18 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 	@Override
 	public void setConnection(Connection con) {
 		dao.setConnection(con);
+	}
+
+	@Override
+	public String getFname() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFname(String fname) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

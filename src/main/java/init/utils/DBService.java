@@ -30,7 +30,7 @@ public class DBService {
 	public static final String USERID_MySQL = "root";
 	public static final String PSWD_MySQL = "qazwsx12";
 
-	private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
+private static final String DROP_members_MySQL = "DROP Table IF EXISTS members ";
 	
 
 	private static final String DROP_cards_MySQL = "DROP Table IF EXISTS cards ";
@@ -62,16 +62,16 @@ public class DBService {
 	private static final String CREATE_members_MySQL = " CREATE TABLE members " 
 			+ "(m_id VARCHAR(100) NOT NULL,"
 			+ " m_password VARCHAR(100) NOT NULL,"
-			+ " name VARCHAR(100), " 
-			+ " phone_num VARCHAR(100), "
+			+ " name VARCHAR(100) NOT NULL," 
+			+ " phone_num VARCHAR(100) NOT NULL,"
 			+ " m_mail VARCHAR(100) NOT NULL," 
-			+ " nickname VARCHAR(100), "
-			+ " birthday DATE, " 
-			+ " gender VARCHAR(100), "
-			+ " m_img BLOB, " 
-			+ " income INT(11), "
+			+ " nickname VARCHAR(100),"
+			+ " birthday DATE NOT NULL," 
+			+ " gender VARCHAR(100) NOT NULL,"
+			+ " m_img BLOB," 
+			+ " income VARCHAR(100), "
 			+ " city VARCHAR(100), " 
-			+ " education VARCHAR(100), "
+			+ " education VARCHAR(100) , "
 			+ " CONSTRAINT members_m_id_PK PRIMARY KEY(m_id), "
 			+ "	CONSTRAINT members_m_mail_UK UNIQUE(m_mail)" 
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
@@ -161,9 +161,11 @@ public class DBService {
 			  " CREATE TABLE forum "
 			+ "( f_id      		INT(11) NOT NULL  AUTO_INCREMENT, " 
 			+ "  fname      	VARCHAR(255), " 
-			+ "	 startdate    	DATETIME, "
-			+ "  owner_m_id     INT(11), " 
-			+ "  CONSTRAINT forum_f_id_PK PRIMARY KEY(f_id) "
+			+ "	 startdate_datatime    	DATETIME, "
+			+ "	 update_datetime    	DATETIME, "
+			+ "  owner_m_id     VARCHAR(100) NOT NULL, " 
+			+ "  CONSTRAINT forum_f_id_PK PRIMARY KEY(f_id), "
+			+ "  CONSTRAINT forum_owner_m_id_FK FOREIGN KEY(owner_m_id ) REFERENCES members(m_id) "
 			+ " ) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci  ";
 
 	private static final String CREATE_launch_activity_MySQL = "CREATE TABLE launch_activity "
@@ -172,10 +174,12 @@ public class DBService {
 			+ " f_id      			INT(11) NOT NULL, " 
 			+ " article_title       LONGTEXT,"
 			+ "	article_content  	LONGTEXT,"
+			+ "	articleimage  		LONGBLOB,"
 			+ "	subject     		VARCHAR(255),"
 			+ " Location          	VARCHAR(255),"
 			+ "post_Time         	DATETIME,"
 			+ "updateTime       	DATETIME,"
+			+ "startTime       		DATETIME,"
 			+ "endTime           	DATETIME,"
 			+ "popularity        	INT(10),"
 			+ "CONSTRAINT launch_activity_article_Id_PK PRIMARY KEY(article_Id)," 
@@ -188,6 +192,7 @@ public class DBService {
 			+ "(res_id         		INT(10) NOT NULL AUTO_INCREMENT, "
 			+ " res_m_id      		VARCHAR(100) NOT NULL, " 
 			+ " article_Id       	INT(10) NOT NULL, " 
+			+ " postTime   			DATETIME, "
 			+ " updateTime   		DATETIME, "
 			+ " res_content   		LONGTEXT, "
 			+ "CONSTRAINT responser_res_id_PK PRIMARY KEY(res_id),"

@@ -9,7 +9,9 @@ import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 
 public interface IFoumService {
-
+	int addowner_m_id(FoumBean owner_m_id);
+	
+	
 	boolean checkid(String id);
 
 	int insertFname(FoumBean fname);
@@ -37,5 +39,10 @@ public interface IFoumService {
 	List<FoumBean> getOwner_m_id(String owner_m_id);
 
 	void setConnection(Connection con);
+
+	String getFname();
+
+	void setFname(String fname);
+
 
 }

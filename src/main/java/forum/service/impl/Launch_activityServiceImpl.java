@@ -16,6 +16,7 @@ import init.HibernateUtils;
 
 public class Launch_activityServiceImpl implements Serializable, ILaunch_activityService {
 
+
 	private static final long serialVersionUID = 1L;
 
 	ILaunch_activityDao dao;
@@ -27,6 +28,28 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		
 	}
 
+//	@Override
+//	public boolean idExists(Launch_activityBean article_Id) {
+//		
+//		boolean result = false;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.idExists(article_Id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//		
+//		return result;
+//	}
+	
 	@Override
 	public void insertArticle(Launch_activityBean article) {
 		Session session = factory.getCurrentSession();

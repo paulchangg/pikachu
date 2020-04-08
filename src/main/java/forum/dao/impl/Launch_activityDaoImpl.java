@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import forum.dao.ILaunch_activityDao;
+import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
 import init.HibernateUtils;
 
@@ -26,6 +27,26 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 		factory = HibernateUtils.getSessionFactory();
 
 	}
+	
+//	@Override
+//	public boolean idExists(Launch_activityBean article_Id) {
+//		boolean  exist = false;
+//		
+//		String hql = "FROM Launch_activityBean WHERE article_Id = :articleid";
+//		Session session = factory.getCurrentSession();
+//		
+//		try {
+//			Launch_activityBean bean = (Launch_activityBean) session.createQuery(hql).setParameter("articleid", article_Id).getResultList();
+//			if (bean != null) {
+//				exist = true;//就是 有找到管理員的id
+//			}else {
+//				exist = false;//就是  一般會員
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return exist;
+//	}
 
 	// 1.新增一筆文章到launch_activity表格
 	@Override

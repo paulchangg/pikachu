@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import member.model.MemberBean;
+
 @Entity
 @Table(name = "forum")
 public class FoumBean {
@@ -24,7 +26,7 @@ public class FoumBean {
 	private String fname;//版名
 	private Date startdate_datetime;//開版日期
 	private Date update_datetime; // 更新版的日期 資料庫要新增欄位
-	private String owner_m_id;//版主會員
+	private MemberBean owner_m_id;//版主會員
 
 	@OneToMany(mappedBy = "foumBean", cascade = CascadeType.ALL)
 	Set<Launch_activityBean> items = new LinkedHashSet<>();
@@ -33,7 +35,7 @@ public class FoumBean {
 		super();
 	}
 
-	public FoumBean(Integer f_id, String fname, Date startdate_datetime, Date update_datetime, String owner_m_id,
+	public FoumBean(Integer f_id, String fname, Date startdate_datetime, Date update_datetime, MemberBean owner_m_id,
 			Set<Launch_activityBean> items) {
 		super();
 		this.f_id = f_id;
@@ -76,11 +78,13 @@ public class FoumBean {
 		this.update_datetime = update_datetime;
 	}
 
-	public String getOwner_m_id() {
+	
+
+	public MemberBean getOwner_m_id() {
 		return owner_m_id;
 	}
 
-	public void setOwner_m_id(String owner_m_id) {
+	public void setOwner_m_id(MemberBean owner_m_id) {
 		this.owner_m_id = owner_m_id;
 	}
 
