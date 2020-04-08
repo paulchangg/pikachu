@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +21,7 @@ import javax.servlet.http.HttpSession;
 
 import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
+import forum.model.ResponserBean;
 import forum.service.ILaunch_activityService;
 import forum.service.impl.Launch_activityServiceImpl;
 import init.GlobalService;
@@ -31,7 +34,6 @@ public class UpdateDelArticleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -118,6 +120,8 @@ public class UpdateDelArticleServlet extends HttpServlet {
 			article.setSubject(subject);
 			article.setStartTime(starte_Time);
 			article.setEndTime(endTime);
+			Set<ResponserBean> items = new LinkedHashSet<>();
+			article.setItems(items);
 
 			FoumBean foumBean = new FoumBean();
 			article.setFoumBean(foumBean);

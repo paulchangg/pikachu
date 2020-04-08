@@ -164,7 +164,6 @@ public class Launch_activityServlet extends HttpServlet {
 		MemberBean member = new MemberBean();
 
 		FoumBean foumBean = new FoumBean();
-//		Set<ResponserBean> items = new LinkedHashSet<>();
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
 
@@ -179,7 +178,6 @@ public class Launch_activityServlet extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

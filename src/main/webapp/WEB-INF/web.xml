@@ -79,4 +79,24 @@
     <servlet-name>UpdateArticle</servlet-name>
     <url-pattern>/forum/UpdateItem.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ResponserServlet</display-name>
+    <servlet-name>ResponserServlet</servlet-name>
+    <servlet-class>forum.controller.responser.ResponserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResponserServlet</servlet-name>
+    <url-pattern>/forum/ResponserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateDelResponerServlet</display-name>
+    <servlet-name>UpdateDelResponerServlet</servlet-name>
+    <servlet-class>forum.controller.responser.UpdateDelResponerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateDelResponerServlet</servlet-name>
+    <url-pattern>/forum/UpdateDelResponerServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
