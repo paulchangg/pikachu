@@ -67,7 +67,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Launch_activityServlet</servlet-name>
-    <url-pattern>/Launch_activityServlet</url-pattern>
+    <url-pattern>/forum/Launch_activityServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -77,7 +77,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateDelArticleServlet</servlet-name>
-    <url-pattern>/UpdateItem.do</url-pattern>
+    <url-pattern>/forum/UpdateItem.do</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -87,7 +87,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ResponserServlet</servlet-name>
-    <url-pattern>/ResponserServlet</url-pattern>
+    <url-pattern>/forum/ResponserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -97,7 +97,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateDelResponerServlet</servlet-name>
-    <url-pattern>/UpdateDelResponerServlet</url-pattern>
+    <url-pattern>/forumUpdateDelResponerServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
