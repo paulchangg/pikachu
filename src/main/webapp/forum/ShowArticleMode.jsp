@@ -43,6 +43,8 @@ function modify(n,article) {
 </form>
 
 
+
+
 <script type="text/javascript">
 function confirmDelete(n) {
 	if (confirm("確定刪除此文章 ? ") ) {
