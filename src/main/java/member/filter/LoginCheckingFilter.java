@@ -33,10 +33,10 @@ import member.model.MemberBean;
 @WebFilter(
 		urlPatterns = { "/*" }, 
 		initParams = { 
-//				@WebInitParam(name = "mustLogin1", value = "/_03_listBooks/*"), 
+				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
 //				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
-				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
-				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
+//				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
+//				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
 public class LoginCheckingFilter implements Filter {
 	List<String> url = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class LoginCheckingFilter implements Filter {
 					//  需要登入，尚未登入，所以送回登入畫面
 					HttpSession session = req.getSession();
 				    
-					
+					//判斷是否使用已逾時，如果否
 					if ( ! isRequestedSessionIdValid ) {
 						session.setAttribute("timeOut", "使用逾時，請重新登入");
 					} else {

@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import forum.model.FoumBean;
+import forum.model.Launch_activityBean;
+import forum.model.ResponserBean;
 
 @Entity
 @Table(name="members")
@@ -31,8 +33,19 @@ public class MemberBean {
 	String city;
 	String education;
 	
-	private Set<FoumBean> foumBean = new LinkedHashSet<>();
+//	@OneToMany(cascade = {CascadeType.ALL})
+//	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
+//	private Set<FoumBean> foumBean = new LinkedHashSet<>();
 
+//	@OneToMany(cascade = {CascadeType.ALL})
+//	@JoinColumn(name="article_m_id",referencedColumnName = "m_id")
+//	private Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+//	
+//	@OneToMany(cascade = {CascadeType.ALL})
+//	@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
+//	private Set<ResponserBean> responserBean = new LinkedHashSet<>();
+//	
+	
 	
 	public MemberBean() {
 		super();
@@ -55,14 +68,13 @@ public class MemberBean {
 		this.education = education;
 	}
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name="fk_owner_m_id",referencedColumnName = "m_id")
-	public Set<FoumBean>getFoumBeanAnno(){
-		return foumBean;}
 	
-	public void setFoumBeanAnno(Set<FoumBean> foumBean) {
-		this.foumBean = foumBean;
-	}
+//	public Set<FoumBean>getFoumBeanAnno(){
+//		return foumBean;}
+//	
+//	public void setFoumBeanAnno(Set<FoumBean> foumBean) {
+//		this.foumBean = foumBean;
+//	}
 	
 	
 	public String getM_id() {

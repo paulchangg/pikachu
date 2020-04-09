@@ -33,6 +33,8 @@ public class ResponserBean {
 	public ResponserBean() {
 
 	}
+	
+	
 
 	public ResponserBean(Integer res_id, String res_m_id, Date postTime, Date updateTime, String res_content,
 			Launch_activityBean launch_activityBean) {

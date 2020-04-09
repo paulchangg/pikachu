@@ -56,7 +56,7 @@ public class UpdateDelResponerServlet extends HttpServlet {
 
 		int res_id = Integer.parseInt(res_idStr.trim());
 		if (cmd.equalsIgnoreCase("DEL")) {
-			service.DeleteArticle(bean.getArticle_Id(), res_id);
+			service.DeleteArticle( res_id);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
@@ -70,7 +70,7 @@ public class UpdateDelResponerServlet extends HttpServlet {
 			responser.setUpdateTime(ts);
 			responser.setRes_content(res_content);
 			
-			service2.updateArticle(bean.getArticle_Id(), res_id, responser);
+			service2.updateArticle(res_id, responser);
 			
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);

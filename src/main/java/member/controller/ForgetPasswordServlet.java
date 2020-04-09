@@ -41,8 +41,9 @@ public class ForgetPasswordServlet extends HttpServlet {
 					//不太可能發生
 					errorMsg.put("pswdUpdateError", "密碼更新錯誤");
 				}
-			 	boolean b = ms.sendMail(email, newPW);
-			 	if(b == false) errorMsg.put("EmailError", "驗證信寄送失敗");
+//			 	boolean b = ms.sendMail(email, newPW);
+//			 	if(b == false) errorMsg.put("EmailError", "驗證信寄送失敗");
+				ms.sendMail(email, newPW);
 			} else {
 				errorMsg.put("EmailError", "無此信箱,請重新輸入");
 			}

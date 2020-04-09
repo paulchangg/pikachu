@@ -93,7 +93,7 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 	public int DeleteFname(int f_id) {
 		int result = 0;
 
-		String hql = "DELETE FORM FoumBean  WHERE f_id = :fid";
+		String hql = "DELETE FoumBean  WHERE f_id = :fid";
 
 		Session session = factory.getCurrentSession();
 
@@ -110,7 +110,7 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 		int result = 0;
 		String hql1 = "FROM FoumBean  WHERE f_id = :fid";
 
-		String hql2 = "DELETE FORM Launch_activityBean WHERE article_Id = :articleid";
+		String hql2 = "DELETE  Launch_activityBean WHERE article_Id = :articleid";
 
 		Session session = factory.getCurrentSession();
 
@@ -138,7 +138,7 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 
 		String hql2 = "FORM Launch_activityBean WHERE article_Id = :articleid";
 
-		String hql3 = "DELETE FORM ResponserBean WHERE res_id = :resid";
+		String hql3 = "DELETE  ResponserBean WHERE res_id = :resid";
 		Session session = factory.getCurrentSession();
 
 		try {

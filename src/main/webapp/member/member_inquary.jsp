@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="css/common/member_inquary.css" rel="stylesheet" type="text/css">
+    <link href="../css/common/member_inquary.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查看個人資料</title>
-    <script src="jquery-3.4.1.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
     
                       <!--這裡有1個id 圖檔要顯示-->
     <div class="photo" id="memberinquary_img" >
-        <img src="images/common/membephoto_0.png" width="160" height="160" > <!--區塊4-->
+        <img src="../images/common/membephoto_0.png" width="160" height="160" > <!--區塊4-->
     </div> 
 
                       <!--這裡有9個id 圖檔要顯示-->

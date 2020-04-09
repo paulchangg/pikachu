@@ -9,15 +9,15 @@ import forum.model.ResponserBean;
 public interface IResponserDao {
 
 	//1.新增某一個文章的回覆文
-	String insertRescontent(int article_Id,ResponserBean responser);
+	void insertRescontent(ResponserBean responser);
 
 
 	//1.1.透過ID找到回復的內容
 	ResponserBean getRes_id(int res_id);
 
-	int updateArticle(int article_Id,int res_id,ResponserBean responser);
+	int updateArticle(int res_id, ResponserBean responser);
 
-	int DeleteArticle(int article_Id,int res_id);
+	int DeleteArticle(int res_id);
 
 
 	//2.本類別負責讀取資料庫內responser表格內全部的紀錄(不分member)

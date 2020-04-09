@@ -28,16 +28,16 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 		factory = HibernateUtils.getSessionFactory();
 	}
 
+
 	@Override
-	public String insertRescontent(int article_Id, ResponserBean responser) {
-		String result = null;
+	public void insertRescontent(ResponserBean responser) {
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
+		
 		try {
 			tx = session.beginTransaction();
-			result = dao.insertRescontent(article_Id, responser);
-
-			tx.commit();
+		dao.insertRescontent(responser);
+		tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
 				tx.rollback();
@@ -45,9 +45,8 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-
-		return result;
 	}
+
 
 	@Override
 	public ResponserBean getRes_id(int res_id) {
@@ -59,14 +58,14 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 	
 	
 	@Override
-	public int updateArticle(int article_Id, int res_id, ResponserBean responser) {
+	public int updateArticle(int res_id, ResponserBean responser) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.updateArticle(article_Id, res_id, responser);
+			result = dao.updateArticle( res_id, responser);
 
 			tx.commit();
 		} catch (Exception e) {
@@ -82,14 +81,14 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 	}
 
 	@Override
-	public int DeleteArticle(int article_Id, int res_id) {
+	public int DeleteArticle( int res_id) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.DeleteArticle(article_Id, res_id);
+			result = dao.DeleteArticle( res_id);
 
 			tx.commit();
 		} catch (Exception e) {

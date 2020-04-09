@@ -4,16 +4,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="css/common/member_data.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/common/member_data.css" rel="stylesheet" type="text/css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>填寫個人資料</title>
 </head>
 <body>
-    <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <div class="header">導覽列</div>
     <div class="Memberdata"><h3>填寫個人資料</h3></div>
 
@@ -23,7 +23,7 @@
     
                       <!--這裡有1個id 顯示目前會員的頭像-->
     <div class="photo" id="memberdata_img" >
-        <img src="images/common/membephoto_0.png" width="160" height="160" > 
+        <img src="../images/common/membephoto_0.png" width="160" height="160" > 
         <div>
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#imagemodal" >選擇圖片</button>
         </div>
@@ -39,12 +39,12 @@
 					<div class="modal-body">
             <h3>選擇您喜愛的圖像</h3>
               <form action="" method="">                                    
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_1"><img src="images/common/memberphoto_1.jpg" width="100" height="100"></label>
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_2"><img src="images/common/memberphoto_2.jpg" width="100" height="100"></label>
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_3"><img src="images/common/memberphoto_3.jpg" width="100" height="100"></label>
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_4"><img src="images/common/memberphoto_4.jpg" width="100" height="100"></label>
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_5"><img src="images/common/memberphoto_5.jpg" width="100" height="100"></label>
-              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_6"><img src="images/common/memberphoto_6.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_1"><img src="../images/common/memberphoto_1.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_2"><img src="../images/common/memberphoto_2.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_3"><img src="../images/common/memberphoto_3.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_4"><img src="../images/common/memberphoto_4.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_5"><img src="../images/common/memberphoto_5.jpg" width="100" height="100"></label>
+              <label class="radio-inline"><input type="radio" name="m_img" value="memberphoto_6"><img src="../images/common/memberphoto_6.jpg" width="100" height="100"></label>
               <input type="submit" value="確定">
             </form>
 					</div>
@@ -60,14 +60,14 @@
     <div class="personaldata"><h3>個人資料</h3>
     <hr>
      <form action="" method="">
-        姓名:<input type="text" name="name" placeholder="請輸入中文姓名" required autofocus><font color="red">*填寫後不可更改</font>
-     <p>暱稱:<input type="text" name="nickname"></p>
-     <p>生日:<input type="date" name="birthday" required ><font color="red">*填寫後不可更改</font></p>
-     <p>手機:<input type="text" name="phone_num"pattern="[0-9]{10}" placeholder="輸入10位數字" required ><font color="red">*填寫後不可更改</font></p>
-     <p>信箱:<input type="text" name="m_mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ></p>
-        性別:<input type="radio" name="gender" value="male" required>男
-             <input type="radio" name="gender" value="female" required>女       
-     <p>年收入<select name="income">
+<!--      <p>姓名: <input type="text" name="name" placeholder="請輸入中文姓名" required autofocus><font color="red">*填寫後不可更改</font></p> -->
+     <p>暱稱: <input type="text" name="nickname"  required autofocus></p>
+<!--      <p>生日: <input type="date" name="birthday" required ><font color="red">*填寫後不可更改</font></p> -->
+<!--      <p>手機: <input type="text" name="phone_num"pattern="[0-9]{10}" placeholder="輸入10位數字" required ><font color="red">*填寫後不可更改</font></p> -->
+<!--      <p>信箱: <input type="text" name="m_mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ></p> -->
+<!--      <p>性別: <input type="radio" name="gender" value="male" required>男 -->
+<!--              <input type="radio" name="gender" value="female" required>女    </p>    -->
+     <p>年收入: <select name="income">
               <option value="30under">36萬以下</option>
               <option value="36-50">36萬-50萬</option>
               <option value="30-50">51萬-70萬</option>
@@ -75,7 +75,7 @@
               <option value="71-99">100萬以上</option>
               </select>  
      </p>
-     <p>最高學歷:<select name="education">
+     <p>最高學歷: <select name="education">
             <option value="Elementary">國小</option>
             <option value="Juniorhigh">國中</option>
             <option value="Highschool">高中</option>
@@ -83,7 +83,7 @@
             <option value="Graduate-Doctor">碩博</option>
             </select>  
     </p>
-     <p>居住縣市:
+     <p>居住縣市: 
         <select name="city">
             <option value="Keelung">基隆</option>
             <option value="Taipei">台北/新北</option>

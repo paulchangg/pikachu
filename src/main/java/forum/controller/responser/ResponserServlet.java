@@ -68,7 +68,7 @@ public class ResponserServlet extends HttpServlet {
 			Launch_activityBean launch_activityBean = new Launch_activityBean();
 			ResponserBean responser = new ResponserBean(null, memberbean.getM_id(), ts, null, res_contentStr,
 					launch_activityBean);
-			responserservice.insertRescontent(launch_activityBean.getArticle_Id(), responser);
+			responserservice.insertRescontent(responser);
 			request.setAttribute("ResponserBean", responser);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");

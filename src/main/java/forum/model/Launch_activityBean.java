@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,6 +35,8 @@ public class Launch_activityBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer article_Id;
+	
+//	@Column(name="article_m_id")
 	private String article_m_id;
 
 	private String article_title;
@@ -65,7 +68,7 @@ public class Launch_activityBean {
 
 	
 
-	public Launch_activityBean(Integer article_Id, String article_m_id, String article_title, String article_content,
+public Launch_activityBean(Integer article_Id, String article_m_id, String article_title, String article_content,
 			Blob articleimage, String subject, String location, Date post_Time, Date updateTime, Date startTime,
 			Date endTime, Integer popularity, FoumBean foumBean, Set<ResponserBean> items) {
 		super();

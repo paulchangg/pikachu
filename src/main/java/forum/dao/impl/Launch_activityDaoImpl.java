@@ -80,7 +80,7 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 
 		int result = 0;
 
-		String hql = "DELETE FORM Launch_activityBean  WHERE article_Id = :articleId";
+		String hql = "DELETE  Launch_activityBean  WHERE article_Id = :articleId";
 
 		Session session = factory.getCurrentSession();
 

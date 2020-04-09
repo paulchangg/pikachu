@@ -1,5 +1,6 @@
 package member.dao.impl;
 
+import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -11,7 +12,7 @@ import org.hibernate.SessionFactory;
 import init.HibernateUtils;
 import member.dao.MemberDao;
 import member.model.MemberBean;
-import net.bytebuddy.asm.Advice.ArgumentHandler.Factory;
+
 
 public class MemberDaoImpl implements MemberDao {
 
@@ -115,6 +116,49 @@ public class MemberDaoImpl implements MemberDao {
 		}
 
 		return exist;
+	}
+
+//	//變更密碼
+//	@Override
+//	public int changePassword(MemberBean mb, String newPW) {
+//		int result = 0;
+//		String hql = "UPDATE MemberBean m SET m.m_password = :newPW WHERE m.m_id = :m_id";
+//		Session session = factory.getCurrentSession();
+//		result = session.createQuery(hql).setParameter("newPW", newPW).setParameter("m_id", mb.getM_id()).executeUpdate();
+//		
+//		return result;
+//	}
+	
+	//變更密碼
+	@Override
+	public void changePassword(MemberBean mb) {
+		MemberBean member = null;
+		Session session = factory.getCurrentSession();
+		member = (MemberBean)session.get(MemberBean.class, mb.getM_id());
+		member.setM_password(mb.getM_password());
+		
+	}
+
+	@Override
+	public int updateM_img(MemberBean mb, Blob m_img) {
+		int result = 0;
+		String hql = "UPDATE MemberBean m SET m.m_img = :m_img WHERE m.m_id = :m_id";
+		Session session = factory.getCurrentSession();
+		result = session.createQuery(hql).setParameter("m_img", m_img).setParameter("m_id", mb.getM_id()).executeUpdate();
+		
+		return result;
+	}
+
+	@Override
+	public void updateMember(MemberBean mb) {
+		MemberBean member = null;
+		Session session = factory.getCurrentSession();
+		member = (MemberBean)session.get(MemberBean.class, mb.getM_id());
+		member.setNickname(mb.getNickname());
+		member.setIncome(mb.getIncome());
+		member.setEducation(mb.getEducation());
+		member.setCity(mb.getCity());
+		
 	}
 
 }
