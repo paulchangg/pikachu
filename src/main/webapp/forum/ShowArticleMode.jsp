@@ -19,7 +19,7 @@ function confirmDelete(n) {
 }
 
 function modify(n,article) {
-	if (confirm("確定將此文章做更改?") {
+	if (confirm("確定將此文章做更改?") ){
 		document.forms[0].action="<c:url value='UpdateItem.do?cmd=MOD&articleId=" + n +"article"+article+"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
@@ -39,10 +39,33 @@ function modify(n,article) {
 
 
 <form action="<c:url value='ResponserServlet' />" method="POST">
+
 </form>
 
-<form action="<c:url value='UpdateDelResponerServlet' />" method="POST">
-</form>
+
+<script type="text/javascript">
+function confirmDelete(n) {
+	if (confirm("確定刪除此文章 ? ") ) {
+		document.forms[0].action="<c:url value='UpdateDelResponerServlet?cmd=DEL&articleId=" + n +"' />" ;
+		document.forms[0].method="POST";
+		document.forms[0].submit();
+	} else {
+	
+	}
+}
+
+function modify(n,article) {
+	if (confirm("確定將此文章做更改?") ){
+		document.forms[0].action="<c:url value='UpdateDelResponerServlet?cmd=MOD&articleId=" + n +"article"+article+"' />" ;
+		document.forms[0].method="POST";
+		document.forms[0].submit();
+	} 
+}
+
+</script>
+
+
+
 
 </body>
 </html>
