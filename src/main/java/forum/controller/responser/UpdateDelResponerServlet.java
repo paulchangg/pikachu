@@ -17,6 +17,7 @@ import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 import forum.service.IResponserService;
 import forum.service.impl.ResponserServiceImpl;
+import member.model.MemberBean;
 
 @WebServlet("/forum/UpdateDelResponerServlet")
 public class UpdateDelResponerServlet extends HttpServlet {
@@ -40,6 +41,13 @@ public class UpdateDelResponerServlet extends HttpServlet {
 			return;
 		}
 
+		// 沒有登入會員 前往首頁
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		if (mb == null) {
+			response.sendRedirect(getServletContext().getContextPath() + "/index.html");
+			return;
+		}
+
 		// 取出session物件內的Responser物件
 		IResponserService service = (IResponserService) session.getAttribute("ResponserBean");
 		if (service == null) {
@@ -56,22 +64,23 @@ public class UpdateDelResponerServlet extends HttpServlet {
 
 		int res_id = Integer.parseInt(res_idStr.trim());
 		if (cmd.equalsIgnoreCase("DEL")) {
-			service.DeleteArticle( res_id);
+			service.DeleteArticle(res_id);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
 			return;
-			
-		}else if(cmd.equalsIgnoreCase("MOD")) {
+
+		} else if (cmd.equalsIgnoreCase("MOD")) {
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
-			String res_content =request.getParameter("res_content");
+			String res_content = request.getParameter("res_content");
 			IResponserService service2 = new ResponserServiceImpl();
 			ResponserBean responser = new ResponserBean();
+			responser.setRes_m_id(mb.getM_id());
 			responser.setUpdateTime(ts);
 			responser.setRes_content(res_content);
-			
+
 			service2.updateArticle(res_id, responser);
-			
+
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
 			return;

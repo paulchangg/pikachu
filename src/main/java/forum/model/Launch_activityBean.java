@@ -36,7 +36,7 @@ public class Launch_activityBean {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer article_Id;
 	
-//	@Column(name="article_m_id")
+	@Column(name="article_m_id")
 	private String article_m_id;
 
 	private String article_title;
@@ -55,9 +55,9 @@ public class Launch_activityBean {
 
 	private Integer popularity;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "f_id", nullable = false)
-	private FoumBean foumBean;
+	private FoumBean foumBean; //一方
 
 	@OneToMany(mappedBy = "launch_activityBean", cascade = CascadeType.ALL)
 	Set<ResponserBean> items = new LinkedHashSet<>();

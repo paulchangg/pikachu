@@ -138,7 +138,7 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 
 		String hql2 = "FORM Launch_activityBean WHERE article_Id = :articleid";
 
-		String hql3 = "DELETE  ResponserBean WHERE res_id = :resid";
+		String hql3 = "DELETE ResponserBean WHERE res_id = :resid";
 		Session session = factory.getCurrentSession();
 
 		try {

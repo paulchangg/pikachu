@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -25,6 +26,7 @@ import forum.model.ResponserBean;
 import forum.service.ILaunch_activityService;
 import forum.service.impl.Launch_activityServiceImpl;
 import init.GlobalService;
+import member.model.MemberBean;
 
 @WebServlet("/forum/UpdateItem.do")
 public class UpdateDelArticleServlet extends HttpServlet {
@@ -46,9 +48,17 @@ public class UpdateDelArticleServlet extends HttpServlet {
 
 		session = request.getSession(false);
 		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
+
 		if (session == null) {
 			// 請使用者登入
 			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "member_login.jsp"));
+			return;
+		}
+
+		// 沒有登入會員 前往首頁
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		if (mb == null) {
+			response.sendRedirect(getServletContext().getContextPath() + "/index.html");
 			return;
 		}
 
@@ -85,29 +95,31 @@ public class UpdateDelArticleServlet extends HttpServlet {
 			InputStream is = null;
 
 			Date starte_Time = null;
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
 			if (starteTimeStr == null && starteTimeStr.trim().length() > 0) {
-			} else {
 				try {
-					starte_Time = java.sql.Date.valueOf(starteTimeStr);
+//					starte_Time = java.sql.Date.valueOf(starteTimeStr);
+					starte_Time = format.parse(starteTimeStr);
 				} catch (Exception e) {
 					errorMsg.put("starte_TimeError", "開始欄格式錯誤，應該為yyyy/MM/dd/HH");
 				}
 			}
+
 			Date endTime = null;
 			if (endTimeStr == null && endTimeStr.trim().length() > 0) {
-			} else {
 				try {
-					endTime = java.sql.Date.valueOf(endTimeStr);
+//					endTime = java.sql.Date.valueOf(endTimeStr);
+					endTime = format.parse(endTimeStr);
 				} catch (Exception e) {
 					errorMsg.put("endTimeError", "結束時間格式錯誤，應該為yyyy/MM/dd/HH");
 				}
+			}
 
-				if (article_title == null | article_title.trim().length() <= 11) {
-					errorMsg.put("TitleError", "標題更新不能少於10個字");
-				}
-				if (article_content == null | article_content.trim().length() <= 101) {
-					errorMsg.put("ContentError", "內容更新不能少於100個字");
-				}
+			if (article_title == null | article_title.trim().length() <= 11) {
+				errorMsg.put("TitleError", "標題更新不能少於10個字");
+			}
+			if (article_content == null | article_content.trim().length() <= 101) {
+				errorMsg.put("ContentError", "內容更新不能少於100個字");
 			}
 
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
@@ -115,6 +127,7 @@ public class UpdateDelArticleServlet extends HttpServlet {
 			ILaunch_activityService service2 = new Launch_activityServiceImpl();
 			Launch_activityBean article = new Launch_activityBean();
 			article.setUpdateTime(ts);
+			article.setArticle_m_id(mb.getM_id());
 			article.setArticle_content(article_content);
 			article.setArticle_title(article_title);
 			article.setSubject(subject);

@@ -51,19 +51,19 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ForumServlet</display-name>
-    <servlet-name>ForumServlet</servlet-name>
-    <servlet-class>forum.conrtoller.ForumServlet</servlet-class>
+    <display-name>ManagementForumServlet</display-name>
+    <servlet-name>ManagementForumServlet</servlet-name>
+    <servlet-class>forum.controller.ManagementForum.ManagementForumServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ForumServlet</servlet-name>
-    <url-pattern>/ForumServlet</url-pattern>
+    <servlet-name>ManagementForumServlet</servlet-name>
+    <url-pattern>/forum/ManagementForumServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>Launch_activityServlet</display-name>
     <servlet-name>Launch_activityServlet</servlet-name>
-    <servlet-class>forum.conrtoller.Launch_activityServlet</servlet-class>
+    <servlet-class>forum.controller.Launch_activity.Launch_activityServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Launch_activityServlet</servlet-name>
@@ -71,13 +71,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>UpdateArticle</display-name>
-    <servlet-name>UpdateArticle</servlet-name>
-    <servlet-class>forum.controller.UpdateArticle</servlet-class>
+    <display-name>UpdateDelArticleServlet</display-name>
+    <servlet-name>UpdateDelArticleServlet</servlet-name>
+    <servlet-class>forum.controller.Launch_activity.UpdateDelArticleServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UpdateArticle</servlet-name>
-    <url-pattern>/forum/UpdateItem.do</url-pattern>
+    <servlet-name>UpdateDelArticleServlet</servlet-name>
+    <url-pattern>/UpdateItem.do</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -87,7 +87,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ResponserServlet</servlet-name>
-    <url-pattern>/forum/ResponserServlet</url-pattern>
+    <url-pattern>/ResponserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -97,6 +97,27 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>UpdateDelResponerServlet</servlet-name>
-    <url-pattern>/forum/UpdateDelResponerServlet</url-pattern>
+    <url-pattern>/UpdateDelResponerServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditServlet</display-name>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>member.controller.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditServlet</servlet-name>
+    <url-pattern>/EditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ChangePwServlet</display-name>
+    <servlet-name>ChangePwServlet</servlet-name>
+    <servlet-class>member.controller.ChangePwServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePwServlet</servlet-name>
+    <url-pattern>/ChangePwServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

@@ -33,17 +33,17 @@ public class MemberBean {
 	String city;
 	String education;
 	
-//	@OneToMany(cascade = {CascadeType.ALL})
-//	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
-//	private Set<FoumBean> foumBean = new LinkedHashSet<>();
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
+	private Set<FoumBean> foumBean = new LinkedHashSet<>();
 
-//	@OneToMany(cascade = {CascadeType.ALL})
-//	@JoinColumn(name="article_m_id",referencedColumnName = "m_id")
-//	private Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
-//	
-//	@OneToMany(cascade = {CascadeType.ALL})
-//	@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
-//	private Set<ResponserBean> responserBean = new LinkedHashSet<>();
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="article_m_id",referencedColumnName = "m_id")
+	private Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
+	private Set<ResponserBean> responserBean = new LinkedHashSet<>();
 //	
 	
 	
@@ -69,14 +69,35 @@ public class MemberBean {
 	}
 	
 	
-//	public Set<FoumBean>getFoumBeanAnno(){
-//		return foumBean;}
-//	
-//	public void setFoumBeanAnno(Set<FoumBean> foumBean) {
-//		this.foumBean = foumBean;
-//	}
 	
 	
+	
+	
+
+	public Set<FoumBean> getFoumBean() {
+		return foumBean;
+	}
+
+	public void setFoumBean(Set<FoumBean> foumBean) {
+		this.foumBean = foumBean;
+	}
+
+	public Set<Launch_activityBean> getLaunch_activityBean() {
+		return launch_activityBean;
+	}
+
+	public void setLaunch_activityBean(Set<Launch_activityBean> launch_activityBean) {
+		this.launch_activityBean = launch_activityBean;
+	}
+
+	public Set<ResponserBean> getResponserBean() {
+		return responserBean;
+	}
+
+	public void setResponserBean(Set<ResponserBean> responserBean) {
+		this.responserBean = responserBean;
+	}
+
 	public String getM_id() {
 		return m_id;
 	}

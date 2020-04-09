@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -35,6 +36,7 @@ import member.model.MemberBean;
  * (5) 依照Business Logic運算結果來送回適當的畫面給前端的使用者。
  * 
  */
+
 @WebServlet("/forum/Launch_activityServlet")
 public class Launch_activityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -63,6 +65,7 @@ public class Launch_activityServlet extends HttpServlet {
 			response.sendRedirect(getServletContext().getContextPath() + "/index.html");
 			return;
 		}
+
 		// --------------------------------------------------------------
 		String article_title = "";
 		String article_content = "";
@@ -113,19 +116,21 @@ public class Launch_activityServlet extends HttpServlet {
 
 		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
 		Date starte_Time = null;
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
 		if (starteTimeStr == null && starteTimeStr.trim().length() > 0) {
-		} else {
 			try {
-				starte_Time = java.sql.Date.valueOf(starteTimeStr);
+//				starte_Time = java.sql.Date.valueOf(starteTimeStr);
+				starte_Time = format.parse(starteTimeStr);
 			} catch (Exception e) {
 				errorMsg.put("starte_TimeError", "開始欄格式錯誤，應該為yyyy/MM/dd/HH");
 			}
 		}
+
 		Date endTime = null;
 		if (endTimeStr == null && endTimeStr.trim().length() > 0) {
-		} else {
 			try {
-				endTime = java.sql.Date.valueOf(endTimeStr);
+//				endTime = java.sql.Date.valueOf(endTimeStr);
+				endTime = format.parse(endTimeStr);
 			} catch (Exception e) {
 				errorMsg.put("endTimeError", "結束時間格式錯誤，應該為yyyy/MM/dd/HH");
 			}
@@ -161,15 +166,16 @@ public class Launch_activityServlet extends HttpServlet {
 		}
 		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
 		ILaunch_activityService service = new Launch_activityServiceImpl();
-		MemberBean member = new MemberBean();
 
-		FoumBean foumBean = new FoumBean();
+		FoumBean foumBean = (FoumBean) session.getAttribute("LoginOK");
+//		foumBean.setF_id(2);//版的代號
+		foumBean.getF_id();
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
 
 		try {
-			Launch_activityBean article = new Launch_activityBean(null, member.getM_id(), article_title,
-					article_content, blob, subject, location, ts, null, starte_Time, endTime, null, foumBean, null);
+			Launch_activityBean article = new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
+					blob, subject, location, ts, null, starte_Time, endTime, null, foumBean, null);
 
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);

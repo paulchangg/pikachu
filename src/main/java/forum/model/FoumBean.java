@@ -28,7 +28,7 @@ public class FoumBean {
 	private Date startdate_datetime;//開版日期
 	private Date update_datetime; // 更新版的日期 資料庫要新增欄位
 	
-//	@Column(name="owner_m_id")
+	@Column(name="owner_m_id")
 	private String owner_m_id;//版主會員
 
 	@OneToMany(mappedBy = "foumBean", cascade = CascadeType.ALL)

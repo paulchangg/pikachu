@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="ForumServlet" method="POST"></form>
+<form action="ManagementForumServlet" method="POST"></form>
 <input type="button">
 </body>
 </html>

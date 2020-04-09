@@ -7,16 +7,18 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
+
 import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
-import forum.model.ResponserBean;
 import forum.service.IFoumService;
 import forum.service.ILaunch_activityService;
-import forum.service.IResponserService;
 import forum.service.impl.FoumServiceImpl;
 import forum.service.impl.Launch_activityServiceImpl;
-import forum.service.impl.ResponserServiceImpl;
 import init.GlobalService;
+import member.model.MemberBean;
+import member.service.MemberService;
+import member.service.impl.MemberServiceImpl;
 
 public class InsetFoum2 {
 
@@ -27,11 +29,17 @@ public class InsetFoum2 {
 		
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 		
-		FoumBean forum = new FoumBean(null, "旅遊", ts, null, "paul", null);
-		FoumBean forum2 = new FoumBean(null, "電影", ts, null, "paul", null);
-
-		service.insertFoum(forum);
-		service.insertFoum(forum2);
+		
+		MemberService memservice  = new MemberServiceImpl();
+		
+		
+		
+//		memservice.queryMember("paul");
+		
+		
+//		FoumBean forum = new FoumBean(null, "旅遊", ts, null, "paul", null);
+//
+//		service.insertFoum(forum);
 
 //------------------------刪除資料--------------------------------ok	
 
@@ -41,31 +49,33 @@ public class InsetFoum2 {
 
 //2.Launch_activityService
 //------------------------放入資料--------------------------------OK	
-//		ILaunch_activityService service2 = new Launch_activityServiceImpl();
-//		Timestamp ts2 = new Timestamp(System.currentTimeMillis());
-//
-//		String string = "2015-10-28 18:27:45";
-//		String string2 = "2019-11-15 14:11:33";
-//		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		format.setLenient(false);
-//		format2.setLenient(false);
-//		Date date = null;
-//		Date date2 = null;
-//
-//		try {
-//			date = format.parse(string);
-//			date2 = format2.parse(string2);
-//		} catch (java.text.ParseException e) {
-//			e.printStackTrace();
-//		}
-//
-//		FoumBean foumBean = new FoumBean();
-//		foumBean.setF_id(2);//版的代號
-//		Blob articleimage = GlobalService.fileToBlob("D:\\資料庫功課\\Lisa02.jpg");//		Launch_activityBean article = new Launch_activityBean(null, "james", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
-//				date, date2, 100, foumBean, null);
-//
-//		service2.insertArticle(article);
+		ILaunch_activityService service2 = new Launch_activityServiceImpl();
+		Timestamp ts2 = new Timestamp(System.currentTimeMillis());
+
+		String string = "2015-10-28 18:27:45";
+		String string2 = "2019-11-15 14:11:33";
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		format.setLenient(false);
+		format2.setLenient(false);
+		Date date = null;
+		Date date2 = null;
+
+		try {
+			date = format.parse(string);
+			date2 = format2.parse(string2);
+		} catch (java.text.ParseException e) {
+			e.printStackTrace();
+		}
+
+		FoumBean foumBean = new FoumBean();
+		foumBean.setF_id(2);//版的代號
+		Blob articleimage = GlobalService.fileToBlob("D:\\資料庫功課\\Lisa02.jpg");
+//		HttpSession session = request.getSession();
+//		MemberBean mb = session.getAttribute("LoginOK");		Launch_activityBean article = new Launch_activityBean(null, "paul", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
+				date, date2, 100, foumBean, null);
+
+		service2.insertArticle(article);
 ////		
 
 //------------------------刪除資料--------------------------------ok	

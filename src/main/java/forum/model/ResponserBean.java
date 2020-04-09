@@ -2,6 +2,7 @@ package forum.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,6 +22,7 @@ public class ResponserBean {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer res_id;
+	@Column(name="res_m_id")
 	private String res_m_id;
 	private Date postTime;// 回應文章的時間 新增欄位
 	private Date updateTime;

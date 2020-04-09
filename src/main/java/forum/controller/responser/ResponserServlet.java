@@ -64,9 +64,8 @@ public class ResponserServlet extends HttpServlet {
 
 		try {
 			IResponserService responserservice = new ResponserServiceImpl();
-			MemberBean memberbean = new MemberBean();
 			Launch_activityBean launch_activityBean = new Launch_activityBean();
-			ResponserBean responser = new ResponserBean(null, memberbean.getM_id(), ts, null, res_contentStr,
+			ResponserBean responser = new ResponserBean(null, mb.getM_id(), ts, null, res_contentStr,
 					launch_activityBean);
 			responserservice.insertRescontent(responser);
 			request.setAttribute("ResponserBean", responser);
