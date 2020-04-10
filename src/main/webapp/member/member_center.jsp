@@ -65,9 +65,9 @@
        </div>
 
        <div class="memberdata"><h3>會員資料</h3>
-       <a href="member/member_data.jsp" target="blank">個人資料填寫</a>
-       <p><a href="member/member_edit.jsp" target="blank">修改</a></p>
-       <p></p><a href="member/member_inquary.jsp" target="blank">查看</a></p>
+<!--        <a href="member_data.jsp" target="blank">個人資料填寫</a> -->
+       <p><a href="member_edit.jsp" target="blank">修改</a></p>
+       <p></p><a href="member_inquary.jsp" target="blank">查看</a></p>
        </div>
     </div>
 
