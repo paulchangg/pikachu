@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>所有看板</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/allboards.css" />
+  </head>
+
+  <body>
+    <!-- logo及上方標題列---超連結待補---->
+    <div class="top-navigation">
+      <a href="#/" class="navigation__logo">
+        <img
+          src="./images/index_logo.jpg"
+          alt="logo"
+          class="navigation__logo"
+        />
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active memberlogin" href="#" id="">會員登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cardcompare" href="#" id="">信用卡比較</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link qanda" href="#" id="">Q & A</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shoppingcart" href="#" id="">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 導覽列------超連結待補------>
+    <div class="header">
+      <div class="nav-bar">
+        <a href="#" class="aboutus">關於我們</a>
+        <a href="#" class="memberarea" id="">會員中心</a>
+        <a href="#" class="mall" id="">商城</a>
+      </div>
+    </div>
+
+    <!-- 左側看板列表---超連結待補-->
+    <div class="container-fluid">
+      <div class="leftNav" style="width: 100px;">
+        <div class="btn-group-vertical" id="forum_btn">
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">所有看板</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">熱門看板</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">交友活動</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">配對</button>
+          </a>
+          <br />
+          <span style="margin-top: 30px;">熱門看板</span>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">信用卡</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">美食</button>
+          </a>
+          <br />
+          <a href="#" id="">
+            <button type="button" class="btn-all-board">感情</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中央區塊 -->
+    <div class="content">
+      <div style="margin: 40px 0 0 90px;">
+        <span class="badge badge-warning" style="font-size: 20px;"
+          >全部看板</span
+        >
+        <!-- <div class="box-c">Box</div> -->
+
+        <div style="padding: 10px 0 10px 0;"></div>
+
+        <!-- 看板列  按鈕位置待調 -->
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <a href="#" id="">信用卡</a
+            ><button type="button" class="btn btn-info">追蹤</button>
+          </li>
+          <li class="list-group-item">
+            <a href="#" id="">美食</a
+            ><button type="button" class="btn btn-info">追蹤</button>
+          </li>
+          <li class="list-group-item">
+            <a href="#" id="">感情</a
+            ><button type="button" class="btn btn-info">追蹤</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 底部 ---------------------------->
+    <div class="footer">
+      <div class="gotop">
+        <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <br />
+        <br />
+        <a href="#" class="w3-botton w3-black w3-margin">
+          <i class="fa fa-arrow-up w3-margin-right"></i>
+          To the top
+        </a>
+      </div>
+      <br />
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/inner_page.js"></script>
+  </body>
+</html>
