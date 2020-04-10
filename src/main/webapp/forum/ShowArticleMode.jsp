@@ -48,7 +48,7 @@ function modify(n,article) {
 <script type="text/javascript">
 function confirmDelete(n) {
 	if (confirm("確定刪除此文章 ? ") ) {
-		document.forms[0].action="<c:url value='/forumUpdateDelResponerServlet?cmd=DEL&articleId=" + n +"' />" ;
+		document.forms[0].action="<c:url value='/forum/UpdateDelResponerServlet?cmd=DEL&articleId=" + n +"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} else {
@@ -58,7 +58,7 @@ function confirmDelete(n) {
 
 function modify(n,article) {
 	if (confirm("確定將此文章做更改?") ){
-		document.forms[0].action="<c:url value='/forumUpdateDelResponerServlet?cmd=MOD&articleId=" + n +"article"+article+"' />" ;
+		document.forms[0].action="<c:url value='/forum/UpdateDelResponerServlet?cmd=MOD&articleId=" + n +"article"+article+"' />" ;
 		document.forms[0].method="POST";
 		document.forms[0].submit();
 	} 
