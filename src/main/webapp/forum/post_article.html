@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>發文頁面</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/post_article.css" />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="/js/post_article.js"></script>
+  </head>
+
+  <body>
+    <page size="A4">
+      <div class="post_block">
+        <!-- title 發文者頭像id區塊----發文日期---->
+        <div class="inline_block">
+          <!-- 會員頭像 -->
+          <div class="comment-avatar">
+            <img
+              id ="memberid_img"
+              src="./images/id_photo/memberphoto_1.jpg"
+              alt=""
+            />
+          </div>
+          <!-- 發文者id -->
+          <p class="article_m_id" href="#" style="padding: 0 0 0 20px;">
+            黑卡卡王
+          </p>
+          <!-- 叉叉關閉視窗------->
+          <div class="close_bt" style="padding: 0 0 0 73%;">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- 內容範圍 -->
+        <div style="width: 700px; height: 900px; margin: 70px 0 0 30px;">
+          <div class="d-flex flex-row bd-highlight mb-2">
+            <div class="p-2 bd-highlight">發文看板</div>
+
+            <!-- 發文看板選擇 -->
+            <div class="dropdown">
+              <button
+                class="btn btn-secondary btn-sm dropdown-toggle"
+                type="button"
+                id="subject"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                請選擇
+              </button>
+              <div class="dropdown-menu" aria-labelledby="fname">
+                <button class="dropdown-item" type="button">信用卡</button>
+                <button class="dropdown-item" type="button">美食</button>
+                <button class="dropdown-item" type="button">感情</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 輸入標題 -->
+          <div class="input-group input-group mb-3" style="margin-top: 25px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-">標題</span>
+            </div>
+            <input
+              id="article_title"
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing"
+            />
+          </div>
+
+          <!-- 輸入內文 -->
+          <p class="text">
+            <textarea
+              name="text"
+              class="validate[required,length[6,300]] feedback-input"
+              id="article_content"
+              placeholder="內文"
+              style="height: 300px;"
+            ></textarea>
+          </p>
+
+          <!-- 上傳圖片的按鈕 -->
+          <input id="file" type="file" />
+
+          <!-- 文章標籤選擇 -->
+          <div class="widget" style="padding: 40px 0 40px 0;">
+            <fieldset>
+              <legend>標籤選擇</legend>
+              <input type="checkbox" name="subject" id="checkbox-1" />
+              <label for="checkbox-1" style="padding-right: 15px;"
+                >信用卡</label
+              >
+              <input type="checkbox" name="subject" id="checkbox-2" />
+              <label for="checkbox-2" style="padding-right: 15px;">美食</label>
+              <input type="checkbox" name="subject" id="checkbox-3" />
+              <label for="checkbox-3" style="padding-right: 15px;">感情</label>
+              <input type="checkbox" name="subject" id="checkbox-4" />
+              <label for="checkbox-4" style="padding-right: 15px;">讚</label>
+              <input type="checkbox" name="subject" id="checkbox-4" />
+              <label for="checkbox-4" style="padding-right: 15px;"
+                >我就爛</label
+              >
+              <input type="checkbox" name="subject" id="checkbox-4" />
+              <label for="checkbox-4" style="padding-right: 15px;"
+                >口袋空空</label
+              >
+            </fieldset>
+          </div>
+
+          <!-- 送出 返回按鈕 -->
+          <a
+            href="#"
+            class="btn btn-primary btn-sm active"
+            role="button"
+            aria-pressed="true"
+            >返回</a
+          >
+          <a
+            href="#"
+            class="btn btn-secondary btn-sm active"
+            role="button"
+            aria-pressed="true"
+            >送出</a
+          >
+        </div>
+      </div>
+    </page>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

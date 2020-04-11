@@ -81,6 +81,16 @@ div.header {
   max-width: 100%;
 }
 
+
+.second_line {
+  background: #c4ddcb;
+  margin: 10px 0 10px 0;
+  height: 30px;
+  padding: 0.15em 0 3px;
+  font-weight: bold;
+}
+
+
 /* 左側列表 */
 div.leftNav {
   width: 200px;

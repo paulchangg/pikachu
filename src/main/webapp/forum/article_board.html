@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/article_board.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
   </head>
 
   <body>
@@ -64,12 +65,20 @@
         </div>
       </div>
 
+      <div class="second_line">
+      </div>
 
-      <!-- 這一列----要放甚麼???--->
-  <div class="second_line">
-    <span class="friendshipforum"></span>
+
+  <!-- 功能按鈕列 -->
+  <div class="d-flex flex-row-reverse bd-highlight" style="padding-top: 7px; padding-right: 10px;">
+  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" style="font-size: 20px;">
+    <button type="button" class="btn btn-secondary">發文
+        <i class="far fa-edit"></i>    
+    </button>
+    <button type="button" class="btn btn-secondary">文章管理
+    </button>
   </div>
-
+</div>
 
      <!-- 中央文章大區塊範圍----->
   <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
@@ -116,53 +125,53 @@
         <span class="badge badge-warning" style="font-size: 20px;"
           >感情</span
         >
-
+    
 
     <!-- 卡片文章1-----超連結待補----->
     <div class="container" style="margin-bottom: 20px;">
-        <div class="card" style="margin-top: 1%;">
-          <div class="row">
-            <div class="col-sm-10">
-              <div class="card-block">
-                <div class="comments-container">
-                  <ul id="comments-list" class="comments-list">
-                    <li>
-                      <div class="comment-main-level">
-                        <!-- 發文者id頭像---------->
-                        <div class="comment-avatar"><img class="memberid_img" src="./images/id_photo/memberphoto_1.jpg" alt=""></div>
-                        <div class="comment-box">
-                          <div class="comment-head">
-                            <!-- 發文者id -------->
-                            <h6 class="article_m_id"><a href="#">發文者</a></h6>
-                            <!-- 發文日期--------->
-                            <span class="post_Time">發文時間</span>
-                            <!-- 點讚  收藏功能 -->
-                            <!-- <i class="fa fa-reply"></i> -->
-                            <i class="fa fa-archive" aria-hidden="true">
-                            <span class="popularity" style="font-weight: initial;font-size: 14px;color: rgb(177, 172, 172);padding-right: 25px;">人氣值</span></i>
-                            <i class="fa fa-heart"></i>
-                          </div>
-                          <div class="article_title">
-                            <a href="#" id="">文章標題</a>
-                          </div>
-                          <div class="article_content">
-                            <p style="padding-bottom: 10px;">文章內文</p>
-                            <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                            <span class="total_reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">2</span>
-                          </div>
+      <div class="card" style="margin-top: 1%;">
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="card-block">
+              <div class="comments-container">
+                <ul id="comments-list" class="comments-list">
+                  <li>
+                    <div class="comment-main-level">
+                      <!-- 發文者id頭像---------->
+                      <div class="comment-avatar"><img class="memberid_img" src="./images/id_photo/memberphoto_1.jpg" alt=""></div>
+                      <div class="comment-box">
+                        <div class="comment-head">
+                          <!-- 發文者id -------->
+                          <h6 class="article_m_id"><a href="#">發文者</a></h6>
+                          <!-- 發文日期--------->
+                          <span class="post_Time">發文時間</span>
+                          <!-- 點讚  收藏功能 -->
+                          <!-- <i class="fa fa-reply"></i> -->
+                          <i class="fa fa-archive" aria-hidden="true">
+                          <span class="popularity" style="font-weight: initial;font-size: 14px;color: rgb(177, 172, 172);padding-right: 25px;">人氣值</span></i>
+                          <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="article_title">
+                          <a href="#" id="">文章標題</a>
+                        </div>
+                        <div class="article_content">
+                          <p style="padding-bottom: 10px;">文章內文</p>
+                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
+                          <span class="total_reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">2</span>
                         </div>
                       </div>
-                    </div> 
-                 </div>
-              </div>
-            <!-- 右側照片 ---------------->
-            <div class="col-sm-0" style="height: 10px; width: 0px;">
-              <img class="articleimage" src="./images/fun.jpg" style="width: 165px; height: 130px;" />
+                    </div>
+                  </div> 
+               </div>
             </div>
+          <!-- 右側照片 ---------------->
+          <div class="col-sm-0" style="height: 10px; width: 0px;">
+            <img class="articleimage" src="./images/fun.jpg" style="width: 165px; height: 130px;" />
           </div>
-        </div>    
-      </div>
+        </div>
+      </div>    
   </div>
+        
 
 
 <!-- 卡片文章2-----超連結待補----->
@@ -208,7 +217,6 @@
         </div>
       </div>
     </div>    
-  </div>
 </div>
 
 
