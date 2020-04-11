@@ -13,6 +13,9 @@
 <script type="text/javascript">
 	function updateMb(){
 		if (confirm("確定更新會員資料 ? ") ) {
+			document.forms[1].action="<c:url value='edit.do' />";
+			document.forms[1].method="POST";
+			document.forms[1].submit();
 			return;
 		} else {
 			return;
@@ -40,7 +43,14 @@
 
 	<!--這裡有1個id 要更換會員圖像-->
 	<div class="photo" id="membereedit_img">
-		<img src="../images/common/membephoto_0.png" width="160" height="160">
+		<c:choose>
+			<c:when test="${empty LoginOK.m_img}">
+				<img src="../images/common/membephoto_0.png" width="160" height="160">			
+			</c:when>
+			<c:otherwise>
+				<img src='${pageContext.request.contextPath}/init/getMemberImage?id=${LoginOK.m_id}' width="160" height="160">	
+			</c:otherwise>
+		</c:choose>
 		<div>
 			<button type="button" class="btn btn-primary btn-sm"
 				data-toggle="modal" data-target="#editimagemodal">選擇圖片</button>
@@ -56,7 +66,7 @@
 				</div>
 				<div class="modal-body">
 					<h3>選擇您喜愛的圖像</h3>
-					<form action="" method="">
+					<form action="editPhoto.do" method="POST">
 						<label class="radio-inline"><input type="radio"
 							name="m_img" value="memberphoto_1"><img
 							src="../images/common/memberphoto_1.jpg" width="100" height="100"></label>
@@ -86,15 +96,13 @@
 	</div>
 	<!--這區塊是跳出視窗-->
 
-
 	<div class="personaledit">
 		<h3>個人資料</h3>
 		<hr>
-		<form method="post" action="edit.do">
+		<form >
 			<p>
 				暱稱: <input type="text" name="nickname">
 			</p>
-			<!--       <p>信箱:<input type="text" name="m_mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></p> -->
 			<p>
 				年收入: <select name="income">
 					<option value=""></option>

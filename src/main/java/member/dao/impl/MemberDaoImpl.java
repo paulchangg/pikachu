@@ -140,13 +140,12 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public int updateM_img(MemberBean mb, Blob m_img) {
-		int result = 0;
-		String hql = "UPDATE MemberBean m SET m.m_img = :m_img WHERE m.m_id = :m_id";
+	public void updateM_img(MemberBean mb) {
+		MemberBean member = null;
 		Session session = factory.getCurrentSession();
-		result = session.createQuery(hql).setParameter("m_img", m_img).setParameter("m_id", mb.getM_id()).executeUpdate();
-		
-		return result;
+		member = (MemberBean)session.get(MemberBean.class, mb.getM_id());
+		member.setM_img(mb.getM_img());
+
 	}
 
 	@Override

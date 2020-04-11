@@ -34,7 +34,7 @@ import member.model.MemberBean;
 		urlPatterns = { "/*" }, 
 		initParams = { 
 				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
-//				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
+				@WebInitParam(name = "mustLogin2", value = "/member/member_edit.jsp"), 
 //				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})

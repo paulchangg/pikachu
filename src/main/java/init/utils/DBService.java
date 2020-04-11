@@ -68,7 +68,7 @@ public class DBService {
 			+ " nickname VARCHAR(100),"
 			+ " birthday DATE NOT NULL," 
 			+ " gender VARCHAR(100) NOT NULL,"
-			+ " m_img BLOB," 
+			+ " m_img LONGBLOB," 
 			+ " income VARCHAR(100), "
 			+ " city VARCHAR(100), " 
 			+ " education VARCHAR(100) , "
