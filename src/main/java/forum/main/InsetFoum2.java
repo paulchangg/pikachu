@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -25,21 +26,38 @@ public class InsetFoum2 {
 	public static void main(String[] args) throws IOException, SQLException {
 //1.Foum
 //------------------------放入資料--------------------------------OK
+
+//		String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
+//		for(String fname:n) {  // = for(int i =0; i<n.length;i++)
+//		IFoumService service = new FoumServiceImpl();
+//		FoumBean forum = new FoumBean(null, fname, null);
+//		service.insertFoum(forum);		
+//		}		
+//-------------------------------------------------------------------
+
 		IFoumService service = new FoumServiceImpl();
+
 		
-		Timestamp ts = new Timestamp(System.currentTimeMillis());
+		List<FoumBean> list = service.getAllfname(0);
 		
+		FoumBean foumbean = null;
 		
-		MemberService memservice  = new MemberServiceImpl();
-		
-		
-		
-//		memservice.queryMember("paul");
-		
-		
-//		FoumBean forum = new FoumBean(null, "旅遊", ts, null, "paul", null);
-//
-//		service.insertFoum(forum);
+		for (int n = 0; n < 11; n++) {
+			foumbean = list.get(n);
+//			System.out.println("看板名:" + foumbean.getFname());
+			
+			String fname = foumbean.getFname();
+			
+			int f_id = foumbean.getF_id();
+			
+			System.out.println("板編號:" +f_id+"     "+"看板名:" +fname);
+			
+
+			
+			
+		}
+
+//		System.out.println(foumbean.toString());
 
 //------------------------刪除資料--------------------------------ok	
 
@@ -49,33 +67,32 @@ public class InsetFoum2 {
 
 //2.Launch_activityService
 //------------------------放入資料--------------------------------OK	
-		ILaunch_activityService service2 = new Launch_activityServiceImpl();
-		Timestamp ts2 = new Timestamp(System.currentTimeMillis());
-
-		String string = "2015-10-28 18:27:45";
-		String string2 = "2019-11-15 14:11:33";
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		format.setLenient(false);
-		format2.setLenient(false);
-		Date date = null;
-		Date date2 = null;
-
-		try {
-			date = format.parse(string);
-			date2 = format2.parse(string2);
-		} catch (java.text.ParseException e) {
-			e.printStackTrace();
-		}
-
-		FoumBean foumBean = new FoumBean();
-		foumBean.setF_id(2);//版的代號
-		Blob articleimage = GlobalService.fileToBlob("D:\\資料庫功課\\Lisa02.jpg");
-//		HttpSession session = request.getSession();
-//		MemberBean mb = session.getAttribute("LoginOK");		Launch_activityBean article = new Launch_activityBean(null, "paul", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
-				date, date2, 100, foumBean, null);
-
-		service2.insertArticle(article);
+//		ILaunch_activityService service2 = new Launch_activityServiceImpl();
+//		Timestamp ts2 = new Timestamp(System.currentTimeMillis());
+////
+//		String string = "2015-10-28 18:27:45";
+//		String string2 = "2019-11-15 14:11:33";
+//		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//		format.setLenient(false);
+//		format2.setLenient(false);
+//		Date date = null;
+//		Date date2 = null;
+////
+//		try {
+//			date = format.parse(string);
+//			date2 = format2.parse(string2);
+//		} catch (java.text.ParseException e) {
+//			e.printStackTrace();
+//		}
+////
+//		FoumBean foumBean = new FoumBean();
+//		foumBean.setF_id(2);//版的代號
+//		Blob articleimage = GlobalService.fileToBlob("D:\\資料庫功課\\Lisa02.jpg");
+//		Launch_activityBean article = new Launch_activityBean(null, "paul", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
+//				date, date2, 100, foumBean, null);
+//
+//		service2.insertArticle(article);
 ////		
 
 //------------------------刪除資料--------------------------------ok	
@@ -95,8 +112,7 @@ public class InsetFoum2 {
 //------------------------刪除資料--------------------------------OK
 //		IResponserService service = new ResponserServiceImpl();
 //		service.DeleteArticle(4);
-		
+
 	}
 
-	
 }

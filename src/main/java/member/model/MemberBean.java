@@ -33,9 +33,9 @@ public class MemberBean {
 	String city;
 	String education;
 	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
-	private Set<FoumBean> foumBean = new LinkedHashSet<>();
+//	@OneToMany(cascade = {CascadeType.ALL})
+//	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
+//	private Set<FoumBean> foumBean = new LinkedHashSet<>();
 
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name="article_m_id",referencedColumnName = "m_id")
@@ -68,19 +68,14 @@ public class MemberBean {
 		this.education = education;
 	}
 	
-	
-	
-	
-	
-	
 
-	public Set<FoumBean> getFoumBean() {
-		return foumBean;
-	}
-
-	public void setFoumBean(Set<FoumBean> foumBean) {
-		this.foumBean = foumBean;
-	}
+//	public Set<FoumBean> getFoumBean() {
+//		return foumBean;
+//	}
+//
+//	public void setFoumBean(Set<FoumBean> foumBean) {
+//		this.foumBean = foumBean;
+//	}
 
 	public Set<Launch_activityBean> getLaunch_activityBean() {
 		return launch_activityBean;

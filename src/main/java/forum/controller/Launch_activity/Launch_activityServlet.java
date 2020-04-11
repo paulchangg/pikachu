@@ -62,7 +62,8 @@ public class Launch_activityServlet extends HttpServlet {
 		// 沒有登入會員 前往首頁
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		if (mb == null) {
-			response.sendRedirect(getServletContext().getContextPath() + "/index.html");
+			
+			response.sendRedirect(getServletContext().getContextPath() + "/homepage/index.html");
 			return;
 		}
 
@@ -167,9 +168,7 @@ public class Launch_activityServlet extends HttpServlet {
 		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
 		ILaunch_activityService service = new Launch_activityServiceImpl();
 
-		FoumBean foumBean = (FoumBean) session.getAttribute("LoginOK");
-//		foumBean.setF_id(2);//版的代號
-		foumBean.getF_id();
+		FoumBean foumBean = new FoumBean();
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
 

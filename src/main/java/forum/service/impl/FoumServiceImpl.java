@@ -11,15 +11,13 @@ import org.hibernate.Transaction;
 import forum.dao.IForumDao;
 import forum.dao.impl.ForumDaoImpl;
 import forum.model.FoumBean;
-import forum.model.Launch_activityBean;
-import forum.model.ResponserBean;
 import forum.service.IFoumService;
 import init.HibernateUtils;
 
-public class FoumServiceImpl implements Serializable,IFoumService {
+public class FoumServiceImpl implements Serializable, IFoumService {
 
 	
-
+	
 	private static final long serialVersionUID = 1L;
 
 	IForumDao dao;
@@ -30,49 +28,49 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 		factory = HibernateUtils.getSessionFactory();
 
 	}
-	@Override
-	public int addowner_m_id(String owner_m_id) {
-		
-		
-		int result = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.addowner_m_id(owner_m_id);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-		
-	}
-	@Override
-	public boolean checkid(String id) {
-		boolean result = false;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.checkid(id);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-	}
+//	@Override
+//	public int addowner_m_id(String owner_m_id) {
+//		
+//		
+//		int result = 0;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.addowner_m_id(owner_m_id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//		
+//	}
+//	@Override
+//	public boolean checkid(String id) {
+//		boolean result = false;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.checkid(id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//	}
 
 	
 
@@ -100,26 +98,26 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 
 	}
 
-	@Override
-	public int updateFoumBean(int f_id, FoumBean forum) {
-		int result = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.updateFoumBean(f_id, forum);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-	}
+//	@Override
+//	public int updateFoumBean(int f_id, FoumBean forum) {
+//		int result = 0;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.updateFoumBean(f_id, forum);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//	}
 
 	@Override
 	public int DeleteFname(int f_id) {
@@ -144,65 +142,65 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 
 	}
 
-	@Override
-	public int DeleteFname_activityId(int f_id, int article_Id) {
+//	@Override
+//	public int DeleteFname_activityId(int f_id, int article_Id) {
+//
+//		int result = 0;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.DeleteFname_activityId(f_id, article_Id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//
+//	}
 
-		int result = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.DeleteFname_activityId(f_id, article_Id);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-
-	}
-
-	@Override
-	public int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id) {
-
-		int result = 0;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.DeleteFname_activityId_Res_id(f_id, article_Id, res_id);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-	}
+//	@Override
+//	public int DeleteFname_activityId_Res_id(int f_id, int article_Id, int res_id) {
+//
+//		int result = 0;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.DeleteFname_activityId_Res_id(f_id, article_Id, res_id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//	}
 
 	@Override
 	public FoumBean getF_id(int f_id) {
 		return dao.getF_id(f_id);
 	}
 
-	@Override
-	public String getOwner_m_id() {
-		return dao.getOwner_m_id();
-	}
-
-	@Override
-	public void setOwner_m_id(String owner_m_id) {
-		dao.setOwner_m_id(owner_m_id);
-	}
+//	@Override
+//	public String getOwner_m_id() {
+//		return dao.getOwner_m_id();
+//	}
+//
+//	@Override
+//	public void setOwner_m_id(String owner_m_id) {
+//		dao.setOwner_m_id(owner_m_id);
+//	}
 
 	@Override
 	public int getF_id() {
@@ -237,28 +235,28 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 
 	}
 
-	@Override
-	public List<FoumBean> getOwner_m_id(String owner_m_id) {
-
-		List<FoumBean> result = null;
-		Session session = factory.getCurrentSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			result = dao.getOwner_m_id(owner_m_id);
-
-			tx.commit();
-		} catch (Exception e) {
-			if (tx != null) {
-				tx.rollback();
-			}
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-
-		return result;
-
-	}
+//	@Override
+//	public List<FoumBean> getOwner_m_id(String owner_m_id) {
+//
+//		List<FoumBean> result = null;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			result = dao.getOwner_m_id(owner_m_id);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return result;
+//
+//	}
 
 	@Override
 	public void setConnection(Connection con) {
@@ -276,5 +274,9 @@ public class FoumServiceImpl implements Serializable,IFoumService {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	//透
+	
+	
 
 }

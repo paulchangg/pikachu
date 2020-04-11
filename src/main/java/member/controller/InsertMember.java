@@ -1,11 +1,9 @@
 package member.controller;
 
-import java.sql.Blob;
+//失敗
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 
-import init.GlobalService;
 import member.model.MemberBean;
 import member.service.MemberService;
 import member.service.impl.MemberServiceImpl;
@@ -13,29 +11,74 @@ import member.service.impl.MemberServiceImpl;
 public class InsertMember {
 
 	public static void main(String[] args) {
-		MemberService ms = new MemberServiceImpl();
-//		MemberBean mb = new MemberBean("Test","123","testtt","0987654321","test@gmail.com","tt",Date.valueOf("1997-01-01"),"m",null,"50","Taipei","大學");
-//		
-//		ms.saveMember(mb);
-//		System.out.println(ms.idExists("test"));
-//		MemberBean mb = ms.queryMember("Test");
-//		System.out.println(mb.toString());
-//		System.out.println(ms.updatePassword("test@gmail.com", "123456789"));
-//		System.out.println(ms.emailExists("test@gmail.com"));
-//		ms.sendMail("paul860513@gmail.com", "qwertyuiop");
-//		String s[] = {"!","@","#","$","%","^","'","\""};
-//		System.out.println(GlobalService.getRandomPassword());
-//		ms.updateNickname(mb, "TTTTTTT");
-//		ms.updateIncome(mb, "1000000001");
-//		ms.changePassword(mb, "Do!ng1234");
-		String d = "2020/02/01";
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+
+		String[] id = { "james", "paul", "Peter", "Danny", "Weld", "Lily", "Davie", "Pig", "Happy", "Kitty", "Cindy" };
+		String[] password = { "james", "paul", "Peter", "Danny", "Weld", "Lily", "Davie", "Pig", "Happy", "Kitty",
+				"Cindy" };
+		String[] name = { "james", "paul", "Peter", "Danny", "Weld", "Lily", "Davie", "Pig", "Happy", "Kitty",
+				"Cindy" };
+		String[] phone_num = { "0933868789", "0933868789", "0933868789", "0933868789", "0933868789", "0933868789",
+				"0933868789", "0933868789", "0933868789", "0933868789", "0933868789" };
+		String[] mail = { "james@@", "paul@@", "Peter@@", "Danny@@", "Weld@@", "Lily@@", "Davie@@", "Pig@@", "Happy@@",
+				"Kitty@@", "Cindy@@" };
+		String[] gender = { "Male", "Male", "Male", "Male", "Male", "Lily", "Male", "Male", "Male", "Female",
+				"Female" };
+		String[] city = { "Taipei", "Taipei", "Taipei", "Taipei", "Taipei", "Taipei", "Taipei", "Taipei", "Taipei",
+				"Taipei", "Taipei" };
+
+		String birthdatStr = "1911-01-01";
+
+		Date birthday = null;
 		try {
-			System.out.println(sdf.format(sdf1.parse(d)));
-		} catch (ParseException e) {
-			e.printStackTrace();
+			birthday = java.sql.Date.valueOf(birthdatStr);
+		} catch (Exception e) {
+
+		}
+		MemberService ms = new MemberServiceImpl();
+		MemberBean mb = new MemberBean();
+		
+		
+		
+
+		for (int n = 0; n < phone_num.length; n++) {
+			for (String m_id : id) {
+				System.out.println(m_id);
+				for (String m_password : password) {
+					for (String m_name : name) {
+						for (String m_phone_num : phone_num) {
+							for (String m_mail : mail) {
+
+								for (String m_gender : gender) {
+									for (String m_city : city) {
+										mb.setCity(m_city);
+										mb.setBirthday(birthday);
+//										mb.setM_id(m_id);
+//										mb.setM_password(m_password);
+//										mb.setName(m_name);
+//										mb.setM_mail(m_mail);
+//										mb.setPhone_num(m_phone_num);
+//										mb.setGender(m_gender);
+//										mb.setCity(m_city);
+//										mb.setBirthday(birthday);
+//										ms.saveMember(mb);
+									}
+//									mb.setGender(m_gender);
+								}
+//								mb.setM_mail(m_mail);
+							}
+//							mb.setPhone_num(m_phone_num);
+						}
+//						mb.setName(m_name);
+					}
+//					mb.setM_password(m_password);
+				}
+//				System.out.println(m_id);
+//				mb.setM_id(m_id);
+				
+			}
+			
+//			ms.saveMember(mb);
+			break;
 		}
 	}
-
 }

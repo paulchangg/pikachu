@@ -51,16 +51,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ManagementForumServlet</display-name>
-    <servlet-name>ManagementForumServlet</servlet-name>
-    <servlet-class>forum.controller.ManagementForum.ManagementForumServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ManagementForumServlet</servlet-name>
-    <url-pattern>/ManagementForumServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>Launch_activityServlet</display-name>
     <servlet-name>Launch_activityServlet</servlet-name>
     <servlet-class>forum.controller.Launch_activity.Launch_activityServlet</servlet-class>
@@ -119,5 +109,14 @@
     <servlet-name>ChangePwServlet</servlet-name>
     <url-pattern>/ChangePwServlet</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description></description>
+    <display-name>ForumHompage</display-name>
+    <servlet-name>ForumHompage</servlet-name>
+    <servlet-class>forum.controller.forumHompage.ForumHompage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForumHompage</servlet-name>
+    <url-pattern>/forum/ForumHompage</url-pattern>
+  </servlet-mapping>
 </web-app>
