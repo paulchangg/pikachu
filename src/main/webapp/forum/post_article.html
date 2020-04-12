@@ -4,19 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>發文頁面</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/post_article.css" />
-    <link
-      rel="stylesheet"
-      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
-    <script src="/js/post_article.js"></script>
   </head>
 
   <body>
@@ -27,7 +16,7 @@
           <!-- 會員頭像 -->
           <div class="comment-avatar">
             <img
-              id ="memberid_img"
+              id="memberid_img"
               src="./images/id_photo/memberphoto_1.jpg"
               alt=""
             />
@@ -63,7 +52,7 @@
               >
                 請選擇
               </button>
-              <div class="dropdown-menu" aria-labelledby="fname">
+              <div class="dropdown-menu" aria-labelledby="subject">
                 <button class="dropdown-item" type="button">信用卡</button>
                 <button class="dropdown-item" type="button">美食</button>
                 <button class="dropdown-item" type="button">感情</button>
@@ -98,7 +87,6 @@
 
           <!-- 上傳圖片的按鈕 -->
           <input id="articleimage" type="file" />
-
           <!-- 文章標籤選擇 -->
           <div class="widget" style="padding: 40px 0 40px 0;">
             <fieldset>
@@ -143,17 +131,10 @@
       </div>
     </page>
 
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/post_article.js"></script>
   </body>
 </html>
