@@ -79,4 +79,24 @@
     <servlet-name>ChangePwServlet</servlet-name>
     <url-pattern>/ChangePwServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetrieveMemberImageServlet</display-name>
+    <servlet-name>RetrieveMemberImageServlet</servlet-name>
+    <servlet-class>init.RetrieveMemberImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetrieveMemberImageServlet</servlet-name>
+    <url-pattern>/RetrieveMemberImageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EditPhotoServlet</display-name>
+    <servlet-name>EditPhotoServlet</servlet-name>
+    <servlet-class>member.controller.EditPhotoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditPhotoServlet</servlet-name>
+    <url-pattern>/EditPhotoServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

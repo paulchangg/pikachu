@@ -15,6 +15,6 @@ public interface MemberService {
 	public void changePassword(MemberBean mb);
 	public boolean emailExists(String email);
 	public void sendMail(String email, String newPW);
-	public int updateM_img(MemberBean mb,Blob m_img);
+	public void updateM_img(MemberBean mb);
 	public void updateMember(MemberBean mb);
 }

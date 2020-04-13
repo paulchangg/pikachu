@@ -228,14 +228,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int updateM_img(MemberBean mb, Blob m_img) {
-		int r = 0;
+	public void updateM_img(MemberBean mb) {
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 
 		try {
 			tx = session.beginTransaction();
-			r = dao.updateM_img(mb, m_img);
+			dao.updateM_img(mb);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -245,7 +244,6 @@ public class MemberServiceImpl implements MemberService {
 			throw new RuntimeException();
 		}
 
-		return r;
 	}
 
 	@Override
