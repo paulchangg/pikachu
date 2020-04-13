@@ -131,11 +131,13 @@ crossorigin="anonymous"
 					      <input type="submit" value="確認送出" id="Button1">
 				  </form>
 			 </div>
+			 
 			 <div class="col-4 centerimg">
 				 <img src="../images/common/register_皮卡丘.png" width="500px" height="450px" class="pulse">
 			 </div>
 		 </div>
-
+	           <img src="../images/common/regist註冊寫字.png" class="handimg">
+	           
       <!-- 尾巴---------------------------------------->
 	  <div class="site_footer">
           <div class="gotop">

@@ -198,3 +198,47 @@ a:hover {
   background-color:#fff;
   border:2px #776C5B solid;
 }
+
+
+
+/*寫字圖片*/
+
+@keyframes myhand{
+
+   0%{visibility: visible;}
+   10%{margin-left: 20%;}
+   15%{margin-left: 22%;}
+   20%{margin-top: 22%;}
+   25%{margin-left: 20%;}
+   30%{margin-left: 22%;}
+   35%{margin-top: 24%;}
+   40%{margin-left: 20%;}
+   45%{margin-left: 22%;}
+   50%{margin-top: 26%;}
+   55%{margin-left: 20%;}
+   60%{margin-left: 22%;}
+   65%{margin-top: 28%;}
+   70%{margin-left: 20%;}
+   75%{margin-left: 22%;}
+   80%{margin-top: 30%;}
+   85%{margin-left: 20%;}
+   90%{margin-left: 22%;}
+   95%{margin-top: 35%;}
+   96%{visibility: hidden;} 
+}
+
+
+/*手的動畫*/
+.handimg{
+  position: absolute;
+  float: left;
+  margin-top: 20%;
+  margin-left: 25%;
+  visibility: hidden;
+  animation-name:myhand ;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2s;
+  width:450px;
+  height:500px;
+}
