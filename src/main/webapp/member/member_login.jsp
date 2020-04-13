@@ -30,7 +30,7 @@ crossorigin="anonymous"
 			<div class="toparea">
 			   <c:if test="${ ! empty sessionScope.timeOut }">
                              <!-- 表示使用逾時，重新登入 -->
-                           <c:set var="msg"value="<font color='red'>${sessionScope.timeOut}</font>" />
+                           <c:set var="msg" value="<font color='red'>${sessionScope.timeOut}</font>" />
                           </c:if>
 			 </div>
 		</div>
@@ -92,7 +92,7 @@ crossorigin="anonymous"
 						 <tr>
                             <td>
 								<div class="input_code">
-								    <input type="text" id="inputCode" placeholder="驗證碼無大寫小"/>
+								    <input type="text" id="inputCode" placeholder="驗證碼無大小寫"/>
 								    <p><span id="text_show"></span></p>
 								</div>
 							</td>
@@ -153,18 +153,18 @@ crossorigin="anonymous"
 			      <span aria-hidden="true">&times;</span>
 		      </button>
 		    </div>
+			    <form action="forgetPW.do" method="post" id="my-form">	
 		     <div class="modal-body">
 		        <!-- 多用一個 form 表單包裝起來，之後送到後端 server  -->
-			    <form action="forgetPW.do" method="post" id="my-form">	
 				   <label>請輸入您註冊的email</label>
 			       <p><input type="text" name="email" value="" placeholder="註冊的電子信箱" autocomplete="off"></p>
-			       <Font color='red' size="-3">${ErrorMsg.EmailError}${ErrorMsg.EmptyError}</Font>
-			   </form>
+			       <p><Font color='red' size="-3">${ErrorMsg.EmailError}${ErrorMsg.EmptyError}</Font></p>
 		    </div>
 			 <div class="modal-footer">
-			    <button type="submit" id="Button2">送出</button>
 			    <p><Font color='green' size="-3">${OkMsg.sendSuccessfully}</Font></p>
+			    <button id="Button2" value="forgetPW.do">送出</button>
 			</div>
+			   </form>
 		  </div>
 	   </div>
 	</div>

@@ -15,7 +15,7 @@ import init.GlobalService;
 import member.service.MemberService;
 import member.service.impl.MemberServiceImpl;
 
-@WebServlet("/forgetPW.do")
+@WebServlet("/member/forgetPW.do")
 public class ForgetPasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

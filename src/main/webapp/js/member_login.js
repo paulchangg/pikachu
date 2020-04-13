@@ -88,17 +88,17 @@ function check(){
 /*忘記密碼的按鈕啟動視窗*/
 var startbtn=document.getElementById('forgetbtn');
 
-startbtn.addEventListener("click",function()
-{
-  $('#myModal').modal('show');},
+startbtn.addEventListener("click",function(){
+//  $('#myModal').modal('show');},false)
+	$('#myModal').modal({backdrop:'static', keyboard: false})},false)
   
-false)
 
 
 /*忘記密碼送出表單*/
   var submitbtn=document.getElementById('Button2');
   submitbtn.addEventListener("click",function(){
-    $('#my-form').submit()}
+//    $('#my-form').submit();
+  }
   ,false)
 
 
