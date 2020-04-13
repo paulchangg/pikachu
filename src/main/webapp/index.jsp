@@ -18,7 +18,8 @@
 	<br>
 	<button type="submit" >送出</button><br>
 	<Font color='green' size="-3">${OkMsg.sendSuccessfully}</Font>
-	<a href="member/member_login.jsp">會員登入</a>
+	<a href="member/member_login.jsp">會員登入</a><BR>
+	<a href="ForumHompage">論壇</a>
 	
 </form>
 </body>

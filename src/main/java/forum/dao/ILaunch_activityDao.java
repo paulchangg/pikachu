@@ -3,6 +3,7 @@ package forum.dao;
 import java.sql.Connection;
 import java.util.List;
 
+import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
 
 public interface ILaunch_activityDao {
@@ -26,7 +27,7 @@ public interface ILaunch_activityDao {
 
 	void setConnection(Connection con);
 
-	
+	FoumBean  getF_ById(int f_id);
 
 
 }

@@ -60,12 +60,15 @@ textarea {
 <!--      		</td> -->
 <%--             <td width="200">${entry.value.p_bns}</td> --%>
 <!--             <td> -->
+
+
 	<form action="<c:url value='/forum/Launch_activityServlet' />"
 		method="POST" enctype="multipart/form-data">
 
 
 
 		<h1 style="text-align: center;">我要發文啦</h1>
+
 
 		<div>
 			<span size="10"> <img src="../images/common/memberphoto_2.jpg"
@@ -80,29 +83,6 @@ textarea {
 			 
                <Input type='hidden' name='fname value='${fname}'>
 			 
-			 
-<!--                <select name='fname'> -->
-               
-               
-               
-               
-<%--                     <option value="<a href="/forum/ForumHompage?f_id=1">">旅遊</option> --%>
-<%--                     <option value="<a href="/forum/ForumHompage?f_id=2">">魯蛇卡</option> --%>
-<!--                     <option value="3">加油回饋</option> -->
-<!--                     <option value="4">無限卡</option> -->
-<!--                     <option value="5">電影</option> -->
-<!--                     <option value="6">購物</option> -->
-<!--                     <option value="7">現金回饋</option> -->
-<!--                     <option value="8">宗教</option> -->
-<!--                     <option value="9">公益</option> -->
-<!--                     <option value="10">鈦金or御璽卡</option> -->
-<!--                     <option value="11">運動</option> -->
-<!--                </select> -->
-               <!-- 這些隱藏欄位都會送到後端 -->
-			
-			
-			
-			
 		</div>
 
 		<div>

@@ -119,4 +119,14 @@
     <servlet-name>ForumHompage</servlet-name>
     <url-pattern>/forum/ForumHompage</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ConnectionForum_launch</display-name>
+    <servlet-name>ConnectionForum_launch</servlet-name>
+    <servlet-class>forum.controller.forumHompage.ConnectionForum_launch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnectionForum_launch</servlet-name>
+    <url-pattern>/ConnectionForum_launch</url-pattern>
+  </servlet-mapping>
 </web-app>

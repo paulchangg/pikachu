@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "launch_activity")
@@ -54,6 +55,31 @@ public class Launch_activityBean {
 	private Date endTime;// 結束活動的時間
 
 	private Integer popularity;
+
+	@Transient
+	private Integer  f_id;
+	
+	
+	public Launch_activityBean(Integer article_Id, String article_m_id, Integer f_id) {
+		super();
+		this.article_Id = article_Id;
+		this.article_m_id = article_m_id;
+		this.f_id = f_id;
+	}
+
+
+
+	public Integer getF_id() {
+		return f_id;
+	}
+
+
+
+	public void setF_id(Integer f_id) {
+		this.f_id = f_id;
+	}
+
+
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "f_id", nullable = false)
@@ -227,6 +253,13 @@ public Launch_activityBean(Integer article_Id, String article_m_id, String artic
 		builder.append(items);
 		builder.append("]");
 		return builder.toString();
+	}
+
+
+
+	public void setF_id(FoumBean foumBean2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

@@ -130,4 +130,13 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	public void setConnection(Connection con) {
 		throw new RuntimeException("Launch_activityBeane類別不用實作此方法");
 	}
+
+	@Override
+	public FoumBean getF_ById(int f_id) {
+		Session session = factory.getCurrentSession();
+		FoumBean foumbean = null;
+		String hql = "FROM FoumBean b WHERE b.f_id = :fid" ;
+		foumbean = (FoumBean) session.createQuery(hql).setParameter("fid", f_id).getSingleResult();
+		return foumbean;
+	}
 }

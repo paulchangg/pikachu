@@ -1,6 +1,7 @@
 package forum.controller.forumHompage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -20,6 +21,7 @@ public class ForumHompage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	int f_id = 1;
+	String fname = null;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -49,17 +51,27 @@ public class ForumHompage extends HttpServlet {
 		List<FoumBean> list = service.getAllfname(f_id);
 
 		FoumBean foumbean = null;
+		
+		List<String> listFame = new ArrayList<>();
+
 		for (int n = 0; n < 11; n++) {
 			foumbean = list.get(n);
+
 			String fname = foumbean.getFname();
 			int f_id = foumbean.getF_id();
-
+			
+			
 			session.setAttribute("f_id", String.valueOf(f_id));
 			session.setAttribute("fname", fname);
-
+			
+			listFame.add(fname);
+			
+			request.setAttribute("fname", listFame);
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
+//		System.out.println(listFame);
+
+		RequestDispatcher rd = request.getRequestDispatcher("/forum/ForumHompage.jsp");
 		rd.forward(request, response);
 		return;
 	}

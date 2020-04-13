@@ -10,12 +10,12 @@ import org.hibernate.Transaction;
 
 import forum.dao.ILaunch_activityDao;
 import forum.dao.impl.Launch_activityDaoImpl;
+import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
 import forum.service.ILaunch_activityService;
 import init.HibernateUtils;
 
 public class Launch_activityServiceImpl implements Serializable, ILaunch_activityService {
-
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	public Launch_activityServiceImpl() {
 		this.dao = new Launch_activityDaoImpl();
 		factory = HibernateUtils.getSessionFactory();
-		
+
 	}
 
 //	@Override
@@ -49,7 +49,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 //		
 //		return result;
 //	}
-	
+
 	@Override
 	public void insertArticle(Launch_activityBean article) {
 		Session session = factory.getCurrentSession();
@@ -70,7 +70,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 	}
 
 	@Override
-	public int updateArticle(int article_Id,Launch_activityBean article) {
+	public int updateArticle(int article_Id, Launch_activityBean article) {
 
 		int result = 0;
 		Session session = factory.getCurrentSession();
@@ -94,7 +94,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 
 	@Override
 	public int DeleteArticle(int article_Id) {
-		
+
 		int result = 0;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
@@ -112,7 +112,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		}
 
 		return result;
-		
+
 	}
 
 	@Override
@@ -120,15 +120,13 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		return dao.getArticle_Id(article_Id);
 	}
 
-	
-
 	@Override
 	public List<Launch_activityBean> getMemberArticles(String article_m_id) {
-		
+
 		List<Launch_activityBean> result = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
-		
+
 		try {
 			tx = session.beginTransaction();
 			result = dao.getMemberArticles(article_m_id);
@@ -143,12 +141,12 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		}
 
 		return result;
-		
+
 	}
 
 	@Override
 	public List<Launch_activityBean> getAllArticles() {
-		
+
 		List<Launch_activityBean> result = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
@@ -166,12 +164,40 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		}
 
 		return result;
-		
+
 	}
+
+//	@Override
+//	public FoumBean getF_ById(int f_id) {
+//		Session session = factory.getCurrentSession();
+//		return null;
+//	}
 
 	@Override
 	public void setConnection(Connection con) {
 		dao.setConnection(con);
+	}
+
+	@Override
+	public FoumBean getF_ById(int f_id) {
+		FoumBean foumbean =null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			foumbean = dao.getF_ById(f_id);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return foumbean;
+		
 	}
 
 }

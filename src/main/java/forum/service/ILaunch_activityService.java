@@ -3,6 +3,7 @@ package forum.service;
 import java.sql.Connection;
 import java.util.List;
 
+import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
 
 public interface ILaunch_activityService {
@@ -21,7 +22,9 @@ public interface ILaunch_activityService {
 	List<Launch_activityBean> getAllArticles();
 
 	void setConnection(Connection con);
-
+	
+	
+	FoumBean  getF_ById(int f_id);
 
 
 }
