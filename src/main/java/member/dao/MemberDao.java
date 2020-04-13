@@ -20,7 +20,7 @@ public interface MemberDao {
 	
 	public boolean emailExists(String email);
 	
-	public int updateM_img(MemberBean mb,Blob m_img);
+	public void updateM_img(MemberBean mb);
 
 	public void updateMember(MemberBean mb);
 
