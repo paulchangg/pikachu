@@ -140,12 +140,13 @@ div.leftNav {
 }
 .share-icon {
   display: inline-block;
-  width: 35px;
-  height: 35px;
-  line-height: 48px;
+  width: 40px;
+  height: 40px;
+  line-height: 43px;
   text-align: center;
   border-radius: 50%;
   background-color: #fff;
+  color: rgb(42, 165, 114);
   transition: all 0.3s ease;
   outline: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
