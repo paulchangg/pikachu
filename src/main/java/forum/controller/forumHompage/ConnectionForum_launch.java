@@ -2,6 +2,7 @@ package forum.controller.forumHompage;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,14 +19,17 @@ public class ConnectionForum_launch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
-		
-//	 HttpSession session = request.getSession(); 
-//	 
-//	 FoumBean fob = (FoumBean) session.getAttribute("fname");
-//	 if(fob== null) {
-//		 response.sendRedirect(getServletContext().getContextPath() + "/forum/ForumHompage.jsp");
-//			return;
-//	 }
+
+		HttpSession session = request.getSession();
+	 
+		FoumBean fob = (FoumBean) session.getAttribute("fname");
+		if (fob == null) {
+			response.sendRedirect(getServletContext().getContextPath() + "/forum/ForumHompage.jsp");
+
+		} else {
+			response.sendRedirect(getServletContext().getContextPath() + "/forum/ShowArticleMode.jsp");
+
+		}
 
 	}
 

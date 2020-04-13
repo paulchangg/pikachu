@@ -51,7 +51,7 @@ public class ForumHompage extends HttpServlet {
 		List<FoumBean> list = service.getAllfname(f_id);
 
 		FoumBean foumbean = null;
-		
+
 		List<String> listFame = new ArrayList<>();
 
 		for (int n = 0; n < 11; n++) {
@@ -59,21 +59,25 @@ public class ForumHompage extends HttpServlet {
 
 			String fname = foumbean.getFname();
 			int f_id = foumbean.getF_id();
-			
-			
+
 			session.setAttribute("f_id", String.valueOf(f_id));
+			
 			session.setAttribute("fname", fname);
-			
+
 			listFame.add(fname);
-			
+
 			request.setAttribute("fname", listFame);
 		}
 
-//		System.out.println(listFame);
-
+		if(listFame !=null ) {
 		RequestDispatcher rd = request.getRequestDispatcher("/forum/ForumHompage.jsp");
 		rd.forward(request, response);
-		return;
+		
+		RequestDispatcher rd2 = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
+		rd2.forward(request, response);
+		
+		}
+		
 	}
 
 }

@@ -44,8 +44,8 @@ public class Launch_activityServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-//		response.setContentType("text/json; charset=UTF-8");
-//		response.setContentType("image/jpeg");
+
+		
 		// 準備存放錯誤訊息的Map物件
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		// 準備存放註冊成功之訊息的Map物件
@@ -69,8 +69,9 @@ public class Launch_activityServlet extends HttpServlet {
 		}
 		
 		 FoumBean fob = (FoumBean) session.getAttribute("fname");
+		 
 		 if(fob== null) {
-			 response.sendRedirect(getServletContext().getContextPath() + "/forum/ForumHompage.jsp");
+			 response.sendRedirect(getServletContext().getContextPath() + "/forum/index.html");
 				return;
 		 }
 
@@ -172,15 +173,11 @@ public class Launch_activityServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
-		ILaunch_activityService service = new Launch_activityServiceImpl();
-//---------------
-//		FoumBean foumBean = new FoumBean();
-//		Launch_activityBean launchbean = new Launch_activityBean();d
-//		FoumBean foumBean = service.getF_ById(launchbean.getF_id());
-//		launchbean.setF_id(foumBean);
-//---------------
 		
+		
+		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
+		
+		ILaunch_activityService service = new Launch_activityServiceImpl();
 		FoumBean  foumBean =(FoumBean)session.getAttribute("f_id");
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件

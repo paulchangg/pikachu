@@ -62,7 +62,8 @@ textarea {
 <!--             <td> -->
 
 
-	<form action="<c:url value='/forum/Launch_activityServlet' />"
+	
+	<form action="<c:url value='/forum/Launch_activityServlet?' />"
 		method="POST" enctype="multipart/form-data">
 
 
@@ -74,12 +75,9 @@ textarea {
 			<span size="10"> <img src="../images/common/memberphoto_2.jpg"
 				style="width: 128px; height: 128px;" />
 			</span>
-			
-			 版名:
-               <Input type='hidden' name='f_id' value='${f_id}'>
-			<h1 ><a href="/forum/ForumHompage?f_id=1">${fname}</a></h1>		 
-			<h1 ><a href="/forum/ForumHompage?f_id=2">${fname}</a></h1>		 
-			<h1 ><a href="/forum/ForumHompage?f_id=3">${fname}</a></h1>		 
+			<br>
+			 版名:<h1>${fname}</h1>		 
+	 
 			 
                <Input type='hidden' name='fname value='${fname}'>
 			 
