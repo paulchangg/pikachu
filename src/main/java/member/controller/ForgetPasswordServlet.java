@@ -51,10 +51,10 @@ public class ForgetPasswordServlet extends HttpServlet {
 		
 		if(errorMsg.isEmpty()) {
 			okMsg.put("sendSuccessfully", "密碼驗證信已寄送");
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("member_login.jsp");
 			rd.forward(request, response);
 		}else {
-			RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("member_login.jsp");
 			rd.forward(request, response);
 		}
 		

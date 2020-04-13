@@ -6,199 +6,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>註冊 比卡丘</title>
-<link rel="stylesheet" type="text/css"
-	href="../css/common/normalize.css">
-<link rel="stylesheet" type="text/css"
-	href="../css/common/icon-font-3/font_style.css">
-<link rel="stylesheet" type="text/css" href="../css/basic.css">
-<link rel="stylesheet" type="text/css" href="../css/common/style.css">
+<title>成為比卡丘會員</title>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+/>
+<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/common/member_register.css"/>
+<link rel="stylesheet" href="../css/common/wickedcss.min.css"/>
 
-<script src="../js/jquery.min.js"></script>
-<script defer="" src="../js/modernizr.js"></script>
 </head>
-<body class="mmenu-show">
-	<div class="wrapper">
-		<header class="site-header">
-			<div class="container">
-				<div class="site-title">
-					<a href="javascript:void(0)" class="logo ibtn">比卡丘</a>
-				</div>
+<body>
+  <div class="flex-container">
+	  <div class="header">
+		  <div class="logoimg">
+			  <img src="../images/common/logo.png" width="180px" height="100px">
+		  </div>
+		  <div class="toparea">
+			  <span class="toptext">您現在的身分為訪客 已有會員帳號了嗎?快來 
+				  <a href="member_login.jsp" style="color: #776C5B;">
+				  <i class="fa fa-user-circle" id="memberlogin">登入</i>
+			     </a>
+			 </span>
+		   </div>
+	  </div>
 
-				<div class="top-nav">
-					<ul class="func-menu list-inline">
-						<li class="bg"><a href="member_login.jsp"><i
-								class="ic ic3-member"></i>會員登入</a></li>
-						<li class="bg"><a href="javascript:void(0)"><i
-								class="ic ic3-cash"></i>信用卡比較</a>
-						<li><a href="javascript:void(0)"><i class="ic ic3-pen"></i>Q&A</a></li>
-						</li>
-						<li id="" class="gocart hover-on"><a href="#gocart"
-							class="toggleBtn aaa"><i class="ic ic3-cart"></i>Shopping
-								Cart <span>0</span></a>
-							<div class="cart-box">
-								<ul class="cart-list">
-								</ul>
-								<a href="javascript:void(0)" class="btn"><i
-									class="ic ic3-cash"></i> 前往結帳</a>
-							</div></li>
-					</ul>
-				</div>
-				<nav class="site-nav">
-					<ul class="menu list-h">
-						<li class="has-child"><a href="javascript:void(0)">關於我們</a>
-							<ul>
-								<li><a href="javascript:void(0)">關於我們</a></li>
-							</ul> <span class="toggle-submenu"></span></li>
-						<li><a href="javascript:void(0)">聯絡我們</a></li>
-						<li class="has-child"><a href="javascript:void(0)">會員專區</a>
-							<ul>
-								<li><a href="member_login.jsp">會員登入</a></li>
-								<li><a href="member_register.jsp">會員註冊</a></li>
-								<li><a href="javascript:void(0)">忘記密碼</a></li>
-							</ul> <span class="toggle-submenu"></span></li>
-						<li><a href="javascript:void(0)">論壇交友</a></li>
-						<li class="m-hide has-child"><a href="javascript:void(0)">商城</a>
-							<ul>
-								<li><a href="javascript:void(0)">線上購物</a></li>
-								<li><a href="javascript:void(0)">線上購物</a></li>
-								<li><a href="javascript:void(0)">線上購物</a></li>
-							</ul> <span class="toggle-submenu"></span></li>
-						<li><a href="javascript:void(0)">資訊網</a></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+	  <!---------------------表單區塊-------------------------------->
+	      <div class="centerarea">
+			 <div  class="col-7 formtablearea">
+			    <h1 class="titleh1">成為會員</h1>
+			       <form id="" name="frmlogin" method="post" action="register.do" onSubmit="return check()" >
+					  <input type="hidden" name="csrf_test_name"><!-----???不知道是甚麼東西?後端測試用的嗎----->
+					  
+					  <!---------------------表格-------------------------------->
+					  <table class="table01">
+				         <tr>
+						     <th><label >會員帳號</label><p>Your ID</p></th> <!-----帳號----->
+						     <td>  
+							     <input class="validate[required,custom[email]]"
+							     type="text" name="account" id="signup_id" value="${param.account}"
+							     placeholder="由英文與數字組成"  autocomplete="off">
+							    <font color="red" size="-1">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
+						     </td>
+					      </tr>	  
+					       <tr>
+					          <th><label>密碼</label><p>Password</p></th><!-----密碼----->
+					          <td> 
+								  <input class="validate[required]"
+								  type="password" name="password" id="register_password"
+						          value="" placeholder="8碼以上的英文大小寫與數字特殊符號@#組成" 
+								  autocomplete="off"> 
+								  <input type="checkbox" onclick="myFunction()">顯示
+								  <font color="red" size="-1">
+						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
+					         </td>
+						 </tr> 
+						 <tr>
+							<th><label>密碼確認</label><p>Comfirm Password</p></th><!-----密碼確認----->
+							<td> 
+								<input class="validate[required]"
+								type="password" name="password" id="register_passwordtwo"
+								value="" autocomplete="off" placeholder="請再次輸入您的密碼" >
+								<span id="register_passwordtext"></span>
+						   </td>
+					   </tr> 
+					      <tr>
+			                  <th><label class="required">姓名</label><p>Your name</p></th><!-----姓名----->
+					          <td>
+						        <input type="text" name="name" placeholder=" 請輸入中文姓名"  value="${param.name}"><br>
+						        <font color="red" size="-1">${MsgMap.errorNameEmpty}</font>
+						      </td>
+					     </tr>
+					      <tr>
+					         <th><label class=" required">電子郵件</label><p>E-mail</p></th><!-----電子郵件----->
+					         <td>
+                                 <input
+						          class=" validate[required,custom[email]]"
+						          type="text" name="email" id="signup_mail" value="${param.email}"
+							      placeholder="請輸入電子郵件"  autocomplete="off">
+						          <font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}</font>
+						     </td>
+					     </tr> 
+                          <tr>
+						      <th><label class="required">性別</label><p>Gender</p></th> <!-----性別----->
+					          <td>
+							     <input type="radio" name="gender" value="male">&nbsp;男
+							     <input type="radio" name="gender" value="female" >&nbsp;女
+							     <font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
+						     </td>
+					     </tr>	  
+				         <tr>
+							  <th><label class="required">手機</label><p>Phone</p></th><!-----手機----->
+							  <td>
+						         <input type="text" name="phone_num" placeholder=" 輸入10位數字"  value="${param.phone_num}"><br>
+							     <font color="red" size="-1">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
+							 </td>
+						 </tr>
+                         <tr>
+							 <th><label class="required">生日</label><p>Birthday</p></th><!-----生日----->
+					         <td>
+						        <input type="date" name="birthday" value="${param.birthday}"><br>
+						        <font color="red" size="-1">${MsgMap.errorBirthdayEmpty}</font>
+						     </td>
+						 </tr>
+						 <tr>
+							<td>
+						      	<div class="v_code">
+								    <div class="code_show">
+								    <span class="code" id="memberregister_img"></span>
+								    <a id="linkbt">看不清換一張</a>
+								</div>
+							</td>
+							<td>
+								<div class="input_code">
+								    <label for="inputCode"></label>
+								    <input type="text" id="inputCode"/>
+								    <p><span id="text_show"></span></p>
+								</div>
+							</td> 	  
+						 </tr>
+					  </table>   
+					      <input type="submit" value="確認送出" id="Button1">
+				  </form>
+			 </div>
+			 
+			 <div class="col-4 centerimg">
+				 <img src="../images/common/register_皮卡丘.png" width="500px" height="450px" class="pulse">
+			 </div>
+		 </div>
+	           <img src="../images/common/regist註冊寫字.png" class="handimg">
+	           
+      <!-- 尾巴---------------------------------------->
+	  <div class="site_footer">
+          <div class="gotop">
+             <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
+             <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
+		  </br>
+          </div>
+     </div>
+</div>
 
-		<main class="site-main has-side">
-			<div class="main-content">
-				<div class="container">
-					<header class="content-top clearfix">
-						<div class="main-title">
-							<span>MEMBER SHOPPING ZONE</span>
-							<div class="second_txt">會員專區</div>
-						</div>
-					</header>
-					<aside class="side">
-						<ul class="side-nav list-v">
-							<li><a href="member_login.jsp">會員登入</a></li>
-							<li><a href="member_register.jsp">會員註冊</a></li>
-							<li><a href="javascript:void(0)">忘記密碼</a></li>
-						</ul>
-					</aside>
-					<section class="content">
-						<div class="content-title">
-							<span>會員註冊</span>
-						</div>
-						<div class="form-wrap type3 line">
-							<div class="form-box">
-								<form id="" name="frmlogin" method="post" action="register.do">
-									<input type="hidden" name="csrf_test_name">
-									<div class="row type2 clearfix">
-										<div class="col col1">
-											<div class="form-group">
-												<label class="control-label required">帳號</label>
-												<div class="control-box">
-													<input
-														class="form-control validate[required,custom[email]]"
-														type="text" name="account" id="signup_id" value="${param.account}"
-														placeholder="帳號只能是英文和數字" tabindex="1" autocomplete="off">
-													<font color="red" size="-1">${MsgMap.errorIdEmpty}${MsgMap.errorIdDup}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">密碼</label>
-												<div class="control-box">
-													<input class="form-control validate[required]"
-														type="password" name="password" id="signup_password"
-														value="" placeholder="請輸入8碼以上的密碼" tabindex="2"
-														autocomplete="off"> <font color="red" size="-1">${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">姓名</label>
-												<div class="control-box">
-													<input type="text" name="name" placeholder=" 請輸入中文姓名" tabindex="3" value="${param.name}"><br>
-													<font color="red" size="-1">${MsgMap.errorNameEmpty}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">電子郵件</label>
-												<div class="control-box">
-													<input
-														class="form-control validate[required,custom[email]]"
-														type="text" name="email" id="signup_mail" value="${param.email}"
-														placeholder="請輸入電子郵件" tabindex="4" autocomplete="off">
-													<font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">性別</label>
-												<div class="control-box">
-													<input type="radio" name="gender" value="male" tabindex="5">&nbsp;男
-													<input type="radio" name="gender" value="female" >&nbsp;女
-													<font color="red" size="-1">${MsgMap.errorGenderEmpty}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">手機</label>
-												<div class="control-box">
-													<input type="text" name="phone_num" placeholder=" 輸入10位數字" tabindex="6" value="${param.phone_num}"><br>
-													<font color="red" size="-1">${MsgMap.errorPhoneEmpty}${MsgMap.phoneError}</font>
-												</div>
-											</div>
-											<div class="form-group">
-												<label class="control-label required">生日</label>
-												<div class="control-box">
-													<input type="date" name="birthday" tabindex="7" value="${param.birthday}"><br>
-													<font color="red" size="-1">${MsgMap.errorBirthdayEmpty}</font>
-												</div>
-											</div>
 
-										</div>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous">
+</script>
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
 
-										<div class="col col2">
-											<button type="submit" class="btn normal2 send" >Sign
-												Up 註冊</button>
-										</div>
-										<div class="col col1">
-											<span>已經有帳號了嗎?</span> <a href="member_login.jsp"
-												class="btn pure">會員登入</a>
-										</div>
-									</div>
-								</form>
-
-							</div>
-
-						</div>
-					</section>
-				</div>
-			</div>
-			<section class="sect3">
-				<div class="container">
-					<ul class="cf-list list-h">
-					</ul>
-				</div>
-			</section>
-		</main>
-
-		<footer class="site-footer">
-			<div class="footer-bottom">
-				<div class="container">
-					<span class="copyright">Copyright © 第13期第二組 All Rights
-						Reserved.</span>
-				</div>
-			</div>
-		</footer>
-	</div>
-	<div class="floating top-hide" style="display: block;">
-		<a href="#" class="ibtn gotop" title="TOP">TOP</a>
-	</div>
-	<span class="btn toggle-mmenu-cover toggleBtn"
-		data-toggletag="mmenu-open"></span>
-	<script defer="" src="../js/jquery.scrollTo.min.js"></script>
-	<script defer="" src="../menu/page.js"></script>
-	<script defer="" src="../js/basic.js"></script>
-	<script defer="" src="../scripts/main.js"></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+crossorigin="anonymous"
+></script>
+<script src="../js/member_register.js">
+</script>
 </body>
 </html>
