@@ -63,15 +63,15 @@ crossorigin="anonymous"
 						          ${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
 					         </td>
 						 </tr> 
-						 <tr>
-							<th><label>密碼確認</label><p>Comfirm Password</p></th><!-----密碼確認----->
-							<td> 
-								<input class="validate[required]"
-								type="password" name="password" id="register_passwordtwo"
-								value="" autocomplete="off" placeholder="請再次輸入您的密碼" >
-								<span id="register_passwordtext"></span>
-						   </td>
-					   </tr> 
+<!-- 						 <tr> -->
+<!-- 							<th><label>密碼確認</label><p>Comfirm Password</p></th>---密碼確認--- -->
+<!-- 							<td>  -->
+<!-- 								<input class="validate[required]" -->
+<!-- 								type="password" name="password" id="register_passwordtwo" -->
+<!-- 								value="" autocomplete="off" placeholder="請再次輸入您的密碼" > -->
+<!-- 								<span id="register_passwordtext"></span> -->
+<!-- 						   </td> -->
+<!-- 					   </tr>  -->
 					      <tr>
 			                  <th><label class="required">姓名</label><p>Your name</p></th><!-----姓名----->
 					          <td>
@@ -86,7 +86,7 @@ crossorigin="anonymous"
 						          class=" validate[required,custom[email]]"
 						          type="text" name="email" id="signup_mail" value="${param.email}"
 							      placeholder="請輸入電子郵件"  autocomplete="off">
-						          <font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}</font>
+						          <font color="red" size="-1">${MsgMap.errorEmailEmpty}${MsgMap.emailError}${MsgMap.errorEmailDup}</font>
 						     </td>
 					     </tr> 
                           <tr>
@@ -111,22 +111,22 @@ crossorigin="anonymous"
 						        <font color="red" size="-1">${MsgMap.errorBirthdayEmpty}</font>
 						     </td>
 						 </tr>
-						 <tr>
-							<td>
-						      	<div class="v_code">
-								    <div class="code_show">
-								    <span class="code" id="memberregister_img"></span>
-								    <a id="linkbt">看不清換一張</a>
-								</div>
-							</td>
-							<td>
-								<div class="input_code">
-								    <label for="inputCode"></label>
-								    <input type="text" id="inputCode"/>
-								    <p><span id="text_show"></span></p>
-								</div>
-							</td> 	  
-						 </tr>
+<!-- 						 <tr> -->
+<!-- 							<td> -->
+<!-- 						      	<div class="v_code"> -->
+<!-- 								    <div class="code_show"> -->
+<!-- 								    <span class="code" id="memberregister_img"></span> -->
+<!-- 								    <a id="linkbt">看不清換一張</a> -->
+<!-- 								</div> -->
+<!-- 							</td> -->
+<!-- 							<td> -->
+<!-- 								<div class="input_code"> -->
+<!-- 								    <label for="inputCode"></label> -->
+<!-- 								    <input type="text" id="inputCode"/> -->
+<!-- 								    <p><span id="text_show"></span></p> -->
+<!-- 								</div> -->
+<!-- 							</td> 	   -->
+<!-- 						 </tr> -->
 					  </table>   
 					      <input type="submit" value="確認送出" id="Button1">
 				  </form>
