@@ -95,42 +95,69 @@ startbtn.addEventListener("click",function(){
 
 
 //  以下有調整
-var isAllowToSubmit = false;
-var submitbtn = document.getElementById("Button2");
-submitbtn.addEventListener(
-  "click",
-  function () {
-    if(isAllowToSubmit){
-      $("#my-form").submit();
-    }
-  },
-  false
-);
+// var isAllowToSubmit = false;
+// var submitbtn = document.getElementById("Button2");
+// submitbtn.addEventListener(
+//   "click",
+//   function () {
+//     if(isAllowToSubmit){
+//       $("#my-form").submit();
+//     }
+//   },
+//   false
+// );
 
-// check email existing
-$("#forget_email").on("change", function () {
-  var url = "/pikachu/member/forgetPW.do";
-  var data = {
-    email: $("#forget_email").val(),
-  };
+// // check email existing
+// $("#forget_email").on("change", function () {
+//   var url = "/pikachu/member/forgetPW.do";
+//   var data = {
+//     email: $("#forget_email").val(),
+//   };
 
-  $.post(
-    url,
-    data,
-    function (data, textStatus, jqXHR) {
-      if (data) {
-        isAllowToSubmit = true;
-        $('#forget_email_error_msg').html("<Font color='green' size='-3'>驗證信已寄送成功</Font>");
+//   $.post(
+//     url,
+//     data,
+//     function (data, textStatus, jqXHR) {
+//       if (data) {
+//         isAllowToSubmit = true;
+//         $('#forget_email_error_msg').html("<Font color='green' size='-3'>驗證信已寄送成功</Font>");
         
-        window.location.replace("/pikachu/member/member_login.jsp");
-      } else {
-        isAllowToSubmit = false; 
-        $('#forget_email_error_msg').html("<Font color='red' size='-3'>這個使用者好像不存在喔！</Font>");
-      }
-    },
-    "json"
-  );
-});
+//         window.location.replace("/pikachu/member/member_login.jsp");
+//       } else {
+//         isAllowToSubmit = false; 
+//         $('#forget_email_error_msg').html("<Font color='red' size='-3'>這個使用者好像不存在喔！</Font>");
+//       }
+//     },
+//     "json"
+//   );
+// });
 
+
+let bt = document.getElementById('Button2');
+bt.addEventListener('click', () => {
+    var url = "/pikachu/member/forgetPW.do";
+    var data = {
+      email: $("#forget_email").val(),
+    };
+
+    $.post(
+      url,
+      data,
+      function (data, textStatus, jqXHR) {
+        if (data) {
+          // isAllowToSubmit = true;
+          $('#forget_email_error_msg').html("<Font color='green' size='-3'>驗證信已寄送成功</Font>");
+          
+          window.location.replace("/pikachu/member/member_login.jsp");
+        } else {
+          // isAllowToSubmit = false; 
+          $('#forget_email_error_msg').html("<Font color='red' size='-3'>這個使用者好像不存在喔！</Font>");
+        }
+      },
+      "json"
+    );
+
+
+})
 
 

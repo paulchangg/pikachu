@@ -166,7 +166,8 @@
 				</div>
 				<div class="modal-body">
 					<!-- 多用一個 form 表單包裝起來，之後送到後端 server  -->
-					<form action="forgetPW.do" method="POST" id="my-form">
+<!-- 					<form action="" method="POST" id="my-form"> -->
+					<div id="my-form">
 						<label>請輸入您註冊的email</label>
 						<p>
 							<!-- 新增 id forget_email -->
@@ -175,14 +176,14 @@
 						</p>
 						<!-- 新增 id forget_email_error_msg -->
 						<div id="forget_email_error_msg"></div>
-<%-- 						<Font color='red' size="-3" id="forget_email_error_msg">${ErrorMsg.EmailError}${ErrorMsg.EmptyError}</Font> --%>
-					</form>
+ 						<!-- <Font color='red' size="-3" id="forget_email_error_msg">${ErrorMsg.EmailError}${ErrorMsg.EmptyError}</Font>  -->
+<!-- 					</form> -->
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" id="Button2">送出</button>
 					<p>
-<%-- 						<Font color='green' size="-3">${OkMsg.sendSuccessfully}</Font> <span --%>
-<!-- 							id="forget_email_error_msg"></span> -->
+						<!-- <Font color='green' size="-3">${OkMsg.sendSuccessfully}</Font>  -->
 					</p>
 				</div>
 			</div>
