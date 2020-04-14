@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>活動頁面</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/activity_page.css" />
+  </head>
+
+  <body>
+    <!-- logo及上方標題列---超連結待補---->
+    <div class="top-navigation">
+      <a href="#/" class="navigation__logo">
+        <img
+          src="./images/index_logo.jpg"
+          alt="logo"
+          class="navigation__logo"
+        />
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active memberlogin" href="#" id="">會員登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link cardcompare" href="#" id="">信用卡比較</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link qanda" href="#" id="">Q & A</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link shoppingcart" href="#" id="">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 導覽列------超連結待補------>
+    <div class="header">
+      <div class="nav-bar">
+        <a href="#" class="aboutus" id="">關於我們</a>
+        <a href="#" class="memberarea" id="">會員中心</a>
+        <a href="#" class="mall" id="">商城</a>
+      </div>
+    </div>
+
+    <!-- 看板門面圖 -->
+    <div class="card-group">
+      <div class="card">
+        <img
+          src="./images/activity/pic1.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+      </div>
+      <div class="card">
+        <img
+          src="./images/activity/pic2.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+      </div>
+      <div class="card">
+        <img
+          src="./images/activity/pic3.jpg"
+          class="card-img-top"
+          alt="..."
+          style="height: 302.95px;"
+        />
+      </div>
+    </div>
+
+    <div class="second_line"></div>
+
+    <!-- 功能按鈕列 -->
+    <div
+      class="d-flex flex-row-reverse bd-highlight"
+      style="padding-top: 7px; padding-right: 10px;"
+    >
+      <div
+        class="btn-group btn-group-sm"
+        role="group"
+        aria-label="Basic example"
+        style="font-size: 20px;"
+      >
+        <button type="button" class="btn btn-secondary">
+          發布新活動<br />
+          <i class="far fa-edit"></i>
+        </button>
+        <!-- <button type="button" class="btn btn-secondary">活動管理
+        </button> -->
+      </div>
+    </div>
+
+    <!-- 中央文章大區塊範圍----->
+    <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
+      <!-- 左側看板列表---超連結待補-->
+      <div class="container-fluid">
+        <div class="leftNav" style="width: 100px;">
+          <div class="btn-group-vertical" id="forum_btn">
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">所有看板</button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">熱門看板</button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">交友活動</button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">配對</button>
+            </a>
+            <br />
+            <span style="margin-top: 30px;">熱門活動</span>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">踏青旅遊</button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">聚會吃喝</button>
+            </a>
+            <br />
+            <a href="#" id="">
+              <button type="button" class="btn-all-board">信用卡揪團</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動欄位 -->
+    <div class="container">
+      <div class="card-deck">
+        <!-- 活動1-1 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_1.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動1-2 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_2.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動1-3 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/activity/pic5.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <!-- 第二列活動 -->
+      <div class="card-deck">
+        <!-- 活動2-1 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_1.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動2-2 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_2.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動2-3 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/activity/pic5.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+
+      <!-- 第三列活動 -->
+      <div class="card-deck">
+        <!-- 活動3-1 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_1.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動3-2 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/article_board_2.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+
+        <!-- 活動3-3 -->
+        <div class="card">
+          <!-- 活動圖片 -->
+          <img
+            src="./images/activity/pic5.jpg"
+            class="articleimage"
+            alt="..."
+          />
+          <div class="card-body">
+            <div class="card__share">
+              <div class="card__social">
+                <!-- <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>    -->
+                <!-- 點擊進入詳細活動頁面  -->
+                <a id="share" class="share-toggle share-icon" href="#">
+                  <i class="fas fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="card__meta" style="padding-top: 10px;">
+              <!-- 活動主題 -->
+              <a href="#" class="subject">踏青旅遊</a>
+              <!-- 活動時間 -->
+              <time class="post_Time" style="font-size: medium;"
+                >17th March 2020</time
+              >
+            </div>
+            <!-- 活動內文 -->
+            <p class="article_content">
+              以下活動內文 ~ ~
+            </p>
+          </div>
+          <div class="card__action"></div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+    </div>
+
+    <!-- 下方頁碼分頁 ----超連結待補------>
+    <nav aria-label="Page navigation example" style="padding-top: 10px;">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item"><a class="page-link" href="#" id="">1</a></li>
+        <li class="page-item"><a class="page-link" href="#" id="">2</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" id="">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 底部 ---------------------------->
+    <div class="footer">
+      <div class="gotop">
+        <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <br />
+        <br />
+        <a href="#" class="w3-botton w3-black w3-margin">
+          <i class="fa fa-arrow-up w3-margin-right"></i>
+          To the top
+        </a>
+      </div>
+      <br />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/post_article.js"></script>
+  </body>
+</html>
