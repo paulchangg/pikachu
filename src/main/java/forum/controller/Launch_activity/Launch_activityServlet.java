@@ -2,6 +2,8 @@ package forum.controller.Launch_activity;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -41,21 +43,42 @@ import member.model.MemberBean;
 public class Launch_activityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		request.setCharacterEncoding("UTF-8");
+//解碼查詢字串
+		String cs = "";
 
-		
+		String query = request.getQueryString();
+
+		if (query != null) {
+			try {
+				cs = URLDecoder.decode(query, "utf-8");// 将中文转码
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			session.setAttribute("sessionfname", cs);
+			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
+			rd.forward(request, response);
+			return;
+
+		}
+
 		// 準備存放錯誤訊息的Map物件
 		Map<String, String> errorMsg = new HashMap<String, String>();
 		// 準備存放註冊成功之訊息的Map物件
 		// session物件來存放共用資料。
-		HttpSession session = request.getSession();
+
 		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
-    
 
 		if (session == null) {
-			// 請使用者登入
+//			// 請使用者登入
 			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "member_login.jsp"));
 			return;
 		}
@@ -63,19 +86,19 @@ public class Launch_activityServlet extends HttpServlet {
 		// 沒有登入會員 前往首頁
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 		if (mb == null) {
-			
+
 			response.sendRedirect(getServletContext().getContextPath() + "/homepage/index.html");
 			return;
 		}
-		
-		 FoumBean fob = (FoumBean) session.getAttribute("fname");
-		 
-		 if(fob== null) {
+
+		 FoumBean  foumBean =(FoumBean)session.getAttribute("sessionf_id");
+//		 
+		 if(foumBean == null) {
 			 response.sendRedirect(getServletContext().getContextPath() + "/forum/index.html");
 				return;
 		 }
-
-		// --------------------------------------------------------------
+		 
+//		// --------------------------------------------------------------
 		String article_title = "";
 		String article_content = "";
 		String subject = "";
@@ -123,7 +146,7 @@ public class Launch_activityServlet extends HttpServlet {
 			}
 		}
 
-		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
+//		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
 		Date starte_Time = null;
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
 		if (starteTimeStr == null && starteTimeStr.trim().length() > 0) {
@@ -134,7 +157,7 @@ public class Launch_activityServlet extends HttpServlet {
 				errorMsg.put("starte_TimeError", "開始欄格式錯誤，應該為yyyy/MM/dd/HH");
 			}
 		}
-
+//
 		Date endTime = null;
 		if (endTimeStr == null && endTimeStr.trim().length() > 0) {
 			try {
@@ -154,7 +177,7 @@ public class Launch_activityServlet extends HttpServlet {
 		if (article_content == null | article_content.trim().length() <= 101) {
 			errorMsg.put("ContentError", "內容不能少於100個字");
 		}
-		// 如果有錯誤
+//		// 如果有錯誤
 		if (!errorMsg.isEmpty()) {
 //	
 			// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
@@ -162,7 +185,7 @@ public class Launch_activityServlet extends HttpServlet {
 			rd.forward(request, response);
 			return;
 		}
-
+//
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 
 		Blob blob = null;
@@ -175,11 +198,10 @@ public class Launch_activityServlet extends HttpServlet {
 		}
 		
 		
-		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
+//		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
 		
 		ILaunch_activityService service = new Launch_activityServiceImpl();
-		FoumBean  foumBean =(FoumBean)session.getAttribute("f_id");
-
+		
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
 
 		try {
@@ -189,11 +211,12 @@ public class Launch_activityServlet extends HttpServlet {
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
-			rd.forward(request, response);
+			RequestDispatcher rd2 = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
+			rd2.forward(request, response);
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 }

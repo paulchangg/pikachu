@@ -20,16 +20,7 @@ public class ConnectionForum_launch extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 
-		HttpSession session = request.getSession();
-	 
-		FoumBean fob = (FoumBean) session.getAttribute("fname");
-		if (fob == null) {
-			response.sendRedirect(getServletContext().getContextPath() + "/forum/ForumHompage.jsp");
-
-		} else {
-			response.sendRedirect(getServletContext().getContextPath() + "/forum/ShowArticleMode.jsp");
-
-		}
+		
 
 	}
 

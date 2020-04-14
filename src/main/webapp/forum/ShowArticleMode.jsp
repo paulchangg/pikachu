@@ -47,41 +47,27 @@ textarea {
 </style>
 <body>
 
-<%-- <c:forEach varStatus="stVar"  var="entry"  items="${products_DPP}" >	 --%>
-<!--     <table border="1"> -->
-<!--         <tr height='100'> -->
-<%--             <td width="200">${entry.value.p_id}</td> --%>
-<%--             <td width="200">${entry.value.p_name}</td> --%>
-<%--             <td width="200">${entry.value.p_desc}</td> --%>
-<%--             <td width="200">${entry.value.price}</td> --%>
-<%--             <td width="200">${entry.value.stock}</td> --%>
-<!--             <td width="200"><img height='100' width='80'  -->
-<%--     			 src='${pageContext.servletContext.contextPath}/init/getBookImage?id=${entry.value.p_id}'> --%>
-<!--      		</td> -->
-<%--             <td width="200">${entry.value.p_bns}</td> --%>
-<!--             <td> -->
 
 
+	<h1 style="text-align: center;">我要發文啦</h1>
 	
-	<form action="<c:url value='/forum/Launch_activityServlet?' />"
-		method="POST" enctype="multipart/form-data">
-
-
-
-		<h1 style="text-align: center;">我要發文啦</h1>
-
-
 		<div>
 			<span size="10"> <img src="../images/common/memberphoto_2.jpg"
 				style="width: 128px; height: 128px;" />
-			</span>
-			<br>
-			 版名:<h1>${fname}</h1>		 
-	 
-			 
-               <Input type='hidden' name='fname value='${fname}'>
-			 
+			</span> 
 		</div>
+
+
+
+
+
+	<form action="<c:url value='/forum/Launch_activityServlet' />"
+		method="POST" enctype="multipart/form-data">
+		
+
+   <h1>版名:${sessionfname}</h1>
+			
+	
 
 		<div>
 			<label for="article_title">標題:</label> <input type="text"
@@ -138,10 +124,9 @@ textarea {
 			<input type="submit" value="提交活動" /><br />
 		</div>
 	</form>
-<!--             </td>          -->
-<!--         </tr> -->
-<!--     </table> -->
-<%-- </c:forEach>  --%>
+
+
+
 
 
 	<form action="<c:url value='/forum/ResponserServlet' />" method="POST">

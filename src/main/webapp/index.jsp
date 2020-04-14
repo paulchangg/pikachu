@@ -14,6 +14,7 @@
 	<input type="text" name="email" 
 		value="" placeholder="請輸入註冊信箱"
 		tabindex="1" autocomplete="off">
+		
 	<Font color='red' size="-3">${ErrorMsg.EmailError}${ErrorMsg.EmptyError}</Font>
 	<br>
 	<button type="submit" >送出</button><br>

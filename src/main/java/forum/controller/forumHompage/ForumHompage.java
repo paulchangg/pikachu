@@ -53,31 +53,32 @@ public class ForumHompage extends HttpServlet {
 		FoumBean foumbean = null;
 
 		List<String> listFame = new ArrayList<>();
+		
+		List<FoumBean> listFid = new ArrayList<>();
 
 		for (int n = 0; n < 11; n++) {
+
 			foumbean = list.get(n);
 
 			String fname = foumbean.getFname();
-			int f_id = foumbean.getF_id();
-
-			session.setAttribute("f_id", String.valueOf(f_id));
 			
-			session.setAttribute("fname", fname);
+			
+			Integer f_id = foumbean.getF_id();
 
 			listFame.add(fname);
+			
+			
 
-			request.setAttribute("fname", listFame);
+			session.setAttribute("sessionfname", listFame);
+			
+			session.setAttribute("sessionf_id",f_id );
 		}
-
-		if(listFame !=null ) {
+			
+//		System.out.println(listFame);    //[旅遊, 魯蛇卡, 加油回饋, 無限卡, 電影, 購物, 現金回饋, 宗教, 公益, 鈦金or御璽卡, 運動]
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/forum/ForumHompage.jsp");
 		rd.forward(request, response);
-		
-		RequestDispatcher rd2 = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
-		rd2.forward(request, response);
-		
-		}
-		
+
 	}
 
 }

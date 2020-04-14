@@ -12,14 +12,27 @@
 <body>
 
 
-	<div style="text-align: left: ;">
+	<div style="text-align: left:;">
 		<h1>熱門看板</h1>
-		<c:forEach var="fname" items="${fname}">
-			<h1>
-				<a href="/ForumHompage/${fname}">${fname}</a>
-			</h1>
-			<br>
-		</c:forEach>
+									
+		<form action="<c:url value='/ForumHompage'/>"
+		
+			method="POST" enctype="multipart/form-data">
+
+			<c:forEach var="sessionfname" items="${sessionfname}">
+				<h1>
+				
+					<a href="forum/Launch_activityServlet?${sessionfname}">${sessionfname}</a>
+				
+				</h1>
+				<br>
+			</c:forEach>
+			
+			
+			
+			
+			
+		</form>
 	</div>
 </body>
 </html>
