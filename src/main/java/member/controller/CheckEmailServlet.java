@@ -26,7 +26,7 @@ public class CheckEmailServlet extends HttpServlet {
 		
 		MemberService ms = new MemberServiceImpl();
 		
-		boolean b = false;
+		
 		if (email == null || email.trim().length() == 0) {
 			out.println(false);
 			
