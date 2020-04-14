@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import forum.model.FoumBean;
 import forum.service.IFoumService;
 import forum.service.impl.FoumServiceImpl;
+import member.model.MemberBean;
 
 @WebServlet("/ForumHompage")
 public class ForumHompage extends HttpServlet {
@@ -33,7 +34,17 @@ public class ForumHompage extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-
+		
+		
+		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
+		if (mb == null) {
+																			
+			response.sendRedirect(getServletContext().getContextPath() + "/member/member_login.jsp");
+			return;
+		}
+		
+		
+		
 		String f_idStr = request.getParameter("f_id");
 
 		if (f_idStr == null) {
@@ -54,7 +65,7 @@ public class ForumHompage extends HttpServlet {
 
 		List<String> listFame = new ArrayList<>();
 		
-		List<FoumBean> listFid = new ArrayList<>();
+//		List<FoumBean> listFid = new ArrayList<>();
 
 		for (int n = 0; n < 11; n++) {
 

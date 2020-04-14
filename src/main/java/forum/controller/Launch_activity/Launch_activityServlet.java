@@ -1,14 +1,13 @@
 package forum.controller.Launch_activity;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
@@ -77,136 +75,105 @@ public class Launch_activityServlet extends HttpServlet {
 
 		request.setAttribute("MsgMap", errorMsg); // 顯示錯誤訊息
 
-		if (session == null) {
-//			// 請使用者登入
-			response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "member_login.jsp"));
-			return;
-		}
-
-		// 沒有登入會員 前往首頁
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-		if (mb == null) {
 
-			response.sendRedirect(getServletContext().getContextPath() + "/homepage/index.html");
-			return;
-		}
-
-		 FoumBean  foumBean =(FoumBean)session.getAttribute("sessionf_id");
-//		 
-		 if(foumBean == null) {
-			 response.sendRedirect(getServletContext().getContextPath() + "/forum/index.html");
-				return;
-		 }
-		 
 //		// --------------------------------------------------------------
-		String article_title = "";
-		String article_content = "";
-		String subject = "";
-		String location = "";
-		String starteTimeStr = "";
-		String endTimeStr = "";
+
+		String article_title = request.getParameter("article_title");
+		String article_content = request.getParameter("article_content");
+		String subject = request.getParameter("subject");
+		String location = request.getParameter("location");
+		String starteTimeStr = request.getParameter("starteTime");
+		String endTimeStr = request.getParameter("endTime");
 		String articleimagestr = "";
-		long sizeInBytes = 0;
-		InputStream is = null;
 
-		// 取出HTTP multipart request內所有的parts
-		Collection<Part> parts = request.getParts();
-//		GlobalService.exploreParts(parts, request);
-		// 由parts != null來判斷此上傳資料是否為HTTP multipart request
-		if (parts != null) { // 如果這是一個上傳資料的表單
-			for (Part p : parts) {
-				String fldName = p.getName();
-				String value = request.getParameter(fldName);
-				if (p.getContentType() == null) {
-					if (fldName.equals("article_title")) {
-						article_title = value;
-					} else if (fldName.equals("article_content")) {
-						article_content = value;
-					} else if (fldName.equals("subject")) {
-						subject = value;
-					} else if (fldName.equals("location")) {
-						location = value;
-					} else if (fldName.equals("postTimeStr")) {
-						starteTimeStr = value;
-					} else if (fldName.equals("endTimeStr")) {
-						endTimeStr = value;
-					}
-				} else {
-					// 取出圖片檔的檔名
-					articleimagestr = GlobalService.getFileName(p);
-					// 調整圖片檔檔名的長度，需要檔名中的附檔名，所以調整主檔名以免檔名太長無法寫入表格
-					articleimagestr = GlobalService.adjustFileName(articleimagestr,
-							GlobalService.IMAGE_FILENAME_LENGTH);
-					if (articleimagestr != null && articleimagestr.trim().length() > 0) {
-						sizeInBytes = p.getSize();
-						is = p.getInputStream();
-					}
-				}
-
-			}
-		}
-
-//		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
-		Date starte_Time = null;
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH");
-		if (starteTimeStr == null && starteTimeStr.trim().length() > 0) {
-			try {
-//				starte_Time = java.sql.Date.valueOf(starteTimeStr);
-				starte_Time = format.parse(starteTimeStr);
-			} catch (Exception e) {
-				errorMsg.put("starte_TimeError", "開始欄格式錯誤，應該為yyyy/MM/dd/HH");
-			}
-		}
-//
-		Date endTime = null;
-		if (endTimeStr == null && endTimeStr.trim().length() > 0) {
-			try {
-//				endTime = java.sql.Date.valueOf(endTimeStr);
-				endTime = format.parse(endTimeStr);
-			} catch (Exception e) {
-				errorMsg.put("endTimeError", "結束時間格式錯誤，應該為yyyy/MM/dd/HH");
-			}
-		}
+//		long sizeInBytes = 0;
+//		InputStream is = null;
 
 		// 3. 檢查使用者輸入資料(單純檢查)
 
-		// 如果 article_title 欄位為空白，或少於10個字，放一個錯誤訊息到 errorMsgMap 之內
-		if (article_title == null | article_title.trim().length() <= 11) {
+		// 如果 article_title 欄位為空白，或少於10個字，放一個錯誤訊息到 errorMsg 之內
+
+		if (article_title == null || article_title.trim().length() <= 10) {
 			errorMsg.put("TitleError", "標題不能少於10個字");
 		}
-		if (article_content == null | article_content.trim().length() <= 101) {
+		if (article_content == null || article_content.trim().length() <= 100) {
 			errorMsg.put("ContentError", "內容不能少於100個字");
 		}
-//		// 如果有錯誤
+
+		if (subject == null || subject.trim().length() == 0) {
+			errorMsg.put("subjectError", "主題不可空白");
+		}
+
+		if (location == null || location.trim().length() == 0) {
+			errorMsg.put("subjectError", "活動地點不可空白");
+		}
+
+		if (starteTimeStr == null || starteTimeStr.trim().length() == 0) {
+			errorMsg.put("starte_TimeError", "活動開始時間不可空白");
+		}
+
+		if (endTimeStr != null && endTimeStr.trim().length() > 0) {
+
+			errorMsg.put("endTimeError", "活動開始時間不可空白");
+
+		}
+
+		// 如果有錯誤
 		if (!errorMsg.isEmpty()) {
-//	
+
 			// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
 			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
 			rd.forward(request, response);
 			return;
 		}
-//
-		Timestamp ts = new Timestamp(System.currentTimeMillis());
 
-		Blob blob = null;
-		if (is != null) {
-			try {
-				blob = GlobalService.fileToBlob(is, sizeInBytes);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		
-//		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
-		
-		ILaunch_activityService service = new Launch_activityServiceImpl();
-		
-		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
+		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
+
+		Date starte_Time = null;
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd/HH");
 
 		try {
+			starte_Time = format.parse(starteTimeStr);
+		} catch (Exception e) {
+
+		}
+
+		Date endTime = null;
+
+		try {
+
+			endTime = format.parse(endTimeStr);
+		} catch (Exception e) {
+		}
+
+		Timestamp ts = new Timestamp(System.currentTimeMillis());
+
+		Blob articleimage = null;
+		
+			try {
+				articleimage = GlobalService.fileToBlob(articleimagestr);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+
+//		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
+
+		ILaunch_activityService service = new Launch_activityServiceImpl();
+
+		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
+
+		Integer f_id = (Integer) session.getAttribute("sessionf_id");
+		
+		FoumBean foumBean = new FoumBean();
+		
+		foumBean.setF_id(f_id);//版的代號
+
+//		try {
 			Launch_activityBean article = new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
-					blob, subject, location, ts, null, starte_Time, endTime, null, foumBean, null);
+					articleimage, subject, location, ts, null, starte_Time, endTime, null, foumBean, null);
 
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);
@@ -214,9 +181,9 @@ public class Launch_activityServlet extends HttpServlet {
 			RequestDispatcher rd2 = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
 			rd2.forward(request, response);
 			return;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }

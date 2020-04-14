@@ -112,7 +112,8 @@
 													<input class="form-control validate[required]"
 														type="password" name="password" id="signup_password"
 														value="" placeholder="請輸入8碼以上的密碼" tabindex="2"
-														autocomplete="off"> <font color="red" size="-1">${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
+														autocomplete="off"> 
+														<font color="red" size="-1">${MsgMap.errorPasswordEmpty}${MsgMap.passwordError}</font>
 												</div>
 											</div>
 											<div class="form-group">
@@ -158,8 +159,9 @@
 										</div>
 
 										<div class="col col2">
-											<button type="submit" class="btn normal2 send" >Sign
-												Up 註冊</button>
+											
+											
+											<button type="submit" class="btn normal2 send" >SignUp 註冊</button>
 										</div>
 										<div class="col col1">
 											<span>已經有帳號了嗎?</span> <a href="member_login.jsp"

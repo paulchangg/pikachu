@@ -52,7 +52,7 @@ textarea {
 	<h1 style="text-align: center;">我要發文啦</h1>
 	
 		<div>
-			<span size="10"> <img src="../images/common/memberphoto_2.jpg"
+			<span > <img src="../images/common/memberphoto_2.jpg"
 				style="width: 128px; height: 128px;" />
 			</span> 
 		</div>
@@ -65,35 +65,40 @@ textarea {
 		method="POST" enctype="multipart/form-data">
 		
 
-   <h1>版名:${sessionfname}</h1>
+   				<h1>版名:${sessionfname}</h1>
 			
 	
 
 		<div>
-			<label for="article_title">標題:</label> <input type="text"
-				id="article_title" name="article_title" size="100"
-				placeholder="標題不能少於10個字" /> <font color="red" size="-1">${errorMsg.TitleError}</font>
+			<label for="article_title">標題:</label> 
+																														
+			<input type="text" id="article_title" name="article_title" size="100" placeholder="標題不能少於10個字"  value="${param.article_title}"/> 
+				<font color="red" size="-1">${errorMsg.TitleError}</font>
 			<br>
 		</div>
 		<div>
-			<label for="article_content" style="">內容:</label><br />
-			<textarea cols="50" rows="5" in placeholder="內容不能少於100個字"></textarea>
+			<label for="article_content" style="">內容:</label><br>
+			<textarea cols="50" rows="5" placeholder="內容不能少於100個字"  ></textarea><br>
 			<font color="red" size="-1">${errorMsg.ContentError}</font> <br>
 		</div>
 		<div>
-			<td><label class="fontSize">活動圖片：</label><br />&nbsp;</td>
-			<td><input name="memberMultipartFile" type="file" /><br />&nbsp;</td>
+			<label class="fontSize">活動圖片：</label><br />&nbsp;
+			<input name="memberMultipartFile" type="file"  value="${param.articleimage}"/><br />&nbsp;
+			
 		</div>
 
 		<div>
-			<label for="subject">主題:</label> <input type="text" id="subject"
-				name="subject" size="100" />
+			<label for="subject">主題:</label>
+			 <input type="text" id="subject" name="subject" size="100"  value="${param.subject}"/><br>
+			 <font color="red" size="-1">${errorMsg.subjectError}</font><br>
+				
+				
 		</div>
 		<br>
 
 
 		<div>
-			活動的地點: <select name="location" id="location">
+			活動的地點: <select name="location" id="location" >
 				<option value="Taipei">台北</option>
 				<option value="Keelung">基隆</option>
 				<option value="NewTaipei">新北</option>
@@ -113,15 +118,26 @@ textarea {
 				<option value="Yilan">宜蘭</option>
 				<option value="insland">外島</option>
 			</select>
+			<font color="red" size="-1">${errorMsg.subjectError}</font><br>
 		</div>
 		<div>
 			<label for="starte_Time">活動開始時間:</label> <input type="datetime-local"
-				name="birthday" tabindex="7" value="${param.birthday}" /><br>
+				name="starte_Time" tabindex="7" value="${param.starte_Time}" /><br>
+				
+				<font color="red" size="-1">${errorMsg.starte_TimeError}</font>
+				
+				<br>
 		</div>
 		<div>
+		
+		
 			<label for="endTime">活動結束時間:</label> <input type="datetime-local"
-				name="birthday" tabindex="7" value="${param.birthday}" /><br>
-			<input type="submit" value="提交活動" /><br />
+				name="endTime" tabindex="7" value="${param.endTime}" /><br>
+				<font color="red" size="-1">${errorMsg.endTimeError}</font>
+				<br>
+				
+				<button type="submit" class="btn normal2 send" >提交活動</button>
+				
 		</div>
 	</form>
 
