@@ -27,7 +27,7 @@ crossorigin="anonymous" />
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						 <div class="col-4">
-							 <a href="http://127.0.0.1:5500/web/login.html">
+							 <a href="member_login.jsp">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
@@ -57,7 +57,6 @@ crossorigin="anonymous" />
 			</nav>
 		</section>
 
-<<<<<<< HEAD
 		<!-- 會員資料標題--------------------------->
 	   <div class="memberedit">
 		  <h3>修改會員資料</h3>
@@ -85,18 +84,8 @@ crossorigin="anonymous" />
 				<button type="button" id="membereedit_photoBtn" data-toggle="modal" data-target="#editimagemodal">選擇圖片</button>
 			</div>
 		  </div>
-=======
-	<!--這裡有1個id 顯示資料庫帳號-->
-	<div class="memberID">
-		<h3>
-			會員帳號ID:<span id="membereedit_id">${LoginOK.m_id}</span>
-		</h3>
-	</div>
->>>>>>> bc6dfc0636b7acc22c274bb0cbf270ff4d4d1923
 
-
-
-	  <div class="modal fade" id="editimagemodal">   <!--這區塊選擇會員圖像跳出視窗-->
+	     <div class="modal fade" id="editimagemodal">   <!--這區塊選擇會員圖像跳出視窗-->
 		   <div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -123,10 +112,6 @@ crossorigin="anonymous" />
 						<label class="radio-inline"><input type="radio"
 							name="m_img" value="memberphoto_6"><img
 							src="../images/common/memberphoto_6.jpg" width="100" height="100"></label>
-<<<<<<< HEAD
-=======
-						<input type="submit" value="確定">
->>>>>>> bc6dfc0636b7acc22c274bb0cbf270ff4d4d1923
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -136,10 +121,7 @@ crossorigin="anonymous" />
 			</div>
 		</div>
 		  </div>
-
-
-
-
+		  
 		<div class="personaledit"> <!--更改基本資料表單-->
 			<form >
 				<label>暱稱: </label><input type="text" name="nickname" id="membereedit_textinput">
