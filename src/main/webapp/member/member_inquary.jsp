@@ -23,7 +23,7 @@ crossorigin="anonymous"/>
 	  <div class="header">
 		 <div class="row justify-content-end"> 
 		      <div class="col-4">    <!---------logo區塊----------->
-			     <img class="index_logo" src="/homepage/images/index_logo.jpg" alt="logo" />
+			     <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
 		     </div>
 		     <div class="col-4">     <!---------左上角超連結區塊----------->
 			      <div class="row justify-content-end">
@@ -68,12 +68,12 @@ crossorigin="anonymous"/>
 	      <div class="wrap">
               <div class="front "> <!--正面-->
 			     <h3>
-			 	    會員帳號ID:<span id="memberinquary_id">顯示註冊的會員帳號</span>
+			 	    會員帳號ID:<span id="memberinquary_id">${LoginOK.m_id}</span>
 			    </h3>
 			    <div class="photo" id="memberinquary_img">
 				    <c:choose>
 					    <c:when test="${empty LoginOK.m_img}">
-						    <img src="/images/membephoto_0.png" width="160" height="160">
+						    <img src="../images/common/membephoto_0.png" width="160" height="160">
 					   </c:when>
 				      <c:otherwise>
 						<img
