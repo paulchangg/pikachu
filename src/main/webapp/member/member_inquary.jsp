@@ -60,7 +60,7 @@ crossorigin="anonymous"/>
 
 	  <!--標題區塊-->
       <div class="Memberinquary">
-		 <h3>查看個人資料</h3>
+		 <h3>個人資料</h3>
 	 </div>
 
 	 <!--動畫整體區塊-->
@@ -85,15 +85,15 @@ crossorigin="anonymous"/>
 		      <div class="back ">  <!--反面-->
 			       <h2>詳細資訊</h2>
 			     <div class="personaldata ">
-			     	<p>姓名:<span id="memberinquary_name">${LoginOK.name}</span></p>
-		     		<p>暱稱:<span id="memberinquary_nickname">${LoginOK.nickname}</span></p>
-			    	<p><i class="fas fa-birthday-cake"></i>生日<span id="memberinquary_birthday">${LoginOK.birthday}</span></p>
-				    <p><i class="fas fa-mobile-alt"></i>手機:<span id="memberinquary_phone_num">${LoginOK.phone_num}</span></p>
-				    <p><i class="fas fa-envelope"></i>信箱:<span id="memberinquary_m_mail">${LoginOK.m_mail}</span></p>
-				    <p><i class="fas fa-child"></i>性別:<span id="memberinquary_gender">${LoginOK.gender}</span></p>
-				    <p><i class="far fa-money-bill-alt"></i>年收入:<span id="memberinquary_income">${LoginOK.income}</p>
-				    <p><i class="fas fa-graduation-cap"></i>最高學歷:<span id="memberinquary_education">${LoginOK.education}</p>
-				    <p><i class="far fa-building"></i>居住區:<span id="memberinquary_city">${LoginOK.city}</p>
+			     	姓名:<span id="memberinquary_name">${LoginOK.name}</span><br>
+		     		暱稱:<span id="memberinquary_nickname">${LoginOK.nickname}</span><br>
+			    	<i class="fas fa-birthday-cake"></i>生日<span id="memberinquary_birthday">${LoginOK.birthday}</span><br>
+				    <i class="fas fa-mobile-alt"></i>手機:<span id="memberinquary_phone_num">${LoginOK.phone_num}</span><br>
+				    <i class="fas fa-envelope"></i>信箱:<span id="memberinquary_m_mail">${LoginOK.m_mail}</span><br>
+				    <i class="fas fa-child"></i>性別:<span id="memberinquary_gender">${LoginOK.gender}</span><br>
+				    <i class="far fa-money-bill-alt"></i>年收入:<span id="memberinquary_income">${LoginOK.income}<br>
+				    <i class="fas fa-graduation-cap"></i>最高學歷:<span id="memberinquary_education">${LoginOK.education}<br>
+				    <i class="far fa-building"></i>居住區:<span id="memberinquary_city">${LoginOK.city}
 			    </div>
 		     </div>
          </div> 

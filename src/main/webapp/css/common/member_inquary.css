@@ -225,9 +225,9 @@ body{
   backface-visibility: hidden;
   box-shadow: 0 0 10px #2c3e50;
   transition: .8s;
-  margin-left: 5%;
+  margin-left: 4%;
   margin-top: 2%;
-  background: url(../images/common/memberinquary_皮卡丘正.png);
+  background: url(memberinquary_皮卡丘正.png);
 }
 
 /*反面區塊*/
@@ -239,9 +239,9 @@ body{
   backface-visibility: hidden;
   box-shadow: 0 0 10px #2c3e50;
   transition: .8s;
-  margin-left: 5%;
+  margin-left: 4%;
   margin-top: 2%;
-  background: url(../images/common/memberinquary_皮卡丘反.png);
+  background: url(memberinquary_皮卡丘反.png);
 }
 
 .wrap:hover .front{
