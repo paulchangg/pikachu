@@ -36,7 +36,7 @@
 	<!--這裡有1個id 顯示資料庫帳號-->
 	<div class="memberID">
 		<h3>
-			會員帳號ID:<span id="membereedit_id">資料庫帳號</span>
+			會員帳號ID:<span id="membereedit_id">${LoginOK.m_id}</span>
 		</h3>
 	</div>
 
@@ -84,7 +84,7 @@
 							src="../images/common/memberphoto_5.jpg" width="100" height="100"></label>
 						<label class="radio-inline"><input type="radio"
 							name="m_img" value="memberphoto_6"><img
-							src="../images/common/memberphoto_6.png" width="100" height="100"></label>
+							src="../images/common/memberphoto_6.jpg" width="100" height="100"></label>
 						<input type="submit" value="確定">
 					</form>
 				</div>
