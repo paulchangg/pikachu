@@ -60,12 +60,12 @@ public class Launch_activityBean {
 	private Integer  f_id;
 	
 	
-	public Launch_activityBean(Integer article_Id, String article_m_id, Integer f_id) {
-		super();
-		this.article_Id = article_Id;
-		this.article_m_id = article_m_id;
-		this.f_id = f_id;
-	}
+//	public Launch_activityBean(Integer article_Id, String article_m_id, Integer f_id) {
+//		super();
+//		this.article_Id = article_Id;
+//		this.article_m_id = article_m_id;
+//		this.f_id = f_id;
+//	}
 
 
 

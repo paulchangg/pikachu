@@ -15,7 +15,6 @@ public interface IFoumService {
 
 	int DeleteFname(int f_id);
 
-	FoumBean getF_id(int f_id);
 
 	int getF_id();
 
@@ -28,6 +27,9 @@ public interface IFoumService {
 	String getFname();
 
 	void setFname(String fname);
+
+	FoumBean getF_idByfname(String fname);
+
 	
 	
 //	int addowner_m_id(String owner_m_id);

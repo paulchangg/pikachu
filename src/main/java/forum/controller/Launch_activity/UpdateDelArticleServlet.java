@@ -14,6 +14,7 @@ import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ import forum.service.ILaunch_activityService;
 import forum.service.impl.Launch_activityServiceImpl;
 import init.GlobalService;
 import member.model.MemberBean;
-
+@MultipartConfig
 @WebServlet("/forum/UpdateItem.do")
 public class UpdateDelArticleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

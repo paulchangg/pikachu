@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import forum.dao.IForumDao;
 import forum.dao.impl.ForumDaoImpl;
 import forum.model.FoumBean;
+import forum.model.Launch_activityBean;
 import forum.service.IFoumService;
 import init.HibernateUtils;
 
@@ -187,10 +188,6 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 //		return result;
 //	}
 
-	@Override
-	public FoumBean getF_id(int f_id) {
-		return dao.getF_id(f_id);
-	}
 
 //	@Override
 //	public String getOwner_m_id() {
@@ -258,10 +255,46 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 //
 //	}
 
+
+	@Override
+	public FoumBean getF_idByfname(String fname) {
+		
+		FoumBean foumbean = null;
+		
+		
+		
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			foumbean = dao.getF_idByfname(fname);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		
+		
+		
+		return foumbean;
+	}
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void setConnection(Connection con) {
 		dao.setConnection(con);
 	}
+
 
 	@Override
 	public String getFname() {
@@ -274,8 +307,13 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+
 	
-	//透
+	
+
 	
 	
 

@@ -64,8 +64,8 @@ public class ForumHompage extends HttpServlet {
 		FoumBean foumbean = null;
 
 		List<String> listFame = new ArrayList<>();
-		
-//		List<FoumBean> listFid = new ArrayList<>();
+		List<Integer> listF_id = new ArrayList<>();
+
 
 		for (int n = 0; n < 11; n++) {
 
@@ -77,15 +77,19 @@ public class ForumHompage extends HttpServlet {
 			Integer f_id = foumbean.getF_id();
 
 			listFame.add(fname);
+			listF_id.add(f_id);
 			
+			session.setAttribute("sessionfname", listFame);
+			session.setAttribute("sessionf_id",listF_id );
 			
 
-			session.setAttribute("sessionfname", listFame);
-			
-			session.setAttribute("sessionf_id",f_id );
 		}
+//		System.out.println("f_id="+listF_id);//[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 			
-//		System.out.println(listFame);    //[旅遊, 魯蛇卡, 加油回饋, 無限卡, 電影, 購物, 現金回饋, 宗教, 公益, 鈦金or御璽卡, 運動]
+	//	System.out.println(listFame);    //[旅遊, 魯蛇卡, 加油回饋, 無限卡, 電影, 購物, 現金回饋, 宗教, 公益, 鈦金or御璽卡, 運動]
+		
+		
+		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/forum/ForumHompage.jsp");
 		rd.forward(request, response);

@@ -35,29 +35,30 @@ public class InsetFoum2 {
 //		}		
 //-------------------------------------------------------------------
 
-		IFoumService service = new FoumServiceImpl();
+//		IFoumService service = new FoumServiceImpl();
+//
+//		
+//		List<FoumBean> list = service.getAllfname(0);
+//		
+//		FoumBean foumbean = null;
+//		
+//		for (int n = 0; n < 11; n++) {
+//			
+//			foumbean = list.get(n);
+////			System.out.println("看板名:" + foumbean.getFname());
+//			
+//			String fname = foumbean.getFname();
+//			
+//			int f_id = foumbean.getF_id();
+//			
+//			System.out.println("板編號:" +f_id+"     "+"看板名:" +fname);
+//			
+//
+//			
+//			
+//		}
 
-		
-		List<FoumBean> list = service.getAllfname(0);
-		
-		FoumBean foumbean = null;
-		
-		for (int n = 0; n < 11; n++) {
-			foumbean = list.get(n);
-//			System.out.println("看板名:" + foumbean.getFname());
-			
-			String fname = foumbean.getFname();
-			
-			int f_id = foumbean.getF_id();
-			
-			System.out.println("板編號:" +f_id+"     "+"看板名:" +fname);
-			
 
-			
-			
-		}
-
-//		System.out.println(foumbean.toString());
 
 //------------------------刪除資料--------------------------------ok	
 
@@ -87,9 +88,9 @@ public class InsetFoum2 {
 		}
 //
 		FoumBean foumBean = new FoumBean();
-		foumBean.setF_id(2);//版的代號
-		Blob articleimage = GlobalService.fileToBlob("D:\\資料庫功課\\Lisa02.jpg");
-		Launch_activityBean article = new Launch_activityBean(null, "paul", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
+		foumBean.setF_id(10);//版的代號
+		Blob articleimage = GlobalService.fileToBlob("C:\\jack01.jpg");
+		Launch_activityBean article = new Launch_activityBean(null, "james99", "大哥你好", "我是大哥", articleimage, "睡覺", "台北", ts2, null,
 				date, date2, 100, foumBean, null);
 
 		service2.insertArticle(article);

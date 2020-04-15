@@ -1,28 +1,34 @@
 package forum.controller.Launch_activity;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
+import forum.service.IFoumService;
 import forum.service.ILaunch_activityService;
+import forum.service.impl.FoumServiceImpl;
 import forum.service.impl.Launch_activityServiceImpl;
 import init.GlobalService;
 import member.model.MemberBean;
@@ -36,37 +42,23 @@ import member.model.MemberBean;
  * (5) 依照Business Logic運算結果來送回適當的畫面給前端的使用者。
  * 
  */
-
+@MultipartConfig(location = "D:\\程式片段", fileSizeThreshold = 5 * 1024 * 1024, maxFileSize = 1024 * 1024
+		* 500, maxRequestSize = 1024 * 1024 * 500 * 5)
 @WebServlet("/forum/Launch_activityServlet")
 public class Launch_activityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(false);
+
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
-//解碼查詢字串
-		String cs = "";
-
-		String query = request.getQueryString();
-
-		if (query != null) {
-			try {
-				cs = URLDecoder.decode(query, "utf-8");// 将中文转码
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-			session.setAttribute("sessionfname", cs);
-			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
-			rd.forward(request, response);
-			return;
-
-		}
 
 		// 準備存放錯誤訊息的Map物件
 		Map<String, String> errorMsg = new HashMap<String, String>();
@@ -80,15 +72,18 @@ public class Launch_activityServlet extends HttpServlet {
 //		// --------------------------------------------------------------
 
 		String article_title = request.getParameter("article_title");
+//		System.out.println("article_title" + article_title);
 		String article_content = request.getParameter("article_content");
+//		System.out.println("article_content" + article_content);
 		String subject = request.getParameter("subject");
+//		System.out.println("subject" + subject);
 		String location = request.getParameter("location");
+//		System.out.println("location" + location);
 		String starteTimeStr = request.getParameter("starteTime");
+//		System.out.println("starteTimeStr" + starteTimeStr);
 		String endTimeStr = request.getParameter("endTime");
-		String articleimagestr = "";
-
-//		long sizeInBytes = 0;
-//		InputStream is = null;
+//		System.out.println("endTimeStr" + endTimeStr);
+//		String articleimagestr = "";
 
 		// 3. 檢查使用者輸入資料(單純檢查)
 
@@ -113,13 +108,13 @@ public class Launch_activityServlet extends HttpServlet {
 			errorMsg.put("starte_TimeError", "活動開始時間不可空白");
 		}
 
-		if (endTimeStr != null && endTimeStr.trim().length() > 0) {
+		if (endTimeStr == null || endTimeStr.trim().length() == 0) {
 
-			errorMsg.put("endTimeError", "活動開始時間不可空白");
+			errorMsg.put("endTimeError", "活動結束時間不可空白");
 
 		}
 
-		// 如果有錯誤
+//		 如果有錯誤
 		if (!errorMsg.isEmpty()) {
 
 			// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
@@ -130,11 +125,11 @@ public class Launch_activityServlet extends HttpServlet {
 
 		// 2. 檢核使用者的輸入資料，進行必要的資料轉換(Date)
 
-		Date starte_Time = null;
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd/HH");
+		Date starteTime = null;
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
 		try {
-			starte_Time = format.parse(starteTimeStr);
+			starteTime = format.parse(starteTimeStr);
 		} catch (Exception e) {
 
 		}
@@ -149,41 +144,57 @@ public class Launch_activityServlet extends HttpServlet {
 
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 
-		Blob articleimage = null;
-		
-			try {
-				articleimage = GlobalService.fileToBlob(articleimagestr);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+//		String fileName = "";
+		long sizeInBytes = 0;
+		InputStream is = null;
+
+		Part articleimageStr = request.getPart("articleimage");
+//		System.out.println("articleimage"+articleimageStr);
 		
 
-//		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
+		String fileName = GlobalService.getFileName(articleimageStr);
+		System.out.println("fileName "+fileName);
+		fileName = GlobalService.adjustFileName(fileName, GlobalService.IMAGE_FILENAME_LENGTH);
+		if (fileName != null && fileName.trim().length() > 0) {
+			sizeInBytes = articleimageStr.getSize();
+			is = articleimageStr.getInputStream();
+		}
+
+		Blob articleimage = null;
+		if (is != null) {
+			try {
+				articleimage = GlobalService.fileToBlob(is, sizeInBytes);
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		String DecoderFname = (String) session.getAttribute("sessionfname");
+
+		IFoumService fobservice = new FoumServiceImpl();
+//		System.out.println("ggggggggggf" + DecoderFname);//這個抓到了
+		FoumBean foumBean = fobservice.getF_idByfname(DecoderFname);
+
+		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
 
 		ILaunch_activityService service = new Launch_activityServiceImpl();
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
-
-		Integer f_id = (Integer) session.getAttribute("sessionf_id");
-		
-		FoumBean foumBean = new FoumBean();
-		
-		foumBean.setF_id(f_id);//版的代號
-
-//		try {
-			Launch_activityBean article = new Launch_activityBean(null, mb.getM_id(), article_title, article_content,
-					articleimage, subject, location, ts, null, starte_Time, endTime, null, foumBean, null);
+		try {
+			Launch_activityBean article = new Launch_activityBean
+					(null, mb.getM_id(), article_title, article_content,
+					articleimage, subject, location, ts, null, starteTime, endTime, null, foumBean, null);
 
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);
 
-			RequestDispatcher rd2 = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
-			rd2.forward(request, response);
+			RequestDispatcher rd = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
+			rd.forward(request, response);
 			return;
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

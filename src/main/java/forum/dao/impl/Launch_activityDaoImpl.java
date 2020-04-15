@@ -139,4 +139,19 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 		foumbean = (FoumBean) session.createQuery(hql).setParameter("fid", f_id).getSingleResult();
 		return foumbean;
 	}
+
+//	@Override
+//	public FoumBean getF_idByfname(String fname) {//錯誤
+//		
+//		FoumBean foumbean = null;
+//		Session session = factory.getCurrentSession();
+//		
+//		foumbean = session.get(FoumBean.class, fname);
+//		
+//		return foumbean;
+//		
+//		
+//	}
+	
+	
 }

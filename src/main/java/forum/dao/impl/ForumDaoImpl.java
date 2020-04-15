@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 
 import forum.dao.IForumDao;
 import forum.model.FoumBean;
+import forum.model.Launch_activityBean;
 import init.HibernateUtils;
 
 //1.本類別新增版名到forum表格
@@ -229,6 +230,27 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
+	@Override
+	public FoumBean getF_idByfname(String fname) {
+		
+		FoumBean foumbean = null;
+		Session session = factory.getCurrentSession();
+
+		String hql = "FROM FoumBean WHERE fname =:fname";
+		System.out.println(fname);
+		foumbean = (FoumBean) session.createQuery(hql).setParameter("fname", fname).getSingleResult();
+		
+		return foumbean;
+
+		
+		
+	}
+
+	
+	
+	
+	
 
 //	@Override
 //	public int addowner_m_id(String owner_m_id) {

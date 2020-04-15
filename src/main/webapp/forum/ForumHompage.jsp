@@ -22,14 +22,12 @@
 			<c:forEach var="sessionfname" items="${sessionfname}">
 				<h1>
 				
-					<a href="forum/Launch_activityServlet?${sessionfname}">${sessionfname}</a>
+					<a href="forum/ConnectionForum_launch?${sessionfname}">${sessionfname}</a>
 				
 				</h1>
 				<br>
 			</c:forEach>
-			
-			
-			
+
 			
 			
 		</form>

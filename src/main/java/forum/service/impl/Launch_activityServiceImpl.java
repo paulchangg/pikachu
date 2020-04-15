@@ -199,5 +199,33 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		return foumbean;
 		
 	}
+//	@Override
+//	public FoumBean getF_idByfname(String fname) { //錯誤
+//		
+//		FoumBean foumbean =null;
+//		Session session = factory.getCurrentSession();
+//		Transaction tx = null;
+//		try {
+//			tx = session.beginTransaction();
+//			foumbean = dao.getF_idByfname(fname);
+//
+//			tx.commit();
+//		} catch (Exception e) {
+//			if (tx != null) {
+//				tx.rollback();
+//			}
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//
+//		return dao.getF_idByfname(fname);
+//		
+//		
+//	}
+	
+	
+	
+	
+	
 
 }

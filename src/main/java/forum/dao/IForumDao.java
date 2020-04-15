@@ -33,6 +33,9 @@ public interface IForumDao {
 
 		void setFname(String fname);
 
+		FoumBean getF_idByfname(String fname);
+			
+
 	
 	
 	

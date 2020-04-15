@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ import forum.model.ResponserBean;
 import forum.service.IResponserService;
 import forum.service.impl.ResponserServiceImpl;
 import member.model.MemberBean;
-
+@MultipartConfig
 @WebServlet("/forum/UpdateDelResponerServlet")
 public class UpdateDelResponerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

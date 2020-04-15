@@ -27,7 +27,12 @@ public interface ILaunch_activityDao {
 
 	void setConnection(Connection con);
 
-	FoumBean  getF_ById(int f_id);
+	FoumBean getF_ById(int f_id);
+	
+//	FoumBean getF_idByfname(String fname); 錯誤
+	
+	
+	
 
 
 }
