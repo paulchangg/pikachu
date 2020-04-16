@@ -48,18 +48,10 @@
     <!-- 看板門面圖 -->
     <div class="card-group">
       <div class="card">
-        <img
-          src="./images/activity/pic1.jpg"
-          class="card-img-top"
-          alt="..."
-        />
+        <img src="./images/activity/pic1.jpg" class="card-img-top" alt="..." />
       </div>
       <div class="card">
-        <img
-          src="./images/activity/pic2.jpg"
-          class="card-img-top"
-          alt="..."
-        />
+        <img src="./images/activity/pic2.jpg" class="card-img-top" alt="..." />
       </div>
       <div class="card">
         <img
@@ -84,10 +76,134 @@
         aria-label="Basic example"
         style="font-size: 20px;"
       >
-        <button type="button" class="btn btn-secondary">
+        <!-- <button type="button" class="btn btn-secondary">
           發布新活動<br />
           <i class="far fa-edit"></i>
+        </button> -->
+
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          發布新活動
+          <br /><i class="far fa-edit"></i>
         </button>
+
+        <!-- Modal 跳出頁面 -->
+        <div
+          class="modal fade"
+          id="exampleModalLong"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- 叉叉按鈕 -->
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <!-- 內容 -->
+                <form id="msform">
+                  <!-- 主辦人頭像 -->
+                  <div class="container">
+                    <img
+                      src="./images/id_photo/memberphoto_6.png"
+                      alt="profile-sample5"
+                      id="memberid_img"
+                    />
+                    <span style="font-size: 0.6em; color: #3e8bbe;"
+                      >主揪人 </span
+                    ><span id="article_m_id" style="font-size: 0.8em;"
+                      >豬血糕不要香菜</span
+                    >
+                  </div>
+                  <hr />
+                  <h1 class="fs-title">活動標題</h1>
+                  <input type="text" name="article_title" placeholder="標題" />
+                  <h1 class="fs-title">活動地點</h1>
+                  <input type="text" name="Location" placeholder="地點" />
+                  <h1 class="fs-title">開始日期與時間</h1>
+                  <input
+                    type="datetime-local"
+                    name="startTime"
+                    placeholder="開始日期與時間"
+                  />
+                  <h1 class="fs-title">結束日期與時間</h1>
+                  <input
+                    type="datetime-local"
+                    name="endTime"
+                    placeholder="結束日期與時間"
+                  />
+                  
+                  <h1 class="fs-title">活動主題</h1>
+                  <!-- Example single danger button -->
+                  <!-- 主題選單 -->
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-info dropdown-toggle btn-sm"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      請選擇
+                    </button>
+                    <div class="dropdown-menu" id="subject">
+                      <a class="dropdown-item" href="#">信用卡優惠</a>
+                      <a class="dropdown-item" href="#">郊遊</a>
+                      <a class="dropdown-item" href="#">聚餐</a>
+                      <a class="dropdown-item" href="#">讀書會</a>
+                    </div>
+                  </div>
+                  
+                  <h1 class="fs-title">活動內容</h1>
+                  <textarea name="address" placeholder="請輸入內容"></textarea>
+                  <!-- 上傳圖片的按鈕 -->
+                  <h1 class="fs-title">活動照片</h1>
+                  <div class="input-group mb-3" style="font-size: 13px;">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="articleimage" style="font-size: 13px;">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="articleimage" aria-describedby="articleimage">
+                      <label class="custom-file-label" for="articleimage">請選擇照片</label>
+                    </div>
+                  </div>
+                </form>
+               
+              </div>
+              
+              <!-- 底部按鈕 -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-dismiss="modal"
+                >
+                  返回
+                </button>
+                <button type="button" class="btn btn-primary btn-sm">
+                  送出
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- <button type="button" class="btn btn-secondary">活動管理
         </button> -->
       </div>

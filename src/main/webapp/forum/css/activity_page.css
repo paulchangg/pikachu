@@ -95,7 +95,7 @@ div.leftNav {
 
 .second_line {
   background: #c4ddcb;
-  margin: 10px 0 10px 0;
+  margin: 1px 0 10px 0;
   height: 30px;
   padding: 0.15em 0 3px;
   font-weight: bold;
@@ -171,6 +171,59 @@ div.leftNav {
     .googleplus:hover {
 		color: #eee;
 	} */
+
+
+/* 跳出頁面視窗 */
+.modal-content{
+  width: 600px;
+}
+
+#msform {
+	width: 450px;
+	margin: 8px auto;
+	/* text-align: center; */
+	position: relative;
+}
+
+#memberid_img {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;   /* icon上移 */
+  left: 5px;
+  /* z-index: 1; */
+  max-width: 90px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;   /* 欄位高度 */
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+
+/*headings*/
+.fs-title {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: rgb(103, 104, 105);
+  margin-bottom: 15px;
+  margin-top: 12px;
+}
+
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
 
 /* 底部 */
 div.footer {
