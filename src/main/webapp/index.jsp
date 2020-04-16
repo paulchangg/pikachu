@@ -30,9 +30,18 @@
           <div class="col-4"> 
             <div class="row justify-content-end">
               <div class="col-4">
-                <a href="member/member_login.jsp">
-                  <i class="fa fa-user-circle" id="memberlogin">會員登入</i>
-               </a>
+                <c:choose>
+					<c:when test="${empty LoginOK}">								
+						<a href="member/member_login.jsp"> 
+							<i class="fa fa-user-circle" id="memberlogin">會員登入</i>
+						</a>								
+					</c:when>
+					<c:otherwise>								
+						<a href="member/member_logout.jsp"> 
+							<i class="fa fa-user-circle" id="memberlogout">會員登出</i>
+						</a>								
+					</c:otherwise>
+				</c:choose>
               </div>
               <div class="col-4"> 
                 <a href="#">

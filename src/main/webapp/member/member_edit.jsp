@@ -13,6 +13,17 @@ crossorigin="anonymous" />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="../css/common/wickedcss.min.css"/>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<script src="../js/member_edit.js"></script>
+<script> function updateMb(){
+	if (confirm("確定更新會員資料 ? ") ) {
+		document.forms[1].action="<c:url value='edit.do' />";
+		document.forms[1].method="POST";
+		document.forms[1].submit();
+		return;
+	} else {
+		return;
+	}
+}</script>
 
 <title>修改會員資料</title>
 </head>
@@ -22,7 +33,7 @@ crossorigin="anonymous" />
 		<div class="header">
 		   <div class="row justify-content-end"> 
 				<div class="col-4">    <!---------logo區塊----------->
-				   <img class="index_logo" src="/homepage/images/index_logo.jpg" alt="logo" />
+				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
@@ -92,33 +103,35 @@ crossorigin="anonymous" />
 					<h2>選擇您喜愛的頭像</h2>
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 				</div>
-				<div class="modal-body">
-					<form action="editPhoto.do" method="POST">
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_1"><img
-							src="../images/common/memberphoto_1.jpg" width="100" height="100"></label>
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_2"><img
-							src="../images/common/memberphoto_2.jpg" width="100" height="100"></label>
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_3"><img
-							src="../images/common/memberphoto_3.jpg" width="100" height="100"></label>
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_4"><img
-							src="../images/common/memberphoto_4.jpg" width="100" height="100"></label>
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_5"><img
-							src="../images/common/memberphoto_5.jpg" width="100" height="100"></label>
-						<label class="radio-inline"><input type="radio"
-							name="m_img" value="memberphoto_6"><img
-							src="../images/common/memberphoto_6.jpg" width="100" height="100"></label>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<input type="submit" value="確定" id="memberedit_modalBtn">
-					<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-				</div>
-			</div>
+						<form action="editPhoto.do" method="POST">
+							<div class="modal-body">
+								<label class="radio-inline"><input type="radio"
+									name="m_img" value="memberphoto_1"><img
+									src="../images/common/memberphoto_1.jpg" width="100"
+									height="100"></label> <label class="radio-inline"><input
+									type="radio" name="m_img" value="memberphoto_2"><img
+									src="../images/common/memberphoto_2.jpg" width="100"
+									height="100"></label> <label class="radio-inline"><input
+									type="radio" name="m_img" value="memberphoto_3"><img
+									src="../images/common/memberphoto_3.jpg" width="100"
+									height="100"></label> <label class="radio-inline"><input
+									type="radio" name="m_img" value="memberphoto_4"><img
+									src="../images/common/memberphoto_4.jpg" width="100"
+									height="100"></label> <label class="radio-inline"><input
+									type="radio" name="m_img" value="memberphoto_5"><img
+									src="../images/common/memberphoto_5.jpg" width="100"
+									height="100"></label> <label class="radio-inline"><input
+									type="radio" name="m_img" value="memberphoto_6"><img
+									src="../images/common/memberphoto_6.jpg" width="100"
+									height="100"></label>
+							</div>
+							<div class="modal-footer">
+								<input type="submit" value="確定" id="memberedit_modalBtn">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">關閉</button>
+							</div>
+						</form>
+					</div>
 		</div>
 		  </div>
 		  
@@ -177,8 +190,8 @@ crossorigin="anonymous" />
 				      <p><font color="red" size="-1">${MsgMap.newPwError}</font></p>
 				<label>新密碼確認:</label><input type="password" name=newpassword2 required>
 				      <span></span>
+				<input type="submit" value="變更密碼" id="membereedit_changeBtn">
 			</form>
-			<input type="submit" value="變更密碼" id="membereedit_changeBtn">
 		</div>
       </div>
 
@@ -200,6 +213,6 @@ crossorigin="anonymous" />
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
-    <script src="../js/member_edit.js"></script>
+    
 </body>
 </html>
