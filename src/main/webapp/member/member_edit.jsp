@@ -13,7 +13,6 @@ crossorigin="anonymous" />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="../css/common/wickedcss.min.css"/>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-<script src="../js/member_edit.js"></script>
 <script> function updateMb(){
 	if (confirm("確定更新會員資料 ? ") ) {
 		document.forms[1].action="<c:url value='edit.do' />";
