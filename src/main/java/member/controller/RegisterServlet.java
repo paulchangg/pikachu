@@ -115,7 +115,7 @@ public class RegisterServlet extends HttpServlet {
 			if(service.idExists(account)) {
 				errorMsg.put("errorIdDup", "此帳號已存在，請換新帳號");
 			} else if (service.emailExists(email)){
-				errorMsg.put("errorIdDup", "此信箱已被註冊，請換新信箱");
+				errorMsg.put("errorEmailDup", "此信箱已被註冊，請換新信箱");
 			}else {
 				password = GlobalService.getMD5Endocing(GlobalService.encryptString(password));
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

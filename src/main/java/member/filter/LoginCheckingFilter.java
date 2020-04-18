@@ -35,7 +35,12 @@ import member.model.MemberBean;
 		initParams = { 
 				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
 				@WebInitParam(name = "mustLogin2", value = "/member/member_edit.jsp"), 
+<<<<<<< HEAD
 //				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
+=======
+				@WebInitParam(name = "mustLogin3", value = "/member/member_center.jsp"), 
+				@WebInitParam(name = "mustLogin4", value = "/member/member_inquary.jsp"), 
+>>>>>>> 3723b719001cae2e8893da2bfb7ca38280496da6
 //				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
 //				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
 		})
