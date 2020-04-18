@@ -1,17 +1,6 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
-@media only screen and (max-width: 768px){
-  div{
-      width: 50%;
-  }
-}
-
-@media only screen and (max-width: 400px){
-div{
-    width: 100%;
-}
-
-
+@import '/css/reset.css';
 body{
   font-family: 'Noto Sans TC', sans-serif;
   padding: initial;

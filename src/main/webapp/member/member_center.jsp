@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/common/member_center.css" rel="stylesheet" type="text/css">
 <link href="../css/common/wickedcss.min.css" rel="stylesheet" type="text/css">
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 crossorigin="anonymous" />
@@ -30,20 +29,25 @@ crossorigin="anonymous" />
 			   </div>
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
-						 <div class="col-4">
+						 <div class="col-3">
 							 <a href="#">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
-						<div class="col-4"> 
-							 <a href="#">
-							  <i class="fa fa-question-circle" id="qanda">Q & A</i>
+						<div class="col-3"> 
+							 <a href="member/member_logout.jsp">
+							  <i class="fa fa-question-circle" id="qanda">會員登出</i>
 							</a>
 					   </div>
 					   <div class="col-3">
 							<a href="#">
 							  <i class="fa fa-shopping-cart" id="shoppingcart">shopping cart</i>
 						   </a>
+					   </div>
+					   <div class="col-3"> 
+							 <a href="#">
+							  <i class="fa fa-question-circle" id="qanda">Q & A</i>
+							</a>
 					   </div>
 				   </div>
 			   </div>
