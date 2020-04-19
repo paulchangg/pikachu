@@ -32,17 +32,17 @@ public class ProductBean {
 	private Blob p_img;
 	private String p_img_name;
 	private Integer p_bns;
-//	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//	@JoinTable(name = "member_product", catalog = "pikachuTestDB",
-//			   joinColumns ={
-//					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
-//			   },
-//			   inverseJoinColumns = {
-//					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
-//			   }
-//			   )
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "member_product", catalog = "pikachuTestDB",
+			   joinColumns ={
+					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
+			   },
+			   inverseJoinColumns = {
+					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
+			   }
+			   )
+	Set<MemberBean> members = new LinkedHashSet<>();
 //	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "products")
-//	Set<MemberBean> members = new LinkedHashSet<>();
 	
 	
 	
@@ -69,14 +69,14 @@ public class ProductBean {
 	
 
 
-//	public Set<MemberBean> getMembers() {
-//		return members;
-//	}
-//
-//
-//	public void setMembers(Set<MemberBean> members) {
-//		this.members = members;
-//	}
+	public Set<MemberBean> getMembers() {
+		return members;
+	}
+
+
+	public void setMembers(Set<MemberBean> members) {
+		this.members = members;
+	}
 
 
 	public String getP_img_name() {

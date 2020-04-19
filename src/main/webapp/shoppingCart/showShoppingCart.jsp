@@ -104,7 +104,7 @@ function Abort() {
             <ul class="navbar-nav ">
                  <li class="nav-item active"><a class="nav-link" href="#">關於我們</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">會員專區</a></li>
-                 <li class="nav-item"><a class="nav-link" href="../trackProduct/track.jsp">追蹤商品</a></li>
+                 <li class="nav-item"><a class="nav-link" href="../trackproduct/listTrack">追蹤商品</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  <li class="nav-item"><a class="nav-link" href="../listProduct/DisplayPageProducts">購物商城</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
@@ -156,14 +156,8 @@ function Abort() {
                     <tr><td colspan="5" align="right">訂單小計</td>
                         <td><span id="shoppingcart_money">${subtotal}</span>元</td>
                     </tr>
-                    <tr><td colspan="5" align="right">紅利折抵</td>
-                        <td>目前累積點數為<span id="shoppingcart_bounds">50</span>點<br>
-                        <input type="checkbox" name="p_bns" value="">使用紅利折抵<span id="shoppingcart_userbo">5</span>元 <!--這裡...我不知道要給id還是要放到value???-->
-                    </td>
-                    </tr>
-                    <tr><td colspan="5" align="right">訂單金額</td>
-                        <td><span id="shoppingcart_spend">395元</span></td>
-                    </tr>
+                   
+                   
                    
                 </tbody>
              </table>

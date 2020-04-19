@@ -30,7 +30,7 @@
                 <ul class="navbar-nav ">
                    <li class="nav-item active"><a class="nav-link" href="#">關於我們</a></li>
                  	<li class="nav-item"><a class="nav-link" href="#">會員專區</a></li>
-                 	<li class="nav-item"><a class="nav-link" href="../trackProduct/track.jsp">追蹤商品</a></li>
+                 	<li class="nav-item"><a class="nav-link" href="../trackproduct/listTrack">追蹤商品</a></li>
                  	<li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  	<li class="nav-item"><a class="nav-link" href="../listProduct/DisplayPageProducts">購物商城</a></li>
                 	<li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
@@ -52,14 +52,14 @@
                  <td>變更內容</td>
                </tr> 
                
-               	 <c:forEach varStatus="stVar"  var="entry"  items="${TrackCart.track}" >
+               	  <c:forEach varStatus="stVar"  var="entry"  items="${trackProduct}" >
                	 <tr>
                  <td>  <!--這裡顯示兩筆 第一筆為主-->
                   
-                     <img src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${entry.value.p_id}" width="80" height="80" class="img-fluid"  id="shoppingproduce_img">
-                  <a href="" id="orderlove_ul"><span id="orderlove_name">${entry.value.p_name}<span></a></span>
+                     <img src="${pageContext.servletContext.contextPath}/init/getBookImage?id=${entry.p_id}" width="80" height="80" class="img-fluid"  id="shoppingproduce_img">
+                  <a href="" id="orderlove_ul"><span id="orderlove_name">${entry.p_name}<span></a></span>
                  </td>
-                 <td><span id="orderlove_price">${entry.value.price}</span></td>
+                 <td><span id="orderlove_price">${entry.price}</span></td>
                  <td><span id="orderlove_stock">100</span></td>
                  <td>
                   	<input type="button" value="放入購物車" id="orderlove_buy">

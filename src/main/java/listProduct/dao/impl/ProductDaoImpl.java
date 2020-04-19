@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -116,6 +117,42 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		return map;
 	}
 
-	
+	@Override
+	public void saveTrackProduct(MemberBean member, int productId) {
+		
+		ProductBean bean;
+		MemberBean  beans;
+		
+		String hql = "FROM ProductBean p WHERE p.p_id = :p_id";
+		
+		Session session = factory.getCurrentSession();
+		
+		bean = session.get(ProductBean.class, productId);
+		
+		beans = session.get(MemberBean.class, member.getM_id());
+		
+		Set<ProductBean> products = beans.getProducts();
+		
+		products.add(bean);
+		
+		beans.setProducts(products);
+		
+		Set<MemberBean> members = bean.getMembers();
+		
+		members.add(beans);
+		
+		bean.setMembers(members);	
+	}
+
+	@Override
+	public Set<ProductBean> listTrackProduct(MemberBean member) {
+		Session session = factory.getCurrentSession();
+		
+		MemberBean  beans = session.get(MemberBean.class, member.getM_id());
+		
+		
+		return beans.getProducts();
+	}
+
 
 }

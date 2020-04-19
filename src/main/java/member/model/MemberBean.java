@@ -2,10 +2,16 @@ package member.model;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import listProduct.model.ProductBean;
 
 @Entity
 @Table(name="members")
@@ -23,6 +29,9 @@ public class MemberBean {
 	String income;
 	String city;
 	String education;
+	
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+	Set<ProductBean> products = new LinkedHashSet<>();
 	
 	public MemberBean() {
 		super();
@@ -43,6 +52,14 @@ public class MemberBean {
 		this.income = income;
 		this.city = city;
 		this.education = education;
+	}
+	
+	public Set<ProductBean> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<ProductBean> products) {
+		this.products = products;
 	}
 	
 	public String getM_id() {

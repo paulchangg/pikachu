@@ -1,6 +1,7 @@
 package listProduct.dao;
 
 import java.util.Map;
+import java.util.Set;
 
 import listProduct.model.ProductBean;
 import member.model.MemberBean;
@@ -16,7 +17,9 @@ public interface ProductDao {
 	
 	public Map<Integer, ProductBean> getProductAscPrice(int pageNo);
 	
+	void saveTrackProduct(MemberBean member,int productId);
 	
+	Set<ProductBean> listTrackProduct(MemberBean member);
 	
 	public int getTotalPages();
 }

@@ -2,6 +2,7 @@ package listProduct.service.impl;
 
 import java.io.Serializable;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -132,6 +133,41 @@ public class ProductServiceImpl implements Serializable,ProductService{
 		return beans;
 	}
 
-	
+	@Override
+	public void saveTrackProduct(MemberBean member, int productId) {
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			dao.saveTrackProduct(member, productId);;
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return ;
+		
+	}
+
+	@Override
+	public Set<ProductBean> listTrackProduct(MemberBean member) {
+		Set<ProductBean> beans = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			beans = dao.listTrackProduct(member);
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return beans;
+	}
+
 
 }

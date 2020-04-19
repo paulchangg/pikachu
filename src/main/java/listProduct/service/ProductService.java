@@ -1,6 +1,7 @@
 package listProduct.service;
 
 import java.util.Map;
+import java.util.Set;
 
 import listProduct.model.ProductBean;
 import member.model.MemberBean;
@@ -15,7 +16,9 @@ public interface ProductService {
 	
 	public ProductBean getSelectBook(int productId);
 	
+	void saveTrackProduct(MemberBean member,int productId);
 	
+	Set<ProductBean> listTrackProduct(MemberBean member);
 	
 	public long getRecordCounts();
 	

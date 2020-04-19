@@ -118,4 +118,24 @@
     <filter-name>LazyLoadingFilter</filter-name>
     <url-pattern>/LazyLoadingFilter</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddTrackProduct</display-name>
+    <servlet-name>AddTrackProduct</servlet-name>
+    <servlet-class>trackproduct.AddTrackProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddTrackProduct</servlet-name>
+    <url-pattern>/AddTrackProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListTrackProduct</display-name>
+    <servlet-name>ListTrackProduct</servlet-name>
+    <servlet-class>trackproduct.ListTrackProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListTrackProduct</servlet-name>
+    <url-pattern>/ListTrackProduct</url-pattern>
+  </servlet-mapping>
 </web-app>
