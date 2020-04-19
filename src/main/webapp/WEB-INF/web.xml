@@ -109,4 +109,13 @@
     <servlet-name>CheckEmailServlet</servlet-name>
     <url-pattern>/CheckEmailServlet</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>LazyLoadingFilter</display-name>
+    <filter-name>LazyLoadingFilter</filter-name>
+    <filter-class>init.LazyLoadingFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LazyLoadingFilter</filter-name>
+    <url-pattern>/LazyLoadingFilter</url-pattern>
+  </filter-mapping>
 </web-app>

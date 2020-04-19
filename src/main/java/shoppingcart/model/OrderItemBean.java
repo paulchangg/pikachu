@@ -1,8 +1,10 @@
-package _04_ShoppingCart.model;
+package shoppingcart.model;
 
 import java.sql.Blob;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,32 +16,50 @@ import javax.persistence.Transient;
 @Table(name = "orderitem")
 public class OrderItemBean {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer itemid;
-	private Integer ordid;
 	private Integer p_id;
 	private Double price;
 	private Integer qty;
-	private Double itemtotal;
+	
 	@ManyToOne
-	@JoinColumn(name = "FK_OrderBean_orderNo")
-	OrdersBean orderBean;
-	@Transient
+	@JoinColumn(name = "ordid")
+	OrdersBean ordersBean;
+	
 	private String p_name;
 	
 	
+	public OrderItemBean() {
+		
+	}
 	
 	
-	
-	public OrderItemBean(Integer itemid, Integer ordid, Integer p_id, Double price, Integer qty, Double itemtotal,String p_name) {
+	public OrderItemBean(Integer itemid, Integer p_id, Double price, Integer qty,String p_name) {
 		super();
 		this.itemid = itemid;
-		this.ordid = ordid;
+		
 		this.p_id = p_id;
 		this.price = price;
 		this.qty = qty;
-		this.itemtotal = itemtotal;
+		
 		
 		this.p_name = p_name;
+	}
+
+
+	
+
+
+	public OrdersBean getOrdersBean() {
+		return ordersBean;
+	}
+
+
+
+
+
+	public void setOrdersBean(OrdersBean ordersBean) {
+		this.ordersBean = ordersBean;
 	}
 
 
@@ -64,12 +84,7 @@ public class OrderItemBean {
 	public void setItemid(Integer itemid) {
 		this.itemid = itemid;
 	}
-	public Integer getOrdid() {
-		return ordid;
-	}
-	public void setOrdid(Integer ordid) {
-		this.ordid = ordid;
-	}
+	
 	public Integer getP_id() {
 		return p_id;
 	}
@@ -88,12 +103,7 @@ public class OrderItemBean {
 	public void setQty(Integer qty) {
 		this.qty = qty;
 	}
-	public Double getItemtotal() {
-		return itemtotal;
-	}
-	public void setItemtotal(Double itemtotal) {
-		this.itemtotal = itemtotal;
-	}
+	
 	
 	
 	

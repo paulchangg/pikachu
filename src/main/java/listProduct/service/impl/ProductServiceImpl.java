@@ -12,6 +12,7 @@ import listProduct.dao.ProductDao;
 import listProduct.dao.impl.ProductDaoImpl;
 import listProduct.model.ProductBean;
 import listProduct.service.ProductService;
+import member.model.MemberBean;
 
 public class ProductServiceImpl implements Serializable,ProductService{
 
@@ -94,5 +95,43 @@ public class ProductServiceImpl implements Serializable,ProductService{
 		}
 		return totalPages;
 	}
+
+	@Override
+	public Map<Integer, ProductBean> getProductDescPrice(int pageNo) {
+		Map<Integer, ProductBean> beans = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			beans = dao.getProductDescPrice(pageNo);
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return beans;
+	}
+
+	@Override
+	public Map<Integer, ProductBean> getProductAscPrice(int pageNo) {
+		Map<Integer, ProductBean> beans = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			beans = dao.getProductAscPrice(pageNo);
+			tx.commit();
+		} catch (Exception ex) {
+			if (tx != null)
+				tx.rollback();
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		return beans;
+	}
+
+	
 
 }

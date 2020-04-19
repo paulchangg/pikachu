@@ -5,7 +5,7 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">ruby123</property>
+		<property name="hibernate.connection.password">22651330</property>
 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/pikachuTestDB?useUnicode=yes&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Taipei&amp;allowPublicKeyRetrieval=true</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
@@ -29,6 +29,8 @@
 		<mapping class="member.model.MemberBean"></mapping>
 		<mapping class="listProduct.model.ProductBean"></mapping>
 		<mapping class="card.model.CardBean"></mapping>
+		<mapping class="shoppingcart.model.OrderItemBean"></mapping>
+		<mapping class="shoppingcart.model.OrdersBean"></mapping>
 <!-- 		<mapping class="forum.model.FoumBean"></mapping> -->
 <!-- 		<mapping class="forum.model.Launch_activityBean"></mapping> -->
 <!-- 		<mapping class="forum.model.ResponserBean"></mapping> -->
