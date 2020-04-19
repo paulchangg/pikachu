@@ -2,10 +2,24 @@ package member.model;
 
 import java.sql.Blob;
 import java.sql.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Generated;
+
+import listProduct.model.ProductBean;
 
 @Entity
 @Table(name="members")
@@ -23,6 +37,9 @@ public class MemberBean {
 	String income;
 	String city;
 	String education;
+	
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+	Set<ProductBean> products = new LinkedHashSet<>();
 	
 	public MemberBean() {
 		super();
@@ -45,6 +62,22 @@ public class MemberBean {
 		this.education = education;
 	}
 	
+	
+	
+	
+
+	
+
+
+
+	public Set<ProductBean> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<ProductBean> products) {
+		this.products = products;
+	}
+
 	public String getM_id() {
 		return m_id;
 	}

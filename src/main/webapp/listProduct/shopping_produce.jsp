@@ -107,6 +107,16 @@
                                                                                                                                 <!--如果有登入會員會跳出已加入追蹤的視窗-->
                           </div>
                           </FORM>
+                          <FORM  action="<c:url value='/trackproduct/DisplayPageProduct' />" method="POST">
+                          <div class="col-3 threebutton">            
+<!--                                <a href="shopping_cart.html"><button type="button" class="btn btn-warning" id="shoppingproduce_buy">立即購買</button></a> -->
+                                <Input type='submit' class="btn btn-warning test" data-toggle="modal" data-target="#shoopingmodal"  value='加入追蹤' style="margin-top: 20px">
+                                <Input type='hidden' name='productId' value='${product_INFO.p_id}'>
+<!--                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#shoopinproduce_2" id="shoppingproduce_see">加入追蹤</button> -->
+                                                                                                                                <!--加入追蹤清單如果沒有登入會員會跳出請先登入會員的視窗-->
+                                                                                                                                <!--如果有登入會員會跳出已加入追蹤的視窗-->
+                          </div>
+                          </FORM>
                            <div class="col-12 navtotal">
                                 <ul class="nav nav-tabs">                     
                                     <li class="nav-item"><a class="nav-link active" href="#shoppingproduce_about" data-toggle="tab">商品描述</a></li>

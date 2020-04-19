@@ -7,7 +7,13 @@ public class ShoppingCart {
 	
 	private Map<Integer, OrderItemBean> cart = new LinkedHashMap< >();
 	
+	private Map<Integer, OrderItemBean> track = new LinkedHashMap< >();
+	
 	public ShoppingCart() {
+	}
+	
+	public Map<Integer, OrderItemBean>  getTrack() { // ${ShoppingCart.content}
+		return track;
 	}
 	
 	public Map<Integer, OrderItemBean>  getContent() { // ${ShoppingCart.content}
@@ -26,6 +32,18 @@ public class ShoppingCart {
 			// 加購的數量：bean.getQuantity()
 			// 原有的數量：oBean.getQuantity()			
 			oiBean.setQty(oib.getQty() + oiBean.getQty());
+		}
+	}
+	
+	public void addToTrack(int bookId, OrderItemBean  oib) {
+		// 如果客戶在伺服器端沒有此項商品的資料，則客戶第一次購買此項商品
+		if ( track.get(bookId) == null ) {
+			track.put(bookId, oib);
+			System.out.println("---------------54546464646");
+			System.out.println(track.size());
+		} else {
+			System.out.println("---------------54546464646");
+			System.out.println(track.size());
 		}
 	}
 

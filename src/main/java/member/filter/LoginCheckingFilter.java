@@ -34,10 +34,9 @@ import member.model.MemberBean;
 		urlPatterns = { "/*" }, 
 		initParams = { 
 				@WebInitParam(name = "mustLogin1", value = "/listProduct/*"), 
-				@WebInitParam(name = "mustLogin2", value = "/_04_ShoppingCart/*"), 
-				@WebInitParam(name = "mustLogin3", value = "/_05_orderProcess/*"),
-				@WebInitParam(name = "mustLogin4", value = "/_20_productMaintain/*")				
-		})
+				@WebInitParam(name = "mustLogin2", value = "/shoppingCart/*"), 
+				@WebInitParam(name = "mustLogin3", value = "/orderProcess/*")
+				})
 public class LoginCheckingFilter implements Filter {
 	List<String> url = new ArrayList<String>();
 	String servletPath;

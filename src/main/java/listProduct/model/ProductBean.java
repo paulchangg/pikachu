@@ -1,12 +1,22 @@
 package listProduct.model;
 
 import java.sql.Blob;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import member.model.MemberBean;
 
 @Entity
 @Table(name = "product")
@@ -22,6 +32,17 @@ public class ProductBean {
 	private Blob p_img;
 	private String p_img_name;
 	private Integer p_bns;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "member_product", catalog = "pikachuTestDB",
+			   joinColumns ={
+					   @JoinColumn(name = "p_id", nullable = false, updatable = false)
+			   },
+			   inverseJoinColumns = {
+					   @JoinColumn(name = "m_id", nullable = false, updatable = false, columnDefinition = "VARCHAR(100) NOT NULL")
+			   }
+			   )
+	Set<MemberBean> members = new LinkedHashSet<>();
+//	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "products")
 	
 	
 	
@@ -38,12 +59,25 @@ public class ProductBean {
 		this.p_bns = p_bns;
 	}
 
+	
 
 	public ProductBean() {
 		
 	}
 	
 	
+	
+
+
+	public Set<MemberBean> getMembers() {
+		return members;
+	}
+
+
+	public void setMembers(Set<MemberBean> members) {
+		this.members = members;
+	}
+
 
 	public String getP_img_name() {
 		return p_img_name;

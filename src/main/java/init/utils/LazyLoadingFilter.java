@@ -19,7 +19,7 @@ import init.HibernateUtils;
 /**
  * Servlet Filter implementation class LazyLoadingFilter
  */
-@WebFilter("/_05_orderProcess/orderDetail.do")
+@WebFilter("/orderProcess/orderDetail.do")
 public class LazyLoadingFilter implements Filter {
 
 	SessionFactory  factory;

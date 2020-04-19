@@ -8,14 +8,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>登入 比卡丘</title>
 <link rel="stylesheet" type="text/css"
-	href="/css/common/memberlogin_normalize.css">
+	href="../css/common/memberlogin_normalize.css">
 <link rel="stylesheet" type="text/css"
-	href="css/common/icon-font-3/style.css">
-<link rel="stylesheet" type="text/css" href="css/basic.css">
-<link rel="stylesheet" type="text/css" href="css/common/icon-font-3.css">
+	href="../css/common/icon-font-3/style.css">
+<link rel="stylesheet" type="text/css" href="../css/basic.css">
+<link rel="stylesheet" type="text/css" href="../css/common/icon-font-3.css">
 
-<script src="js/jquery.min.js"></script>
-<script defer="" src="js/modernizr.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script defer="" src="../js/modernizr.js"></script>
 </head>
 <body class="mmenu-show">
 	<div class="wrapper">

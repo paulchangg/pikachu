@@ -24,5 +24,9 @@ public interface OrderService {
 //
 //	List<OrdersBean> getAllOrders();
 //
-	List<OrdersBean> getMemberOrders(String memberId);
+	List<OrdersBean> getMemberOrders(String memberId, int pageNo);
+	
+	long getRecordCounts(String m_id);
+
+	int getTotalPages(String m_id);
 }

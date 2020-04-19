@@ -113,13 +113,13 @@ public class OrderServiceImpl implements OrderService {
 //	}
 //
 	@Override
-	public List<OrdersBean> getMemberOrders(String memberId) {
+	public List<OrdersBean> getMemberOrders(String memberId, int pageNo) {
 		List<OrdersBean> list = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			list = odao.getMemberOrders(memberId);
+			list = odao.getMemberOrders(memberId,pageNo);
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null)
@@ -127,5 +127,39 @@ public class OrderServiceImpl implements OrderService {
 			throw new RuntimeException(e);
 		}
 		return list;
+	}
+
+	@Override
+	public long getRecordCounts(String m_id) {
+		long recordCounts = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			recordCounts = odao.getRecordCounts(m_id);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return recordCounts;
+	}
+
+	@Override
+	public int getTotalPages(String m_id) {
+		int totalPages = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			totalPages = odao.getTotalPages(m_id);
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null)
+				tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return totalPages;
 	}
 }

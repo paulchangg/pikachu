@@ -2,6 +2,7 @@ package listProduct.conrtoller;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,13 +22,15 @@ public class DisplayProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	int pageNo = 1;
 	int id = 1;
+	int priceMode = 0;
+	static int modeState = 0;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+				request.setCharacterEncoding("UTF-8");
 				
 				// 先取出session物件
 				HttpSession session = request.getSession(false);
@@ -46,6 +49,7 @@ public class DisplayProduct extends HttpServlet {
 				String pageNoStr = request.getParameter("pageNo");
 				String mode = request.getParameter("mode");
 				String productId = request.getParameter("productId");
+				String price = request.getParameter("priceMode");
 				
 				if( productId == null ) {
 					id = 1;
@@ -57,9 +61,21 @@ public class DisplayProduct extends HttpServlet {
 					}
 				}
 				
+				if( price == null ) {
+					priceMode = modeState;
+				}else {
+					try {
+						priceMode = Integer.parseInt(price.trim());
+						modeState = priceMode;
+					} catch (NumberFormatException e) {
+						priceMode = 0;
+					}
+				}
+				
 				if(mode != null) {
 					mode = "show";
 				}
+				
 				
 				if( pageNoStr == null ) {
 					pageNo = 1;
@@ -71,13 +87,25 @@ public class DisplayProduct extends HttpServlet {
 					}
 				}
 				
-				ProductService service = new ProductServiceImpl(); 
-				Map<Integer, ProductBean> productMap = service.getProduct(pageNo);
+				
+				Map<Integer, ProductBean> productMap = null;
+				ProductService service = new ProductServiceImpl();
+				if(priceMode == 1) {
+					productMap = service.getProductDescPrice(pageNo);
+				}else if(priceMode == 2) {
+					productMap = service.getProductAscPrice(pageNo);
+				}else {
+					productMap = service.getProduct(pageNo);
+				}
 				ProductBean pb = service.getSelectBook(id);
 				request.setAttribute("totalPages", service.getTotalPages());
+				request.setAttribute("modeState", modeState);
 				session.setAttribute("product_INFO", pb);
 				session.setAttribute("pageNo", String.valueOf(pageNo));
 				session.setAttribute("products_DPP", productMap);
+				for(Entry<Integer, ProductBean> bean : productMap.entrySet()) {
+		        	System.out.println(bean.getKey());
+		        }
 				if(mode == "show") {
 					RequestDispatcher rd = request.getRequestDispatcher("shopping_produce.jsp");
 					rd.forward(request, response);

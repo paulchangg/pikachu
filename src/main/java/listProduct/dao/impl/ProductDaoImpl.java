@@ -1,22 +1,20 @@
 package listProduct.dao.impl;
 
 import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-
 import init.HibernateUtils;
 import listProduct.dao.ProductDao;
 import listProduct.model.ProductBean;
+import member.model.MemberBean;
 
 public class ProductDaoImpl implements Serializable, ProductDao{
 
@@ -43,6 +41,7 @@ public class ProductDaoImpl implements Serializable, ProductDao{
                       .getResultList();
         for(ProductBean bean : list) {
         	map.put(bean.getP_id(), bean);
+        	System.out.println(bean.getP_id());
         }
 		return map;
 	}
@@ -77,5 +76,84 @@ public class ProductDaoImpl implements Serializable, ProductDao{
 		totalPages = (int) (Math.ceil(getRecordCounts() / (double) recordsPerPage));
 		return totalPages;
 	}
+
+	@Override
+	public Map<Integer, ProductBean> getProductDescPrice(int pageNo) {
+		Map<Integer, ProductBean> map = new LinkedHashMap<Integer, ProductBean>();
+		
+		List<ProductBean> list = new ArrayList<ProductBean>();
+        String hql = "FROM ProductBean order by price desc";
+        Session session = factory.getCurrentSession();
+        int startRecordNo = (pageNo - 1) * recordsPerPage;
+
+        list = session.createQuery(hql)
+        			  .setFirstResult(startRecordNo)
+                      .setMaxResults(recordsPerPage)
+                      .getResultList();
+        for(ProductBean bean : list) {
+        	map.put(bean.getP_id(), bean);
+        	System.out.println(bean.getP_id());
+        }
+		return map;
+	}
+
+	@Override
+	public Map<Integer, ProductBean> getProductAscPrice(int pageNo) {
+		Map<Integer, ProductBean> map = new LinkedHashMap<Integer, ProductBean>();
+		
+		List<ProductBean> list = new ArrayList<ProductBean>();
+        String hql = "FROM ProductBean order by price";
+        Session session = factory.getCurrentSession();
+        int startRecordNo = (pageNo - 1) * recordsPerPage;
+
+        list = session.createQuery(hql)
+        			  .setFirstResult(startRecordNo)
+                      .setMaxResults(recordsPerPage)
+                      .getResultList();
+        for(ProductBean bean : list) {
+        	map.put(bean.getP_id(), bean);
+        	System.out.println(bean.getP_id());
+        }
+		return map;
+	}
+
+	@Override
+	public void saveTrackProduct(MemberBean member, int productId) {
+		
+		ProductBean bean;
+		MemberBean  beans;
+		
+		String hql = "FROM ProductBean p WHERE p.p_id = :p_id";
+		
+		Session session = factory.getCurrentSession();
+		
+		bean = session.get(ProductBean.class, productId);
+		
+		beans = session.get(MemberBean.class, member.getM_id());
+		
+		Set<ProductBean> products = beans.getProducts();
+		
+		products.add(bean);
+		
+		beans.setProducts(products);
+		
+		Set<MemberBean> members = bean.getMembers();
+		
+		members.add(beans);
+		
+		bean.setMembers(members);	
+	}
+
+	@Override
+	public Set<ProductBean> listTrackProduct(MemberBean member) {
+		Session session = factory.getCurrentSession();
+		
+		MemberBean  beans = session.get(MemberBean.class, member.getM_id());
+		
+		
+		return beans.getProducts();
+	}
+
+	
 
 }

@@ -40,7 +40,7 @@
           <div class="collapse navbar-collapse " id="shopping_navContent">
              <ul class="navbar-nav ">
                  <li class="nav-item active"><a class="nav-link" href="#">關於我們</a></li>
-                 <li class="nav-item"><a class="nav-link" href="#">會員專區</a></li>
+                 <li class="nav-item"><a class="nav-link" href="../trackproduct/listTrack">會員專區</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">論壇交友</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">購物商城</a></li>
                  <li class="nav-item"><a class="nav-link" href="#">資訊網</a></li>
@@ -88,12 +88,33 @@
                 </div>
               <div class="col-10 sidderr2 "><!--中間商品-->
                  <div class="col-12 sreach" id="shopping_totalsearch">
-                    <div class="col-2 dropdown" id="shopping_dropdown"><!--右邊下拉式選單-->
-                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">排序方式</button>
-                          <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#" id="shopping_pricelh">價格低到高</a>
-                            <a class="dropdown-item" href="#" id="shopping_pricehl">價格高到低</a>
-                          </div>
+                    <div class="col-4 dropdown" id="shopping_dropdown"><!--右邊下拉式選單-->
+                    	<c:choose>
+                    		<c:when test="${modeState == 0}">
+                        		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">上市日期(舊到新)</button>
+                          		<div class="dropdown-menu">
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+                          		</div>
+                    		</c:when>
+                    		<c:when test="${modeState == 1}">
+                        		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">價格高到低</button>
+                          		<div class="dropdown-menu">
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+                          		</div>
+                    		</c:when>
+                    		<c:when test="${modeState == 2}">
+                        		<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">價格低到高</button>
+                          		<div class="dropdown-menu">
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=2&pageNo=${pageNo}' />" id="shopping_pricelh">價格低到高</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=1&pageNo=${pageNo}' />" id="shopping_pricehl">價格高到低</a>
+                            		<a class="dropdown-item" href="<c:url value='/listProduct/DisplayPageProducts?priceMode=0&pageNo=${pageNo}' />" id="shopping_pricehl">上市日期(舊到新)</a>
+                          		</div>
+                    		</c:when>
+                    	</c:choose>
                      </div>
                     <div class="col-3 input-group"><!--搜尋關鍵字id-->
                         <input type="text" name="keywords" id="shopping_keywords" class="form-control col-8" placeholder="商品關鍵字">
@@ -125,7 +146,11 @@
                      </div>
                  </div> 
                 </div>
-              <div class="row return"> <!--底部分頁-->
+              <div class="row return" > <!--底部分頁-->
+              	 <br>	
+              	 <br>
+              	 <br>
+              	 <br>	
                  <ul class="pagination pagination-sm">
                  	<c:choose>
                  		<c:when test="${pageNo == 1}">

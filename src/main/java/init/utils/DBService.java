@@ -57,6 +57,8 @@ public class DBService {
 	private static final String DROP_responser_MySQL = "DROP TABLE IF EXISTS responser;";
 	
 	private static final String DROP_pair_MySQL = "DROP TABLE IF EXISTS pair;";
+
+	private static final String DROP_member_product_MySQL = "DROP TABLE IF EXISTS member_product;";
 	
 	
 	private static final String CREATE_members_MySQL = " CREATE TABLE members " 
@@ -201,7 +203,11 @@ public class DBService {
 			+ "CONSTRAINT pair_p_id_PK PRIMARY KEY(p_id),"
 			+ "CONSTRAINT pair_res_m_id_FK FOREIGN KEY(m_Id) REFERENCES members(m_id)" 
 			+ " )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
-
+	
+	private static final String CREATE_member_product_MySQL = "CREATE TABLE member_product " 
+			+ "(p_id         		INT(10) NOT NULL, "
+			+ " m_Id       			VARCHAR(100) NOT NULL " 
+			+ " )ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_general_ci";
 
 	
 	//1.members表格
@@ -347,5 +353,15 @@ public class DBService {
 		pswd = PSWD_MySQL;
 		return pswd;
 	}
+
+	public static String getDropMemberProductMysql() {
+		return DROP_member_product_MySQL;
+	}
+
+	public static String getCreateMemberProductMysql() {
+		return CREATE_member_product_MySQL;
+	}
+	
+	
 
 }
