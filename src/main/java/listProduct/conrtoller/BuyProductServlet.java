@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _04_ShoppingCart.model.OrderItemBean;
-import _04_ShoppingCart.model.ShoppingCart;
 import listProduct.model.ProductBean;
+import shoppingcart.model.OrderItemBean;
+import shoppingcart.model.ShoppingCart;
 // 當使用者按下『加入購物車』時，瀏覽器會送出請求到本程式
 @WebServlet("/listProduct/BuyProduct.do")
 public class BuyProductServlet extends HttpServlet {
@@ -38,9 +38,9 @@ public class BuyProductServlet extends HttpServlet {
 		}
 		String productIdStr 	= request.getParameter("productId");
 		int productId          = Integer.parseInt(productIdStr.trim());
-		
 		String qtyStr 		= request.getParameter("qty");
-		Integer qty = 0 ; 
+		Integer qty = 0 ;
+
 
 		Map<Integer, ProductBean> productMap = (Map<Integer, ProductBean>) session.getAttribute("products_DPP");
 		ProductBean bean = productMap.get(productId);
@@ -58,11 +58,14 @@ public class BuyProductServlet extends HttpServlet {
 		} catch(NumberFormatException e){
 			throw new ServletException(e); 
 		}
+		
+		
 		// 將訂單資料(價格，數量，折扣與BookBean)封裝到OrderItemBean物件內
-		OrderItemBean oib = new  OrderItemBean(null,null,bean.getP_id(),bean.getPrice(),qty,cart.getSubtotal(),bean.getP_name());
+		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
 		// 將OrderItem物件內加入ShoppingCart的物件內
 		cart.addToCart(productId, oib);
 		RequestDispatcher rd = request.getRequestDispatcher("/listProduct/DisplayPageProducts?pageNo=" + pageNo);
 		rd.forward(request, response);
+		return;
 	}
 }

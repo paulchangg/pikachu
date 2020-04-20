@@ -5,15 +5,14 @@ import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import _04_ShoppingCart.model.OrderItemBean;
-import _04_ShoppingCart.model.ShoppingCart;
 import listProduct.model.ProductBean;
+import shoppingcart.model.OrderItemBean;
+import shoppingcart.model.ShoppingCart;
 
 //@WebServlet("/")
 public class FoumServlet extends HttpServlet {
@@ -52,7 +51,7 @@ public class FoumServlet extends HttpServlet {
 		} catch(NumberFormatException e){
 			throw new ServletException(e); 
 		}
-		OrderItemBean oib = new  OrderItemBean(null,null,bean.getP_id(),bean.getPrice(),qty,cart.getSubtotal(),bean.getP_name());
+		OrderItemBean oib = new  OrderItemBean(null,bean.getP_id(),bean.getPrice(),qty,bean.getP_name());
 		cart.addToCart(productId, oib);
 		RequestDispatcher rd = request.getRequestDispatcher("/listProduct/DisplayPageProducts?pageNo=" + pageNo);
 		rd.forward(request, response);

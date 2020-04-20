@@ -29,6 +29,8 @@
 		<mapping class="member.model.MemberBean"></mapping>
 		<mapping class="listProduct.model.ProductBean"></mapping>
 		<mapping class="card.model.CardBean"></mapping>
+		<mapping class="shoppingcart.model.OrderItemBean"></mapping>
+		<mapping class="shoppingcart.model.OrdersBean"></mapping>
 <!-- 		<mapping class="forum.model.FoumBean"></mapping> -->
 <!-- 		<mapping class="forum.model.Launch_activityBean"></mapping> -->
 <!-- 		<mapping class="forum.model.ResponserBean"></mapping> -->

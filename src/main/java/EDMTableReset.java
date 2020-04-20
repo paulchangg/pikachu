@@ -61,6 +61,8 @@ public class EDMTableReset {
 			System.out.println("會員(members)表格刪除成功");		
 			stmt.executeUpdate(DBService.getDropCards());
 			System.out.println("信用卡 cards表格刪除成功");
+			stmt.executeUpdate(DBService.getDropMemberProductMysql());
+			System.out.println("MemberProduct多對多表格刪除成功");
 			// 2. cards表格
 			stmt.executeUpdate(DBService.getCreateMembers());
 			System.out.println("會員(members)表格產生成功");
@@ -82,6 +84,8 @@ public class EDMTableReset {
 			System.out.println("回應文章  responser表格產生成功");
 			stmt.executeUpdate(DBService.getCreatePair());
 			System.out.println("回應文章  pair表格產生成功");
+			stmt.execute(DBService.getCreateMemberProductMysql());
+			System.out.println("MemberProduct多對多表格刪除成功");
 			// 5.
 			// 4.
 			// 3. product表格

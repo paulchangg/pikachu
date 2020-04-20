@@ -1,8 +1,8 @@
-package _04_ShoppingCart.dao;
+package shoppingcart.dao;
 
 import java.sql.Connection;
 
-import _04_ShoppingCart.model.OrderItemBean;
+import shoppingcart.model.OrderItemBean;
 
 public interface OrderItemDao {
 	
