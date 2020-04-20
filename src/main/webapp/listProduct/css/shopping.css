@@ -176,27 +176,9 @@ body{
   border:2px #776C5B solid;
 }
 
+/*分頁*/
+.pagination{
 
-
-/*剛開始產生頁面的區塊*/
-.loadingone{
-  background-color: #FFF;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-
-}
-
-/*比卡丘圖片*/
-.aniimage{
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 60rem;
-  height: 40rem;
-  margin-top: -15px;
-  margin-left: -15px;
+  width: 10rem;
+  margin: auto;
 }

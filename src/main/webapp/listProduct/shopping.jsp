@@ -12,16 +12,13 @@
 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 crossorigin="anonymous" />
 <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="css/wickedcss.min.css"/>
+<link rel="stylesheet" href="../css/common/wickedcss.min.css"/>
 <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
 <title>購物商城首頁</title>
 </head>
 <body>
 	<!----------------------load區塊------------------------------>
-	<!----<div class="loadingone">
-		<img src="/皮卡丘打招呼.png" class="aniimage slideUp">
-	</div>------>
 
 	<div class="flex-container">
 		<!----------------------head區塊------------------------------>
@@ -251,6 +248,6 @@ crossorigin="anonymous"></script>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 crossorigin="anonymous"></script>
-<script src="/js/shopping.js"></script>
+<script src="js/shopping.js"></script>
 </body>
 </html>

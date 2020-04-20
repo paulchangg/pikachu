@@ -5,11 +5,7 @@
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 		<property name="hibernate.connection.username">root</property>
-<<<<<<< HEAD
 		<property name="hibernate.connection.password">ruby123</property>
-=======
-		<property name="hibernate.connection.password">404631060</property>
->>>>>>> 09ee1d3a1f02b80b1b9ee767d093d0259ac0f2a4
 		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/pikachuTestDB?useUnicode=yes&amp;characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=Asia/Taipei&amp;allowPublicKeyRetrieval=true</property>
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 

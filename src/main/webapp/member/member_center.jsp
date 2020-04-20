@@ -60,7 +60,7 @@ crossorigin="anonymous" />
 			   <a href="#" >關於我們</a>
 			   <a href="">會員中心</a>
 			   <a href="#">論壇交友</a>
-			   <a href="#">商城</a>
+			   <a href="../listProduct/shopping.jsp">商城</a>
 			   <a href="#">資訊網</a>
 			</nav>
 		</section>
