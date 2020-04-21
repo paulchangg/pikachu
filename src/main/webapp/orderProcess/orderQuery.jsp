@@ -27,12 +27,12 @@
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="http://127.0.0.1:5500/web/login.html">
+							<a href="../member/member_logout.jsp">
 							  <i class="fa fa-user-circle" id="memberlogin">會員登出</i>
 							</a>
 					   </div>
 						 <div class="col-3">
-							 <a href="http://127.0.0.1:5500/web/login.html">
+							 <a href="">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
@@ -49,17 +49,17 @@
 	   <section class="top_navi">
 		   <nav>
 			   <a href="#" >關於我們</a>
-			   <a href="">會員中心</a>
+			   <a href="../member/member_center.jsp">會員中心</a>
 			   <a href="#">論壇交友</a>
 			   <a href="#">信用卡搜尋</a>
-			   <a href="#">購物商城</a>
+			   <a href="../listProduct/shopping.jsp">購物商城</a>
 			   <a href="#">資訊網</a>
 			</nav>
 		</section>
         
        <!--這裡為顯示訂單查詢區塊-->
        <div class="ordertitle">
-           <h2>訂單詳細資料</h2>
+           <h2>訂單查詢頁面</h2>
        </div>
       
 
@@ -168,7 +168,8 @@
 	            
              <!--這裡返回訂單查詢頁面按鈕區塊-->
              <div class="footerbutton">
-                <a href="orderQuery.jsp"><input type="button" value="返回" class="fobutton"></a>
+                <a href="../member/member_center.jsp">
+                <input type="button" value="返回" class="fobutton"></a>
             </div>
     
            <!--這裡為底部區塊-->

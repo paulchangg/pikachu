@@ -40,7 +40,7 @@ crossorigin="anonymous" />
 							</a>
 					   </div>
 					   <div class="col-3">
-							<a href="#">
+							<a href="../shoppingCart/showShoppingCart.jsp">
 							  <i class="fa fa-shopping-cart" id="shoppingcart">shopping cart</i>
 						   </a>
 					   </div>
@@ -58,7 +58,7 @@ crossorigin="anonymous" />
 	   <section class="top_navi">
 		   <nav>
 			   <a href="#" >關於我們</a>
-			   <a href="">會員中心</a>
+			   <a href="member_center.jsp">會員中心</a>
 			   <a href="#">論壇交友</a>
 			   <a href="../listProduct/shopping.jsp">商城</a>
 			   <a href="#">資訊網</a>
@@ -87,9 +87,9 @@ crossorigin="anonymous" />
 		       </div>
 			   <div class="personaltext"><!--顯示論壇貼文-->
 				<ul>
-			     <li><i class='bx bx-message-alt-edit bx-sm'></i>最近發表貼文:<a href="" target="blank"><span id="membercenter_article">信用卡好像辦不過</span></a></li>
-			     <li><i class='bx bx-message-alt-edit bx-sm'></i>累積發表文章數:<a href="" target="blank"><span id="membercenter_number">33</span></a>篇</li>	
-			     <li><i class='bx bx-message-rounded-minus bx-sm'></i>文章發表新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
+			     <li class="liareatext"><i class='bx bx-message-alt-edit bx-sm'></i>最近發表貼文:<a href="" target="blank"><span id="membercenter_article">信用卡好像辦不過</span></a></li>
+			     <li class="liareatext"><i class='bx bx-message-alt-edit bx-sm'></i>累積發表文章數:<a href="" target="blank"><span id="membercenter_number">33</span></a>篇</li>	
+			     <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>文章發表新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
 			   </ul>
 		       </div>
 	        </div>
@@ -97,11 +97,11 @@ crossorigin="anonymous" />
 	        <div class="col-5 friend"><!--顯示交友活動-->
 	           <h3>交友&活動</h3>
 		        <ul>
-			      <li><i class='bx bx-donate-heart'></i><a href="" target="blank">前往交友區</a></li>
-			      <li><i class='bx bxs-happy-heart-eyes'></i><a href="" target="blank" id="membercenter_goodfr">好友清單</a></li>
-			      <li><i class='bx bx-walk' ></i><a href="" target="blank">活動頁面區</a></li>
+			      <li class="liareatext"><i class='bx bx-donate-heart'></i><a href="" target="blank">前往交友區</a></li>
+			      <li class="liareatext"><i class='bx bxs-happy-heart-eyes'></i><a href="" target="blank" id="membercenter_goodfr">好友清單</a></li>
+			      <li class="liareatext"><i class='bx bx-walk' ></i><a href="" target="blank">活動頁面區</a></li>
 			      <i class='bx bx-calendar' ></i>最近發起活動:<a href="" target="blank"><span id="membercenter_number">這周末去爬山</span></a>主題</li>	
-			      <li><i class='bx bx-message-rounded-minus bx-sm'></i>活動最新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
+			      <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>活動最新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
 		     </ul>
 		   </div>
 	
@@ -120,17 +120,17 @@ crossorigin="anonymous" />
 	     <div class="col-5 container"><!--訂單資訊-->
 			     <h3>訂單資訊</h3>
 			     <ul>
-				     <li><i class='bx bx-shopping-bag'></i><a href="" target="blank">訂單查詢</a></li>
-				     <li><i class='bx bx-search'></i><a href="" target="blank">追蹤清單</a></li>
-				     <li><i class='bx bx-help-circle'></i><a href="" target="blank">聯絡客服</a></li>
+				     <li class="liareatext"><i class='bx bx-shopping-bag'></i><a href="../orderProcess/orderQuery.jsp" target="blank">訂單查詢</a></li>
+				     <li class="liareatext"><i class='bx bx-search'></i><a href="../trackProduct/track.jsp" target="blank">追蹤清單</a></li>
+				     <li class="liareatext"><i class='bx bx-help-circle'></i><a href="" target="blank">聯絡客服</a></li>
 			    </ul>
 	       </div>
 
 		   <div class="col-5 memberdata"><!--會員資料-->
 			   <h3>會員資料</h3>
 			     <ul>
-				    <li><i class='bx bxs-comment-edit'></i><a href="member_edit.jsp" target="blank">修改</a></li>
-		     	    <li><i class='bx bx-show-alt'></i><a href="member_inquary.jsp" target="blank">查看</a></li>
+				    <li class="liareatext"><i class='bx bxs-comment-edit'></i><a href="member_edit.jsp" target="blank">修改</a></li>
+		     	    <li class="liareatext"><i class='bx bx-show-alt'></i><a href="member_inquary.jsp" target="blank">查看</a></li>
 		        </ul>
 		   </div>
 	     </div>

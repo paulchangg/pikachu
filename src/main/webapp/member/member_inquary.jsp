@@ -28,7 +28,7 @@ crossorigin="anonymous"/>
 		     <div class="col-4">     <!---------左上角超連結區塊----------->
 			      <div class="row justify-content-end">
 				       <div class="col-4">
-					       <a href="http://127.0.0.1:5500/web/login.html">
+					       <a href="">
 							<i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 				          </a>
 			          </div>
@@ -38,7 +38,7 @@ crossorigin="anonymous"/>
 		                  </a>
 		             </div>
 		             <div class="col-3">
-		                  <a href="#">
+		                  <a href="../shoppingCart/showShoppingCart.jsp">
 							<i class="fa fa-shopping-cart" id="shoppingcart">shopping cart</i>
 		                 </a>
 		             </div>
@@ -51,9 +51,9 @@ crossorigin="anonymous"/>
 	 <section class="top_navi">
 		 <nav>
 		     <a href="#" >關於我們</a>
-		     <a href="">會員中心</a>
+		      <a href="member_center.jsp">會員中心</a>
 		     <a href="#">論壇交友</a>
-		     <a href="#">商城</a>
+		      <a href="../listProduct/shopping.jsp">購物商城</a>
 		     <a href="#">資訊網</a>
 	 	 </nav>
 	  </section>

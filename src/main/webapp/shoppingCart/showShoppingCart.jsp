@@ -44,12 +44,12 @@
 			   <div class="col-4">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						<div class="col-3">
-							<a href="http://127.0.0.1:5500/web/login.html">
+							<a href="../member/member_login.jsp">
 							  <i class="fa fa-user-circle" id="memberlogin">會員登入</i>
 							</a>
 					   </div>
 						 <div class="col-3">
-							 <a href="http://127.0.0.1:5500/web/login.html">
+							 <a href="">
 							  <i class="fa fa-credit-card" id="cardcompare">信用卡比較</i>
 							</a>
 						</div>
