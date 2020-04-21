@@ -4,343 +4,894 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>論壇forum</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/forum.css" />
-    <script src="./js/forum.js"></script>
   </head>
 
-<body>
-  <!-- logo及上方標題列---------超連結待補------------------------------->
-  <div class="top-navigation">
-    <a href="#/" class="navigation__logo">
-      <img src="./images/index_logo.jpg" alt="logo" class="navigation__logo">
-    </a>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="nav-link active memberlogin" href="#" id="">會員登入</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link cardcompare" href="#" id="">信用卡比較</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link qanda" href="#" id="">Q & A</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link shoppingcart" href="#" id="">
-          <i class="fas fa-shopping-cart"></i>          
-        </a>
-      </li>
-    </ul>
-  </div>
-
-<!-- 導覽列------超連結待補-------------------------------->
-  <div class="header">
-    <div class="nav-bar">  
-      <a href="#" class="aboutus">關於我們</a>
-        <a href="#" class="memberarea" id="">會員中心</a>
-        <a href="#" class="mall" id="">商城</a >     
-  </div>
- </div>
-
-
-  <!-- 上方卡片 x3 ----------超連結待補------------------------------------> 
-  <div class="card-group">
-    <div class="card">
-      <img src="./images/slider/slide_pic1.jpg" class="card-img-top" alt="..." height="340px">
-      <div class="card-body">
-        <h5 class="article_title">
-          <a href="#" id="">
-             最新熱門景點
+  <body>
+    <!-- logo及右上方標題列-----超連結待補------>
+    <div class="top-navigation">
+      <a href="#" class="navigation__logo">
+        <img
+          src="./images/index_logo.jpg"
+          alt="logo"
+          class="navigation__logo"
+        />
+      </a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="memberlogin">會員登入</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="cardcompare">信用卡比較</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="qanda">Q & A</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="shoppingcart">
+            <i class="fas fa-shopping-cart"></i>
           </a>
-        </h5>
-        <span class="article_content">文章內文</span>
-        <p class="post_Time"><small class="text-info" style="font-size: small;">3月20日發布</small></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 導覽列------超連結待補----->
+    <div class="header">
+      <div class="nav-bar">
+        <a href="#" id="aboutus">關於我們</a>
+        <a href="#" id="memberarea">會員中心</a>
+        <a href="#" id="mall">商城</a>
       </div>
     </div>
-    <div class="card">
-      <img src="./images/slider/slide_pic2.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="article_title">
-          <a href="#" id="">
-            台新卡友來來來  
-          </a>    
-        </h5>
-        <span class="article_content">文章內文</span>
-        <p class="post_Time"><small class="text-info" style="font-size: small;">3月25日發布</small></p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="./images/slider/slide_pic4.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="article_title">
-          <a href="#" id="">
-            神卡分享
-          </a>
-        </h5>
-        <span class="article_content">文章內文</span>
-        <p class="post_Time"><small class="text-info" style="font-size: small;">2月28日發布</small></p>
-      </div>
-    </div>
-  </div>
-      
 
-  <!-- 這一列------要放甚麼???-------------------------------->
-  <div class="second_line">
-    <span class="friendshipforum"></span>
-  </div>
-
-    <!-- 中央文章大區塊範圍-------------------------------------->
-  <div class="col-12" style="margin-top: 20px; margin-bottom: -2px;">
-       <!-- 左側看板列表---超連結待補-->
-  <div class="container-fluid">
-    <div class="leftNav" style="width: 100px;">  
-      <div class="btn-group-vertical" id="forum_btn">
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">所有看板</button>
-        </a>
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">熱門看板</button>
-        </a>
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">交友活動</button>
-        </a>
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">配對</button>
-        </a>
-        <br>
-        <span style="margin-top: 30px;">熱門看板</span>
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">信用卡</button>
-        </a>
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">美食</button>
-        </a>           
-        <br>
-        <a href="#" id="">
-          <button type="button" class="btn-all-board">感情</button>
-        </a> 
-      </div>
-    </div>
-  </div>
-
-<!-- 內文上方兩個標籤列-----收藏頁面待補---------------->
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#" id="">全部</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#" id="">收藏</a>
-  </li>
-</ul>
-
-    <!-- 卡片文章1----------超連結待補------------------------->
-    <div class="container" style="margin-bottom: 20px;">
-      <div class="card" style="margin-top: 1%;">
-        <div class="row">
-          <div class="col-sm-10">
-            <div class="card-block">
-              <div class="comments-container">
-                <ul id="comments-list" class="comments-list">
-                  <li>
-                    <div class="comment-main-level">
-                      <!-- 發文者id頭像--------------------------->
-                      <div class="comment-avatar"><img class="memberid_img" src="./images/id_photo/memberphoto_1.jpg" alt=""></div>
-                      <div class="comment-box">
-                        <div class="comment-head">
-                          <!--文章主題類別------------------------>
-                          <span class="subjectarea">
-                            <a href="#" class="subject">信用卡</a>  
-                          </span>
-                          <!-- 發文者id -------------------------->
-                          <h6 class="article_m_id"><a href="#">黑卡卡王</a></h6>
-                          <!-- 發文日期-------------------------->
-                          <span class="post_Time">3月30日 23:12</span>
-                          <!-- 點讚  收藏功能 -->
-                          <!-- <i class="fa fa-reply"></i> -->
-                          <i class="fa fa-archive" aria-hidden="true">
-                          <span class="popularity" style="font-weight: initial;font-size: 14px;color: rgb(177, 172, 172);padding-right: 25px;">60</span></i>
-                          <i class="fa fa-heart"></i>
-                        </div>
-                        <div class="article_title">
-                          <a href="#" id="">值得擁有之卡片特集</a>
-                        </div>
-                        <div class="article_content">
-                          <p style="padding-bottom: 10px;">點讚才給看</p>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span class="total_reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">2</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div> 
-            </div>
-          </div>
-          <!-- 右側照片 ------------------------------->
-          <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="articleimage" src="./images/fun.jpg" style="width: 165px; height: 130px;" />
-          </div>
+    <!-- 上方文章卡片 x3 ----超連結待補------>
+    <div class="card-group">
+      <div class="card">
+        <img
+          src="./images/slider/slide_pic1.jpg"
+          class="card-img-top"
+          alt="..."
+          height="340px"
+        />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              最新熱門景點
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >3月20日發布</small
+            >
+          </p>
         </div>
       </div>
-
-      <!-- 卡片文章2 ---------超連結待補------------------------------->
-      <div class="card" style="margin-top: 1%;">
-        <div class="row ">
-          <div class="col-sm-10">
-            <div class="card-block">
-              <div class="comments-container">
-                <ul id="comments-list" class="comments-list">
-                  <li>
-                    <div class="comment-main-level">
-                      <!-- 發文者id頭像 -->
-                      <div class="comment-avatar"><img class="memberid_img" src="./images/id_photo/memberphoto_3.jpg" alt=""></div>
-                      <div class="comment-box">
-                        <div class="comment-head">
-                          <!--文章主題類別------------------------>
-                          <span class="subject">
-                            <a href="#" id="">信用卡</a>
-                          </span>
-                          <!-- 發文者id -------------------------->
-                          <h6 class="article_m_id"><a href="#">小瓜呆</a></h6>
-                          <!-- 發文日期-------------------------->
-                          <span class="post_Time">3月30日 21:34</span>
-                          <!-- 點讚  收藏功能 -->
-                          <!-- <i class="fa fa-reply"></i> -->
-                          <i class="fa fa-archive" aria-hidden="true">
-                          <span class="popularity" style="font-weight: initial;font-size: 14px;color: rgb(177, 172, 172);padding-right: 25px;">60</span></i>
-                          <i class="fa fa-heart"></i>
-                        </div>
-                        <div class="article_title">
-                          <a href="#" id="">富邦不給換卡</a>
-                        </div>
-                        <div class="article_content">
-                          <p style="padding-bottom: 10px;">氣噗噗</p>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span class="total_reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">4</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div> 
-            </div>
-          </div>
-          <!-- 右側照片 -------------------------------------->
-          <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="articleimage" src="./images/fun2.jpg" style="width: 165px; height: 130px;" />
-          </div>
+      <div class="card">
+        <img
+          src="./images/slider/slide_pic2.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              台新卡友來來來
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >3月25日發布</small
+            >
+          </p>
         </div>
       </div>
-
-      <!-- 卡片文章3 ------------超連結待補---------------------------->
-      <div class="card" style="margin-top: 1%;">
-        <div class="row ">
-          <div class="col-sm-10">
-            <div class="card-block">
-              <div class="comments-container">
-                <ul id="comments-list" class="comments-list">
-                  <li>
-                    <div class="comment-main-level">
-                      <!-- 發文者id頭像 -->
-                      <div class="comment-avatar"><img class="memberid_img" src="./images/id_photo/memberphoto_5.jpg" alt=""></div>
-                      <div class="comment-box">
-                        <div class="comment-head">
-                          <!--文章主題類別------------------------>
-                          <span class="subject">
-                            <a href="#" id="">信用卡</a>
-                          </span>
-                          <!-- 發文者id -------------------------->
-                          <h6 class="article_m_id"><a href="#">我是蜘蛛人</a></h6>
-                          <!-- 發文日期-------------------------->
-                          <span class="post_Time">3月30日 21:00</span>
-                          <!-- 點讚  收藏功能 -->
-                          <!-- <i class="fa fa-reply"></i> -->
-                          <i class="fa fa-archive" aria-hidden="true">
-                          <span class="popularity" style="font-weight: initial;font-size: 14px;color: rgb(177, 172, 172);padding-right: 25px;">30</span></i>
-                          <i class="fa fa-heart"></i>
-                        </div>
-                        <div class="article_title">
-                          <a href="#" id="">新光好還是台新好？</a> 
-                        </div>
-                        <div class="article_content">
-                          <p style="padding-bottom: 10px;">請給分</p>
-                          <span style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">回應</span>
-                          <span class="total_reply" style="font-weight: initial; font-size: 14px; color: rgb(177, 172, 172);">3</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div> 
-            </div>
-          </div>
-          <!-- 右側照片 -------------------------------------->
-          <div class="col-sm-0" style="height: 10px; width: 0px;">
-            <img class="articleimage" src="./images/forum_pic.jpg" style="width: 165px; height: 130px;" />
-          </div>
+      <div class="card">
+        <img
+          src="./images/slider/slide_pic4.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5>
+            <a href="#" class="article_title">
+              <!-- 文章標題 -->
+              神卡分享
+            </a>
+          </h5>
+          <span class="article_content">文章內文</span>
+          <p>
+            <small class="post_Time" style="font-size: small;"
+              >2月28日發布</small
+            >
+          </p>
         </div>
       </div>
     </div>
-   </div>
- </div>
-</div>
 
-    
-  <!-- 下方頁碼分頁 -----超連結待補----------------------->
-  <nav aria-label="Page navigation example" style="padding-top: 10px;">
-    <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#" id="">1</a></li>
-      <li class="page-item"><a class="page-link" href="#" id="">2</a></li>
-      <li class="page-item"><a class="page-link" href="#" id="">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" id="">Next</a>
-      </li>
-    </ul>
-  </nav>
+    <!-- 分隔列---->
+    <div class="second_line">
+      <span class="friendshipforum"></span>
+    </div>
 
+    <!-- 發文按鈕 -->
+    <div
+      class="d-flex flex-row-reverse bd-highlight"
+      style="padding-top: 7px; padding-right: 10px;"
+    >
+      <div
+        class="btn-group btn-group-sm"
+        role="group"
+        aria-label="Basic example"
+        style="font-size: 20px;"
+      >
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModalLong"
+        >
+          發布新文章
+          <br /><i class="far fa-edit"></i>
+        </button>
 
-<!-- 
+        <!-- Modal 跳出頁面 -->
+        <div
+          class="modal fade"
+          id="exampleModalLong"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- 叉叉按鈕 -->
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <!-- 內容 -->
+                <form id="msform">
+                  <!-- 發文者頭像 -->
+                  <div class="container">
+                    <img
+                      src="./images/id_photo/memberphoto_6.png"
+                      alt="profile-sample5"
+                      id="memberid_img"
+                    />
+                    <span style="font-size: 0.6em; color: #3e8bbe;">發文者</span
+                    ><span id="article_m_id" style="font-size: 0.8em;"
+                      >豬血糕不要香菜</span
+                    >
+                  </div>
+                  <hr />
+
+                  <div class="bd-highlight" style="font-size: small;">
+                    發文看板
+                    <!-- 發文看板選擇 -->
+                    <div class="dropdown">
+                      <button
+                        class="btn btn-secondary btn-sm dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        style="font-size: small;"
+                      >
+                        請選擇
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="subject">
+                        <button class="subject" type="button">信用卡</button>
+                        <button class="subject" type="button">美食</button>
+                        <button class="subject" type="button">感情</button>
+                      </div>
+                    </div>
+                  </div>
+                  <h1 class="fs-title">文章標題</h1>
+                  <input type="text" name="article_title" placeholder="標題" />
+                  <!-- 輸入內文 -->
+                  <h1 class="fs-title">文章內文</h1>
+                  <p class="text">
+                    <textarea
+                      name="text"
+                      class="validate[required,length[6,300]] feedback-input"
+                      id="article_content"
+                      placeholder="內文"
+                      style="height: 300px;"
+                    ></textarea>
+                  </p>
+
+                  <!-- 上傳圖片的按鈕 -->
+                  <h1 class="fs-title">文章照片</h1>
+                  <div class="input-group mb-3" style="font-size: 13px;">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text"
+                        id="articleimage"
+                        style="font-size: 13px;"
+                        >Upload</span
+                      >
+                    </div>
+                    <div class="custom-file">
+                      <input
+                        type="file"
+                        class="custom-file-input"
+                        id="articleimage"
+                        aria-describedby="articleimage"
+                      />
+                      <label class="custom-file-label" for="articleimage"
+                        >請選擇照片</label
+                      >
+                    </div>
+                  </div>
+                  <!-- 文章標籤選擇 標籤意思跟主題一樣-->
+                  <legend style="font-size: 13px; padding-bottom: 7px;">
+                    標籤選擇
+                  </legend>
+                  <div id="checkline">
+                    <ul id="labels" class="center">
+                      <li><input class="subject" type="checkbox" />信用卡</li>
+                      <li><input class="subject" type="checkbox" />美食</li>
+                      <li><input class="subject" type="checkbox" />感情</li>
+                      <li><input class="subject" type="checkbox" />讚</li>
+                      <li><input class="subject" type="checkbox" />我就爛</li>
+                      <li><input class="subject" type="checkbox" />口袋空空</li>
+                    </ul>
+                  </div>
+                </form>
+              </div>
+
+              <!-- 底部按鈕 -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm"
+                  data-dismiss="modal"
+                >
+                  返回
+                </button>
+                <button type="button" class="btn btn-primary btn-sm">
+                  送出
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <button type="button" class="btn btn-secondary">活動管理
+    </button> -->
+      </div>
+    </div>
+
+    <!-- 左側按鈕列表 -->
+    <div class="container-fluid">
+      <div class="row" style="display: flex; align-items: center;">
+        <!-- 左側button-->
+        <div class="col-2" style="text-align: center;">
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="allboards">
+              <a class="nav-link" href="allboards.html">所有看板</a>
+            </button>
+          </div>
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="friend_activity">
+              <a class="nav-link" href="activity_page.html">交友活動</a>
+            </button>
+          </div>
+          <div class="my-2">
+            <button type="button" class="btn-all-board" id="pair">
+              配對
+            </button>
+          </div>
+        </div>
+        <!-- 右側論壇 -->
+        <div class="col-10">
+          <!-- 上方tab -->
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="all-tab"
+                data-toggle="tab"
+                href="#all"
+                role="tab"
+                aria-controls="all"
+                aria-selected="true"
+                >全部</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="collection-tab"
+                data-toggle="tab"
+                href="#collection"
+                role="tab"
+                aria-controls="collection"
+                aria-selected="false"
+                >收藏</a
+              >
+            </li>
+          </ul>
+
+          <!-- tab內容 -->
+          <div class="tab-content" id="myTabContent">
+            <!-- 全部 -->
+            <div
+              class="tab-pane fade show active"
+              id="all"
+              role="tabpanel"
+              aria-labelledby="all-tab"
+            >
+              <!-- 下方論壇卡片 -->
+              <div class="container">
+                <!-- 卡片一 -->
+                <div class="card my-2">
+                  <div class="row">
+                    <!-- 左側頭像 -->
+                    <div
+                      class="col-2"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="memberid_img"
+                        src="./images/id_photo/memberphoto_1.jpg"
+                        alt=""
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                    <!-- 中間論壇 -->
+                    <div class="col-7 my-2">
+                      <!-- 分四行 -->
+                      <div class="my-3">
+                        <div
+                          class="row"
+                          style="
+                            background: #fcfcfc;
+                            color: rgb(177, 172, 172);
+                            display: flex;
+                            align-items: center;
+                          "
+                        >
+                          <div class="col-2 px-0">
+                            <!--文章主題類別----->
+                            <a href="article_board_credit card.html">信用卡</a>
+                          </div>
+                          <div class="col-2 px-1">
+                            <!-- 發文者id ----->
+                            <h6 class="article_m_id">
+                              <!-- 要連結到哪需再想想 -->
+                              <a href="#">黑卡卡王</a>
+                            </h6>
+                          </div>
+                          <div class="col-3 px-0">
+                            <!-- 發文日期------>
+                            <span class="post_Time">3月30日 23:12</span>
+                          </div>
+                          <!-- icon們 -->
+                          <div
+                            class="col-5 px-0"
+                            style="
+                              font-weight: initial;
+                              font-size: 14px;
+                              text-align: end;
+                            "
+                          >
+                            <!-- 觀看次數  -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-eye"></i>
+                            </button>
+                            <span>60</span>
+                            <!-- 收藏 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-archive"></i>
+                            </button>
+                            <!-- 修改 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <!-- 刪除 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="far fa-trash-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 連結到文章頁面  等首頁改好我再試試也改成互動式視窗-->
+                      <div class="my-3">
+                        <a href="inner_page.html" id="">值得擁有之卡片特集</a>
+                      </div>
+                      <!-- 文章內容的前幾個字 -->
+                      <div class="article_content my-3">
+                        點讚才給看
+                      </div>
+                      <!-- 總回文數 -->
+                      <div
+                        class="my-3"
+                        style="
+                          font-weight: initial;
+                          font-size: 14px;
+                          color: rgb(177, 172, 172);
+                        "
+                      >
+                        回應
+                        <span class="total_reply">2</span>
+                      </div>
+                    </div>
+                    <!-- 右側圖片 -->
+                    <div
+                      class="col-3"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="articleimage"
+                        src="./images/fun.jpg"
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 卡片二 -->
+                <div class="card my-2">
+                  <div class="row">
+                    <!-- 左側頭像 -->
+                    <div
+                      class="col-2"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="memberid_img"
+                        src="./images/id_photo/memberphoto_1.jpg"
+                        alt=""
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                    <!-- 中間論壇 -->
+                    <div class="col-7 my-2">
+                      <!-- 分四行 -->
+                      <div class="my-3">
+                        <div
+                          class="row"
+                          style="
+                            background: #fcfcfc;
+                            color: rgb(177, 172, 172);
+                            display: flex;
+                            align-items: center;
+                          "
+                        >
+                          <div class="col-2 px-0">
+                            <!--文章主題類別----->
+                            <a href="article_board_credit card.html">信用卡</a>
+                          </div>
+                          <div class="col-2 px-1">
+                            <!-- 發文者id ----->
+                            <h6 class="article_m_id">
+                              <!-- 要連結到哪需再想想 -->
+                              <a href="#">黑卡卡王</a>
+                            </h6>
+                          </div>
+                          <div class="col-3 px-0">
+                            <!-- 發文日期------>
+                            <span class="post_Time">3月30日 23:12</span>
+                          </div>
+                          <!-- icon們 -->
+                          <div
+                            class="col-5 px-0"
+                            style="
+                              font-weight: initial;
+                              font-size: 14px;
+                              text-align: end;
+                            "
+                          >
+                            <!-- 觀看次數  -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-eye"></i>
+                            </button>
+                            <span>60</span>
+                            <!-- 收藏 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-archive"></i>
+                            </button>
+                            <!-- 修改 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <!-- 刪除 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="far fa-trash-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 連結到文章頁面 -->
+                      <div class="my-3">
+                        <a href="inner_page.html" id="">值得擁有之卡片特集</a>
+                      </div>
+                      <!-- 文章內容的前幾個字 -->
+                      <div class="article_content my-3">
+                        點讚才給看
+                      </div>
+                      <!-- 總回文數 -->
+                      <div
+                        class="my-3"
+                        style="
+                          font-weight: initial;
+                          font-size: 14px;
+                          color: rgb(177, 172, 172);
+                        "
+                      >
+                        回應
+                        <span class="total_reply">2</span>
+                      </div>
+                    </div>
+                    <!-- 右側圖片 -->
+                    <div
+                      class="col-3"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="articleimage"
+                        src="./images/fun.jpg"
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 卡片三 -->
+                <div class="card my-2">
+                  <div class="row">
+                    <!-- 左側頭像 -->
+                    <div
+                      class="col-2"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="memberid_img"
+                        src="./images/id_photo/memberphoto_1.jpg"
+                        alt=""
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                    <!-- 中間論壇 -->
+                    <div class="col-7 my-2">
+                      <!-- 分四行 -->
+                      <div class="my-3">
+                        <div
+                          class="row"
+                          style="
+                            background: #fcfcfc;
+                            color: rgb(177, 172, 172);
+                            display: flex;
+                            align-items: center;
+                          "
+                        >
+                          <div class="col-2 px-0">
+                            <!--文章主題類別----->
+                            <a href="article_board_credit card.html">信用卡</a>
+                          </div>
+                          <div class="col-2 px-1">
+                            <!-- 發文者id ----->
+                            <h6 class="article_m_id">
+                              <!-- 要連結到哪需再想想 -->
+                              <a href="#">黑卡卡王</a>
+                            </h6>
+                          </div>
+                          <div class="col-3 px-0">
+                            <!-- 發文日期------>
+                            <span class="post_Time">3月30日 23:12</span>
+                          </div>
+                          <!-- icon們 -->
+                          <div
+                            class="col-5 px-0"
+                            style="
+                              font-weight: initial;
+                              font-size: 14px;
+                              text-align: end;
+                            "
+                          >
+                            <!-- 觀看次數  -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-eye"></i>
+                            </button>
+                            <span>60</span>
+                            <!-- 收藏 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-archive"></i>
+                            </button>
+                            <!-- 修改 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <!-- 刪除 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="far fa-trash-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 連結到文章頁面 -->
+                      <div class="my-3">
+                        <a href="inner_page.html" id="">值得擁有之卡片特集</a>
+                      </div>
+                      <!-- 文章內容的前幾個字 -->
+                      <div class="article_content my-3">
+                        點讚才給看
+                      </div>
+                      <!-- 總回文數 -->
+                      <div
+                        class="my-3"
+                        style="
+                          font-weight: initial;
+                          font-size: 14px;
+                          color: rgb(177, 172, 172);
+                        "
+                      >
+                        回應
+                        <span class="total_reply">2</span>
+                      </div>
+                    </div>
+                    <!-- 右側圖片 -->
+                    <div
+                      class="col-3"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="articleimage"
+                        src="./images/fun.jpg"
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 收藏 -->
+            <div
+              class="tab-pane fade"
+              id="collection"
+              role="tabpanel"
+              aria-labelledby="collection-tab"
+            >
+              <!-- 下方論壇卡片 -->
+              <div class="container">
+                <!-- 卡片一 -->
+                <div class="card my-2">
+                  <div class="row">
+                    <!-- 左側頭像 -->
+                    <div
+                      class="col-2"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="memberid_img"
+                        src="./images/id_photo/memberphoto_2.jpg"
+                        alt=""
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                    <!-- 中間論壇 -->
+                    <div class="col-7 my-2">
+                      <!-- 分四行 -->
+                      <div class="my-3">
+                        <div
+                          class="row"
+                          style="
+                            background: #fcfcfc;
+                            color: rgb(177, 172, 172);
+                            display: flex;
+                            align-items: center;
+                          "
+                        >
+                          <div class="col-2 px-0">
+                            <!--文章主題類別----->
+                            <a href="article_board_credit card.html">信用卡</a>
+                          </div>
+                          <div class="col-2 px-1">
+                            <!-- 發文者id ----->
+                            <h6 class="article_m_id">
+                              <!-- 要連結到哪需再想想 -->
+                              <a href="#">黑卡卡王</a>
+                            </h6>
+                          </div>
+                          <div class="col-3 px-0">
+                            <!-- 發文日期------>
+                            <span class="post_Time">3月30日 23:12</span>
+                          </div>
+                          <!-- icon們 -->
+                          <div
+                            class="col-5 px-0"
+                            style="
+                              font-weight: initial;
+                              font-size: 14px;
+                              text-align: end;
+                            "
+                          >
+                            <!-- 觀看次數  -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-eye"></i>
+                            </button>
+                            <span>60</span>
+                            <!-- 收藏 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-archive"></i>
+                            </button>
+                            <!-- 修改 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="fas fa-edit"></i>
+                            </button>
+                            <!-- 刪除 -->
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              style="color: rgb(177, 172, 172);"
+                            >
+                              <i class="far fa-trash-alt"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- 連結到文章頁面 -->
+                      <div class="my-3">
+                        <a href="inner_page.html" id="">值得擁有之卡片特集</a>
+                      </div>
+                      <!-- 文章內容的前幾個字 -->
+                      <div class="article_content my-3">
+                        點讚才給看
+                      </div>
+                      <!-- 總回文數 -->
+                      <div
+                        class="my-3"
+                        style="
+                          font-weight: initial;
+                          font-size: 14px;
+                          color: rgb(177, 172, 172);
+                        "
+                      >
+                        回應
+                        <span class="total_reply">2</span>
+                      </div>
+                    </div>
+                    <!-- 右側圖片 -->
+                    <div
+                      class="col-3"
+                      style="display: flex; align-items: center;"
+                    >
+                      <img
+                        class="articleimage"
+                        src="./images/fun2.jpg"
+                        style="max-width: 100%; max-height: 100%;"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 下方頁碼分頁 ----超連結待補------>
+    <nav aria-label="Page navigation example" style="padding-top: 10px;">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="#" id="" tabindex="-1" aria-disabled="true"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" id="forum_page1">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" id="forum_page2">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#" id="">Next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 
   <div class="news">
     news
   </div> -->
 
-
-  <!-- 底部 ---------------------------->
-  <div class="footer">
-    <div class="gotop">
-      <!-- <i class="fa fa-arrow-alt-circle-up"></i> -->
-      <h4> © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved</h4>
-      <br>
-      <br>
-      <a href="#" class="w3-botton w3-black w3-margin">
-        <i class="fa fa-arrow-up w3-margin-right"></i>
-        To the top
-      </a>
+    <!-- 底部 ------>
+    <div class="footer">
+      <div class="gotop">
+        <h4>
+          © Java & Android 程式設計人才養成班 第13期第2組. All Rights Reserved
+        </h4>
+        <br />
+        <br />
+        <a href="#" class="w3-botton w3-black w3-margin">
+          <i class="fa fa-arrow-up w3-margin-right"></i>
+          To the top
+        </a>
+      </div>
+      <br />
     </div>
-    <br>
-  </div>
 
-
-<script
-src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"
-></script>
-<script
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-></script>
-<script
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-crossorigin="anonymous"
-></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

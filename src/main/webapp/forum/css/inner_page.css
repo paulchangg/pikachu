@@ -1,7 +1,7 @@
 @import "./reset.css";
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
-@import url(https://fonts.googleapis.com/css?family=Fredoka + One&display=swap);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
 
 /* 兩側背景色 */
 body {
@@ -29,7 +29,7 @@ page {
 
 page[size="A4"] {
   width: 21cm;
-  height: 29.7cm;
+  height: 30.7cm;
 }
 
 @media print {
@@ -159,7 +159,7 @@ page[size="A4"] {
   overflow: hidden;
 }
 
-/* 內文右側愛心及收藏等設定 */
+/* 內文愛心及收藏等設定 */
 .comment-box .comment-line i {
   float: right;
   margin-left: 14px;
