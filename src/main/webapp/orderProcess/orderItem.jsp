@@ -71,7 +71,7 @@
                 <td colspan="2"><a href=""><i class='bx bx-help-circle' ></i>詢問客服</a></td>
              </tr>
              <tr><!--這裡為訂單商品標題-->
-                 <td></td>
+                 <td style="display:none"></td>  
                  <td>商品名稱</td>
                  <td>單價</td>
                  <td>數量</td>
