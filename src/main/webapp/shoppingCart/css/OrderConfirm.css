@@ -1,0 +1,117 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/css?family=Fredoka+One&display=swap);
+
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+  padding: initial;
+}
+  
+.flex-container {
+    margin: 0 5%;  /* 全版置中 */
+    text-align: center;    
+    display: block;
+    /* display: -webkit-flex; */
+    display: flex;  
+    /* -webkit-flex-flow: row wrap; */
+    flex-flow: row wrap;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+  
+.flex-container > * {
+    flex: 1 80%;
+}
+  
+/* 分辨區塊位置 */
+  
+  .index_slider{background-color: lightblue;}
+  .site_footer {background: #F7EDE2;}
+  
+  
+/*頭區塊*/
+  .header{
+    height: 9rem;
+    margin-top: 3%;
+  }
+
+/* 尾巴位置 */
+  .site_footer{
+    text-align: center!important;
+    padding: 4rem!important;
+    margin-top: 1%;
+    font-size: 18px;
+  }
+  
+  /* 訂單確認區塊 */
+  .headertwo{
+      height: 4rem;
+      background-color: #E8DFE1;
+      font-size: 25px;
+  }
+
+  /*中間整體區塊*/
+  .centertotal{
+      justify-content: center;
+      margin-bottom: 5%;
+  }
+  
+  /* 填寫資訊區塊 */
+  .orderarea{
+      font-size: 20px;
+      width: 30rem;
+      border:#E7E7E7 solid 2px;
+      text-align: left;
+      margin-left: 30%;
+  }
+
+  /* 填寫資訊區塊 */
+.orderarea td{
+   padding: 10px;
+}
+
+  /*商品購買資訊*/
+
+  .tabletwo{
+     border: solid 2px #E7E7E7;
+     width: 25rem;
+     font-size: 20px;
+  }
+
+
+/*送出按鈕*/
+#orderBtn{
+    border:0;
+    background-color:#FB2341;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 23px;
+    margin-top: 2%;
+    width: 20rem;
+    margin-left: 30%;
+  }
+  
+#orderBtn:hover{
+    color:#FB2341;
+    background-color:#fff;
+    border:2px #FB2341 solid;
+  }
+  
+
+
+/*返回按鈕*/
+.fobutton{
+    border:0;
+    background-color:#776C5B;
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    font-size: 18px;
+    margin-bottom: 1%;
+  }
+  
+  .fobutton:hover{
+    color:#776C5B;
+    background-color:#fff;
+    border:2px #776C5B solid;
+  }
+  
