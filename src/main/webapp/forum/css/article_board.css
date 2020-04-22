@@ -166,10 +166,10 @@ div.leftNav {
     transition: color 0.3s ease;
   }
   
-  /* 游標移到愛心等欄位，改變顏色 */
-  .comment-box .comment-head i:hover {
-    color: #03658c;
-  }
+  /* 游標移到按鈕改變顏色 */
+.col-5 i:hover {
+  color: #4a8ea8;
+}
   
   /* 第一行 發文者id樣式 */
   .comment-box .article_m_id {
@@ -266,9 +266,7 @@ div.leftNav {
   overflow: hidden; 
   padding: 10;
 }
- #labels li {
-  /* float: left;  */
-}
+
 
 .center li {
   background: #eee;
