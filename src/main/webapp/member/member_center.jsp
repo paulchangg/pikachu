@@ -27,7 +27,7 @@ crossorigin="anonymous" />
 				<div class="col-4">    <!---------logo區塊----------->
 				   <img class="index_logo" src="../homepage/images/index_logo.jpg" alt="logo" />
 			   </div>
-			   <div class="col-4">     <!---------左上角超連結區塊----------->
+			   <div class="col-5">     <!---------左上角超連結區塊----------->
 					<div class="row justify-content-end">
 						 <div class="col-3">
 							 <a href="#">
@@ -36,7 +36,7 @@ crossorigin="anonymous" />
 						</div>
 						<div class="col-3"> 
 							 <a href="member/member_logout.jsp">
-							  <i class="fa fa-question-circle" id="qanda">會員登出</i>
+							<i class='bx bx-user'></i>會員登出</i>
 							</a>
 					   </div>
 					   <div class="col-3">
@@ -89,7 +89,7 @@ crossorigin="anonymous" />
 				<ul>
 			     <li class="liareatext"><i class='bx bx-message-alt-edit bx-sm'></i>最近發表貼文:<a href="" target="blank"><span id="membercenter_article">信用卡好像辦不過</span></a></li>
 			     <li class="liareatext"><i class='bx bx-message-alt-edit bx-sm'></i>累積發表文章數:<a href="" target="blank"><span id="membercenter_number">33</span></a>篇</li>	
-			     <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>文章發表新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
+			     <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>文章發表新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a></li>
 			   </ul>
 		       </div>
 	        </div>
@@ -101,7 +101,7 @@ crossorigin="anonymous" />
 			      <li class="liareatext"><i class='bx bxs-happy-heart-eyes'></i><a href="" target="blank" id="membercenter_goodfr">好友清單</a></li>
 			      <li class="liareatext"><i class='bx bx-walk' ></i><a href="" target="blank">活動頁面區</a></li>
 			      <i class='bx bx-calendar' ></i>最近發起活動:<a href="" target="blank"><span id="membercenter_number">這周末去爬山</span></a>主題</li>	
-			      <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>活動最新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a><li>
+			      <li class="liareatext"><i class='bx bx-message-rounded-minus bx-sm'></i>活動最新回應:<a href="" target="blank"><span id="membercenter_answer">無</span></a></li>
 		     </ul>
 		   </div>
 	

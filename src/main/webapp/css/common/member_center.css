@@ -170,7 +170,6 @@ body{
 /*個人動態內的圖像*/
 .human{
   background-color: seashell;
-  margin-left: 10%;
   margin-bottom: 5%;
   float: left;
 
@@ -178,9 +177,9 @@ body{
 
 /*個人動態內的文字區塊*/
 .personaltext{
-   width:30rem;
-   margin-left:35%;
+   width:40rem;
    font-size: 20px;
+    
 
 }
 .personaltext ul{
@@ -189,7 +188,6 @@ body{
    margin: auto;
    text-align: left;
    line-height: 3rem;
-   
 }
 
 /*交友活動區塊*/
