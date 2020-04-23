@@ -118,22 +118,19 @@
           </div>
 
         <!--這裡為查看電子票卷跳出視窗-->
-        <!-- Modal -->
-         <div class="modal fade" id="orderitem_myModal" tabindex="-1" role="dialog" aria-labelledby="orderitem_myModalLabel">
+        <div class="modal fade" id="orderitem_myModal" tabindex="-1" role="dialog" aria-labelledby="orderitem_myModalLabel">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
                  <div class="modal-header">
-                  <h4 class="modal-title" id="orderitem_myModalLabel">QRcode</h4>
+                  <h4 class="modal-title" id="orderitem_myModalLabel">您的電子票卷</h4>
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                        <span aria-hidden="true">&times;</span>
                      </button>
                   </div>
                  <div class="modal-body">
-                    <p>使用時請告知此兌換碼:<span class="qrcodeNum"></span></p>
-                    <p>並且出示以下條碼提供給店家使用兌換</p>
-                    <div id="bcTarget">
-                    </div>
-                 </div>
+                    <p>使用時請告知此兌換碼:<span id="qrcodeNum">WTR123456789</span></p>
+                    <p>並且出示以下QRcode提供給店家進行兌換兌換</p>
+                    <div id="qrcodeCanvas"></div>
                  <div class="modal-footer">
                     <input type="button" value="列印" id="print">
                  </div>
@@ -150,6 +147,8 @@
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
      crossorigin="anonymous"></script>  
+     <script src="js/qrcode.js"></script>
+     <script src="js/jquery.qrcode.js"></script>
      <script src="js/orderitem.js"></script>   
 </body>
 </html>
