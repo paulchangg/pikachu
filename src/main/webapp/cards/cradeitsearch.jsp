@@ -106,7 +106,7 @@
                 <span class="btn"></span>      
               </span>
               <span class="text">花旗銀行</span>
-            </label></br>
+            </label>
             <label >
               <input type="checkbox" name="bank" class="checkbox" value="052">
               <span class="btn-box">

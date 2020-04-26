@@ -1,0 +1,1437 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (constantTag.cpp:59), pid=11212, tid=0x0000000000001708
+#  Error: ShouldNotReachHere()
+#
+# JRE version: OpenJDK Runtime Environment (8.0_232-b09) (build 1.8.0_232-b09)
+# Java VM: OpenJDK 64-Bit Server VM (25.232-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001d5e1800):  VMThread [stack: 0x000000001e710000,0x000000001e810000] [id=5896]
+
+Stack: [0x000000001e710000,0x000000001e810000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+VM_Operation (0x000000001ed7f150): GetOrSetLocal, mode: safepoint, requested by thread 0x000000001d677800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000025dd2000 JavaThread "JS executor for com.gargoylesoftware.htmlunit.WebClient@5aa6202e" daemon [_thread_blocked, id=16424, stack(0x0000000023500000,0x0000000023600000)]
+  0x000000001f0e0000 JavaThread "Service Thread" daemon [_thread_blocked, id=15536, stack(0x000000001fb80000,0x000000001fc80000)]
+  0x000000001f072800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=6632, stack(0x000000001fa80000,0x000000001fb80000)]
+  0x000000001f072000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=14944, stack(0x000000001f980000,0x000000001fa80000)]
+  0x000000001d7e4000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=7056, stack(0x000000001f880000,0x000000001f980000)]
+  0x000000001d7e3800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=14784, stack(0x000000001f780000,0x000000001f880000)]
+  0x000000001d685800 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=13880, stack(0x000000001ee80000,0x000000001ef80000)]
+  0x000000001d684800 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=10216, stack(0x000000001ed80000,0x000000001ee80000)]
+  0x000000001d677800 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=6408, stack(0x000000001ec80000,0x000000001ed80000)]
+  0x000000001d65f000 JavaThread "Attach Listener" daemon [_thread_blocked, id=6812, stack(0x000000001eb80000,0x000000001ec80000)]
+  0x000000001d65e000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11876, stack(0x000000001ea80000,0x000000001eb80000)]
+  0x000000001c65c000 JavaThread "Finalizer" daemon [_thread_blocked, id=1972, stack(0x000000001e910000,0x000000001ea10000)]
+  0x000000001d5e4800 JavaThread "Reference Handler" daemon [_thread_blocked, id=14820, stack(0x000000001e810000,0x000000001e910000)]
+  0x0000000002b36800 JavaThread "main" [_thread_blocked, id=12368, stack(0x00000000024a0000,0x00000000025a0000)]
+
+Other Threads:
+=>0x000000001d5e1800 VMThread [stack: 0x000000001e710000,0x000000001e810000] [id=5896]
+  0x000000001f0f4800 WatcherThread [stack: 0x000000001fc80000,0x000000001fd80000] [id=13464]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000000000075a600] Threads_lock - owner thread: 0x000000001d5e1800
+
+heap address: 0x00000006c1400000, size: 4076 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 215040K, used 156826K [0x000000076b180000, 0x000000077bb00000, 0x00000007c0000000)
+  eden space 170496K, 73% used [0x000000076b180000,0x0000000772c6a8a8,0x0000000775800000)
+  from space 44544K, 69% used [0x0000000778f80000,0x000000077adbbf68,0x000000077bb00000)
+  to   space 50688K, 0% used [0x0000000775800000,0x0000000775800000,0x0000000778980000)
+ ParOldGen       total 119296K, used 61934K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c507b800,0x00000006c8880000)
+ Metaspace       used 31048K, capacity 32822K, committed 33152K, reserved 1077248K
+  class space    used 4544K, capacity 4911K, committed 4992K, reserved 1048576K
+
+Card table byte_map: [0x0000000011fb0000,0x00000000127b0000] byte_map_base: 0x000000000e9a6000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000062898170
+ Begin Bits: [0x0000000013500000, 0x00000000174b0000)
+ End Bits:   [0x00000000174b0000, 0x000000001b460000)
+
+Polling page: 0x0000000000780000
+
+CodeCache: size=245760Kb used=23412Kb max_used=23809Kb free=222347Kb
+ bounds [0x0000000002bf0000, 0x00000000043f0000, 0x0000000011bf0000]
+ total_blobs=5531 nmethods=5071 adapters=380
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 257.020 Thread 0x000000001f072800 nmethod 6986 0x0000000003552ad0 code [0x0000000003552c40, 0x0000000003552ee8]
+Event: 257.203 Thread 0x000000001f072000 nmethod 6985 0x00000000039ba890 code [0x00000000039bb3e0, 0x00000000039c1c60]
+Event: 262.015 Thread 0x000000001d7e4000 6987       4       net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime::enumId (108 bytes)
+Event: 262.017 Thread 0x000000001d7e4000 nmethod 6987 0x00000000039a0b50 code [0x00000000039a0ce0, 0x00000000039a0f80]
+Event: 267.019 Thread 0x000000001f072800 6988       3       java.lang.Boolean::toString (15 bytes)
+Event: 267.020 Thread 0x000000001f072800 nmethod 6988 0x000000000351bc90 code [0x000000000351be00, 0x000000000351bfd0]
+Event: 272.010 Thread 0x000000001f072800 6989       3       net.sourceforge.htmlunit.corejs.javascript.NativeArray::defineElem (40 bytes)
+Event: 272.011 Thread 0x000000001f072800 nmethod 6989 0x000000000321d490 code [0x000000000321d620, 0x000000000321d9a8]
+Event: 272.011 Thread 0x000000001d7e3800 6990       4       com.gargoylesoftware.css.parser.javacc.CSS3Parser::jj_ntk_f (52 bytes)
+Event: 272.012 Thread 0x000000001d7e3800 nmethod 6990 0x00000000031c8490 code [0x00000000031c85e0, 0x00000000031c8768]
+Event: 272.013 Thread 0x000000001f072000 6991       4       net.sourceforge.htmlunit.corejs.javascript.regexp.RegExpImpl::find_split (296 bytes)
+Event: 272.021 Thread 0x000000001d7e4000 6992       4       com.gargoylesoftware.css.parser.javacc.CSS3ParserTokenManager::jjMoveStringLiteralDfa0_0 (627 bytes)
+Event: 272.034 Thread 0x000000001d7e4000 nmethod 6992 0x00000000038b0f50 code [0x00000000038b1fc0, 0x00000000038b2a00]
+Event: 272.040 Thread 0x000000001f072000 nmethod 6991 0x0000000003e98450 code [0x0000000003e98600, 0x0000000003e99e28]
+Event: 278.866 Thread 0x000000001f072800 6993       3       net.sourceforge.htmlunit.corejs.javascript.IdScriptableObject::get (96 bytes)
+Event: 278.867 Thread 0x000000001f072800 nmethod 6993 0x0000000003421f10 code [0x00000000034220e0, 0x00000000034229f8]
+Event: 280.239 Thread 0x000000001d7e3800 6994       4       com.gargoylesoftware.css.parser.AbstractCSSParser::unescape (463 bytes)
+Event: 280.247 Thread 0x000000001d7e3800 nmethod 6994 0x000000000303ed50 code [0x000000000303eea0, 0x000000000303f138]
+Event: 285.243 Thread 0x000000001d7e3800 6995       4       com.gargoylesoftware.css.parser.javacc.CSS3ParserTokenManager::jjFillToken (178 bytes)
+Event: 285.262 Thread 0x000000001d7e3800 nmethod 6995 0x00000000038aef50 code [0x00000000038af120, 0x00000000038b0038]
+Event: 302.006 Thread 0x000000001f072800 6996       3       com.gargoylesoftware.css.parser.javacc.CSS3ParserTokenManager::jjStartNfa_0 (16 bytes)
+Event: 302.007 Thread 0x000000001f072800 nmethod 6996 0x0000000003351650 code [0x00000000033517c0, 0x00000000033519b8]
+Event: 312.017 Thread 0x000000001f072800 6997       3       com.gargoylesoftware.htmlunit.javascript.regexp.HtmlUnitRegExpProxy::wrapRegExp (13 bytes)
+Event: 312.018 Thread 0x000000001f072800 nmethod 6997 0x0000000002e61d90 code [0x0000000002e61f00, 0x0000000002e62148]
+Event: 312.019 Thread 0x000000001f072800 6998       3       net.sourceforge.htmlunit.corejs.javascript.regexp.RegExpImpl::wrapRegExp (13 bytes)
+Event: 312.019 Thread 0x000000001f072800 nmethod 6998 0x0000000003d4e790 code [0x0000000003d4e900, 0x0000000003d4ec08]
+Event: 327.015 Thread 0x000000001d7e3800 6999       4       com.gargoylesoftware.htmlunit.javascript.host.dom.Node::getNodeType (8 bytes)
+Event: 327.015 Thread 0x000000001d7e3800 nmethod 6999 0x0000000003628210 code [0x0000000003628360, 0x00000000036283f8]
+Event: 332.005 Thread 0x000000001f072800 7000 %     3       net.sourceforge.htmlunit.corejs.javascript.NativeArray::iterativeMethod @ 225 (526 bytes)
+Event: 332.008 Thread 0x000000001f072800 nmethod 7000% 0x0000000004289550 code [0x0000000004289a00, 0x000000000428cbb8]
+Event: 332.011 Thread 0x000000001f072000 7001       4       com.gargoylesoftware.css.parser.javacc.CSS3Parser::jj_consume_token (170 bytes)
+Event: 332.012 Thread 0x000000001f072000 nmethod 7001 0x0000000003f31390 code [0x0000000003f314e0, 0x0000000003f31728]
+Event: 335.246 Thread 0x000000001f072800 7002       3       java.lang.Math::min (45 bytes)
+Event: 335.247 Thread 0x000000001f072800 nmethod 7002 0x00000000033830d0 code [0x0000000003383240, 0x0000000003383590]
+Event: 337.020 Thread 0x000000001d7e4000 7003   !   4       sun.reflect.GeneratedMethodAccessor4::invoke (68 bytes)
+Event: 337.022 Thread 0x000000001d7e4000 nmethod 7003 0x0000000003672650 code [0x00000000036727a0, 0x0000000003672978]
+Event: 340.506 Thread 0x000000001d7e3800 7004       4       com.gargoylesoftware.htmlunit.javascript.host.css.ComputedCSSStyleDeclaration::getPositionWithInheritance (58 bytes)
+Event: 340.508 Thread 0x000000001d7e3800 nmethod 7004 0x00000000030b6790 code [0x00000000030b68e0, 0x00000000030b6a88]
+Event: 345.240 Thread 0x000000001f072000 7005       4       com.gargoylesoftware.css.parser.javacc.CSS3ParserTokenManager::TokenLexicalActions (1356 bytes)
+Event: 345.267 Thread 0x000000001f072000 nmethod 7005 0x0000000004244e10 code [0x0000000004245580, 0x0000000004247430]
+Event: 362.009 Thread 0x000000001d7e4000 7006       4       com.gargoylesoftware.htmlunit.javascript.host.css.CSSStyleDeclaration::get (81 bytes)
+Event: 362.013 Thread 0x000000001d7e4000 nmethod 7006 0x0000000003f12f50 code [0x0000000003f13140, 0x0000000003f135c0]
+Event: 372.019 Thread 0x000000001f072800 7007   !   3       com.gargoylesoftware.css.parser.javacc.CSS3ParserTokenManager::jjMoveStringLiteralDfa2_0 (285 bytes)
+Event: 372.020 Thread 0x000000001f072800 nmethod 7007 0x0000000002dd1010 code [0x0000000002dd1240, 0x0000000002dd1bb8]
+Event: 377.010 Thread 0x000000001f072000 7008       4       net.sourceforge.htmlunit.corejs.javascript.Arguments::getInstanceIdValue (88 bytes)
+Event: 377.012 Thread 0x000000001f072000 nmethod 7008 0x0000000003941ad0 code [0x0000000003941c20, 0x0000000003941d78]
+Event: 377.012 Thread 0x000000001f072800 7009       3       java.util.ArrayList::toArray (12 bytes)
+Event: 377.013 Thread 0x000000001f072800 nmethod 7009 0x0000000003685390 code [0x0000000003685500, 0x00000000036857a8]
+Event: 387.015 Thread 0x000000001f072800 7012       3       java.lang.StringBuilder::substring (7 bytes)
+Event: 387.016 Thread 0x000000001f072800 nmethod 7012 0x0000000003aa15d0 code [0x0000000003aa1740, 0x0000000003aa18e8]
+Event: 387.016 Thread 0x000000001f072800 7010       3       com.gargoylesoftware.css.parser.CssCharStream::GetSuffix (90 bytes)
+Event: 387.016 Thread 0x000000001f072800 nmethod 7010 0x00000000032fea50 code [0x00000000032febe0, 0x00000000032ff0a8]
+Event: 387.016 Thread 0x000000001f072800 7011       3       com.gargoylesoftware.css.parser.ParserUtils::trimBy (12 bytes)
+Event: 387.017 Thread 0x000000001f072800 nmethod 7011 0x00000000031a5750 code [0x00000000031a58c0, 0x00000000031a5c28]
+Event: 387.019 Thread 0x000000001f072000 7013       4       net.sourceforge.htmlunit.corejs.javascript.NativeArray::put (188 bytes)
+Event: 387.035 Thread 0x000000001f072000 nmethod 7013 0x0000000003f15010 code [0x0000000003f151c0, 0x0000000003f159b8]
+Event: 392.340 Thread 0x000000001f072800 7014       3       net.sourceforge.htmlunit.corejs.javascript.v8dtoa.FastDtoa::digitGen (530 bytes)
+Event: 392.343 Thread 0x000000001f072800 nmethod 7014 0x0000000003b6b590 code [0x0000000003b6b8c0, 0x0000000003b6d238]
+Event: 397.559 Thread 0x000000001f072800 7015       3       sun.misc.FDBigInteger::checkZeroTail (17 bytes)
+Event: 397.559 Thread 0x000000001f072800 nmethod 7015 0x00000000036d1390 code [0x00000000036d1500, 0x00000000036d1750]
+Event: 398.098 Thread 0x000000001f072800 7016 % !   3       com.gargoylesoftware.htmlunit.javascript.background.DefaultJavaScriptExecutor::run @ 13 (219 bytes)
+Event: 398.100 Thread 0x000000001f072800 nmethod 7016% 0x0000000003158910 code [0x0000000003158d20, 0x000000000315b358]
+Event: 404.690 Thread 0x000000001f072800 7017   !   3       com.gargoylesoftware.htmlunit.javascript.background.DefaultJavaScriptExecutor::run (219 bytes)
+Event: 404.695 Thread 0x000000001f072800 nmethod 7017 0x00000000039af010 code [0x00000000039af420, 0x00000000039b1958]
+Event: 412.882 Thread 0x000000001d7e3800 7018       4       net.sourceforge.htmlunit.corejs.javascript.DToA::setWord0 (22 bytes)
+Event: 412.882 Thread 0x000000001d7e3800 nmethod 7018 0x00000000033a6190 code [0x00000000033a62c0, 0x00000000033a6318]
+Event: 415.243 Thread 0x000000001f072800 7019       3       com.gargoylesoftware.css.parser.condition.IdCondition::<init> (15 bytes)
+Event: 415.244 Thread 0x000000001f072800 nmethod 7019 0x0000000002de3a90 code [0x0000000002de3c00, 0x0000000002de3f10]
+Event: 422.152 Thread 0x000000001d7e4000 7020       4       net.sourceforge.htmlunit.corejs.javascript.v8dtoa.FastDtoa::digitGen (530 bytes)
+Event: 422.202 Thread 0x000000001d7e4000 nmethod 7020 0x00000000031eb0d0 code [0x00000000031eb3e0, 0x00000000031ece78]
+Event: 437.016 Thread 0x000000001f072000 7021       4       net.sourceforge.htmlunit.corejs.javascript.NativeArray::has (70 bytes)
+Event: 437.018 Thread 0x000000001f072000 nmethod 7021 0x0000000002f03f90 code [0x0000000002f040e0, 0x0000000002f04268]
+Event: 440.237 Thread 0x000000001f072800 7022   !   3       com.gargoylesoftware.css.parser.javacc.CSS3Parser::hash (62 bytes)
+Event: 440.240 Thread 0x000000001f072800 nmethod 7022 0x0000000003977ed0 code [0x00000000039780c0, 0x00000000039789f8]
+Event: 440.242 Thread 0x000000001d7e3800 7023       4       net.sourceforge.htmlunit.corejs.javascript.regexp.NativeRegExp::findInstanceIdInfo (212 bytes)
+Event: 440.244 Thread 0x000000001d7e3800 nmethod 7023 0x0000000003357590 code [0x00000000033576e0, 0x00000000033577f8]
+Event: 462.024 Thread 0x000000001d7e4000 7024       4       java.util.Arrays::rangeCheck (74 bytes)
+Event: 462.025 Thread 0x000000001d7e4000 nmethod 7024 0x00000000037dddd0 code [0x00000000037ddf00, 0x00000000037ddf98]
+Event: 472.010 Thread 0x000000001d7e3800 7025       4       com.gargoylesoftware.htmlunit.javascript.SimpleScriptable::getScriptableFor (45 bytes)
+Event: 472.013 Thread 0x000000001d7e3800 nmethod 7025 0x00000000037d7590 code [0x00000000037d76e0, 0x00000000037d7888]
+Event: 477.090 Thread 0x000000001f072800 7026       3       java.math.BigInteger::divideAndRemainderKnuth (86 bytes)
+Event: 477.092 Thread 0x000000001f072800 nmethod 7026 0x00000000041abb90 code [0x00000000041abdc0, 0x00000000041acba8]
+Event: 477.092 Thread 0x000000001f072800 7029       3       java.math.BigInteger::subtract (126 bytes)
+Event: 477.092 Thread 0x000000001f072800 nmethod 7029 0x000000000359a390 code [0x000000000359a580, 0x000000000359acf8]
+Event: 477.092 Thread 0x000000001f072800 7028       3       java.math.BigInteger::intValue (10 bytes)
+Event: 477.092 Thread 0x000000001f072800 nmethod 7028 0x0000000003bb2e90 code [0x0000000003bb3000, 0x0000000003bb31a8]
+Event: 477.092 Thread 0x000000001f072800 7027       3       java.math.BigInteger::divideAndRemainder (38 bytes)
+Event: 477.093 Thread 0x000000001f072800 nmethod 7027 0x0000000004104750 code [0x00000000041048c0, 0x0000000004104b38]
+Event: 487.016 Thread 0x000000001d7e3800 7030       4       net.sourceforge.htmlunit.corejs.javascript.NativeArray::ensureCapacity (79 bytes)
+Event: 487.023 Thread 0x000000001d7e3800 nmethod 7030 0x00000000033e5a10 code [0x00000000033e5ba0, 0x00000000033e5f98]
+Event: 498.086 Thread 0x000000001f072000 7031       4       net.sourceforge.htmlunit.corejs.javascript.DToA::JS_dtoa (2747 bytes)
+Event: 498.280 Thread 0x000000001f072000 nmethod 7031 0x0000000003fc4250 code [0x0000000003fc4860, 0x0000000003fce928]
+Event: 512.014 Thread 0x000000001d7e4000 7032       4       com.gargoylesoftware.htmlunit.javascript.host.dom.AbstractList::get (43 bytes)
+Event: 512.021 Thread 0x000000001d7e4000 nmethod 7032 0x000000000329ef90 code [0x000000000329f120, 0x000000000329f758]
+Event: 514.220 Thread 0x000000001f072800 7033       3       net.sourceforge.htmlunit.corejs.javascript.NativeArray::toSliceIndex (51 bytes)
+Event: 514.220 Thread 0x000000001f072800 nmethod 7033 0x0000000004234ad0 code [0x0000000004234c40, 0x0000000004234f30]
+Event: 519.005 Thread 0x000000001d7e3800 7034       4       com.gargoylesoftware.htmlunit.javascript.host.css.ComputedCSSStyleDeclaration::getTop (351 bytes)
+Event: 519.096 Thread 0x000000001d7e3800 nmethod 7034 0x0000000003798e10 code [0x0000000003799420, 0x000000000379da30]
+Event: 520.240 Thread 0x000000001f072800 7035       3       net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime::eqNumber (162 bytes)
+Event: 520.242 Thread 0x000000001f072800 nmethod 7035 0x000000000381f5d0 code [0x000000000381f8a0, 0x0000000003821268]
+Event: 522.017 Thread 0x000000001f072000 7036       4       com.gargoylesoftware.htmlunit.javascript.host.dom.AbstractList::getScriptableForElement (18 bytes)
+Event: 522.021 Thread 0x000000001f072000 nmethod 7036 0x0000000004295210 code [0x0000000004295360, 0x0000000004295568]
+Event: 532.030 Thread 0x000000001d7e3800 7037       4       com.gargoylesoftware.css.parser.AbstractCSSParser::createLocator (39 bytes)
+Event: 532.033 Thread 0x000000001d7e3800 nmethod 7037 0x00000000035b6ed0 code [0x00000000035b7020, 0x00000000035b7178]
+Event: 552.010 Thread 0x000000001f072000 7038   !   4       net.sourceforge.htmlunit.corejs.javascript.NativeObject::execIdCall (2932 bytes)
+Event: 552.035 Thread 0x000000001d7e4000 7039   !   4       sun.reflect.GeneratedMethodAccessor10::invoke (61 bytes)
+Event: 552.037 Thread 0x000000001d7e4000 nmethod 7039 0x00000000042839d0 code [0x0000000004283b20, 0x0000000004283c58]
+Event: 552.468 Thread 0x000000001f072000 nmethod 7038 0x00000000042f3d50 code [0x00000000042f4d40, 0x0000000004302ce8]
+Event: 557.013 Thread 0x000000001d7e3800 7040       4       net.sourceforge.htmlunit.corejs.javascript.NativeArray::js_join (340 bytes)
+Event: 557.023 Thread 0x000000001d7e4000 7041       4       net.sourceforge.htmlunit.corejs.javascript.Context::newArray (40 bytes)
+Event: 557.052 Thread 0x000000001d7e4000 nmethod 7041 0x00000000042f08d0 code [0x00000000042f0b20, 0x00000000042f1f40]
+Event: 557.066 Thread 0x000000001d7e3800 nmethod 7040 0x000000000403f3d0 code [0x000000000403f6a0, 0x00000000040422c0]
+Event: 578.877 Thread 0x000000001f072800 7042       3       net.sourceforge.htmlunit.corejs.javascript.ScriptRuntime::escapeString (401 bytes)
+Event: 578.882 Thread 0x000000001f072800 nmethod 7042 0x00000000039f4510 code [0x00000000039f49e0, 0x00000000039f7ed8]
+Event: 578.882 Thread 0x000000001f072800 7043       3       net.sourceforge.htmlunit.corejs.javascript.Hashtable::get (33 bytes)
+Event: 578.883 Thread 0x000000001f072800 nmethod 7043 0x0000000003ad2d10 code [0x0000000003ad2ea0, 0x0000000003ad32b8]
+Event: 585.240 Thread 0x000000001f072800 7044       3       com.gargoylesoftware.css.parser.condition.PseudoClassCondition::<init> (20 bytes)
+Event: 585.240 Thread 0x000000001f072800 nmethod 7044 0x0000000002fc7550 code [0x0000000002fc76c0, 0x0000000002fc79f0]
+Event: 602.008 Thread 0x000000001f072800 7045       3       java.lang.AbstractStringBuilder::substring (62 bytes)
+Event: 602.008 Thread 0x000000001f072800 nmethod 7045 0x000000000318a790 code [0x000000000318a960, 0x000000000318ae98]
+Event: 610.237 Thread 0x000000001f072000 7046       4       net.sourceforge.htmlunit.corejs.javascript.Interpreter::doInOrInstanceof (90 bytes)
+Event: 610.245 Thread 0x000000001f072000 nmethod 7046 0x00000000034add10 code [0x00000000034adec0, 0x00000000034ae558]
+Event: 610.248 Thread 0x000000001f072800 7047  s    3       com.gargoylesoftware.htmlunit.WebClient::getCookies (225 bytes)
+Event: 610.251 Thread 0x000000001f072800 nmethod 7047 0x000000000413aed0 code [0x000000000413b380, 0x000000000413e4b8]
+Event: 611.550 Thread 0x000000001d7e3800 7048       4       org.apache.http.impl.cookie.AbstractCookieSpec::<init> (63 bytes)
+Event: 611.554 Thread 0x000000001d7e3800 nmethod 7048 0x0000000003265e90 code [0x0000000003266000, 0x0000000003266348]
+Event: 612.017 Thread 0x000000001f072800 7049   !   3       com.gargoylesoftware.css.parser.javacc.CSS3Parser::elementName (132 bytes)
+Event: 612.018 Thread 0x000000001f072800 nmethod 7049 0x00000000039f35d0 code [0x00000000039f3800, 0x00000000039f4008]
+Event: 620.244 Thread 0x000000001f072800 7050   !   3       com.gargoylesoftware.css.parser.javacc.CSS3Parser::pseudo (1322 bytes)
+Event: 620.253 Thread 0x000000001f072800 nmethod 7050 0x0000000003f7b990 code [0x0000000003f7c5a0, 0x0000000003f857e8]
+Event: 627.449 Thread 0x000000001f072000 7051       4       org.apache.http.util.TextUtils::isBlank (41 bytes)
+Event: 627.453 Thread 0x000000001f072000 nmethod 7051 0x0000000003300e90 code [0x0000000003301000, 0x0000000003301338]
+Event: 650.242 Thread 0x000000001f072800 7052       3       org.apache.commons.lang3.StringUtils::substringBetween (59 bytes)
+Event: 650.242 Thread 0x000000001f072800 nmethod 7052 0x0000000004243ed0 code [0x00000000042440a0, 0x0000000004244988]
+Event: 650.254 Thread 0x000000001f072800 7053       3       net.sourceforge.htmlunit.corejs.javascript.NativeMath::execIdCall (1384 bytes)
+Event: 650.262 Thread 0x000000001f072800 nmethod 7053 0x0000000003f6b190 code [0x0000000003f6c240, 0x0000000003f75048]
+Event: 652.016 Thread 0x000000001f072800 7055       3       net.sourceforge.htmlunit.corejs.javascript.regexp.RegExpImpl::matchOrReplace (336 bytes)
+Event: 652.020 Thread 0x000000001f072800 nmethod 7055 0x00000000041386d0 code [0x00000000041389a0, 0x0000000004139e68]
+Event: 652.020 Thread 0x000000001f072800 7054       3       net.sourceforge.htmlunit.corejs.javascript.regexp.RegExpImpl::createRegExp (128 bytes)
+Event: 652.021 Thread 0x000000001f072800 nmethod 7054 0x0000000003b6a710 code [0x0000000003b6a900, 0x0000000003b6b1a8]
+Event: 652.471 Thread 0x000000001f072800 7056       3       net.sourceforge.htmlunit.corejs.javascript.v8dtoa.FastDtoa::digitGen (530 bytes)
+Event: 652.474 Thread 0x000000001f072800 nmethod 7056 0x0000000003f67a10 code [0x0000000003f67d40, 0x0000000003f696b8]
+Event: 660.160 Thread 0x000000001d7e3800 7057 % !   4       com.gargoylesoftware.htmlunit.javascript.background.DefaultJavaScriptExecutor::run @ 13 (219 bytes)
+Event: 660.184 Thread 0x000000001d7e3800 nmethod 7057% 0x0000000004254d10 code [0x0000000004254ee0, 0x0000000004255690]
+Event: 667.024 Thread 0x000000001f072800 7058       3       net.sourceforge.htmlunit.corejs.javascript.NativeMath::findPrototypeId (1280 bytes)
+Event: 667.032 Thread 0x000000001f072800 nmethod 7058 0x0000000003ce5990 code [0x0000000003ce6480, 0x0000000003ced9f8]
+Event: 672.051 Thread 0x000000001f072800 7060   !   3       com.gargoylesoftware.htmlunit.html.DomElement::matches (113 bytes)
+Event: 672.052 Thread 0x000000001f072800 nmethod 7060 0x0000000003e96690 code [0x0000000003e96920, 0x0000000003e97b78]
+Event: 672.052 Thread 0x000000001f072800 7059   !   3       com.gargoylesoftware.htmlunit.javascript.host.Element::matches (105 bytes)
+Event: 672.053 Thread 0x000000001f072800 nmethod 7059 0x000000000403cdd0 code [0x000000000403d0c0, 0x000000000403e7a8]
+Event: 675.149 Thread 0x000000001d7e4000 7061  s    4       com.gargoylesoftware.htmlunit.WebClient::getCookies (225 bytes)
+Event: 675.242 Thread 0x000000001d7e4000 nmethod 7061 0x0000000003cda910 code [0x0000000003cdad60, 0x0000000003ce0580]
+Event: 677.687 Thread 0x000000001f072000 7062       4       net.sourceforge.htmlunit.corejs.javascript.v8dtoa.FastDtoa::digitGen (530 bytes)
+Event: 677.726 Thread 0x000000001f072000 nmethod 7062 0x00000000031e8750 code [0x00000000031e8a60, 0x00000000031ea338]
+Event: 682.008 Thread 0x000000001d7e3800 7063       4       net.sourceforge.htmlunit.corejs.javascript.ScriptableObject::put (95 bytes)
+Event: 682.009 Thread 0x000000001d7e3800 nmethod 7063 0x0000000003c20c90 code [0x0000000003c20de0, 0x0000000003c20ea8]
+Event: 712.022 Thread 0x000000001f072800 7064       3       net.sourceforge.htmlunit.corejs.javascript.regexp.RegExpImpl::js_split (442 bytes)
+Event: 712.026 Thread 0x000000001f072800 nmethod 7064 0x0000000004371210 code [0x0000000004371540, 0x00000000043737c8]
+Event: 725.241 Thread 0x000000001f072000 7065       4       java.util.ArrayList::toArray (12 bytes)
+Event: 725.244 Thread 0x000000001f072000 nmethod 7065 0x0000000003737450 code [0x00000000037375a0, 0x00000000037377b8]
+Event: 732.015 Thread 0x000000001f072800 7066       3       java.lang.Boolean::<init> (10 bytes)
+Event: 732.016 Thread 0x000000001f072800 nmethod 7066 0x00000000041af450 code [0x00000000041af5a0, 0x00000000041af750]
+Event: 732.023 Thread 0x000000001f072800 7067   !   3       sun.reflect.GeneratedMethodAccessor6::invoke (80 bytes)
+Event: 732.024 Thread 0x000000001f072800 nmethod 7067 0x0000000002e56d50 code [0x0000000002e56f60, 0x0000000002e57988]
+Event: 742.005 Thread 0x000000001f072000 7068       4       net.sourceforge.htmlunit.corejs.javascript.regexp.NativeRegExp::executeRegExp (539 bytes)
+Event: 742.066 Thread 0x000000001f072000 nmethod 7068 0x00000000041fb810 code [0x00000000041fbae0, 0x00000000041fe620]
+Event: 762.009 Thread 0x000000001f072000 7069       4       net.sourceforge.htmlunit.corejs.javascript.Arguments::sharedWithActivation (95 bytes)
+Event: 762.024 Thread 0x000000001d7e3800 7070       4       com.gargoylesoftware.htmlunit.javascript.host.html.HTMLElement::getStyle (5 bytes)
+Event: 762.025 Thread 0x000000001d7e3800 nmethod 7070 0x00000000035287d0 code [0x0000000003528900, 0x0000000003528978]
+Event: 762.045 Thread 0x000000001f072000 nmethod 7069 0x000000000419dd50 code [0x000000000419df40, 0x000000000419ed00]
+Event: 765.238 Thread 0x000000001d7e4000 7071       4       net.sourceforge.htmlunit.corejs.javascript.Arguments::get (36 bytes)
+Event: 765.244 Thread 0x000000001d7e4000 nmethod 7071 0x0000000003851510 code [0x0000000003851680, 0x0000000003851a18]
+Event: 792.005 Thread 0x000000001f072000 7072       4       com.gargoylesoftware.htmlunit.html.DomNode::getPreviousSibling (25 bytes)
+Event: 792.006 Thread 0x000000001f072000 nmethod 7072 0x0000000003a00350 code [0x0000000003a00480, 0x0000000003a00518]
+Event: 817.018 Thread 0x000000001d7e3800 7073       4       java.util.TimSort::sort (229 bytes)
+Event: 817.039 Thread 0x000000001d7e3800 nmethod 7073 0x00000000031571d0 code [0x00000000031573e0, 0x0000000003157ea0]
+Event: 826.486 Thread 0x000000001f072000 7074       4       org.eclipse.jdt.launching.internal.org.objectweb.asm.ClassReader::accept (1251 bytes)
+Event: 826.488 Thread 0x000000001f072800 7075       3       org.jsoup.internal.StringUtil::isWhitespace (36 bytes)
+Event: 826.488 Thread 0x000000001d7e3800 7078       4       java.lang.Character::charCount (12 bytes)
+Event: 826.488 Thread 0x000000001f072800 nmethod 7075 0x0000000003420d10 code [0x0000000003420e80, 0x00000000034210f0]
+Event: 826.488 Thread 0x000000001d7e4000 7079       4       java.lang.String::codePointAt (36 bytes)
+Event: 826.488 Thread 0x000000001d7e3800 nmethod 7078 0x00000000038243d0 code [0x0000000003824500, 0x0000000003824558]
+Event: 826.488 Thread 0x000000001d7e3800 7080       4       java.lang.Character::codePointAtImpl (41 bytes)
+Event: 826.489 Thread 0x000000001f072800 7076       3       java.lang.StringBuilder::append (6 bytes)
+Event: 826.489 Thread 0x000000001d7e3800 nmethod 7080 0x0000000003f53fd0 code [0x0000000003f54100, 0x0000000003f541d8]
+Event: 826.489 Thread 0x000000001f072800 nmethod 7076 0x0000000003e8a0d0 code [0x0000000003e8a280, 0x0000000003e8a8f8]
+Event: 826.489 Thread 0x000000001f072800 7077       3       org.jsoup.nodes.Entities::canEncode (57 bytes)
+Event: 826.489 Thread 0x000000001d7e4000 nmethod 7079 0x0000000002e85010 code [0x0000000002e85160, 0x0000000002e85298]
+Event: 826.489 Thread 0x000000001f072800 nmethod 7077 0x00000000034b49d0 code [0x00000000034b4b40, 0x00000000034b4ea8]
+Event: 827.277 Thread 0x000000001f072000 nmethod 7074 0x00000000043beb50 code [0x00000000043bf340, 0x00000000043d5718]
+Event: 833.013 Thread 0x000000001d7e4000 7081       4       com.gargoylesoftware.htmlunit.javascript.host.Element::isDisplayNone (46 bytes)
+Event: 833.017 Thread 0x000000001d7e4000 nmethod 7081 0x00000000031e7f90 code [0x00000000031e8100, 0x00000000031e8418]
+Event: 835.249 Thread 0x000000001d7e3800 7082       4       net.sourceforge.htmlunit.corejs.javascript.EmbeddedSlotMap::iterator (12 bytes)
+Event: 835.251 Thread 0x000000001d7e3800 nmethod 7082 0x00000000036fa110 code [0x00000000036fa260, 0x00000000036fa338]
+Event: 852.010 Thread 0x000000001f072800 7083       3       com.gargoylesoftware.htmlunit.javascript.host.dom.Node::getPreviousSibling (12 bytes)
+Event: 852.010 Thread 0x000000001f072800 nmethod 7083 0x0000000003747fd0 code [0x0000000003748160, 0x00000000037487d8]
+Event: 855.243 Thread 0x000000001d7e4000 7084       4       com.gargoylesoftware.htmlunit.javascript.host.css.CSSStyleSheet::isValidSelector (311 bytes)
+Event: 855.275 Thread 0x000000001d7e4000 nmethod 7084 0x0000000004260a90 code [0x0000000004260fc0, 0x0000000004263960]
+Event: 862.016 Thread 0x000000001d7e3800 7085       4       net.sourceforge.htmlunit.corejs.javascript.ScriptableObject::getTypeOf (15 bytes)
+Event: 862.017 Thread 0x000000001d7e3800 nmethod 7085 0x00000000037e3250 code [0x00000000037e33a0, 0x00000000037e3438]
+Event: 870.472 Thread 0x000000001f072800 7086       3       org.jsoup.nodes.Entities::escape (393 bytes)
+Event: 870.475 Thread 0x000000001f072800 nmethod 7086 0x000000000353d6d0 code [0x000000000353daa0, 0x000000000353fb18]
+Event: 870.475 Thread 0x000000001f072800 7087       1       org.jsoup.nodes.Document$OutputSettings::escapeMode (5 bytes)
+Event: 870.476 Thread 0x000000001f072800 nmethod 7087 0x00000000039f28d0 code [0x00000000039f2a20, 0x00000000039f2b30]
+Event: 870.476 Thread 0x000000001f072800 7088       1       org.jsoup.parser.Tag::preserveWhitespace (5 bytes)
+Event: 870.476 Thread 0x000000001f072800 nmethod 7088 0x0000000003c62690 code [0x0000000003c627e0, 0x0000000003c628f0]
+Event: 872.041 Thread 0x000000001f072000 7089       4       com.gargoylesoftware.htmlunit.javascript.host.Element::getAttribute (20 bytes)
+Event: 872.059 Thread 0x000000001f072000 nmethod 7089 0x00000000034da190 code [0x00000000034da3a0, 0x00000000034dbb10]
+Event: 877.004 Thread 0x000000001d7e4000 7090   !   4       sun.reflect.GeneratedMethodAccessor23::invoke (73 bytes)
+Event: 877.008 Thread 0x000000001d7e4000 nmethod 7090 0x0000000003380750 code [0x00000000033808c0, 0x0000000003380b48]
+Event: 880.588 Thread 0x000000001f072800 7091       1       org.jsoup.nodes.Document$OutputSettings::syntax (5 bytes)
+Event: 880.588 Thread 0x000000001f072000 7092       4       java.lang.StringBuilder::append (6 bytes)
+Event: 880.588 Thread 0x000000001d7e4000 7094       4       org.jsoup.nodes.Entities::canEncode (57 bytes)
+Event: 880.588 Thread 0x000000001f072800 nmethod 7091 0x0000000004106910 code [0x0000000004106a60, 0x0000000004106b70]
+Event: 880.588 Thread 0x000000001f072800 7093       3       java.util.Stack::empty (13 bytes)
+Event: 880.588 Thread 0x000000001f072800 nmethod 7093 0x000000000361d310 code [0x000000000361d480, 0x000000000361d850]
+Event: 880.589 Thread 0x000000001f072800 7096       1       org.jsoup.nodes.Document$OutputSettings::prettyPrint (5 bytes)
+Event: 880.589 Thread 0x000000001d7e4000 nmethod 7094 0x0000000002d856d0 code [0x0000000002d85820, 0x0000000002d85918]
+Event: 880.589 Thread 0x000000001f072800 nmethod 7096 0x0000000002eaab50 code [0x0000000002eaaca0, 0x0000000002eaadb0]
+Event: 880.589 Thread 0x000000001f072800 7097       1       org.jsoup.parser.Tag::formatAsBlock (5 bytes)
+Event: 880.589 Thread 0x000000001f072800 nmethod 7097 0x0000000003057490 code [0x00000000030575e0, 0x00000000030576f0]
+Event: 880.589 Thread 0x000000001f072800 7095       3       org.jsoup.nodes.Element::parent (8 bytes)
+Event: 880.589 Thread 0x000000001f072800 nmethod 7095 0x00000000038b9150 code [0x00000000038b92c0, 0x00000000038b9510]
+Event: 880.591 Thread 0x000000001f072000 nmethod 7092 0x0000000003870e90 code [0x0000000003870fe0, 0x00000000038713f8]
+Event: 902.020 Thread 0x000000001f072800 7098       3       java.util.WeakHashMap::<init> (133 bytes)
+Event: 902.022 Thread 0x000000001f072800 nmethod 7098 0x0000000004068190 code [0x00000000040684a0, 0x0000000004069c28]
+Event: 912.013 Thread 0x000000001f072800 7099   !   3       sun.reflect.GeneratedMethodAccessor85::invoke (61 bytes)
+Event: 912.014 Thread 0x000000001f072800 nmethod 7099 0x00000000038a9490 code [0x00000000038a96c0, 0x00000000038aa328]
+Event: 912.015 Thread 0x000000001f072800 7100       3       net.sourceforge.htmlunit.corejs.javascript.NativeArray::iterativeMethod (526 bytes)
+Event: 912.022 Thread 0x000000001f072800 nmethod 7100 0x000000000425b3d0 code [0x000000000425b880, 0x000000000425e758]
+Event: 914.230 Thread 0x000000001f072800 7101       3       java.util.PriorityQueue$Itr::hasNext (37 bytes)
+Event: 914.230 Thread 0x000000001f072800 nmethod 7101 0x0000000003fc3c50 code [0x0000000003fc3dc0, 0x0000000003fc40f0]
+Event: 932.015 Thread 0x000000001f072000 7102       4       com.gargoylesoftware.css.parser.CssCharStream::backup (38 bytes)
+Event: 932.015 Thread 0x000000001f072000 nmethod 7102 0x0000000003b43190 code [0x0000000003b432c0, 0x0000000003b43358]
+Event: 937.014 Thread 0x000000001d7e3800 7103   !   4       java.io.StringReader::read (133 bytes)
+Event: 937.019 Thread 0x000000001d7e3800 nmethod 7103 0x0000000003587110 code [0x0000000003587280, 0x0000000003587b48]
+Event: 952.019 Thread 0x000000001d7e3800 7104  s    4       java.lang.Throwable::fillInStackTrace (29 bytes)
+Event: 952.021 Thread 0x000000001d7e3800 nmethod 7104 0x0000000003930d90 code [0x0000000003930ee0, 0x0000000003931208]
+Event: 980.235 Thread 0x000000001f072800 7105       3       net.sourceforge.htmlunit.corejs.javascript.NativeString::get (39 bytes)
+Event: 980.236 Thread 0x000000001f072800 nmethod 7105 0x0000000004057cd0 code [0x0000000004057e80, 0x0000000004058468]
+Event: 987.009 Thread 0x000000001d7e4000 7106       4       com.gargoylesoftware.htmlunit.html.StaticDomNodeList::size (5 bytes)
+Event: 987.010 Thread 0x000000001d7e4000 nmethod 7106 0x00000000033d39d0 code [0x00000000033d3b20, 0x00000000033d3bd8]
+Event: 994.255 Thread 0x000000001d7e4000 7107       4       net.sourceforge.htmlunit.corejs.javascript.BoundFunction::call (44 bytes)
+Event: 994.261 Thread 0x000000001d7e4000 nmethod 7107 0x000000000333ffd0 code [0x0000000003340160, 0x0000000003340758]
+Event: 1032.024 Thread 0x000000001f072800 7108       3       com.gargoylesoftware.htmlunit.javascript.host.dom.DOMTokenList::isWhitespache (18 bytes)
+Event: 1032.024 Thread 0x000000001f072800 nmethod 7108 0x0000000002d52790 code [0x0000000002d52940, 0x0000000002d52fc8]
+Event: 1032.045 Thread 0x000000001f072800 7109       1       sun.misc.FloatingDecimal$PreparedASCIIToBinaryBuffer::doubleValue (5 bytes)
+Event: 1032.045 Thread 0x000000001f072800 nmethod 7109 0x00000000035425d0 code [0x0000000003542720, 0x0000000003542830]
+Event: 1032.133 Thread 0x000000001f072800 7110       3       java.math.MutableBigInteger::divideMagnitude (1307 bytes)
+Event: 1032.139 Thread 0x000000001f072800 nmethod 7110 0x000000000436c790 code [0x000000000436cb20, 0x000000000436eed8]
+
+GC Heap History (42 events):
+Event: 1.083 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 65536K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076b180000,0x000000076f180000,0x000000076f180000)
+  from space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+  to   space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+ ParOldGen       total 175104K, used 0K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 0% used [0x00000006c1400000,0x00000006c1400000,0x00000006cbf00000)
+ Metaspace       used 10752K, capacity 10872K, committed 11008K, reserved 1058816K
+  class space    used 1686K, capacity 1746K, committed 1792K, reserved 1048576K
+Event: 1.088 GC heap after
+Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 76288K, used 5682K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 52% used [0x000000076f180000,0x000000076f70ca68,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 175104K, used 16K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 0% used [0x00000006c1400000,0x00000006c1404000,0x00000006cbf00000)
+ Metaspace       used 10752K, capacity 10872K, committed 11008K, reserved 1058816K
+  class space    used 1686K, capacity 1746K, committed 1792K, reserved 1048576K
+}
+Event: 1.712 GC heap before
+{Heap before GC invocations=2 (full 0):
+ PSYoungGen      total 76288K, used 71218K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076b180000,0x000000076f180000,0x000000076f180000)
+  from space 10752K, 52% used [0x000000076f180000,0x000000076f70ca68,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 175104K, used 16K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 0% used [0x00000006c1400000,0x00000006c1404000,0x00000006cbf00000)
+ Metaspace       used 15293K, capacity 15461K, committed 15744K, reserved 1062912K
+  class space    used 3059K, capacity 3138K, committed 3200K, reserved 1048576K
+Event: 1.724 GC heap after
+Heap after GC invocations=2 (full 0):
+ PSYoungGen      total 76288K, used 9301K [0x000000076b180000, 0x0000000774680000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 86% used [0x000000076fc00000,0x0000000770515560,0x0000000770680000)
+  to   space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+ ParOldGen       total 175104K, used 24K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 0% used [0x00000006c1400000,0x00000006c1406000,0x00000006cbf00000)
+ Metaspace       used 15293K, capacity 15461K, committed 15744K, reserved 1062912K
+  class space    used 3059K, capacity 3138K, committed 3200K, reserved 1048576K
+}
+Event: 3.429 GC heap before
+{Heap before GC invocations=3 (full 0):
+ PSYoungGen      total 76288K, used 58816K [0x000000076b180000, 0x0000000774680000, 0x00000007c0000000)
+  eden space 65536K, 75% used [0x000000076b180000,0x000000076e1dad88,0x000000076f180000)
+  from space 10752K, 86% used [0x000000076fc00000,0x0000000770515560,0x0000000770680000)
+  to   space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+ ParOldGen       total 175104K, used 24K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 0% used [0x00000006c1400000,0x00000006c1406000,0x00000006cbf00000)
+ Metaspace       used 20759K, capacity 21017K, committed 21296K, reserved 1067008K
+  class space    used 3773K, capacity 3858K, committed 3968K, reserved 1048576K
+Event: 3.440 GC heap after
+Heap after GC invocations=3 (full 0):
+ PSYoungGen      total 76288K, used 10737K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 99% used [0x000000076f180000,0x000000076fbfc5e0,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 175104K, used 2947K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 1% used [0x00000006c1400000,0x00000006c16e0c98,0x00000006cbf00000)
+ Metaspace       used 20759K, capacity 21017K, committed 21296K, reserved 1067008K
+  class space    used 3773K, capacity 3858K, committed 3968K, reserved 1048576K
+}
+Event: 3.440 GC heap before
+{Heap before GC invocations=4 (full 1):
+ PSYoungGen      total 76288K, used 10737K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 99% used [0x000000076f180000,0x000000076fbfc5e0,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 175104K, used 2947K [0x00000006c1400000, 0x00000006cbf00000, 0x000000076b180000)
+  object space 175104K, 1% used [0x00000006c1400000,0x00000006c16e0c98,0x00000006cbf00000)
+ Metaspace       used 20759K, capacity 21017K, committed 21296K, reserved 1067008K
+  class space    used 3773K, capacity 3858K, committed 3968K, reserved 1048576K
+Event: 3.485 GC heap after
+Heap after GC invocations=4 (full 1):
+ PSYoungGen      total 76288K, used 0K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 119296K, used 13410K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c21189f8,0x00000006c8880000)
+ Metaspace       used 20759K, capacity 21017K, committed 21296K, reserved 1067008K
+  class space    used 3773K, capacity 3858K, committed 3968K, reserved 1048576K
+}
+Event: 3.603 GC heap before
+{Heap before GC invocations=5 (full 1):
+ PSYoungGen      total 76288K, used 65536K [0x000000076b180000, 0x0000000770680000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076b180000,0x000000076f180000,0x000000076f180000)
+  from space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+  to   space 10752K, 0% used [0x000000076fc00000,0x000000076fc00000,0x0000000770680000)
+ ParOldGen       total 119296K, used 13410K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c21189f8,0x00000006c8880000)
+ Metaspace       used 20898K, capacity 21179K, committed 21552K, reserved 1067008K
+  class space    used 3786K, capacity 3865K, committed 3968K, reserved 1048576K
+Event: 3.605 GC heap after
+Heap after GC invocations=5 (full 1):
+ PSYoungGen      total 76288K, used 3571K [0x000000076b180000, 0x0000000772380000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 33% used [0x000000076fc00000,0x000000076ff7cc20,0x0000000770680000)
+  to   space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+ ParOldGen       total 119296K, used 13418K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211a9f8,0x00000006c8880000)
+ Metaspace       used 20898K, capacity 21179K, committed 21552K, reserved 1067008K
+  class space    used 3786K, capacity 3865K, committed 3968K, reserved 1048576K
+}
+Event: 4.400 GC heap before
+{Heap before GC invocations=6 (full 1):
+ PSYoungGen      total 76288K, used 69107K [0x000000076b180000, 0x0000000772380000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076b180000,0x000000076f180000,0x000000076f180000)
+  from space 10752K, 33% used [0x000000076fc00000,0x000000076ff7cc20,0x0000000770680000)
+  to   space 10752K, 0% used [0x000000076f180000,0x000000076f180000,0x000000076fc00000)
+ ParOldGen       total 119296K, used 13418K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211a9f8,0x00000006c8880000)
+ Metaspace       used 23791K, capacity 24069K, committed 24320K, reserved 1069056K
+  class space    used 3994K, capacity 4068K, committed 4096K, reserved 1048576K
+Event: 4.405 GC heap after
+Heap after GC invocations=6 (full 1):
+ PSYoungGen      total 76288K, used 4390K [0x000000076b180000, 0x0000000772a80000, 0x00000007c0000000)
+  eden space 65536K, 0% used [0x000000076b180000,0x000000076b180000,0x000000076f180000)
+  from space 10752K, 40% used [0x000000076f180000,0x000000076f5c9ba0,0x000000076fc00000)
+  to   space 15360K, 0% used [0x0000000771b80000,0x0000000771b80000,0x0000000772a80000)
+ ParOldGen       total 119296K, used 13426K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211c9f8,0x00000006c8880000)
+ Metaspace       used 23791K, capacity 24069K, committed 24320K, reserved 1069056K
+  class space    used 3994K, capacity 4068K, committed 4096K, reserved 1048576K
+}
+Event: 5.781 GC heap before
+{Heap before GC invocations=7 (full 1):
+ PSYoungGen      total 76288K, used 69926K [0x000000076b180000, 0x0000000772a80000, 0x00000007c0000000)
+  eden space 65536K, 100% used [0x000000076b180000,0x000000076f180000,0x000000076f180000)
+  from space 10752K, 40% used [0x000000076f180000,0x000000076f5c9ba0,0x000000076fc00000)
+  to   space 15360K, 0% used [0x0000000771b80000,0x0000000771b80000,0x0000000772a80000)
+ ParOldGen       total 119296K, used 13426K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211c9f8,0x00000006c8880000)
+ Metaspace       used 24603K, capacity 24953K, committed 25216K, reserved 1071104K
+  class space    used 4039K, capacity 4118K, committed 4224K, reserved 1048576K
+Event: 5.790 GC heap after
+Heap after GC invocations=7 (full 1):
+ PSYoungGen      total 107520K, used 10159K [0x000000076b180000, 0x0000000772a80000, 0x00000007c0000000)
+  eden space 92160K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000770b80000)
+  from space 15360K, 66% used [0x0000000771b80000,0x000000077256bcd0,0x0000000772a80000)
+  to   space 15872K, 0% used [0x0000000770b80000,0x0000000770b80000,0x0000000771b00000)
+ ParOldGen       total 119296K, used 13434K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211e9f8,0x00000006c8880000)
+ Metaspace       used 24603K, capacity 24953K, committed 25216K, reserved 1071104K
+  class space    used 4039K, capacity 4118K, committed 4224K, reserved 1048576K
+}
+Event: 6.791 GC heap before
+{Heap before GC invocations=8 (full 1):
+ PSYoungGen      total 107520K, used 102319K [0x000000076b180000, 0x0000000772a80000, 0x00000007c0000000)
+  eden space 92160K, 100% used [0x000000076b180000,0x0000000770b80000,0x0000000770b80000)
+  from space 15360K, 66% used [0x0000000771b80000,0x000000077256bcd0,0x0000000772a80000)
+  to   space 15872K, 0% used [0x0000000770b80000,0x0000000770b80000,0x0000000771b00000)
+ ParOldGen       total 119296K, used 13434K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 11% used [0x00000006c1400000,0x00000006c211e9f8,0x00000006c8880000)
+ Metaspace       used 25244K, capacity 25671K, committed 25728K, reserved 1071104K
+  class space    used 4086K, capacity 4209K, committed 4224K, reserved 1048576K
+Event: 6.816 GC heap after
+Heap after GC invocations=8 (full 1):
+ PSYoungGen      total 108032K, used 15870K [0x000000076b180000, 0x0000000776c00000, 0x00000007c0000000)
+  eden space 92160K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000770b80000)
+  from space 15872K, 99% used [0x0000000770b80000,0x0000000771affba0,0x0000000771b00000)
+  to   space 26624K, 0% used [0x0000000775200000,0x0000000775200000,0x0000000776c00000)
+ ParOldGen       total 119296K, used 29026K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 24% used [0x00000006c1400000,0x00000006c30589a0,0x00000006c8880000)
+ Metaspace       used 25244K, capacity 25671K, committed 25728K, reserved 1071104K
+  class space    used 4086K, capacity 4209K, committed 4224K, reserved 1048576K
+}
+Event: 8.063 GC heap before
+{Heap before GC invocations=9 (full 1):
+ PSYoungGen      total 108032K, used 108030K [0x000000076b180000, 0x0000000776c00000, 0x00000007c0000000)
+  eden space 92160K, 100% used [0x000000076b180000,0x0000000770b80000,0x0000000770b80000)
+  from space 15872K, 99% used [0x0000000770b80000,0x0000000771affba0,0x0000000771b00000)
+  to   space 26624K, 0% used [0x0000000775200000,0x0000000775200000,0x0000000776c00000)
+ ParOldGen       total 119296K, used 29026K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 24% used [0x00000006c1400000,0x00000006c30589a0,0x00000006c8880000)
+ Metaspace       used 25861K, capacity 26337K, committed 26496K, reserved 1071104K
+  class space    used 4106K, capacity 4224K, committed 4224K, reserved 1048576K
+Event: 8.078 GC heap after
+Heap after GC invocations=9 (full 1):
+ PSYoungGen      total 160768K, used 22863K [0x000000076b180000, 0x0000000777280000, 0x00000007c0000000)
+  eden space 134144K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000773480000)
+  from space 26624K, 85% used [0x0000000775200000,0x0000000776853e90,0x0000000776c00000)
+  to   space 30208K, 0% used [0x0000000773480000,0x0000000773480000,0x0000000775200000)
+ ParOldGen       total 119296K, used 29034K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 24% used [0x00000006c1400000,0x00000006c305a9a0,0x00000006c8880000)
+ Metaspace       used 25861K, capacity 26337K, committed 26496K, reserved 1071104K
+  class space    used 4106K, capacity 4224K, committed 4224K, reserved 1048576K
+}
+Event: 8.866 GC heap before
+{Heap before GC invocations=10 (full 1):
+ PSYoungGen      total 160768K, used 157007K [0x000000076b180000, 0x0000000777280000, 0x00000007c0000000)
+  eden space 134144K, 100% used [0x000000076b180000,0x0000000773480000,0x0000000773480000)
+  from space 26624K, 85% used [0x0000000775200000,0x0000000776853e90,0x0000000776c00000)
+  to   space 30208K, 0% used [0x0000000773480000,0x0000000773480000,0x0000000775200000)
+ ParOldGen       total 119296K, used 29034K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 24% used [0x00000006c1400000,0x00000006c305a9a0,0x00000006c8880000)
+ Metaspace       used 26081K, capacity 26565K, committed 26880K, reserved 1071104K
+  class space    used 4109K, capacity 4230K, committed 4352K, reserved 1048576K
+Event: 8.893 GC heap after
+Heap after GC invocations=10 (full 1):
+ PSYoungGen      total 164352K, used 30189K [0x000000076b180000, 0x000000077aa00000, 0x00000007c0000000)
+  eden space 134144K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000773480000)
+  from space 30208K, 99% used [0x0000000773480000,0x00000007751fb498,0x0000000775200000)
+  to   space 36864K, 0% used [0x0000000778600000,0x0000000778600000,0x000000077aa00000)
+ ParOldGen       total 119296K, used 32551K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 27% used [0x00000006c1400000,0x00000006c33c9cd0,0x00000006c8880000)
+ Metaspace       used 26081K, capacity 26565K, committed 26880K, reserved 1071104K
+  class space    used 4109K, capacity 4230K, committed 4352K, reserved 1048576K
+}
+Event: 11.062 GC heap before
+{Heap before GC invocations=11 (full 1):
+ PSYoungGen      total 164352K, used 164333K [0x000000076b180000, 0x000000077aa00000, 0x00000007c0000000)
+  eden space 134144K, 100% used [0x000000076b180000,0x0000000773480000,0x0000000773480000)
+  from space 30208K, 99% used [0x0000000773480000,0x00000007751fb498,0x0000000775200000)
+  to   space 36864K, 0% used [0x0000000778600000,0x0000000778600000,0x000000077aa00000)
+ ParOldGen       total 119296K, used 32551K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 27% used [0x00000006c1400000,0x00000006c33c9cd0,0x00000006c8880000)
+ Metaspace       used 26629K, capacity 27229K, committed 27392K, reserved 1073152K
+  class space    used 4128K, capacity 4252K, committed 4352K, reserved 1048576K
+Event: 11.078 GC heap after
+Heap after GC invocations=11 (full 1):
+ PSYoungGen      total 212992K, used 34282K [0x000000076b180000, 0x000000077b000000, 0x00000007c0000000)
+  eden space 176128K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000775d80000)
+  from space 36864K, 92% used [0x0000000778600000,0x000000077a77a9b8,0x000000077aa00000)
+  to   space 41472K, 0% used [0x0000000775d80000,0x0000000775d80000,0x0000000778600000)
+ ParOldGen       total 119296K, used 32559K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 27% used [0x00000006c1400000,0x00000006c33cbcd0,0x00000006c8880000)
+ Metaspace       used 26629K, capacity 27229K, committed 27392K, reserved 1073152K
+  class space    used 4128K, capacity 4252K, committed 4352K, reserved 1048576K
+}
+Event: 32.012 GC heap before
+{Heap before GC invocations=12 (full 1):
+ PSYoungGen      total 212992K, used 210410K [0x000000076b180000, 0x000000077b000000, 0x00000007c0000000)
+  eden space 176128K, 100% used [0x000000076b180000,0x0000000775d80000,0x0000000775d80000)
+  from space 36864K, 92% used [0x0000000778600000,0x000000077a77a9b8,0x000000077aa00000)
+  to   space 41472K, 0% used [0x0000000775d80000,0x0000000775d80000,0x0000000778600000)
+ ParOldGen       total 119296K, used 32559K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 27% used [0x00000006c1400000,0x00000006c33cbcd0,0x00000006c8880000)
+ Metaspace       used 30730K, capacity 32542K, committed 32896K, reserved 1077248K
+  class space    used 4521K, capacity 4907K, committed 4992K, reserved 1048576K
+Event: 32.055 GC heap after
+Heap after GC invocations=12 (full 1):
+ PSYoungGen      total 217600K, used 41454K [0x000000076b180000, 0x000000077fb00000, 0x00000007c0000000)
+  eden space 176128K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000775d80000)
+  from space 41472K, 99% used [0x0000000775d80000,0x00000007785fb980,0x0000000778600000)
+  to   space 55296K, 0% used [0x000000077c500000,0x000000077c500000,0x000000077fb00000)
+ ParOldGen       total 119296K, used 51081K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 42% used [0x00000006c1400000,0x00000006c45e2710,0x00000006c8880000)
+ Metaspace       used 30730K, capacity 32542K, committed 32896K, reserved 1077248K
+  class space    used 4521K, capacity 4907K, committed 4992K, reserved 1048576K
+}
+Event: 115.240 GC heap before
+{Heap before GC invocations=13 (full 1):
+ PSYoungGen      total 217600K, used 217582K [0x000000076b180000, 0x000000077fb00000, 0x00000007c0000000)
+  eden space 176128K, 100% used [0x000000076b180000,0x0000000775d80000,0x0000000775d80000)
+  from space 41472K, 99% used [0x0000000775d80000,0x00000007785fb980,0x0000000778600000)
+  to   space 55296K, 0% used [0x000000077c500000,0x000000077c500000,0x000000077fb00000)
+ ParOldGen       total 119296K, used 51081K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 42% used [0x00000006c1400000,0x00000006c45e2710,0x00000006c8880000)
+ Metaspace       used 30946K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 115.266 GC heap after
+Heap after GC invocations=13 (full 1):
+ PSYoungGen      total 267776K, used 30927K [0x000000076b180000, 0x000000077f400000, 0x00000007c0000000)
+  eden space 219648K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000778800000)
+  from space 48128K, 64% used [0x000000077c500000,0x000000077e333d28,0x000000077f400000)
+  to   space 55296K, 0% used [0x0000000778800000,0x0000000778800000,0x000000077be00000)
+ ParOldGen       total 119296K, used 61870K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506b800,0x00000006c8880000)
+ Metaspace       used 30946K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 232.015 GC heap before
+{Heap before GC invocations=14 (full 1):
+ PSYoungGen      total 267776K, used 250575K [0x000000076b180000, 0x000000077f400000, 0x00000007c0000000)
+  eden space 219648K, 100% used [0x000000076b180000,0x0000000778800000,0x0000000778800000)
+  from space 48128K, 64% used [0x000000077c500000,0x000000077e333d28,0x000000077f400000)
+  to   space 55296K, 0% used [0x0000000778800000,0x0000000778800000,0x000000077be00000)
+ ParOldGen       total 119296K, used 61870K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506b800,0x00000006c8880000)
+ Metaspace       used 30971K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 232.041 GC heap after
+Heap after GC invocations=14 (full 1):
+ PSYoungGen      total 243712K, used 30843K [0x000000076b180000, 0x000000077ed00000, 0x00000007c0000000)
+  eden space 212480K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000778100000)
+  from space 31232K, 98% used [0x0000000778800000,0x000000077a61ed78,0x000000077a680000)
+  to   space 55296K, 0% used [0x000000077b700000,0x000000077b700000,0x000000077ed00000)
+ ParOldGen       total 119296K, used 61878K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506d800,0x00000006c8880000)
+ Metaspace       used 30971K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 347.011 GC heap before
+{Heap before GC invocations=15 (full 1):
+ PSYoungGen      total 243712K, used 243323K [0x000000076b180000, 0x000000077ed00000, 0x00000007c0000000)
+  eden space 212480K, 100% used [0x000000076b180000,0x0000000778100000,0x0000000778100000)
+  from space 31232K, 98% used [0x0000000778800000,0x000000077a61ed78,0x000000077a680000)
+  to   space 55296K, 0% used [0x000000077b700000,0x000000077b700000,0x000000077ed00000)
+ ParOldGen       total 119296K, used 61878K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506d800,0x00000006c8880000)
+ Metaspace       used 30971K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 347.035 GC heap after
+Heap after GC invocations=15 (full 1):
+ PSYoungGen      total 254464K, used 30832K [0x000000076b180000, 0x000000077e680000, 0x00000007c0000000)
+  eden space 205824K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000777a80000)
+  from space 48640K, 63% used [0x000000077b700000,0x000000077d51c0a0,0x000000077e680000)
+  to   space 55296K, 0% used [0x0000000777a80000,0x0000000777a80000,0x000000077b080000)
+ ParOldGen       total 119296K, used 61886K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506f800,0x00000006c8880000)
+ Metaspace       used 30971K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 457.520 GC heap before
+{Heap before GC invocations=16 (full 1):
+ PSYoungGen      total 254464K, used 236656K [0x000000076b180000, 0x000000077e680000, 0x00000007c0000000)
+  eden space 205824K, 100% used [0x000000076b180000,0x0000000777a80000,0x0000000777a80000)
+  from space 48640K, 63% used [0x000000077b700000,0x000000077d51c0a0,0x000000077e680000)
+  to   space 55296K, 0% used [0x0000000777a80000,0x0000000777a80000,0x000000077b080000)
+ ParOldGen       total 119296K, used 61886K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c506f800,0x00000006c8880000)
+ Metaspace       used 30975K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 457.551 GC heap after
+Heap after GC invocations=16 (full 1):
+ PSYoungGen      total 230400K, used 30863K [0x000000076b180000, 0x000000077df00000, 0x00000007c0000000)
+  eden space 199168K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000777400000)
+  from space 31232K, 98% used [0x0000000777a80000,0x00000007798a3c40,0x0000000779900000)
+  to   space 54784K, 0% used [0x000000077a980000,0x000000077a980000,0x000000077df00000)
+ ParOldGen       total 119296K, used 61894K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5071800,0x00000006c8880000)
+ Metaspace       used 30975K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 566.580 GC heap before
+{Heap before GC invocations=17 (full 1):
+ PSYoungGen      total 230400K, used 230031K [0x000000076b180000, 0x000000077df00000, 0x00000007c0000000)
+  eden space 199168K, 100% used [0x000000076b180000,0x0000000777400000,0x0000000777400000)
+  from space 31232K, 98% used [0x0000000777a80000,0x00000007798a3c40,0x0000000779900000)
+  to   space 54784K, 0% used [0x000000077a980000,0x000000077a980000,0x000000077df00000)
+ ParOldGen       total 119296K, used 61894K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5071800,0x00000006c8880000)
+ Metaspace       used 30977K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 566.608 GC heap after
+Heap after GC invocations=17 (full 1):
+ PSYoungGen      total 239616K, used 30829K [0x000000076b180000, 0x000000077d700000, 0x00000007c0000000)
+  eden space 193024K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000776e00000)
+  from space 46592K, 66% used [0x000000077a980000,0x000000077c79b518,0x000000077d700000)
+  to   space 53760K, 0% used [0x0000000776e00000,0x0000000776e00000,0x000000077a280000)
+ ParOldGen       total 119296K, used 61902K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5073800,0x00000006c8880000)
+ Metaspace       used 30977K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 672.009 GC heap before
+{Heap before GC invocations=18 (full 1):
+ PSYoungGen      total 239616K, used 223853K [0x000000076b180000, 0x000000077d700000, 0x00000007c0000000)
+  eden space 193024K, 100% used [0x000000076b180000,0x0000000776e00000,0x0000000776e00000)
+  from space 46592K, 66% used [0x000000077a980000,0x000000077c79b518,0x000000077d700000)
+  to   space 53760K, 0% used [0x0000000776e00000,0x0000000776e00000,0x000000077a280000)
+ ParOldGen       total 119296K, used 61902K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5073800,0x00000006c8880000)
+ Metaspace       used 30985K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 672.042 GC heap after
+Heap after GC invocations=18 (full 1):
+ PSYoungGen      total 218112K, used 30840K [0x000000076b180000, 0x000000077d000000, 0x00000007c0000000)
+  eden space 186880K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000776800000)
+  from space 31232K, 98% used [0x0000000776e00000,0x0000000778c1e230,0x0000000778c80000)
+  to   space 53248K, 0% used [0x0000000779c00000,0x0000000779c00000,0x000000077d000000)
+ ParOldGen       total 119296K, used 61910K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5075800,0x00000006c8880000)
+ Metaspace       used 30985K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 772.742 GC heap before
+{Heap before GC invocations=19 (full 1):
+ PSYoungGen      total 218112K, used 217720K [0x000000076b180000, 0x000000077d000000, 0x00000007c0000000)
+  eden space 186880K, 100% used [0x000000076b180000,0x0000000776800000,0x0000000776800000)
+  from space 31232K, 98% used [0x0000000776e00000,0x0000000778c1e230,0x0000000778c80000)
+  to   space 53248K, 0% used [0x0000000779c00000,0x0000000779c00000,0x000000077d000000)
+ ParOldGen       total 119296K, used 61910K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5075800,0x00000006c8880000)
+ Metaspace       used 30988K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 772.768 GC heap after
+Heap after GC invocations=19 (full 1):
+ PSYoungGen      total 226816K, used 30878K [0x000000076b180000, 0x000000077c880000, 0x00000007c0000000)
+  eden space 181248K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000776280000)
+  from space 45568K, 67% used [0x0000000779c00000,0x000000077ba27b60,0x000000077c880000)
+  to   space 52224K, 0% used [0x0000000776280000,0x0000000776280000,0x0000000779580000)
+ ParOldGen       total 119296K, used 61918K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5077800,0x00000006c8880000)
+ Metaspace       used 30988K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4540K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 872.016 GC heap before
+{Heap before GC invocations=20 (full 1):
+ PSYoungGen      total 226816K, used 212126K [0x000000076b180000, 0x000000077c880000, 0x00000007c0000000)
+  eden space 181248K, 100% used [0x000000076b180000,0x0000000776280000,0x0000000776280000)
+  from space 45568K, 67% used [0x0000000779c00000,0x000000077ba27b60,0x000000077c880000)
+  to   space 52224K, 0% used [0x0000000776280000,0x0000000776280000,0x0000000779580000)
+ ParOldGen       total 119296K, used 61918K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5077800,0x00000006c8880000)
+ Metaspace       used 31008K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4542K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 872.036 GC heap after
+Heap after GC invocations=20 (full 1):
+ PSYoungGen      total 206848K, used 30992K [0x000000076b180000, 0x000000077c200000, 0x00000007c0000000)
+  eden space 175616K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000775d00000)
+  from space 31232K, 99% used [0x0000000776280000,0x00000007780c41c0,0x0000000778100000)
+  to   space 51712K, 0% used [0x0000000778f80000,0x0000000778f80000,0x000000077c200000)
+ ParOldGen       total 119296K, used 61926K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5079800,0x00000006c8880000)
+ Metaspace       used 31008K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4542K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+Event: 967.213 GC heap before
+{Heap before GC invocations=21 (full 1):
+ PSYoungGen      total 206848K, used 206608K [0x000000076b180000, 0x000000077c200000, 0x00000007c0000000)
+  eden space 175616K, 100% used [0x000000076b180000,0x0000000775d00000,0x0000000775d00000)
+  from space 31232K, 99% used [0x0000000776280000,0x00000007780c41c0,0x0000000778100000)
+  to   space 51712K, 0% used [0x0000000778f80000,0x0000000778f80000,0x000000077c200000)
+ ParOldGen       total 119296K, used 61926K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c5079800,0x00000006c8880000)
+ Metaspace       used 31009K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4542K, capacity 4911K, committed 4992K, reserved 1048576K
+Event: 967.232 GC heap after
+Heap after GC invocations=21 (full 1):
+ PSYoungGen      total 215040K, used 30959K [0x000000076b180000, 0x000000077bb00000, 0x00000007c0000000)
+  eden space 170496K, 0% used [0x000000076b180000,0x000000076b180000,0x0000000775800000)
+  from space 44544K, 69% used [0x0000000778f80000,0x000000077adbbf68,0x000000077bb00000)
+  to   space 50688K, 0% used [0x0000000775800000,0x0000000775800000,0x0000000778980000)
+ ParOldGen       total 119296K, used 61934K [0x00000006c1400000, 0x00000006c8880000, 0x000000076b180000)
+  object space 119296K, 51% used [0x00000006c1400000,0x00000006c507b800,0x00000006c8880000)
+ Metaspace       used 31009K, capacity 32758K, committed 32896K, reserved 1077248K
+  class space    used 4542K, capacity 4911K, committed 4992K, reserved 1048576K
+}
+
+Deoptimization events (250 events):
+Event: 992.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 992.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 992.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 992.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 992.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 992.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 992.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 992.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 992.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 992.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 992.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 992.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 995.238 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 995.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 995.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 995.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 995.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 995.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 995.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 995.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 995.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 995.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 997.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 997.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 997.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 997.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 997.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 997.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 997.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 997.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 997.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 997.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 997.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 997.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 997.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 997.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 997.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 997.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 997.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1000.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1000.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1000.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1000.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1000.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1000.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1000.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1000.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1000.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1000.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1002.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1002.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1002.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1002.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1002.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1002.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1002.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1002.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1002.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1002.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1002.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1002.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1002.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1002.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1002.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1002.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1002.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1005.237 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1005.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1005.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1005.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1005.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1005.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1005.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1005.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1005.246 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1005.247 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1007.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1007.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1007.005 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1007.005 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1007.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1007.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1007.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1007.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1007.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1007.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1007.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1007.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1007.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1007.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1007.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1007.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1007.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1010.238 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1010.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1010.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1010.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1010.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1010.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1010.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1010.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1010.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1010.246 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1012.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1012.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1012.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1012.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1012.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1012.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1012.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1012.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1012.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1012.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1012.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1012.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1012.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1012.019 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1012.019 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1015.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1015.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1015.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1015.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1015.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1015.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1015.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1015.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1015.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1015.246 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1017.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1017.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1017.005 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1017.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1017.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1017.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1017.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1017.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1017.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1017.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1017.009 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1017.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1017.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1017.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1017.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1017.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1017.011 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1020.234 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1020.235 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1020.235 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1020.235 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1020.236 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1020.236 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1020.237 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1020.238 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1020.238 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1020.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1022.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1022.010 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1022.012 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1022.013 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1022.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1022.015 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1022.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1022.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1022.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1022.019 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1022.020 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1022.022 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1022.023 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1022.024 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1022.025 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1022.026 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1022.026 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1025.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1025.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1025.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1025.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1025.243 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1025.244 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1025.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1025.245 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1025.246 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1025.246 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1027.002 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1027.002 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1027.003 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1027.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1027.004 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1027.005 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1027.005 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1030.235 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1030.236 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1030.236 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1030.237 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1030.238 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1030.239 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1030.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1030.240 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1030.241 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1030.242 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1032.014 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.016 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.017 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.018 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.024 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.024 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1032.025 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.025 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1032.026 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.026 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1032.027 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1032.028 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1032.030 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1032.031 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000004179f64 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1032.033 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003587a84 method=java.io.StringReader.ensureOpen()V @ 16
+Event: 1032.034 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1032.035 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1032.036 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.037 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+Event: 1032.038 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000036f9218 method=com.gargoylesoftware.css.parser.javacc.CSS3Parser.jj_scan_token(I)Z @ 170
+Event: 1032.039 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x0000000003261368 method=com.gargoylesoftware.css.parser.CssCharStream.FillBuff()V @ 178
+Event: 1032.040 Thread 0x0000000025dd2000 Uncommon trap: reason=unhandled action=none pc=0x00000000038c52b8 method=java.lang.Integer.parseInt(Ljava/lang/String;I)I @ 204
+
+Classes redefined (4 events):
+Event: 113.434 Thread 0x000000001d5e1800 redefined class name=test.java.Snippet, count=1
+Event: 1016.651 Thread 0x000000001d5e1800 redefined class name=test.java.Snippet, count=2
+Event: 1022.959 Thread 0x000000001d5e1800 redefined class name=test.java.Snippet, count=3
+Event: 1030.600 Thread 0x000000001d5e1800 redefined class name=test.java.Snippet, count=4
+
+Internal exceptions (53 events):
+Event: 0.038 Thread 0x0000000002b36800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x000000076b187cb8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.
+Event: 0.038 Thread 0x0000000002b36800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076b187fa0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 4014]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b295000) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b295210) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b2960a0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b2962b0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b297198) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.215 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b2973a8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.216 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b29ebf0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.216 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b29ee00) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.236 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b479df0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.236 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b47a000) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.238 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b4e64a0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.238 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b4e66b0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.249 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55aef0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.249 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55b100) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.249 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55c240) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.249 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55c450) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55d790) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55d9a0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55eae8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55ecf8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b55ff28) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b560138) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b561458) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.250 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076b561668) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.540 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c25f8d0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.540 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c25fae0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.541 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c2618f0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.541 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c261b00) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.541 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c262570) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.542 Thread 0x0000000002b36800 Exception <a 'java/security/PrivilegedActionException'> (0x000000076c262780) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1501]
+Event: 0.552 Thread 0x0000000002b36800 Exception <a 'java/lang/NoClassDefFoundError': org/apache/log4j/Priority> (0x000000076c2ffc38) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 199]
+Event: 1.638 Thread 0x0000000002b36800 Implicit null exception at 0x0000000003096ecf to 0x00000000030974a1
+Event: 1.671 Thread 0x0000000002b36800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000076ee83800) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1167]
+Event: 1.674 Thread 0x0000000002b36800 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000076ee91390) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1167]
+Event: 4.178 Thread 0x0000000002b36800 Implicit null exception at 0x0000000003581766 to 0x0000000003582031
+Event: 4.333 Thread 0x0000000002b36800 Implicit null exception at 0x00000000033c8a6a to 0x00000000033caf05
+Event: 4.394 Thread 0x0000000002b36800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000076f045ec0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\runtime\reflection.cpp, line 1092]
+Event: 4.420 Thread 0x0000000002b36800 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x000000076b26a0b0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\runtime\reflection.cpp, line 1092]
+Event: 4.701 Thread 0x0000000002b36800 Implicit null exception at 0x000000000356c255 to 0x000000000356cd69
+Event: 6.051 Thread 0x0000000002b36800 Implicit null exception at 0x0000000003936a3c to 0x0000000003939489
+Event: 6.643 Thread 0x0000000025dd2000 Implicit null exception at 0x00000000036a98a3 to 0x00000000036a9a69
+Event: 9.376 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x000000076f726840) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 10.183 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x0000000770cddae0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 10.501 Thread 0x0000000025dd2000 Implicit null exception at 0x0000000003994e4c to 0x00000000039951f9
+Event: 12.029 Thread 0x0000000025dd2000 Implicit null exception at 0x0000000003902349 to 0x0000000003902c15
+Event: 12.379 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x000000076ede45d8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 13.120 Thread 0x0000000025dd2000 Implicit null exception at 0x0000000003ffb825 to 0x0000000003ffda6d
+Event: 15.400 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x0000000773b206b0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 68.946 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x00000007704cf0e0) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+Event: 119.263 Thread 0x0000000025dd2000 Implicit null exception at 0x000000000338094e to 0x0000000003380b45
+Event: 128.880 Thread 0x0000000025dd2000 Exception <a 'java/net/SocketTimeoutException': Read timed out> (0x000000076ceb1eb8) thrown at [D:\a\1\s\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 737]
+
+Events (250 events):
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038b205c sp=0x00000000235fd710
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd3b0 mode 1
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd890
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd828 mode 2
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000043635c4 sp=0x00000000235fd8d0
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5b8 mode 1
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382927c sp=0x00000000235fd930
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd588 mode 1
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1027.006 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1027.006 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e75c sp=0x00000000235fd870
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1027.007 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1027.007 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e75c sp=0x00000000235fd870
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1027.008 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1027.008 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1030.235 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1030.235 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1030.235 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e5a4 sp=0x00000000235fd870
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1030.236 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000004179f64
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004179f64 sp=0x00000000235fd4d0
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd418 mode 2
+Event: 1030.236 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1030.236 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1030.237 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1030.237 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1030.237 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1030.237 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1030.237 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1030.238 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1030.238 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1030.238 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e5a4 sp=0x00000000235fd870
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1030.239 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1030.239 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1030.240 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1030.240 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1030.240 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e5a4 sp=0x00000000235fd870
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1030.241 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1030.241 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1030.242 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1030.242 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1030.242 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1030.242 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1030.242 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1030.564 Executing VM operation: RedefineClasses
+Event: 1030.601 Executing VM operation: RedefineClasses done
+Event: 1030.607 Executing VM operation: ChangeBreakpoints
+Event: 1030.611 Executing VM operation: ChangeBreakpoints done
+Event: 1030.659 Executing VM operation: GetOwnedMonitorInfo
+Event: 1030.659 Executing VM operation: GetOwnedMonitorInfo done
+Event: 1030.659 Executing VM operation: GetCurrentContendedMonitor
+Event: 1030.659 Executing VM operation: GetCurrentContendedMonitor done
+Event: 1032.014 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.014 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb340
+Event: 1032.014 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb208 mode 2
+Event: 1032.016 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.016 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb250
+Event: 1032.016 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb118 mode 2
+Event: 1032.016 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.016 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb250
+Event: 1032.016 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb118 mode 2
+Event: 1032.017 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.017 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb250
+Event: 1032.017 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb118 mode 2
+Event: 1032.017 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.017 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb340
+Event: 1032.017 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb208 mode 2
+Event: 1032.018 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.018 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb340
+Event: 1032.018 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb208 mode 2
+Event: 1032.018 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.018 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fb340
+Event: 1032.018 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fb208 mode 2
+Event: 1032.024 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000004179f64
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004179f64 sp=0x00000000235fd4d0
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd418 mode 2
+Event: 1032.024 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1032.024 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1032.025 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000004179f64
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004179f64 sp=0x00000000235fd4d0
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd418 mode 2
+Event: 1032.025 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1032.025 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1032.026 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000004179f64
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004179f64 sp=0x00000000235fd6d0
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd610 mode 2
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038b205c sp=0x00000000235fd710
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd3b0 mode 1
+Event: 1032.026 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd890
+Event: 1032.026 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd828 mode 2
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000043635c4 sp=0x00000000235fd8d0
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5b8 mode 1
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382927c sp=0x00000000235fd930
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd588 mode 1
+Event: 1032.027 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1032.027 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1032.028 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1032.028 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1032.028 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1032.028 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1032.028 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1032.030 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1032.030 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1032.030 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e75c sp=0x00000000235fd870
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1032.031 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1032.031 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000004179f64
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004179f64 sp=0x00000000235fd6d0
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd610 mode 2
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038b205c sp=0x00000000235fd710
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd3b0 mode 1
+Event: 1032.032 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd890
+Event: 1032.032 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd828 mode 2
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000043635c4 sp=0x00000000235fd8d0
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5b8 mode 1
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382927c sp=0x00000000235fd930
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd588 mode 1
+Event: 1032.033 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003587a84
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003587a84 sp=0x00000000235fd660
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5c8 mode 2
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003260068 sp=0x00000000235fd6f0
+Event: 1032.033 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd330 mode 1
+Event: 1032.034 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1032.034 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1032.034 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1032.034 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1032.034 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1032.035 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1032.035 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1032.035 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e75c sp=0x00000000235fd870
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1032.036 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1032.036 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1032.037 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1032.037 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1032.037 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1032.037 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1032.037 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1032.038 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000036f9218
+Event: 1032.038 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000036f9218 sp=0x00000000235fd830
+Event: 1032.038 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd7c8 mode 2
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000381e75c sp=0x00000000235fd870
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd510 mode 1
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000030d14a4 sp=0x00000000235fd8e0
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd610 mode 1
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x000000000382934c sp=0x00000000235fd930
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fd5e0 mode 1
+Event: 1032.039 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x0000000003261368
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000003261368 sp=0x00000000235fd6f0
+Event: 1032.039 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fd5b8 mode 2
+Event: 1032.040 Thread 0x0000000025dd2000 Uncommon trap: trap_request=0xffffffa7 fr.pc=0x00000000038c52b8
+Event: 1032.040 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x00000000038c52b8 sp=0x00000000235fde70
+Event: 1032.040 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3807b sp=0x00000000235fde18 mode 2
+Event: 1032.040 Thread 0x0000000025dd2000 DEOPT PACKING pc=0x0000000004107464 sp=0x00000000235fdef0
+Event: 1032.040 Thread 0x0000000025dd2000 DEOPT UNPACKING pc=0x0000000002c3a0d0 sp=0x00000000235fdc40 mode 1
+Event: 1033.092 Executing VM operation: GetOrSetLocal
+
+
+Dynamic libraries:
+0x00007ff62a8f0000 - 0x00007ff62a939000 	C:\_JSP\jdk8\bin\javaw.exe
+0x00007ffce06a0000 - 0x00007ffce0890000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffcdf630000 - 0x00007ffcdf6e2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffcde1a0000 - 0x00007ffcde443000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffcded00000 - 0x00007ffcdeda3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffcdeee0000 - 0x00007ffcdef7e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffcdf260000 - 0x00007ffcdf2f7000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffcdeb60000 - 0x00007ffcdec80000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffcdf300000 - 0x00007ffcdf494000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffcde6a0000 - 0x00007ffcde6c1000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffcdef80000 - 0x00007ffcdefa6000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffcdd880000 - 0x00007ffcdda14000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffcde600000 - 0x00007ffcde69e000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffcde500000 - 0x00007ffcde5fa000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffcce540000 - 0x00007ffcce7c5000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.778_none_e6c6b761130d4fb8\COMCTL32.dll
+0x00007ffcde800000 - 0x00007ffcdeb36000 	C:\WINDOWS\System32\combase.dll
+0x00007ffcde6f0000 - 0x00007ffcde770000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffce0600000 - 0x00007ffce062e000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000062920000 - 0x00000000629f2000 	C:\_JSP\jdk8\jre\bin\msvcr100.dll
+0x0000000062060000 - 0x000000006291b000 	C:\_JSP\jdk8\jre\bin\server\jvm.dll
+0x00007ffcdec80000 - 0x00007ffcdec88000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffcd7830000 - 0x00007ffcd783a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffcd6fb0000 - 0x00007ffcd6fd4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffcc11a0000 - 0x00007ffcc11a9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffcdec90000 - 0x00007ffcdecff000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffcd7050000 - 0x00007ffcd707d000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffcdd6e0000 - 0x00007ffcdd72a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffcc99a0000 - 0x00007ffcc99af000 	C:\_JSP\jdk8\jre\bin\verify.dll
+0x00007ffcb4470000 - 0x00007ffcb4499000 	C:\_JSP\jdk8\jre\bin\java.dll
+0x00007ffcbd100000 - 0x00007ffcbd135000 	C:\_JSP\jdk8\jre\bin\jdwp.dll
+0x00007ffcdaa60000 - 0x00007ffcdaa68000 	C:\_JSP\jdk8\jre\bin\npt.dll
+0x00007ffccfe80000 - 0x00007ffccfea3000 	C:\_JSP\jdk8\jre\bin\instrument.dll
+0x00007ffcbc9a0000 - 0x00007ffcbc9b6000 	C:\_JSP\jdk8\jre\bin\zip.dll
+0x00007ffcdf6f0000 - 0x00007ffcdfdd5000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffce0410000 - 0x00007ffce04b9000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffcdda20000 - 0x00007ffcde1a0000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffcdd620000 - 0x00007ffcdd643000 	C:\WINDOWS\System32\profapi.dll
+0x00007ffcdd650000 - 0x00007ffcdd69a000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffcdd610000 - 0x00007ffcdd620000 	C:\WINDOWS\System32\UMPDC.dll
+0x00007ffcdefb0000 - 0x00007ffcdf002000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffcdd6a0000 - 0x00007ffcdd6b1000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffcde6d0000 - 0x00007ffcde6e7000 	C:\WINDOWS\System32\cryptsp.dll
+0x00007ffcdaa50000 - 0x00007ffcdaa59000 	C:\_JSP\jdk8\jre\bin\dt_socket.dll
+0x00007ffcc3b80000 - 0x00007ffcc3b96000 	C:\WINDOWS\system32\napinsp.dll
+0x00007ffcc3b60000 - 0x00007ffcc3b7a000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x00007ffcdce80000 - 0x00007ffcdcee7000 	C:\WINDOWS\System32\mswsock.dll
+0x00007ffcdcbd0000 - 0x00007ffcdcc9a000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00007ffcdf620000 - 0x00007ffcdf628000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffcdcb90000 - 0x00007ffcdcbca000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffcc3b50000 - 0x00007ffcc3b5e000 	C:\WINDOWS\System32\winrnr.dll
+0x00007ffcda140000 - 0x00007ffcda15c000 	C:\WINDOWS\system32\NLAapi.dll
+0x00007ffcd93f0000 - 0x00007ffcd9405000 	C:\WINDOWS\system32\wshbth.dll
+0x00007ffcd5310000 - 0x00007ffcd5387000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x00007ffcde770000 - 0x00007ffcde796000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ffcd7780000 - 0x00007ffcd778a000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffcb6010000 - 0x00007ffcb6024000 	C:\_JSP\jdk8\jre\bin\sunec.dll
+0x00007ffcdc9f0000 - 0x00007ffcdca23000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ffcdd530000 - 0x00007ffcdd555000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ffcdd050000 - 0x00007ffcdd05c000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00007ffcbc320000 - 0x00007ffcbc33a000 	C:\_JSP\jdk8\jre\bin\net.dll
+0x00007ffcd5d10000 - 0x00007ffcd5d26000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffcd5e20000 - 0x00007ffcd5e3c000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x00007ffcbb210000 - 0x00007ffcbb221000 	C:\_JSP\jdk8\jre\bin\nio.dll
+0x00007ffcd8ee0000 - 0x00007ffcd8eeb000 	C:\_JSP\jdk8\jre\bin\sunmscapi.dll
+0x00007ffcdd730000 - 0x00007ffcdd879000 	C:\WINDOWS\System32\CRYPT32.dll
+0x00007ffcdd6c0000 - 0x00007ffcdd6d2000 	C:\WINDOWS\System32\MSASN1.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:54570 -javaagent:C:\_JSP\eclipse\configuration\org.eclipse.osgi\411\0\.cp\lib\javaagent-shaded.jar -Dfile.encoding=UTF-8 
+java_command: test.java.Snippet
+java_class_path (initial): C:\Users\Rubylulu\pikachu\target\classes;C:\_JSP\Maven\repository\javax\servlet\javax.servlet-api\3.1.0\javax.servlet-api-3.1.0.jar;C:\_JSP\Maven\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.1\javax.servlet.jsp-api-2.3.1.jar;C:\_JSP\Maven\repository\javax\servlet\jstl\1.2\jstl-1.2.jar;C:\_JSP\Maven\repository\net\sourceforge\htmlunit\htmlunit\2.36.0\htmlunit-2.36.0.jar;C:\_JSP\Maven\repository\xalan\xalan\2.7.2\xalan-2.7.2.jar;C:\_JSP\Maven\repository\xalan\serializer\2.7.2\serializer-2.7.2.jar;C:\_JSP\Maven\repository\org\apache\commons\commons-lang3\3.9\commons-lang3-3.9.jar;C:\_JSP\Maven\repository\org\apache\commons\commons-text\1.7\commons-text-1.7.jar;C:\_JSP\Maven\repository\org\apache\httpcomponents\httpmime\4.5.9\httpmime-4.5.9.jar;C:\_JSP\Maven\repository\org\apache\httpcomponents\httpclient\4.5.9\httpclient-4.5.9.jar;C:\_JSP\Maven\repository\org\apache\httpcomponents\httpcore\4.4.11\httpcore-4.4.11.jar;C:\_JSP\Maven\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\_JSP\Maven\repository\net\sourceforge\htmlunit\htmlunit-core-js\2.36.0\htmlunit-core-js-2.36.0.jar;C:\_JSP\Maven\repository\net\sourceforge\htmlunit\neko-htmlunit\2.36.0\neko-htmlunit-2.36.0.jar;C:\_JSP\Maven\repository\xerces\xercesImpl\2.12.0\xercesImpl-2.12.0.jar;C:\_JSP\Maven\repository\xml-apis\xml-apis\1.4.01\xml-apis-1.4.01.jar;C:\_JSP\Maven\repository\net\sourceforge\htmlunit\htmlunit-cssparser\1.5.0\htmlunit-cssparser-1.5.0.jar;C:\_JSP\Maven\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;C:\_JSP\Maven\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\_JSP\Maven\repository\commons-net\commons-net\3.6\commons-net-3.6.jar;C:\_JSP\Maven\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\_JSP\Maven\repository\org\eclipse\jetty\websocket\websocket-client\9.4.20.v20190813\websocket-client-9.4.20.v20190813.jar;C:\_JSP\Maven\repository\org\eclipse\jetty\jetty-client\9.4.20.v20190813\jetty-client-9.4.20.v20
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\_JSP\jdk8\jre\bin;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Java\jdk-13.0.1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Rubylulu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Rubylulu\AppData\Local\Microsoft\WindowsApps;C:\Users\Rubylulu\AppData\Roaming\npm;C:\Users\Rubylulu\AppData\Local\GitHubDesktop\bin
+USERNAME=Rubylulu
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.778)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 16693052k(8410584k free), swap 19183420k(7956632k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.232-b09) for windows-amd64 JRE (1.8.0_232-b09), built on Dec  4 2019 11:22:39 by "VssAdministrator" with MS VC++ 10.0 (VS2010)
+
+time: Fri Apr 24 22:10:41 2020
+timezone: °ÄÖÞÎ÷²¿˜ËœÊ•rég
+elapsed time: 1033 seconds (0d 0h 17m 13s)
+
