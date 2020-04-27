@@ -50,7 +50,7 @@ public class Snippet {
 	    webClient.getOptions().setTimeout(5 * 1000);                   	//设置连接超时时间  
 	    
 	    HtmlPage page = webClient.getPage(url); 
-	    webClient.waitForBackgroundJavaScript(5 * 1000);               // 等待js后台执行30秒  
+	    webClient.waitForBackgroundJavaScript(5 * 1000);               // 等待js后台执行秒  
 	    String pageAsXml = page.asXml();
 	     
 	    // Jsoup解析处理  
