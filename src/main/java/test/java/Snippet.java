@@ -2,6 +2,8 @@ package test.java;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -36,9 +38,11 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlImage;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
-public class Snippet {
+public class Snippet 
+  {
 	@SuppressWarnings("resource")
-	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException {  
+	public static void main(String[] args) throws FailingHttpStatusCodeException, MalformedURLException, IOException 
+	{  
 	      
 	    // 屏蔽HtmlUnit等系统 log  
 	    java.util.logging.Logger.getLogger("org.apache.http.client").setLevel(Level.OFF);  
@@ -87,17 +91,33 @@ public class Snippet {
          System.out.println("已存在無法再建立資料夾");
         }
         
+        File dir_file3 = new File("c:/information/picture");   /*路徑跟檔名*/
+        if (dir_file3.mkdir()) 
+        {
+          System.out.println("已建立資料夾");
+        } else 
+        {
+         System.out.println("已存在無法再建立資料夾");
+        }
+        
+        
+
+        
+        
+        
         System.out.println("共"+allJsLinks.size()+"資料會輸出");
         
 	    //首頁資訊
-	   for (int i=0;i<allJsLinks.size();i++) {
+	   for (int i=0;i<allJsLinks.size();i++) 
+	   {
 	    	String titleValue = allJsLinks.get(i).attr("title").toString();		//URL
 	    	String urlNews = allJsLinks.get(i).attr("abs:href").toString();		//URI	
 	    	String pstr = pcontext.get(i).text();
 	    	String datastr = datatext.get(i).text();
 	    
-	        FileWriter fw1=new FileWriter("c:/information/pageitem/日期為"+dateNowStr+"首頁優惠資訊.txt",true);//產生的路徑放置位置,true為不覆蓋檔案
-	    	BufferedWriter bufferOut = new BufferedWriter(fw1,20);//20為一個緩衝區的字元可以自己設定
+	    	FileWriter fw1=new FileWriter("c:/information/pageitem/日期為"+dateNowStr+"時首頁優惠資訊.txt",true);//產生的路徑放置位置,true為不覆蓋檔案
+	     	BufferedWriter bufferOut = new BufferedWriter(fw1,20);//20為一個緩衝區的字元可以自己設定
+	     	
 	       
 	    	bufferOut.write(titleValue);//新聞標題
 	    	bufferOut.newLine();//換行
@@ -129,8 +149,10 @@ public class Snippet {
 	        String contextvalue=contextarea.get(3).text();//文章內容
 	        String imgpicture = imgarea.attr("src").toString();//找出img src連結	
 	         
-		    FileWriter fw2=new FileWriter("c:/information/page/日期為"+dateNowStr+"分頁優惠資訊.txt",true);//產生的路徑放置位置,true為不覆蓋檔案
+	        
+	    	FileWriter fw2=new FileWriter("c:/information/page/日期為"+dateNowStr+"時分頁優惠資訊.txt",true);//產生的路徑放置位置,true為不覆蓋檔案
 		    BufferedWriter bufferOut2 = new BufferedWriter(fw2,20);//20為一個緩衝區的字元可以自己設定
+		 
 		    bufferOut2.write(textvalue);//標題
 		    bufferOut2.newLine();//換行
 		    bufferOut2.write(acttext);//活動時間
@@ -140,22 +162,68 @@ public class Snippet {
 		    bufferOut2.flush();//緩衝區內容立刻寫入檔案
             fw2.close();
             System.out.println("第"+(i+1)+"份分資料產生"); 
-	         
-	       
-	    
-	        
-	        }
-	        System.out.println("全部資料皆以輸出"); 
-	    
-	    
-	    
-	    
-	    webClient.close();
-	} 
+            
+            url = imgpicture;
+	        Download(url);
+
+            
+	     }
+            System.out.println("全部資料皆以輸出(包含圖片)"); 
+            webClient.close();
+	    }
+	
+	     //抓圖片的方法
+	     private static  String Download(String urlList) {
+         URL url = null;
+         String filepath="";
+         
+         try {
+            url = new URL(urlList);
+            DataInputStream dataInputStream = new DataInputStream(url.openStream());
+            String newpaht ="c:/information/picture";
+            try{
+				File file = new File(newpaht);
+				if(!file.exists()){
+					file.mkdirs();					
+				}
+			}catch(Exception ex){
+				System.out.println(ex);
+			}
+            filepath=newpaht+"\\"+urlList.substring(urlList.lastIndexOf("/")+1, urlList.length());//這句我看不懂為啥要加+1?
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(filepath));
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+ 
+            byte[] buffer = new byte[1024];
+            int length;
+ 
+            while ((length = dataInputStream.read(buffer)) > 0) {
+                output.write(buffer, 0, length);
+            }
+            fileOutputStream.write(output.toByteArray());
+            dataInputStream.close();
+            fileOutputStream.close();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		return filepath;
+
+	   }
+
+	}
+	 	 
+
 	
 	
+
 	
-}
+	
+
+
+
+
+
 
 
 
