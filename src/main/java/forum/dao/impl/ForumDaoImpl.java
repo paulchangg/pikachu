@@ -222,7 +222,15 @@ public class ForumDaoImpl implements Serializable, IForumDao {
 	}
 
 	@Override
-	public String getFname() {
+	public String getFname(int f_id) {
+		
+		String fname =null;
+		
+		Session session = factory.getCurrentSession();
+		String hql = "FROM FoumBean WHERE f_id = :fid ";
+
+		fname = (String) session.createQuery(hql).setParameter("f_id", f_id).getSingleResult();
+		
 		return fname;
 	}
 

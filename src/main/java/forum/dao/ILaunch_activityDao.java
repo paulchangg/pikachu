@@ -11,7 +11,7 @@ public interface ILaunch_activityDao {
 	// 1.新增一筆文章到launch_activity表格
 	void insertArticle(Launch_activityBean article);
 
-	int updateArticle(int article_Id,Launch_activityBean article);
+	int updateArticle(int article_Id,Launch_activityBean bean);
 
 	int DeleteArticle(int article_Id);
 
@@ -20,7 +20,7 @@ public interface ILaunch_activityDao {
 
 
 	// 2.查詢launch_activity表格內的單筆文章(個別member)
-	List<Launch_activityBean> getMemberArticles(String article_m_id);
+	List  <Launch_activityBean> getMemberArticles(String article_m_id);
 
 	// 3.查詢launch_activity表格內的所有文章(不分member)
 	List<Launch_activityBean> getAllArticles();
@@ -32,7 +32,7 @@ public interface ILaunch_activityDao {
 //	FoumBean getF_idByfname(String fname); 錯誤
 	
 	
-	
+	int addPopularity(int article_Id, int popularity);
 
 
 }

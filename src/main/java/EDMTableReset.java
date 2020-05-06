@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import forum.model.FoumBean;
+import forum.service.IFoumService;
+import forum.service.impl.FoumServiceImpl;
 import init.utils.DBService;
 
 //import _00_init.util.DBService;
@@ -80,6 +83,22 @@ public class EDMTableReset {
 			// 7.forum表格
 			// 8.
 
+			
+			
+			String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
+			for(String fname:n) {  // = for(int i =0; i<n.length;i++)
+			IFoumService service = new FoumServiceImpl();
+			FoumBean forum = new FoumBean(null, fname, null);
+			service.insertFoum(forum);		
+			}	
+			
+			
+			
+			
+			
+			
+			
+			
 			
 		}
 		 catch (SQLException e) {

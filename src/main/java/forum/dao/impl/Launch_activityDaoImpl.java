@@ -59,17 +59,23 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	// 1-2更新某一個文章 所以用id
 
 	@Override
-	public int updateArticle(int article_Id,Launch_activityBean article) {
+	public int updateArticle(int article_Id,Launch_activityBean bean) {
 
 		int result = 0;
-
-		
-		String hql = "UPDATE Launch_activityBean   WHERE article_Id = :articleid";
-
+		Launch_activityBean article = null;
 		Session session = factory.getCurrentSession();
+		article  = session.get(Launch_activityBean.class, article_Id);
+		article.setArticle_content(bean.getArticle_content());
+		article.setArticle_title(bean.getArticle_title());
+		
+		article.setArticleimage(bean.getArticleimage());
+		article.setStartTime(bean.getStartTime());
+		article.setEndTime(bean.getEndTime());
 
-		result = session.createQuery(hql).setParameter("articleid", article_Id).executeUpdate();
+		article.setUpdateTime(bean.getUpdateTime());
 
+		article.setLocation(bean.getLocation());
+		
 		return result;
 	}
 
@@ -102,15 +108,17 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 	
 
 	// 2.查詢launch_activity表格內的單筆文章(個別member)
-	@Override
 	@SuppressWarnings("unchecked")
-
-	public List<Launch_activityBean> getMemberArticles(String article_m_id) {
-		List<Launch_activityBean> list = null;
+	@Override
+	public List  <Launch_activityBean> getMemberArticles(String article_m_id) {
+		List  <Launch_activityBean> launc_member = null;
 		Session session = factory.getCurrentSession();
-		String hql = "FROM Launch_activityBean lab WHERE lab.Article_m_id = :amid";
-		list = session.createQuery(hql).setParameter("amid", article_m_id).getResultList();
-		return list;
+//		String ipk = String.valueOf(article_m_id);
+//		launc_member = session.get(Launch_activityBean.class, ipk);
+		
+		String hql = "FROM Launch_activityBean  WHERE Article_m_id = :amid";
+		launc_member =  session.createQuery(hql).setParameter("amid", article_m_id).getResultList();
+		return launc_member;
 	}
 
 	// 3.查詢launch_activity表格內的所有文章(不分member)
@@ -139,6 +147,19 @@ public class Launch_activityDaoImpl implements Serializable,ILaunch_activityDao 
 		foumbean = (FoumBean) session.createQuery(hql).setParameter("fid", f_id).getSingleResult();
 		return foumbean;
 	}
+
+	@Override
+	public int addPopularity(int article_Id, int popularity) {
+		int result = 0;
+		Launch_activityBean article = null;
+		Session session = factory.getCurrentSession();
+		article  = session.get(Launch_activityBean.class, article_Id);
+		
+		article.setPopularity(popularity);
+		return result;
+	}
+
+
 
 //	@Override
 //	public FoumBean getF_idByfname(String fname) {//錯誤

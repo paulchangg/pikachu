@@ -4,12 +4,14 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import member.model.MemberBean;
 
@@ -26,9 +28,15 @@ public class ResponserBean {
 	private String res_m_id;
 	private Date postTime;// 回應文章的時間 新增欄位
 	private Date updateTime;
+	@Column(name = "res_content" ,columnDefinition = "LONGTEXT")
 	private String res_content;
 
-	@ManyToOne
+	@Transient
+	private Integer  article_Id;
+	
+	
+	
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "article_Id", nullable = false)
 	private Launch_activityBean launch_activityBean;
 
@@ -97,23 +105,23 @@ public class ResponserBean {
 		this.launch_activityBean = launch_activityBean;
 	}
 	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("ResponserBean [res_id=");
-		builder.append(res_id);
-		builder.append(", res_m_id=");
-		builder.append(res_m_id);
-		builder.append(", postTime=");
-		builder.append(postTime);
-		builder.append(", updateTime=");
-		builder.append(updateTime);
-		builder.append(", res_content=");
-		builder.append(res_content);
-		builder.append(", launch_activityBean=");
-		builder.append(launch_activityBean);
-		builder.append("]");
-		return builder.toString();
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("ResponserBean [res_id=");
+//		builder.append(res_id);
+//		builder.append(", res_m_id=");
+//		builder.append(res_m_id);
+//		builder.append(", postTime=");
+//		builder.append(postTime);
+//		builder.append(", updateTime=");
+//		builder.append(updateTime);
+//		builder.append(", res_content=");
+//		builder.append(res_content);
+//		builder.append(", launch_activityBean=");
+//		builder.append(launch_activityBean);
+//		builder.append("]");
+//		return builder.toString();
+//	}
 
 }

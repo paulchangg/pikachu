@@ -7,7 +7,10 @@
 <title>Launch_activityBean</title>
 </head>
 <body>
-<h1>文章編號${ Launch_activityBean.article_Id } 的資料新增成功</h1>
+<h1>
+
+所屬的熱門看板:${Newsessionfname}<br><br>
+文章編號${ Launch_activityBean.article_Id } 的資料新增成功</h1><br><br>
 會員: ${ Launch_activityBean.article_m_id }<br><br>
 活動標題: ${ Launch_activityBean.article_title }<br><br>
 活動內容: ${ Launch_activityBean.article_content }<br><br>

@@ -29,7 +29,7 @@ public interface IForumDao {
 
 		void setConnection(Connection con);
 
-		String getFname();
+		 String getFname(int f_id);
 
 		void setFname(String fname);
 

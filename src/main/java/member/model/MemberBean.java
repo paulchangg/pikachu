@@ -7,12 +7,13 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import forum.model.FoumBean;
 import forum.model.Launch_activityBean;
 import forum.model.ResponserBean;
 
@@ -37,14 +38,17 @@ public class MemberBean {
 //	@JoinColumn(name="owner_m_id",referencedColumnName = "m_id")
 //	private Set<FoumBean> foumBean = new LinkedHashSet<>();
 
-	@OneToMany(cascade = {CascadeType.ALL})
-	@JoinColumn(name="article_m_id",referencedColumnName = "m_id")
-	private Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+	
+	@ManyToMany(fetch = FetchType.EAGER,mappedBy = "members")
+	Set<Launch_activityBean> launch_activityBean = new LinkedHashSet<>();
+	
+	
+
 	
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name="res_m_id",referencedColumnName = "m_id")
 	private Set<ResponserBean> responserBean = new LinkedHashSet<>();
-//	
+
 	
 	
 	public MemberBean() {
@@ -85,10 +89,12 @@ public class MemberBean {
 		this.launch_activityBean = launch_activityBean;
 	}
 
+
 	public Set<ResponserBean> getResponserBean() {
 		return responserBean;
 	}
 
+	
 	public void setResponserBean(Set<ResponserBean> responserBean) {
 		this.responserBean = responserBean;
 	}

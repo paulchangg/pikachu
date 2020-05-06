@@ -310,6 +310,37 @@ public class FoumServiceImpl implements Serializable, IFoumService {
 
 
 
+	@Override
+	public String getFname(int f_id) {
+
+		String fname = null;
+		
+		
+		
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			fname = dao.getFname(f_id);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		
+		
+		
+		
+		return fname;
+	}
+
+
+
 
 	
 	

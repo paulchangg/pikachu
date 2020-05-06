@@ -129,4 +129,54 @@
     <servlet-name>ConnectionForum_launch</servlet-name>
     <url-pattern>/ConnectionForum_launch</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QueryLaunchMember</display-name>
+    <servlet-name>QueryLaunchMember</servlet-name>
+    <servlet-class>forum.controller.Launch_activity.QueryLaunchMember</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryLaunchMember</servlet-name>
+    <url-pattern>/forum/QueryLaunchMember</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QueryLaunchALL</display-name>
+    <servlet-name>QueryLaunchALL</servlet-name>
+    <servlet-class>forum.controller.Launch_activity.QueryLaunchALL</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QueryLaunchALL</servlet-name>
+    <url-pattern>/forum/QueryLaunchALL</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>activity_info_page</display-name>
+    <servlet-name>activity_info_page</servlet-name>
+    <servlet-class>forum.controller.Launch_activity.activity_info_page</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>activity_info_page</servlet-name>
+    <url-pattern>/activity_info_page</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetrieveLaunchImageServlet</display-name>
+    <servlet-name>RetrieveLaunchImageServlet</servlet-name>
+    <servlet-class>forum.controller.Launch_activity.RetrieveLaunchImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetrieveLaunchImageServlet</servlet-name>
+    <url-pattern>/RetrieveLaunchImageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RetrieveMemberImageServlet</display-name>
+    <servlet-name>RetrieveMemberImageServlet</servlet-name>
+    <servlet-class>member.controller.RetrieveMemberImageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RetrieveMemberImageServlet</servlet-name>
+    <url-pattern>/RetrieveMemberImageServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

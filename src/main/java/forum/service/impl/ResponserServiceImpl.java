@@ -50,7 +50,26 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 
 	@Override
 	public ResponserBean getRes_id(int res_id) {
-		return dao.getRes_id(res_id);
+		
+		ResponserBean result = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			result = dao.getRes_id(res_id);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return result;
+		
+		
 	}
 
 	
@@ -104,14 +123,14 @@ public class ResponserServiceImpl implements Serializable, IResponserService {
 	}
 
 	@Override
-	public List<ResponserBean> getAllContent() {
+	public List<ResponserBean> getAllContent(int article_Id) {
 
 		List<ResponserBean> result = null;
 		Session session = factory.getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			result = dao.getAllContent();
+			result = dao.getAllContent(article_Id);
 
 			tx.commit();
 		} catch (Exception e) {

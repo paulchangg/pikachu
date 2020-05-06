@@ -2,16 +2,12 @@ package forum.controller.Launch_activity;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -42,8 +38,10 @@ import member.model.MemberBean;
  * (5) 依照Business Logic運算結果來送回適當的畫面給前端的使用者。
  * 
  */
-@MultipartConfig(location = "D:\\程式片段", fileSizeThreshold = 5 * 1024 * 1024, maxFileSize = 1024 * 1024
-		* 500, maxRequestSize = 1024 * 1024 * 500 * 5)
+//@MultipartConfig(location = "D:\\程式片段", fileSizeThreshold = 5 * 1024 * 1024, maxFileSize = 1024 * 1024
+//		* 500, maxRequestSize = 1024 * 1024 * 500 * 5)
+
+@MultipartConfig
 @WebServlet("/forum/Launch_activityServlet")
 public class Launch_activityServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -56,7 +54,8 @@ public class Launch_activityServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		System.out.println("here Launch_activityServlet");
 		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 
@@ -69,21 +68,23 @@ public class Launch_activityServlet extends HttpServlet {
 
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
 
-//		// --------------------------------------------------------------
+		// --------------------------------------------------------------
 
+		
+		
 		String article_title = request.getParameter("article_title");
-//		System.out.println("article_title" + article_title);
+//		System.out.println("article_title"+ article_title);
 		String article_content = request.getParameter("article_content");
-//		System.out.println("article_content" + article_content);
+//		System.out.println("article_content"+ article_content);
 		String subject = request.getParameter("subject");
-//		System.out.println("subject" + subject);
-		String location = request.getParameter("location");
-//		System.out.println("location" + location);
-		String starteTimeStr = request.getParameter("starteTime");
-//		System.out.println("starteTimeStr" + starteTimeStr);
-		String endTimeStr = request.getParameter("endTime");
-//		System.out.println("endTimeStr" + endTimeStr);
-//		String articleimagestr = "";
+		
+//		System.out.println("subject"+ subject);
+		String Location = request.getParameter("Location");
+//		System.out.println("Location"+ Location);
+		String starteTimeStr = request.getParameter("starteTimeStr");
+//		System.out.println("starteTimeStr"+ starteTimeStr);
+		String endTimeStr = request.getParameter("endTimeStr");
+//		System.out.println("endTimeStr"+ endTimeStr);
 
 		// 3. 檢查使用者輸入資料(單純檢查)
 
@@ -100,7 +101,7 @@ public class Launch_activityServlet extends HttpServlet {
 			errorMsg.put("subjectError", "主題不可空白");
 		}
 
-		if (location == null || location.trim().length() == 0) {
+		if (Location == null || Location.trim().length() == 0) {
 			errorMsg.put("subjectError", "活動地點不可空白");
 		}
 
@@ -118,7 +119,7 @@ public class Launch_activityServlet extends HttpServlet {
 		if (!errorMsg.isEmpty()) {
 
 			// 導向原來輸入資料的畫面，這次會顯示錯誤訊息
-			RequestDispatcher rd = request.getRequestDispatcher("/forum/ShowArticleMode.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/forum/activity_page.jsp");
 			rd.forward(request, response);
 			return;
 		}
@@ -144,12 +145,10 @@ public class Launch_activityServlet extends HttpServlet {
 
 		Timestamp ts = new Timestamp(System.currentTimeMillis());
 
-//		String fileName = "";
 		long sizeInBytes = 0;
 		InputStream is = null;
 
-		Part articleimageStr = request.getPart("articleimage");
-//		System.out.println("articleimage"+articleimageStr);
+		Part articleimageStr = request.getPart("articleimageStr");
 		
 
 		String fileName = GlobalService.getFileName(articleimageStr);
@@ -170,10 +169,17 @@ public class Launch_activityServlet extends HttpServlet {
 			}
 		}
 
-		String DecoderFname = (String) session.getAttribute("sessionfname");
+		String DecoderFname = (String) session.getAttribute("Newsessionfname");
 
+		
+		String loginmember = mb.getM_id();
+
+		request.setAttribute("loginmember", loginmember);
+		
+		System.out.println("loginmember"+loginmember);
+		
+		
 		IFoumService fobservice = new FoumServiceImpl();
-//		System.out.println("ggggggggggf" + DecoderFname);//這個抓到了
 		FoumBean foumBean = fobservice.getF_idByfname(DecoderFname);
 
 		// 4. 產生Launch_activityDao物件，以便進行Business Logic運算
@@ -181,16 +187,24 @@ public class Launch_activityServlet extends HttpServlet {
 		ILaunch_activityService service = new Launch_activityServiceImpl();
 
 		// 將所有發文資料封裝到Launch_activityBean(類別的)物件
+		
+		Integer popularity = 0;
+		
 		try {
+//			Launch_activityBean article  = new Launch_activityBean(null, mb.getM_id(), article_title, article_content, articleimage, subject, Location, ts, null, starteTime, endTime, popularity, foumBean, null, null);
+			
 			Launch_activityBean article = new Launch_activityBean
 					(null, mb.getM_id(), article_title, article_content,
-					articleimage, subject, location, ts, null, starteTime, endTime, null, foumBean, null);
+					articleimage, subject, Location, ts, null, starteTime, endTime, popularity, foumBean, null);
 
 			service.insertArticle(article);
 			request.setAttribute("Launch_activityBean", article);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
-			rd.forward(request, response);
+			response.sendRedirect( getServletContext().getContextPath()+ "/forum/QueryLaunchALL");
+			
+//			RequestDispatcher rd = request.getRequestDispatcher("/forum/activity_page.jsp");
+//			RequestDispatcher rd = request.getRequestDispatcher("/forum/InsertLaunchSuccess.jsp");
+//			rd.forward(request, response);
 			return;
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,11 +1,13 @@
 package member.service.impl;
 
 import java.sql.Blob;
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import forum.model.Launch_activityBean;
 import init.HibernateUtils;
 import init.SendEmail;
 import member.dao.MemberDao;
@@ -253,5 +255,76 @@ public class MemberServiceImpl implements MemberService {
 		return;
 		
 	}
+	@Override
+	public void addMyActivity(Launch_activityBean article_Id, String m_id) {
+		
+		Session session = factory.getCurrentSession();
+		Transaction tx =null;
+		try {
+			tx = session.beginTransaction();
+			dao.addMyActivity(article_Id, m_id);
+			tx.commit();
+		} catch(Exception e){
+			if (tx != null) tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return;
+		
+		
+		
+	}
 
+	@Override
+	public List<MemberBean> getActivityPerson(int article_Id) {
+		List<MemberBean> joinActivityMember = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx =null;
+		try {
+			tx = session.beginTransaction();
+			joinActivityMember=	dao.getActivityPerson(article_Id);
+			tx.commit();
+		} catch(Exception e){
+			if (tx != null) tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return joinActivityMember;
+		
+		
+	}
+	@Override
+	public void leaveMyActivity(Launch_activityBean article_Id, String m_id) {
+		
+		
+		Session session = factory.getCurrentSession();
+		Transaction tx =null;
+		try {
+			tx = session.beginTransaction();
+			dao.leaveMyActivity(article_Id, m_id);
+			tx.commit();
+		} catch(Exception e){
+			if (tx != null) tx.rollback();
+			throw new RuntimeException(e);
+		}
+		return;
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

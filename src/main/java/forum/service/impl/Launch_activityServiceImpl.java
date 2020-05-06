@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -77,6 +78,7 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
+			
 			result = dao.updateArticle(article_Id, article);
 
 			tx.commit();
@@ -117,7 +119,24 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 
 	@Override
 	public Launch_activityBean getArticle_Id(int article_Id) {
-		return dao.getArticle_Id(article_Id);
+		Launch_activityBean b = null;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			b = dao.getArticle_Id(article_Id);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		return b;
 	}
 
 	@Override
@@ -153,7 +172,6 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 		try {
 			tx = session.beginTransaction();
 			result = dao.getAllArticles();
-
 			tx.commit();
 		} catch (Exception e) {
 			if (tx != null) {
@@ -222,6 +240,29 @@ public class Launch_activityServiceImpl implements Serializable, ILaunch_activit
 //		
 //		
 //	}
+
+	@Override
+	public int addPopularity(int article_Id, int popularity) {
+
+		int result = 0;
+		Session session = factory.getCurrentSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			
+			result = dao.addPopularity(article_Id, popularity);
+
+			tx.commit();
+		} catch (Exception e) {
+			if (tx != null) {
+				tx.rollback();
+			}
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+		return result;
+	}
 	
 	
 	

@@ -30,6 +30,8 @@ public interface IFoumService {
 
 	FoumBean getF_idByfname(String fname);
 
+	String getFname(int f_id);
+
 	
 	
 //	int addowner_m_id(String owner_m_id);

@@ -8,14 +8,19 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import member.model.MemberBean;
 
 @Entity
 @Table(name = "launch_activity")
@@ -25,25 +30,24 @@ public class Launch_activityBean {
 		return articleimage;
 	}
 
-
-
 	public void setArticleimage(Blob articleimage) {
 		this.articleimage = articleimage;
 	}
 
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer article_Id;
-	
-	@Column(name="article_m_id")
+
+	@Column(name = "article_m_id")
 	private String article_m_id;
 
+	@Column(name = "article_title" ,columnDefinition = "LONGTEXT")
 	private String article_title;
+	
+	@Column(name = "article_content" ,columnDefinition = "LONGTEXT")
 	private String article_content;
 
-	private Blob  articleimage;
+	private Blob articleimage;
 	private String subject;
 	private String location;
 	private Date post_Time;// 發布文章的時間
@@ -57,44 +61,32 @@ public class Launch_activityBean {
 	private Integer popularity;
 
 	@Transient
-	private Integer  f_id;
+	private Integer f_id;
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "member_launch_activity", catalog = "pikachutestdb", 
+	
+	joinColumns = {
+					@JoinColumn(name = "article_Id", nullable = false, updatable = false) }, 
+	
+	inverseJoinColumns = {
+					@JoinColumn(name = "m_id", nullable = false, updatable = false) })
+	Set<MemberBean> members = new LinkedHashSet<>();
+
 	
 	
-//	public Launch_activityBean(Integer article_Id, String article_m_id, Integer f_id) {
-//		super();
-//		this.article_Id = article_Id;
-//		this.article_m_id = article_m_id;
-//		this.f_id = f_id;
-//	}
-
-
-
-	public Integer getF_id() {
-		return f_id;
-	}
-
-
-
-	public void setF_id(Integer f_id) {
-		this.f_id = f_id;
-	}
-
-
-
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "f_id", nullable = false)
-	private FoumBean foumBean; //一方
+	private FoumBean foumBean; // 一方
 
-	@OneToMany(mappedBy = "launch_activityBean", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "launch_activityBean", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	Set<ResponserBean> items = new LinkedHashSet<>();
 
 	public Launch_activityBean() {
 
 	}
 
-	
-
-public Launch_activityBean(Integer article_Id, String article_m_id, String article_title, String article_content,
+	public Launch_activityBean(Integer article_Id, String article_m_id, String article_title, String article_content,
 			Blob articleimage, String subject, String location, Date post_Time, Date updateTime, Date startTime,
 			Date endTime, Integer popularity, FoumBean foumBean, Set<ResponserBean> items) {
 		super();
@@ -114,7 +106,28 @@ public Launch_activityBean(Integer article_Id, String article_m_id, String artic
 		this.items = items;
 	}
 
+	public Integer getF_id() {
+		return f_id;
+	}
 
+	public void setF_id(Integer f_id) {
+		this.f_id = f_id;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	public Set<MemberBean> getMembers() {
+		return members;
+	}
+
+	public void setMembers(Set<MemberBean> members) {
+		this.members = members;
+	}
 
 	public Integer getArticle_Id() {
 		return article_Id;
@@ -219,48 +232,43 @@ public Launch_activityBean(Integer article_Id, String article_m_id, String artic
 	public void setItems(Set<ResponserBean> items) {
 		this.items = items;
 	}
-	
-	
-	
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Launch_activityBean [article_Id=");
-		builder.append(article_Id);
-		builder.append(", article_m_id=");
-		builder.append(article_m_id);
-		builder.append(", article_title=");
-		builder.append(article_title);
-		builder.append(", article_content=");
-		builder.append(article_content);
-		builder.append(", subject=");
-		builder.append(subject);
-		builder.append(", location=");
-		builder.append(location);
-		builder.append(", post_Time=");
-		builder.append(post_Time);
-		builder.append(", updateTime=");
-		builder.append(updateTime);
-		builder.append(", startTime=");
-		builder.append(startTime);
-		builder.append(", endTime=");
-		builder.append(endTime);
-		builder.append(", popularity=");
-		builder.append(popularity);
-		builder.append(", foumBean=");
-		builder.append(foumBean);
-		builder.append(", items=");
-		builder.append(items);
-		builder.append("]");
-		return builder.toString();
-	}
 
-
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("Launch_activityBean [article_Id=");
+//		builder.append(article_Id);
+//		builder.append(", article_m_id=");
+//		builder.append(article_m_id);
+//		builder.append(", article_title=");
+//		builder.append(article_title);
+//		builder.append(", article_content=");
+//		builder.append(article_content);
+//		builder.append(", subject=");
+//		builder.append(subject);
+//		builder.append(", location=");
+//		builder.append(location);
+//		builder.append(", post_Time=");
+//		builder.append(post_Time);
+//		builder.append(", updateTime=");
+//		builder.append(updateTime);
+//		builder.append(", startTime=");
+//		builder.append(startTime);
+//		builder.append(", endTime=");
+//		builder.append(endTime);
+//		builder.append(", popularity=");
+//		builder.append(popularity);
+//		builder.append(", foumBean=");
+//		builder.append(foumBean);
+//		builder.append(", items=");
+//		builder.append(items);
+//		builder.append("]");
+//		return builder.toString();
+//	}
 
 	public void setF_id(FoumBean foumBean2) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
-	
+
 }

@@ -19,17 +19,12 @@
 		
 			method="POST" enctype="multipart/form-data">
 
-			<c:forEach var="sessionfname" items="${sessionfname}">
+			<c:forEach var="sessionfname" items="${sessionfname}"  class="btn-all-board">
 				<h1>
-				
 					<a href="forum/ConnectionForum_launch?${sessionfname}">${sessionfname}</a>
-				
 				</h1>
 				<br>
 			</c:forEach>
-
-			
-			
 		</form>
 	</div>
 </body>

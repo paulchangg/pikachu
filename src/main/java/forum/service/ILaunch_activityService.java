@@ -23,6 +23,8 @@ public interface ILaunch_activityService {
 
 	void setConnection(Connection con);
 	
+	int addPopularity(int article_Id, int popularity);
+	
 	
 	FoumBean  getF_ById(int f_id);
 

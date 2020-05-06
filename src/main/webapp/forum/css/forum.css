@@ -1,7 +1,7 @@
 @import "./reset.css";
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url(https://use.fontawesome.com/releases/v5.0.4/css/all.css);
-@import url(https://fonts.googleapis.com/css?family=Fredoka + One&display=swap);
+@import url(https://fonts.googleapis.com/css?family=FredokaOne&display=swap);
 
 /* 版面高度設置 */
 html {
@@ -128,107 +128,10 @@ ul {
   padding-right: 8px;
 }
 
-/* 框框大小 */
-.comments-container {
-  margin: 10px auto 15px;
-  width: 768px;
-}
 
-/* 大頭貼 */
-.comments-list .comment-avatar {
-  width: 65px;
-  height: 65px;
-  position: relative;
-  z-index: 99;
-  float: left;
-  /* border: 3px solid #FFF; */
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
-
-.comments-list .comment-avatar img {
-  width: 100%;
-  height: 100%;
-}
-
-/* 卡片框框內文相關設定 */
-.comments-list .comment-box {
-  width: 85%;
-  float: right;
-  position: relative;
-  padding-bottom: 15px;
-  /* -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
- -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
- box-shadow: 0 1px 1px rgba(0,0,0,0.15); */
-}
-
-.comment-box .comment-head {
-  background: #fcfcfc;
-  padding: 13px 1px;
-  /* border-bottom: 1px solid #E5E5E5; */
-  overflow: hidden;
-  /* 以下框線 */
-  /* -webkit-border-radius: 4px 4px 0 0; */
-  /* -moz-border-radius: 4px 4px 0 0; */
-  /* border-radius: 4px 4px 0 0; */
-}
-
-/* 內文右側愛心及收藏等設定 */
-.comment-box .comment-head i {
-  float: right;
-  margin-left: 14px;
-  position: relative;
-  top: 2px;
-  color: #a6a6a6;
-  cursor: pointer;
-  -webkit-transition: color 0.3s ease;
-  -o-transition: color 0.3s ease;
-  transition: color 0.3s ease;
-}
-
-/* 游標移到愛心等欄位，改變顏色 */
-.comment-box .comment-head i:hover {
-  color: #03658c;
-}
-
-/* 第一行 發文者id樣式 */
-.comment-box .article_m_id {
-  color: #283035;
-  font-size: 14px;
-  font-weight: 700;
-  float: left;
-  margin-right: 10px;
-}
-
-/* 第一行 發文日期樣式 */
-.comment-box .comment-head span {
-  float: left;
-  color: #999;
-  font-size: 14px;
-  position: relative;
-  top: 2px;
-}
-
-/* 第二行 文章標題樣式 */
-.comment-box .article_title {
-  background: #fff;
-  font-size: 17px;
-  font-weight: 700;
-  padding-bottom: 10px;
-  color: #595959;
-  /* -webkit-border-radius: 0 0 4px 4px;
- -moz-border-radius: 0 0 4px 4px;
- border-radius: 0 0 4px 4px; */
-}
-
-.comment-box .article_content {
-  font-size: 14px;
-  color: #595959;
+/* 游標移到按鈕改變顏色 */
+.col-5 i:hover {
+  color: #4a8ea8;
 }
 
 /* 底部 */
@@ -243,6 +146,111 @@ div.footer {
   background: #f7ede2;
   font-size: 13px;
   margin-top: 10px;
+}
+
+
+/* 跳出頁面視窗 */
+.modal-content{
+  width: 700px;
+}
+
+#msform {
+	width: 580px;
+	margin: 8px auto;
+	/* text-align: center; */
+	position: relative;
+}
+
+#memberid_img {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;   /* icon上移 */
+  left: 5px;
+  /* z-index: 1; */
+  max-width: 90px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;   /* 欄位高度 */
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #2C3E50;
+	font-size: 13px;
+}
+
+
+/*headings*/
+.fs-title {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: rgb(103, 104, 105);
+  margin-bottom: 15px;
+  margin-top: 12px;
+}
+
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+
+/* 標籤 */
+ #labels {
+  list-style: none;
+  margin: 10;
+  overflow: hidden; 
+  padding: 10;
+}
+ 
+
+.center li {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 20px 0 20px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.center li::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  height: 6px;
+  left: 5px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.center li::after {
+  background: #fff;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.center li:hover {
+  background-color: #8fb0d1;
+  color: white;
+}
+
+.center li:hover::after {
+   border-left-color: #2f80d1; 
 }
 
 /* 置頂按鈕 */

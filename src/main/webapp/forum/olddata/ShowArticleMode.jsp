@@ -7,32 +7,13 @@
 <html>
 <head>
 
-<script type="text/javascript">
-	function confirmDelete(n) {
-		if (confirm("確定刪除此文章 ? ")) {
-			document.forms[0].action = "<c:url value='/forum/UpdateItem.do?cmd=DEL&articleId="
-					+ n + "' />";
-			document.forms[0].method = "POST";
-			document.forms[0].submit();
-		} else {
 
-		}
-	}
-
-	function modify(n, article) {
-		if (confirm("確定將此文章做更改?")) {
-			document.forms[0].action = "<c:url value='/forum/UpdateItem.do?cmd=MOD&articleId="
-					+ n + "article" + article + "' />";
-			document.forms[0].method = "POST";
-			document.forms[0].submit();
-		}
-	}
-</script>
 
 <meta charset="UTF-8">
-<title>發布活動啦啦啦啦啦啦啦啦啦啦啦</title>
+<title>發布活動</title>
 </head>
 <style>
+
 textarea {
 	width: 100%;
 	height: 150px;
@@ -44,6 +25,7 @@ textarea {
 	font-size: 16px;
 	resize: none;
 }
+
 </style>
 <body>
 
@@ -57,14 +39,16 @@ textarea {
 		</span>
 	</div>
 
-	<h1>版名:${sessionfname}</h1>
+	<h1>發文看板:${sessionfname}</h1>
 	
 	<form action="<c:url value='/forum/Launch_activityServlet' />"
 		method="POST" enctype="multipart/form-data">
 		<div>
+			<label for="article_m_id">發文著:${loginmember}</label><br>
+		
 			<label for="article_title">標題:</label> 
 			<input type="text"
-				id="article_title" name="article_title" size="100"
+				id="article_title" name="article_title" size="100" 
 				placeholder="標題不能少於10個字" value="${param.article_title}" /> 
 				<font color="red" size="-1">${MsgMap.TitleError}</font> <br>
 		</div>
@@ -73,17 +57,21 @@ textarea {
 			
 
 			
-			<textarea cols="50" rows="5" placeholder="內容不能少於100個字"  name="article_content" value="${param.article_content}"></textarea>
-			<br> <font color="red" size="-1">${MsgMap.ContentError}</font> <br> 
+			<textarea cols="50" rows="5" placeholder="內容不能少於100個字"  name="article_content" >${param.article_content}</textarea>
+			<br> 
+			<font color="red" size="-1">${MsgMap.ContentError}</font> <br> 
 		</div>
 		<div>
-			<label class="fontSize">活動圖片：</label><br />&nbsp; <input
+			<label class="fontSize">活動圖片：</label><br />&nbsp; 
+			
+			<input
 				name="articleimage" type="file" value="${param.articleimage}" /><br />&nbsp;
 
 		</div>
 
 		<div>
-			<label for="subject">主題:</label> <input type="text" id="subject"
+			<label for="subject">主題:</label> 
+			<input type="text" id="subject"
 				name="subject" size="100" value="${param.subject}" /><br> <font
 				color="red" size="-1">${MsgMap.subjectError}</font><br>
 
@@ -93,7 +81,8 @@ textarea {
 
 
 		<div>
-			活動的地點: <select name="location" id="location" value ="${param.location}">
+			活動的地點:
+			   <select name="location" id="location" value ="${param.location}">
 				<option value="Taipei">台北</option>
 				<option value="Keelung">基隆</option>
 				<option value="NewTaipei">新北</option>
@@ -112,7 +101,8 @@ textarea {
 				<option value="Hualien">花蓮</option>
 				<option value="Yilan">宜蘭</option>
 				<option value="insland">外島</option>
-			</select> <font color="red" size="-1">${MsgMap.subjectError}</font><br>
+			</select> 
+			<font color="red" size="-1">${MsgMap.subjectError}</font><br>
 		</div>
 		<div>
 			<label for="starteTime">活動開始時間:</label> <input type="date"
@@ -124,47 +114,12 @@ textarea {
 
 			<label for="endTime">活動結束時間:</label> <input type="date"
 				name="endTime" tabindex="7" value="${param.endTime}" /><br> <font
-				color="red" size="-1">${MsgMap.endTimeError}</font> <br> <input
-				type="submit" name="提交活動" size="100" /><br>
+				color="red" size="-1">${MsgMap.endTimeError}</font> <br>
+
+				
+				 <input type="submit" name="提交活動" size="100" /><br>
 
 		</div>
 	</form>
-
-
-
-
-
-	<form action="<c:url value='/forum/ResponserServlet' />" method="POST">
-
-	</form>
-
-
-
-
-	<script type="text/javascript">
-		function confirmDelete(n) {
-			if (confirm("確定刪除此文章 ? ")) {
-				document.forms[0].action = "<c:url value='/forum/UpdateDelResponerServlet?cmd=DEL&articleId="
-						+ n + "' />";
-				document.forms[0].method = "POST";
-				document.forms[0].submit();
-			} else {
-
-			}
-		}
-
-		function modify(n, article) {
-			if (confirm("確定將此文章做更改?")) {
-				document.forms[0].action = "<c:url value='/forum/UpdateDelResponerServlet?cmd=MOD&articleId="
-						+ n + "article" + article + "' />";
-				document.forms[0].method = "POST";
-				document.forms[0].submit();
-			}
-		}
-	</script>
-
-
-
-
 </body>
 </html>

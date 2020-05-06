@@ -82,6 +82,7 @@ body {
   .card_info figcaption a:hover {
     opacity: 1;
   }
+  /* 會員頭像 */
   .card_info #memberid_img {
     border-radius: 50%;
     position: absolute;

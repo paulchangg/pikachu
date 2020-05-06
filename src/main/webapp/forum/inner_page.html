@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>文章頁面</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/inner_page.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.0/d3.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/inner_page.js"></script> -->
   </head>
 
   <body>
@@ -20,10 +20,16 @@
         <div class="inline_block">
           <!-- 會員頭像 -->
           <div class="comment-avatar">
-            <img class="memberid_img" src="./images/id_photo/memberphoto_1.jpg" alt="" />
+            <img
+              class="memberid_img"
+              src="./images/id_photo/memberphoto_1.jpg"
+              alt=""
+            />
           </div>
           <!-- 發文者id -->
-            <a class="article_m_id" href="#" style="padding: 0 0 0 20px;">黑卡卡王</a>
+          <a class="article_m_id" href="#" style="padding: 0 0 0 20px;"
+            >黑卡卡王</a
+          >
           <!-- 叉叉關閉視窗------->
           <div class="close_bt" style="padding: 0 0 0 73%;">
             <button type="button" class="close" aria-label="Close">
@@ -41,7 +47,7 @@
         <!-- 主題,發布時間----超連結待補---->
         <div class="content_block_a">
           <div class="subject" style="padding-right: 10px;">
-            <a href="#" id="">信用卡</a>
+            <a href="article_board_credit card.html" id="creditcards">信用卡</a>
           </div>
           <div class="post_Time">3月30日 23:12</div>
         </div>
@@ -51,31 +57,32 @@
           <div class="article_content_block">
             <span class="article_content">點讚才給看 以下 內文</span>
             <!-- 照片區塊 -->
-              <div class="photo_block">
-                <!-- 照片 -->
-                <img class="articleimage" src="./images/fun.jpg" />
+            <div class="photo_block">
+              <!-- 照片 -->
+              <img class="articleimage" src="./images/fun.jpg" />
+            </div>
           </div>
-        </div>
-        <!-- 中間主題分類標籤 -->
-        <div class="label_box" style="padding-bottom: 16px;">
-          <ul class="label_line">
-            <li class="subject_block">
-              <a href="#">
-                <!-- 主題分類   -->
-                <div class="subject">
-                  <div>信用卡</div>
-                </div>
-              </a>
-            </li>
-            <li class="subject_block">
-              <a href="#">
-                <!-- 主題分類   -->
-                <div class="subject">
-                  <div>讚</div>
-                </div>
-              </a>
-            </li>
-          </ul>
+          <!-- 中間主題分類標籤 -->
+          <div class="label_box" style="padding-bottom: 16px;">
+            <ul class="label_line">
+              <li class="subject_block">
+                <a href="article_board_credit card.html">
+                  <!-- 主題分類   -->
+                  <div class="subject">
+                    <div>信用卡</div>
+                  </div>
+                </a>
+              </li>
+              <li class="subject_block">
+                <a href="#">
+                  <!-- 主題分類   -->
+                  <div class="subject">
+                    <div>讚</div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </article>
 
@@ -102,25 +109,50 @@
             "
             >2</span
           >
-          <img
-            src="./images/愛心.jpg"
-            alt="愛心"
-            style="width: 7%; height: 7%; padding-left: 20px;"
-          />
-          <!-- 人氣 -->
-          <span
-            class="popularity"
-            style="
-              font-weight: initial;
-              font-size: 14px;
-              color: rgb(177, 172, 172);
-            "
-            >60</span
-          >
-          <!-- 中央右側：愛心 收藏 引用此文章    功能待補-->
-          <i class="fa fa-reply"></i>
-          <i class="fa fa-archive" aria-hidden="true"></i>
-          <i class="fa fa-heart"></i>
+
+           <!-- icon們 -->
+           <div
+           class="col-5 px-0"
+           style="
+             font-weight: initial;
+             font-size: 14px;
+             text-align: end;
+           "
+         >
+           <!-- 觀看次數  -->
+           <button
+             type="button"
+             class="btn btn-link"
+             style="color: rgb(177, 172, 172);"
+           >
+             <i class="fas fa-eye"></i>
+           </button>
+           <span>60</span>
+           <!-- 收藏 -->
+           <button
+             type="button"
+             class="btn btn-link"
+             style="color: rgb(177, 172, 172);"
+           >
+             <i class="fas fa-archive"></i>
+           </button>
+           <!-- 修改 -->
+           <button
+             type="button"
+             class="btn btn-link"
+             style="color: rgb(177, 172, 172);"
+           >
+             <i class="fas fa-edit"></i>
+           </button>
+           <!-- 刪除 -->
+           <button
+             type="button"
+             class="btn btn-link"
+             style="color: rgb(177, 172, 172);"
+           >
+             <i class="far fa-trash-alt"></i>
+           </button>
+         </div>
         </div>
       </div>
 
@@ -140,7 +172,10 @@
             <div class="total_reply">共2則回覆</div>
           </div>
           <!-- 回文框框----->
-          <div class="reply_content" style="padding: 0px 60px; background-color: white;" >
+          <div
+            class="reply_content"
+            style="padding: 0px 60px; background-color: white;"
+          >
             <div style="padding-top: 0px;">
               <!-- 第一個回文區塊---->
               <div data-index="0">
@@ -148,11 +183,12 @@
                   <div class="reply_content_b">
                     <div class="reply_content_c" style="padding-right: 15px;">
                       <!-- 會員頭像 -->
-                      <div
-                        class="comment-avatar"
-                        style="vertical-align: top;"
-                      >
-                      <img class="memberid_img" src="./images/id_photo/memberphoto_2.jpg" alt="" />
+                      <div class="comment-avatar" style="vertical-align: top;">
+                        <img
+                          class="memberid_img"
+                          src="./images/id_photo/memberphoto_2.jpg"
+                          alt=""
+                        />
                       </div>
                     </div>
                     <div
@@ -202,7 +238,8 @@
                             class="comment-avatar"
                             style="vertical-align: top;"
                           >
-                          <img class="memberid_img"
+                            <img
+                              class="memberid_img"
                               src="./images/id_photo/memberphoto_4.jpg"
                               alt=""
                             />
@@ -252,6 +289,7 @@
           </div>
         </section>
 
+        
         <!-- 立即回覆區---->
         <div class="input-group mb-3">
           <input
@@ -276,17 +314,6 @@
       </div>
     </page>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/inner_page.js"></script>
+  
   </body>
 </html>

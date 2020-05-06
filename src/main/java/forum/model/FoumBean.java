@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class FoumBean {
 //	@Column(name="owner_m_id")
 //	private String owner_m_id;//版主會員
 
-	@OneToMany(mappedBy = "foumBean", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "foumBean", cascade = CascadeType.ALL,fetch=FetchType.EAGER )
 	Set<Launch_activityBean> items = new LinkedHashSet<>();
 
 	public FoumBean() {
@@ -66,18 +67,18 @@ public class FoumBean {
 		this.items = items;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("FoumBean [f_id=");
-		builder.append(f_id);
-		builder.append(", fname=");
-		builder.append(fname);
-		builder.append(", items=");
-		builder.append(items);
-		builder.append("]");
-		return builder.toString();
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("FoumBean [f_id=");
+//		builder.append(f_id);
+//		builder.append(", fname=");
+//		builder.append(fname);
+//		builder.append(", items=");
+//		builder.append(items);
+//		builder.append("]");
+//		return builder.toString();
+//	}
 	
 	
 

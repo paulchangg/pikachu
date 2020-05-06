@@ -127,7 +127,7 @@ public class RegisterServlet extends HttpServlet {
 				}
 				
 				MemberBean mb = new MemberBean(account,password,name,phone_num,email,null,Date.valueOf(birthday),gender,null,null,null,null);
-				
+				System.out.println(mb.toString());
 				int n = service.saveMember(mb);
 				if(n == 1) {
 					response.sendRedirect("../index.jsp");

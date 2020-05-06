@@ -50,19 +50,21 @@ public class ResponserDaoLmpl implements Serializable, IResponserDao {
 	// 1-2更新某一個文章的回覆文
 
 	@Override
-	public int updateArticle(int res_id, ResponserBean responser) {
+	public int updateArticle(int res_id, ResponserBean bean) {
 
+		
 		int result = 0;
-
-
-		String hq2 = "UPDATE ResponserBean  WHERE res_id = :resid";
-
+		ResponserBean responser = null;
 		Session session = factory.getCurrentSession();
-
-
-		result = session.createQuery(hq2).setParameter("resid", res_id).executeUpdate();
+		
+		
+		responser =session.get(ResponserBean.class,res_id );
+		
+		responser.setRes_content(bean.getRes_content());
+		responser.setUpdateTime(bean.getUpdateTime());
 
 		return result;
+		
 	}
 
 	// 1-3刪除某一個文章的回覆文
@@ -88,16 +90,18 @@ public class ResponserDaoLmpl implements Serializable, IResponserDao {
 	// 2.本類別負責讀取資料庫內responser表格內全部的紀錄(不分member)
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<ResponserBean> getAllContent() {
+	//查詢某一篇文章的全部回覆
+	public List<ResponserBean> getAllContent(int article_Id) {
 		List<ResponserBean> list = null;
-		String hql = "FROM ResponserBean";
+		String hql = "FROM ResponserBean WHERE article_Id=:articleId";
 		Session session = factory.getCurrentSession();
 
-		list = session.createQuery(hql).getResultList();
+		list = session.createQuery(hql).setParameter("articleId", article_Id).getResultList();
 		return list;
 	}
 
 	// 3.本類別負責讀取資料庫內responser表格內單筆的紀錄(個別member)
+	//查詢會員 回覆的文章
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<ResponserBean> getMemberContent(String res_m_id) {
@@ -112,5 +116,7 @@ public class ResponserDaoLmpl implements Serializable, IResponserDao {
 	public void setConnection(Connection con) {
 		throw new RuntimeException("ResponserBean類別不用實作此方法");
 	}
+
+
 
 }
