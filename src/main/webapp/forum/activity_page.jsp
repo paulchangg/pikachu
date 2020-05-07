@@ -27,7 +27,8 @@
 		</a>
 		<ul class="nav justify-content-end">
 			<li class="nav-item"><a class="nav-link active memberlogin"
-				href="#" id="">會員登入</a></li>
+				href="<c:url value='/member/member_login.jsp'/>" id="">會員登入</a></li>
+				
 			<li class="nav-item"><a class="nav-link cardcompare" href="#"
 				id="">信用卡比較</a></li>
 			<li class="nav-item"><a class="nav-link qanda" href="#" id="">Q&A</a></li>
