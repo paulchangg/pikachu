@@ -3,8 +3,11 @@ package forum.main;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import forum.model.FoumBean;
+import forum.service.IFoumService;
+import forum.service.impl.FoumServiceImpl;
 
 public class InsetFoum2 {
 
@@ -13,27 +16,27 @@ public class InsetFoum2 {
 //1.Foum
 //------------------------放入資料--------------------------------OK
 
-//		String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
-//		for(String fname:n) {  // = for(int i =0; i<n.length;i++)
-//		IFoumService service = new FoumServiceImpl();
-//		FoumBean forum = new FoumBean(null, fname, null);
-//		service.insertFoum(forum);		
-//		}	
+		String [] n= {"旅遊","魯蛇卡","加油回饋","無限卡","電影","購物","現金回饋","宗教","公益","鈦金or御璽卡","運動"};
+		for(String fname:n) {  // = for(int i =0; i<n.length;i++)
+		IFoumService service = new FoumServiceImpl();
+		FoumBean forum = new FoumBean(null, fname, null);
+		service.insertFoum(forum);		
+		}	
 
-		List<String> list = new ArrayList<String>();
-		//已經參加活動的會員id
-		list.add("123");
-		list.add("234");
-		list.add("456");
-		
-		String t = "999";//登入的會員id
-		int n =0;
-		
-		if(!list.contains(t)) {
-			n++;
-		}
-		
-		System.out.println("n"+n);
+//		List<String> list = new ArrayList<String>();
+//		//已經參加活動的會員id
+//		list.add("123");
+//		list.add("234");
+//		list.add("456");
+//		
+//		String t = "999";//登入的會員id
+//		int n =0;
+//		
+//		if(!list.contains(t)) {
+//			n++;
+//		}
+//		
+//		System.out.println("n"+n);
 		
 		
 		//目的: 已經參加活動的會員id  裡面沒有  登入的會員id  才++ 如果有的話  不要做++的事情

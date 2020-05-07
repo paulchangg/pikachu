@@ -305,7 +305,6 @@ public class MemberServiceImpl implements MemberService {
 			if (tx != null) tx.rollback();
 			throw new RuntimeException(e);
 		}
-		return;
 		
 	}
 

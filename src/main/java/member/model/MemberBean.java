@@ -73,13 +73,7 @@ public class MemberBean {
 	}
 	
 
-//	public Set<FoumBean> getFoumBean() {
-//		return foumBean;
-//	}
-//
-//	public void setFoumBean(Set<FoumBean> foumBean) {
-//		this.foumBean = foumBean;
-//	}
+
 
 	public Set<Launch_activityBean> getLaunch_activityBean() {
 		return launch_activityBean;

@@ -32,11 +32,11 @@ public class ConnectionForum_launch extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 		MemberBean mb = (MemberBean) session.getAttribute("LoginOK");
-
-		if (mb == null) {
-			response.sendRedirect(getServletContext().getContextPath() + "/member/member_login.jsp");
-			return;
-		}
+//
+//		if (mb == null) {
+//			response.sendRedirect(getServletContext().getContextPath() + "/member/member_login.jsp");
+//			return;
+//		}
 		
 		String	loginmember =	mb.getM_id();
 		request.setAttribute("loginmember", loginmember); 

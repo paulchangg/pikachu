@@ -197,7 +197,6 @@ public class MemberDaoImpl implements MemberDao {
 		launchbean.setMembers(members);
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public List<MemberBean> getActivityPerson(int article_Id) {
 

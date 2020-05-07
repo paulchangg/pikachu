@@ -63,18 +63,18 @@ public class ForumHompage extends HttpServlet {
 		
 		
 		
-		
-		String f_idStr = request.getParameter("f_id");
-
-		if (f_idStr == null) {
-			f_id = 1;
-		} else {
-			try {
-				f_id = Integer.parseInt(f_idStr.trim());
-			} catch (NumberFormatException e) {
-				f_id = 1;
-			}
-		}
+//		
+//		String f_idStr = request.getParameter("f_id");
+//
+//		if (f_idStr == null) {
+//			f_id = 1;
+//		} else {
+//			try {
+//				f_id = Integer.parseInt(f_idStr.trim());
+//			} catch (NumberFormatException e) {
+//				f_id = 1;
+//			}
+//		}
 
 		IFoumService service = new FoumServiceImpl();
 

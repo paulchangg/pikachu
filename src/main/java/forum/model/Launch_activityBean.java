@@ -41,10 +41,10 @@ public class Launch_activityBean {
 	@Column(name = "article_m_id")
 	private String article_m_id;
 
-	@Column(name = "article_title" ,columnDefinition = "LONGTEXT")
+	@Column(name = "article_title", columnDefinition = "LONGTEXT")
 	private String article_title;
-	
-	@Column(name = "article_content" ,columnDefinition = "LONGTEXT")
+
+	@Column(name = "article_content", columnDefinition = "LONGTEXT")
 	private String article_content;
 
 	private Blob articleimage;
@@ -64,17 +64,13 @@ public class Launch_activityBean {
 	private Integer f_id;
 
 	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinTable(name = "member_launch_activity", catalog = "pikachutestdb", 
-	
-	joinColumns = {
-					@JoinColumn(name = "article_Id", nullable = false, updatable = false) }, 
-	
-	inverseJoinColumns = {
-					@JoinColumn(name = "m_id", nullable = false, updatable = false) })
+	@JoinTable(name = "member_launch_activity", catalog = "pikachutestdb",
+
+			joinColumns = { @JoinColumn(name = "article_Id", nullable = false, updatable = false) },
+
+			inverseJoinColumns = { @JoinColumn(name = "m_id", nullable = false, updatable = false) })
 	Set<MemberBean> members = new LinkedHashSet<>();
 
-	
-	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "f_id", nullable = false)
 	private FoumBean foumBean; // 一方
@@ -114,13 +110,6 @@ public class Launch_activityBean {
 		this.f_id = f_id;
 	}
 
-	
-	
-	
-	
-	
-	
-	
 	public Set<MemberBean> getMembers() {
 		return members;
 	}
